@@ -1,0 +1,29 @@
+name: Process spec into docbook, html, and docx formats
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build docs
+        working-directory: spec/drafts/v2.1.1
+        run: |
+          sudo apt-get install -y pandoc asciidoctor asciidoc-common wkhtmltopdf
+          asciidoctor  -v --failure-level INFO -a stylesheet=stix.css stix-v2.1.1.adoc
+          asciidoctor  -b docbook -v --failure-level INFO -a stylesheet=stix.css stix-v2.1.1.adoc
+          pandoc -r docbook -t docx -o temp-v2.1.1.docx stix-v2.1.1.xml
+          # This shows how to build the pdf automatically, but disabling it because the pdf generated is nearly 300 MB
+          # wkhtmltopdf --enable-local-file-access stix-v2.1.1.html stix-v2.1.1.pdf
+          zip stix-wgdraft.zip temp-v2.1.1.docx stix-v2.1.1.xml stix-v2.1.1.html #stix-v2.1.1.pdf
+      - uses: actions/upload-artifact@v3
+        with:
+          name: stix-wgdraft.zip
+          path: spec/drafts/v2.1.1/stix-wgdraft.zip

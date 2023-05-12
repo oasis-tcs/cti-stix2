@@ -1,0 +1,6 @@
+# ignore generated html files,
+*.html
+# ignore generated xml files,
+*.xml
+# ignore generated pdf files,
+*.pdf
