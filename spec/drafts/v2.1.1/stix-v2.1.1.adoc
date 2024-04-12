@@ -10879,7 +10879,7 @@ It is intended to be holistic; it has been derived from several other lists and 
 |===
 |[stixtr]*Vocabulary Summary*
 
-|[stixliteral]#agriculture#, [stixliteral]#aerospace#, [stixliteral]#automotive#, [stixliteral]#chemical#, [stixliteral]#commercial#, [stixliteral]#communications#, [stixliteral]#construction#, [stixliteral]#defense#, [stixliteral]#education#, [stixliteral]#energy#, [stixliteral]#entertainment#, [stixliteral]#financial-services#, [stixliteral]#government# ([stixliteral]#emergency-services#, [stixliteral]#government-local#, [stixliteral]#government-national#, [stixliteral]#government-public-services#, [stixliteral]#government-regional#), [stixliteral]#healthcare#, [stixliteral]#hospitality-leisure#, [stixliteral]#infrastructure# ([stixliteral]#dams#, [stixliteral]#nuclear#, [stixliteral]#water#), [stixliteral]#insurance#, [stixliteral]#manufacturing#, [stixliteral]#mining#, [stixliteral]#non-profit#, [stixliteral]#pharmaceuticals#, [stixliteral]#retail#, [stixliteral]#technology#, [stixliteral]#telecommunications#, [stixliteral]#transportation#, [stixliteral]#utilities#
+|[stixliteral]#agriculture#, [stixliteral]#aerospace#, [stixliteral]#automotive#, [stixliteral]#chemical#, [stixliteral]#commercial#, [stixliteral]#communications#, [stixliteral]#construction#, [stixliteral]#defense#, [stixliteral]#education#, [stixliteral]#energy#, [stixliteral]#entertainment#, [stixliteral]#financial-services#, [stixliteral]#government# ([stixliteral]#emergency-services#, [stixliteral]#government-local#, [stixliteral]#government-national#, [stixliteral]#government-public-services#, [stixliteral]#government-regional#), [stixliteral]#healthcare#, [stixliteral]#hospitality-leisure#, [stixliteral]#infrastructure# ([stixliteral]#dams#, [stixliteral]#nuclear#, [stixliteral]#water#), [stixliteral]#insurance#, [stixliteral]#legal#, [stixliteral]#manufacturing#, [stixliteral]#mining#, [stixliteral]#non-profit#, [stixliteral]#pharmaceuticals#, [stixliteral]#retail#, [stixliteral]#technology#, [stixliteral]#telecommunications#, [stixliteral]#transportation#, [stixliteral]#utilities#
 |===
 [width="100%",cols="40%,60%",]
 |===
@@ -10910,6 +10910,7 @@ It is intended to be holistic; it has been derived from several other lists and 
 |{nbsp}{nbsp} [stixliteral]#nuclear# |
 |{nbsp}{nbsp} [stixliteral]#water# |
 |[stixliteral]#insurance# |
+|[stixliteral]#legal# |
 |[stixliteral]#manufacturing# |
 |[stixliteral]#mining# |
 |[stixliteral]#non-profit# |
