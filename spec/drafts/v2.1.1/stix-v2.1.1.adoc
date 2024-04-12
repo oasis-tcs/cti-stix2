@@ -1564,7 +1564,7 @@ Predefined Object Extensions have a specific purpose in STIX Objects: defining c
 Accordingly, each object may include one or more Predefined Object Extensions.
 
 Each Predefined Object Extension can be defined at most once on a given STIX Object.
-Ech extension is specified under the *extensions* property, which is of type [stixtype]#dictionary#.
+Each extension is specified under the *extensions* property, which is of type [stixtype]#dictionary#.
 Note that this means that each extension is specified through a corresponding key in the [stixtype]#extensions# property.
 For example, when specified in a File object instance, the NTFS extension would be specified using the key value of [stixtype]#ntfs-ext#.
 
