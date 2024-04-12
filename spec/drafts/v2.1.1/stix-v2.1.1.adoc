@@ -15,7 +15,7 @@
 === [stixsubtitle]#Committee Specification Draft 01#
 
 [discrete]
-=== [stixsubtitle]#18 January 2023#
+=== [stixsubtitle]#29 March 2024#
 
 *This stage:* +
 https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.docx (Authoritative) +
@@ -78,7 +78,7 @@ _STIX Version 2.1.1_. Edited by Trey Darley, Bret Jordan, Rich Piazza, and Emily
 [discrete]
 == Notices
 
-Copyright © OASIS Open 2023. All Rights Reserved.
+Copyright © OASIS Open 2024. All Rights Reserved.
 
 Distributed under the terms of the OASIS IPR Policy, [https://www.oasis-open.org/policies-guidelines/ipr/].
 For complete copyright information please see the full Notices section in an Appendix below.
@@ -233,11 +233,6 @@ As more complex patterns are deemed necessary, the STIX patterning language will
 
 STIX Patterning is defined in <<_stix_patterning_2>>.
 
-==== STIX Patterning ANTLR Grammar
-
-The latest ANTLR grammar for the patterning specification can be found on Github in the Pattern Grammar repository [<<Pattern_Grammar>>].
-Note that this grammar is non-normative and is intended solely as an aid to implementers.
-
 ==== STIX Common Properties
 
 STIX Domain Objects (SDOs) and Relationship Objects (SROs) all share a common set of properties which provide core capabilities such as versioning and data markings (representing how data can be shared and used).
@@ -275,7 +270,7 @@ STIX provides a Bundle (see <<_stix_bundle_object>>) as a container for STIX Obj
 
 ==== JSON Schemas
 
-JSON schemas have been developed by members of the Cyber Threat Intelligence Technical Committee and are available in the cti-stix2-json-schemas OASIS Open Repository <<JSON_Schema>>.
+JSON schemas have been developed by members of the Cyber Threat Intelligence Technical Committee.
 The JSON schemas are informative and serve as a best effort attempt to validate that STIX 2.1 content meets the structural requirements identified in this specification.
 This specification is the normative description of STIX 2.1.
 
@@ -747,20 +742,20 @@ The value of this property *SHOULD* be all lowercase and *SHOULD* use hyphens in
 The value of this property *SHOULD* be all lowercase and *SHOULD* use hyphens instead of spaces or underscores as word separators.
 |===
 
-When referencing the Lockheed Martin Cyber Kill Chain™, the *kill_chain_name* property *MUST* be [stixliteral]#lockheed-martin-cyber-kill-chain#.
+When referencing a kill chain, the *kill_chain_name* property *MUST* be the name of that kill chain.
 
 
 *Examples*
 
-Example specifying the "reconnaissance" phase from the Lockheed Martin Cyber Kill Chain
+Example specifying the "pre-attack" phase from the "foo" kill chain
 
 --------------------------------------
 {
   ...
   "kill_chain_phases": [
     {
-      "kill_chain_name": "lockheed-martin-cyber-kill-chain",
-      "phase_name": "reconnaissance"
+      "kill_chain_name": "foo",
+      "phase_name": "pre-attack"
     }
   ],
   ...
@@ -1002,7 +997,6 @@ The value of the *type* property *MUST* be the name of one of the types of STIX 
 
 The value of this property *MUST* be [stixliteral]#2.1# for STIX Objects defined according to this specification.
 
-If objects are found where this property is not present, the implicit value for all STIX Objects other than SCOs is [stixliteral]#2.0#.
 Since SCOs are now top-level objects in STIX 2.1, the default value for SCOs is [stixliteral]#2.1#.
 
 |*id*
@@ -2957,7 +2951,7 @@ Threat Actors can move from supporting one Intrusion Set to supporting another, 
 Where a Campaign is a set of attacks over a period of time against a specific set of targets to achieve some objective, an Intrusion Set is the entire attack package and may be used over a very long period of time in multiple Campaigns to achieve potentially multiple purposes.
 
 While sometimes an Intrusion Set is not active, or changes focus, it is usually difficult to know if it has truly disappeared or ended.
-Analysts may have varying level of fidelity on attributing an Intrusion Set back to Threat Actors and may be able to only attribute it back to a nation state or perhaps back to an organization within that nation state.
+Analysts may have varying level of fidelity on attributing an Intrusion Set back to Threat Actors.
 
 ==== Properties
 
@@ -3026,8 +3020,6 @@ The value for this property *SHOULD* come from the [stixvocab]#<<_attack_resourc
 |[stixtype]#open-vocab#
 |The primary reason, motivation, or purpose behind this Intrusion Set.
 The motivation is _why_ the Intrusion Set wishes to achieve the goal (what they are trying to achieve).
-
-For example, an Intrusion Set with a goal to disrupt the finance sector in a country might be motivated by ideological hatred of capitalism.
 
 The value for this property *SHOULD* come from the [stixvocab]#<<_attack_motivation_vocabulary,attack-motivation-ov>># open vocabulary.
 
@@ -4582,8 +4574,6 @@ The value for this property *SHOULD* come from the [stixvocab]#<<_attack_resourc
 |[stixtype]#open-vocab#
 |The primary reason, motivation, or purpose behind this Threat Actor.
 The motivation is _why_ the Threat Actor wishes to achieve the goal (what they are trying to achieve).
-
-For example, a Threat Actor with a goal to disrupt the finance sector in a country might be motivated by ideological hatred of capitalism.
 
 The value for this property *SHOULD* come from the [stixvocab]#<<_attack_motivation_vocabulary,attack-motivation-ov>># open vocabulary.
 
@@ -6490,7 +6480,6 @@ This is an open vocabulary and values *SHOULD* come from the [stixvocab]#<<_wind
 |*imphash* (optional)
 |[stixtype]#string#
 |Specifies the special import hash, or 'imphash', calculated for the PE Binary based on its imported libraries and functions.
-For more information on the imphash algorithm, see the original article by Mandiant/FireEye [<<FireEye_2014>>].
 
 |*machine_hex* (optional)
 |[stixtype]#hex#
@@ -10485,10 +10474,8 @@ Knowing a Threat Actor or Intrusion Set's motivation may allow an analyst or def
 
 Motivation shapes the intensity and the persistence of an attack.
 Threat Actors and Intrusion Sets usually act in a manner that reflects their underlying emotion or situation, and this informs defenders of the manner of attack.
-For example, a spy motivated by nationalism (ideology) likely has the patience to achieve long-term goals and work quietly for years, whereas a cyber-vandal out for notoriety can create an intense and attention-grabbing attack but may quickly lose interest and move on.
+For example, a cyber-vandal out for notoriety can create an intense and attention-grabbing attack but may quickly lose interest and move on.
 Understanding these differences allows defenders to implement controls tailored to each type of attack for greatest efficiency.
-
-This section including vocabulary items and their descriptions is based on the _Threat Agent Motivations_ publication from Intel Corp in February 2015 <<Casey_2015>>.
 
 [width="100%",]
 |===
@@ -10513,12 +10500,12 @@ Adversaries who are motivated by coercion are often forced through intimidation 
 |[stixliteral]#dominance#
 |A desire to assert superiority over someone or something else.
 
-Adversaries who are seeking dominance over a target are focused on using their power to force their target into submission or irrelevance. Dominance may be found with ideology in some state-sponsored attacks and with notoriety in some cyber vandalism-based attacks.
+Adversaries who are seeking dominance over a target are focused on using their power to force their target into submission or irrelevance.
 
 |[stixliteral]#ideology#
 |A passion to express a set of ideas, beliefs, and values that may shape and drive harmful and illegal acts.
 
-Adversaries who act for ideological reasons (e.g., political, religious, human rights, environmental, desire to cause chaos/anarchy, etc.) are not usually motivated primarily by the desire for profit; they are acting on their own sense of morality, justice, or political loyalty.
+Adversaries who act for ideological reasons are not usually motivated primarily by the desire for profit; they are acting on their own sense of morality, justice, or political loyalty.
 
 For example, an activist group may sabotage a company’s equipment because they believe the company is harming the environment.
 
@@ -10528,7 +10515,7 @@ For example, an activist group may sabotage a company’s equipment because they
 Adversaries motivated by notoriety are often seeking either personal validation or respect within a community and staying covert is not a priority. In fact, one of the main goals is to garner the respect of their target audience.
 
 |[stixliteral]#organizational-gain#
-|Seeking advantage over a competing organization, including a military organization.
+|Seeking advantage over a competing organization.
 
 Adversaries motivated by increased profit or other gains through an unfairly obtained competitive advantage are often seeking theft of intellectual property, business processes, or supply chain agreements and thus accelerating their position in a market or capability.
 
@@ -10567,8 +10554,6 @@ The attack resource level vocabulary is currently used in the following SDO(s):
 
 Attack Resource Level is an open vocabulary that captures the general level of resources that a threat actor, intrusion set, or campaign might have access to. It ranges from individual, a person acting alone, to government, the resources of a national government.
 
-This section including vocabulary items and their descriptions is based on the _Threat Agent Library_ publication from Intel Corp in September 2007 <<Casey_2007>>.
-
 [width="100%",]
 |===
 |[stixtr]*Vocabulary Summary*
@@ -10586,7 +10571,7 @@ This section including vocabulary items and their descriptions is based on the _
 |Members interact on a social and volunteer basis, often with little personal interest in the specific target. An example might be a core group of unrelated activists who regularly exchange tips on a particular blog. Group persists long term.
 
 |[stixliteral]#contest#
-|A short-lived and perhaps anonymous interaction that concludes when the participants have achieved a single goal. For example, people who break into systems just for thrills or prestige may hold a contest to see who can break into a specific target first. It also includes announced "operations" to achieve a specific goal, such as the original "OpIsrael" call for volunteers to disrupt all of Israel's Internet functions for a day.
+|A short-lived and perhaps anonymous interaction that concludes when the participants have achieved a single goal. For example, people who break into systems just for thrills or prestige may hold a contest to see who can break into a specific target first.
 
 |[stixliteral]#team#
 |A formally organized group with a leader, typically motivated by a specific goal and organized around that goal. Group persists long term and typically operates within a single geography.
@@ -11435,7 +11420,7 @@ The threat actor type vocabulary is currently used in the following SDO(s):
 
 Threat actor type is an open vocabulary used to describe what type of threat actor the individual or group is.
 For example, some threat actors are competitors who try to steal information, while others are activists who act in support of a social or political cause.
-Actor types are not mutually exclusive: a threat actor can be both a disgruntled insider and a spy. <<Casey_2007>>
+Actor types are not mutually exclusive: a threat actor can be both a disgruntled insider and a sensationalist.
 
 [width="100%",]
 |===
@@ -11466,9 +11451,8 @@ Crime syndicates, also known as organized crime, are generally large, well-resou
 |[stixliteral]#criminal#
 |Individual who commits computer crimes, often for personal financial gain and often involves the theft of something valuable.
 
-Intellectual property theft, extortion via ransomware, and physical destruction are common examples.
-A criminal as defined here refers to those acting individually or in very small or informal groups.
-For sophisticated organized criminal activity, see the crime syndicate descriptor.
+Extortion via ransomware and physical destruction are common examples.
+A criminal as described here refers to those acting individually or in very small or informal groups.
 
 |[stixliteral]#hacker#
 |An individual that tends to break into networks for the thrill or the challenge of doing so.
@@ -11488,7 +11472,7 @@ Hackers may use advanced skills or simple attack scripts they have downloaded.
 Disgruntled threat actors may have extensive knowledge that can be leveraged when conducting attacks and can take any number of actions including sabotage, violence, theft, fraud, espionage, or embarrassing individuals or the organization.
 
 |[stixliteral]#nation-state#
-|Entities who work for the government or military of a nation state or who work at their direction.
+|Entities who work for the government of a nation state or who work at their direction.
 
 These actors typically have access to significant support, resources, training, and tools and are capable of designing and executing very sophisticated and effective Intrusion Sets and Campaigns.
 
@@ -11642,7 +11626,7 @@ These actors:
 * have proficient knowledge of the tools.
 
 |[stixliteral]#innovator#
-a|Typically, criminal or state actors who are organized, highly technical, proficient, well-funded professionals working in teams to discover new vulnerabilities and develop exploits.
+a|Typically, organized, highly technical, proficient, well-funded professionals working in teams to discover new vulnerabilities and develop exploits.
 
 Demonstrates sophisticated capability.
 An innovator has the ability to create and script unique programs and codes targeting virtually any form of technology.
@@ -12184,7 +12168,7 @@ The use of these confidence scales is defined in <<_common_properties>>, *confid
 
 [width="100%",cols="44%,27%,29%",]
 |===
-|[stixtr]*Admiralty Credibility*[stixtr]#{star}# |[stixtr]*STIX Confidence Value* |[stixtr]*Range of Values*
+|[stixtr]*Admiralty Credibility* |[stixtr]*STIX Confidence Value* |[stixtr]*Range of Values*
 
 |6 - Truth cannot be judged |Not Specified |N/A
 |5 - Improbable |10 |0-19
@@ -12193,7 +12177,6 @@ The use of these confidence scales is defined in <<_common_properties>>, *confid
 |2 - Probably True |70 |60-79
 |1 - Confirmed by other sources |90 |80-100
 |===
-{star}Admiralty Credibility [<<FM_2_22_3>>]
 
 [width="100%",cols="48%,26%,26%",]
 |===
@@ -12818,6 +12801,8 @@ This example adds the property *translation_engine* to the [stixtype]#language-c
 This appendix contains the required information to register the STIX media type with IANA.
 While some of the information here is only for IANA, implementers of STIX should pay close attention to the security considerations and privacy considerations outlined in this appendix.
 
+Guidance for using STIX in a way that maximizes its benefits and reduces its challenges can be found in the STIX Best Practices Guide <<BestPractices>>.
+
 This document defines the `"application/stix+json"` media type.
 
 Media type name: `application`
@@ -13129,25 +13114,9 @@ anchor:CAPEC[]
 *[CAPEC]* +
 Common Attack Pattern Enumeration and Classification (CAPEC). (2014, Nov. 7). The MITRE Corporation. [Online]. Available: http://capec.mitre.org/[http://capec.mitre.org].
 
-anchor:Casey_2007[]
-*[Casey 2007]* +
-Casey, T., Threat Agent Library Helps Identify Information Security Risks September 2007. [Online]. Available: https://www.researchgate.net/publication/324091298_Threat_Agent_Library_Helps_Identify_Information_Security_Risks[https://www.researchgate.net/publication/324091298_Threat_Agent_Library_Helps_Identify_Information_Security_Risks].
-
-anchor:Casey_2015[]
-*[Casey 2015]* +
-Casey, T., "Understanding Cyberthreat Motivations to Improve Defense", Intel, February 2015. [Online]. Available: https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/understanding-cyberthreat-motivations-to-improve-defense-paper.pdf[https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/understanding-cyberthreat-motivations-to-improve-defense-paper.pdf].
-
 anchor:CVE[]
 *[CVE]* +
 Common Vulnerabilities and Exposures (CVE). The MITRE Corporation. [Online]. Available: http://cve.mitre.org[http://cve.mitre.org].
-
-anchor:FM_2_22_3[FM 2-22.3]
-*[FM 2-22.3]* +
-"US Army Field Manual - Human Intelligence Collector Operations", FM 2-22.3, September 2006. [Online]. Available: https://fas.org/irp/doddir/army/fm2-22-3.pdf[https://fas.org/irp/doddir/army/fm2-22-3.pdf].
-
-anchor:FireEye_2014[FireEye 2014]
-*[FireEye 2014]* +
-Tracking Malware with Import Hashing. FireEye. January 24, 2014. [Online]. Available: https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html[https://www.fireeye.com/blog/threat-research/2014/01/tracking-malware-import-hashing.html].
 
 anchor:Goessner_2007[Goessner 2007]
 *[Goessner 2007]* +
@@ -13157,17 +13126,13 @@ anchor:ICD203[]
 *[ICD 203]* +
 "Analytic Standards", ICD 203, January 2015. [Online]. Available: https://www.dni.gov/files/documents/ICD/ICD%20203%20Analytic%20Standards.pdf[https://www.dni.gov/files/documents/ICD/ICD%20203%20Analytic%20Standards.pdf].
 
-anchor:JSON_Schema[]
-*[JSON Schema]* +
-OASIS Cyber Threat Intelligence (CTI) TC, "cti-stix2-json-schemas", OASIS. [Online]. Available: https://github.com/oasis-open/cti-stix2-json-schemas[https://github.com/oasis-open/cti-stix2-json-schemas].
-
 anchor:NIST800_83[NIST800-83]
 *[NIST800-83]* +
 M. Souppaya and K. Scarfone, "Guide to Malware Incident Prevention and Handling for Desktops and Laptops", NIST Special Publication 800-83, 2013. [Online]. Available: https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final[https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final].
 
-anchor:Pattern_Grammar[Pattern Grammar]
-*[Pattern Grammar]* +
-OASIS Cyber Threat Intelligence (CTI) TC, "STIX Pattern Grammar", OASIS. [Online]. Available: https://github.com/oasis-open/cti-stix2-json-schemas/tree/master/pattern_grammar[https://github.com/oasis-open/cti-stix2-json-schemas/tree/master/pattern_grammar].
+anchor:BestPractices[]
+*[STIXBestPractices]* +
+OASIS Cyber Threat Intelligence (CTI) TC, STIX Best Practices Guide Version 1.0.0, 2022. [Online]. Available: https://docs.oasis-open.org/cti/stix-bp/v1.0.0/cn01/stix-bp-v1.0.0-cn01.html[https://docs.oasis-open.org/cti/stix-bp/v1.0.0/cn01/stix-bp-v1.0.0-cn01.html].
 
 anchor:PCRE[]
 *[PCRE]* +
@@ -13219,7 +13184,7 @@ YARA: The pattern matching swiss knife for malware researchers (and everyone els
 
 *STIX Subcommittee Chairs:*
 
-Bret Jordan, Broadcom
+Christian Studer, CIRCL
 
 Emily Ratliff, IBM
 
@@ -13910,11 +13875,11 @@ Github Issues: 226, 227, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 
 This version was not submitted to become a new CSD as it only contained non-material changes. So it became CS03 and was submitted to become an OASIS Standard.
 
 |13
-|2023-03-17
+|2024-03-29
 |Emily Ratliff, Rich Piazza
 |Converted to asciidoc format to improve transparency and collaborative editing.
 
-Github Issues: 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314
+Github Issues: 322, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314
 
 |===
 
