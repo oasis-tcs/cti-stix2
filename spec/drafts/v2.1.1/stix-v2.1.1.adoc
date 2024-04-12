@@ -10505,7 +10505,7 @@ Adversaries who are seeking dominance over a target are focused on using their p
 |[stixliteral]#ideology#
 |A passion to express a set of ideas, beliefs, and values that may shape and drive harmful and illegal acts.
 
-Adversaries who act for ideological reasons (e.g., environmental, desire to cause chaos/anarchy, etc.) are not usually motivated primarily by the desire for profit; they are acting on their own sense of morality, justice, or political loyalty.
+Adversaries who act for ideological reasons are not usually motivated primarily by the desire for profit; they are acting on their own sense of morality, justice, or political loyalty.
 
 For example, an activist group may sabotage a company’s equipment because they believe the company is harming the environment.
 
