@@ -1560,11 +1560,11 @@ _File with Unicode representation of the filename and a corresponding encoding s
 
 === Predefined Object Extensions
 
-Predefined Object Extensions have a specific purpose in STIX Cyber-observable Objects (SCOs): defining coherent sets of properties beyond the base, e.g., HTTP request information for a Network Traffic object.
-Accordingly, each SCO may include one or more Predefined Object Extensions.
+Predefined Object Extensions have a specific purpose in STIX Objects: defining coherent sets of properties beyond the base, e.g., HTTP request information for a Network Traffic object.
+Accordingly, each object may include one or more Predefined Object Extensions.
 
-Each Predefined Object Extension can be defined at most once on a given SCO.
-In an Observable Object instance, each extension is specified under the *extensions* property, which is of type [stixtype]#dictionary#.
+Each Predefined Object Extension can be defined at most once on a given STIX Object.
+Each extension is specified under the *extensions* property, which is of type [stixtype]#dictionary#.
 Note that this means that each extension is specified through a corresponding key in the [stixtype]#extensions# property.
 For example, when specified in a File object instance, the NTFS extension would be specified using the key value of [stixtype]#ntfs-ext#.
 
@@ -7497,9 +7497,9 @@ _Basic HTTP Request_
       "request_value": "/download.html",
       "request_version": "http/1.1",
       "request_header": {
-        "Accept-Encoding": "gzip,deflate",
-        "User-Agent": "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.6) Gecko/20040113",
-        "Host": "www.example.com"
+        "Accept-Encoding": ["gzip,deflate"],
+        "User-Agent": ["Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.6) Gecko/20040113"],
+        "Host": ["www.example.com"]
       }
     }
   }
@@ -10879,7 +10879,7 @@ It is intended to be holistic; it has been derived from several other lists and 
 |===
 |[stixtr]*Vocabulary Summary*
 
-|[stixliteral]#agriculture#, [stixliteral]#aerospace#, [stixliteral]#automotive#, [stixliteral]#chemical#, [stixliteral]#commercial#, [stixliteral]#communications#, [stixliteral]#construction#, [stixliteral]#defense#, [stixliteral]#education#, [stixliteral]#energy#, [stixliteral]#entertainment#, [stixliteral]#financial-services#, [stixliteral]#government# ([stixliteral]#emergency-services#, [stixliteral]#government-local#, [stixliteral]#government-national#, [stixliteral]#government-public-services#, [stixliteral]#government-regional#), [stixliteral]#healthcare#, [stixliteral]#hospitality-leisure#, [stixliteral]#infrastructure# ([stixliteral]#dams#, [stixliteral]#nuclear#, [stixliteral]#water#), [stixliteral]#insurance#, [stixliteral]#manufacturing#, [stixliteral]#mining#, [stixliteral]#non-profit#, [stixliteral]#pharmaceuticals#, [stixliteral]#retail#, [stixliteral]#technology#, [stixliteral]#telecommunications#, [stixliteral]#transportation#, [stixliteral]#utilities#
+|[stixliteral]#agriculture#, [stixliteral]#aerospace#, [stixliteral]#automotive#, [stixliteral]#chemical#, [stixliteral]#commercial#, [stixliteral]#communications#, [stixliteral]#construction#, [stixliteral]#defense#, [stixliteral]#education#, [stixliteral]#energy#, [stixliteral]#entertainment#, [stixliteral]#financial-services#, [stixliteral]#government# ([stixliteral]#emergency-services#, [stixliteral]#government-local#, [stixliteral]#government-national#, [stixliteral]#government-public-services#, [stixliteral]#government-regional#), [stixliteral]#healthcare#, [stixliteral]#hospitality-leisure#, [stixliteral]#infrastructure# ([stixliteral]#dams#, [stixliteral]#nuclear#, [stixliteral]#water#), [stixliteral]#insurance#, [stixliteral]#legal#, [stixliteral]#manufacturing#, [stixliteral]#mining#, [stixliteral]#non-profit#, [stixliteral]#pharmaceuticals#, [stixliteral]#retail#, [stixliteral]#technology#, [stixliteral]#telecommunications#, [stixliteral]#transportation#, [stixliteral]#utilities#
 |===
 [width="100%",cols="40%,60%",]
 |===
@@ -10910,6 +10910,7 @@ It is intended to be holistic; it has been derived from several other lists and 
 |{nbsp}{nbsp} [stixliteral]#nuclear# |
 |{nbsp}{nbsp} [stixliteral]#water# |
 |[stixliteral]#insurance# |
+|[stixliteral]#legal# |
 |[stixliteral]#manufacturing# |
 |[stixliteral]#mining# |
 |[stixliteral]#non-profit# |
@@ -13875,11 +13876,11 @@ Github Issues: 226, 227, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 
 This version was not submitted to become a new CSD as it only contained non-material changes. So it became CS03 and was submitted to become an OASIS Standard.
 
 |13
-|2024-03-29
+|2024-04-12
 |Emily Ratliff, Rich Piazza
 |Converted to asciidoc format to improve transparency and collaborative editing.
 
-Github Issues: 322, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314
+Github Issues: 325, 322, 319, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314
 
 |===
 
