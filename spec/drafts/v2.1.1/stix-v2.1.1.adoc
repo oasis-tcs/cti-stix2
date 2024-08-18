@@ -8652,7 +8652,7 @@ _X.509 Certificate w/ V3 Extensions_
   "x509_v3_extensions":{
     "basic_constraints":"critical,CA:TRUE, pathlen:0",
     "name_constraints":"permitted;IP:192.168.0.0/255.255.0.0",
-    "policy_contraints":"requireExplicitPolicy:3",
+    "policy_constraints":"requireExplicitPolicy:3",
     "key_usage":"critical, keyCertSign",
     "extended_key_usage":"critical,codeSigning,1.2.3.4",
     "subject_key_identifier":"hash",
