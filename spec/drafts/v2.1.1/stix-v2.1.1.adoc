@@ -10993,10 +10993,10 @@ This is a non-exhaustive, open vocabulary that captures common types of scanner 
 |===
 |[stixtr]*Vocabulary Value* |[stixtr]*Description*
 
-|[stixliteral]#malicious# |The tool reported the malware binary as malicious.
-|[stixliteral]#suspicious# |The tool reported the malware binary as suspicious but not definitively malicious.
-|[stixliteral]#benign# |The tool reported the malware binary as benign.
-|[stixliteral]#unknown# |The tool was unable to determine whether the malware binary is malicious.
+|[stixliteral]#malicious# |The tool or human analysis determined that the sample is designed to operate, execute or take place in a manner that is not expected by legitimate users, or performs one or more actions generally deemed harmful to a system, or the legitimate users of a system. These can take the form of executables, source code, scripts or any other software or commands.
+|[stixliteral]#suspicious# |The tool or human analysis determined that the sample does not operate as expected or is is usually present in conjunction with a malicious file. But does not itself demonstrate malicious behaviors. Examples may includes files not expected to be present or that support applications that have not been installed, files with an incorrect attribute (locations, version, size), or is accessed or loaded with unusual frequency or at unusual times. Other examples include files dropped or created when malware runs.
+|[stixliteral]#benign# |The tool or human analysis determined that the sample has been confirmed to not demonstrate malicious behaviors and is not in and of itself associated with malware or malicious activity.
+|[stixliteral]#unknown# |The tool or human analysis was unable to determine whether the malware binary is malicious.
 |===
 
 === Malware Capabilities Vocabulary
