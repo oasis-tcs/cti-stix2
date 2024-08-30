@@ -100,7 +100,7 @@ A trust group is a group of consumers and producers that have an agreement (perh
 
 === *Versioning*
 
-STIX objects might evolve over time—or contain incorrect or stale information—and need to be updated. One way to do this is to create a new version of an object. The version of an object is specified by three common properties: *id*, *modified* and *revoked*. Not all STIX objects have these properties, and as such _may_ not support versioningfootnote:[*id*, *modified* and *revoked* could be added as part of an extension]. An object can only be versioned by the object creator, as specified by the *created_by_ref* property. This is a strict restriction. Although others might notice that an object needs to be updated, they cannot create a new version. Options for this use case will be discussed later.
+STIX objects might evolve over time—or contain incorrect or stale information—and need to be updated. One way to do this is to create a new version of an object. The version of an object is specified by three common properties: `id` , `modified` and `revoked`. Not all STIX objects have these properties, and as such _may_ not support versioningfootnote:[`id`, `modified` and `revoked` could be added as part of an extension]. An object can only be versioned by the object creator, as specified by the *created_by_ref* property. This is a strict restriction. Although others might notice that an object needs to be updated, they cannot create a new version. Options for this use case will be discussed later.
 
 Object creators may not want to create a new version of an object if it has changed significantly – which is called a _material change_. A material change can be thought of as one that changes the meaning of the object. For instance, if an indicator’s *pattern* property was changed to match a completely different SCO, this would be a material change, and versioning is not appropriate. However, if extra text was added to the *description* property to describe the indicator more fully, it would make sense to just create a new version of the object. Trust groups should specify when versioning is appropriate or not.
 
@@ -361,34 +361,33 @@ This helps avoid confusion during later analysis, as without this present, some 
 
 The defender activity sub-object includes the property is_projection. When set to true this indicates a future event, and is often used to communicate estimated recovery dates. This can be combined with the timestamp_fidelity property to allow a larger window for a projection. For example, recovery in this incident is projected by end of December 2023.
 
-\{ +
-"`type`": "`incident`", +
-"`name`": "`Server Room Fire`", +
-"`description`": "`There was a fire in the server room.`", +
-… +
-"`extension-definition–ef765651-680c-498d-9894-99799f2fa126`": \{ +
-"`extension_type`": "`property-extension`", +
-"`investigation_status`": "`open`", +
-"`determination`": "`successful-attempt`", +
-"`defender_activities`": [ +
-\{ +
-"`activity_type`": "`discovery`", +
-"`description`": "`The server room caught fire`" +
-"`timestamp`": "`2023-10-15T06:00:00.000Z`", +
-"`timestamp_fidelity`": "`day`", +
-"`impacted_refs`": "`infrastructure–X`" +
-}, +
-\{ +
-"`activity_type`": "`recovery-completed`", +
-"`description`": "`Replacement equipment is expected to arrive and be installed by the end of December`", +
-"`timestamp`": "`2023-12-01T06:00:00.000Z`", +
-"`timestamp_fidelity`": "`month`", +
-"`impacted_refs`": "`infrastructure–X`", +
-"`is_projection`": true +
-} +
-] +
-} +
-}
+----
+{
+`type`: `incident`,
+`name`: `Server Room Fire`,
+`description`: `There was a fire in the server room.`,
+
+`extension-definition–ef765651-680c-498d-9894-99799f2fa126`: {
+`extension_type`: `property-extension`,
+`investigation_status`: `open`",
+`determination`: `successful-attempt`,
+`defender_activities`: [
+{ 
+`activity_type`: `discovery`,
+`description`: `The server room caught fire`
+`timestamp`: `2023-10-15T06:00:00.000Z`,
+`timestamp_fidelity`: `day`,
+`impacted_refs`": `infrastructure–X`
+},
+{
+`activity_type`: `recovery-completed`,
+`description`: `Replacement equipment is expected to arrive and be installed by the end of December`,
+`timestamp`: `2023-12-01T06:00:00.000Z`, +
+`timestamp_fidelity`: `month`,
+`impacted_refs`: `infrastructure–X`,
+`is_projection`: true
+} ] } }
+----
 
 *Best Practice: Record "`none`" for confidentiality, integrity, and physical impacts if there is no impact. Record 0 for availability_impact if there is no availability impact.*
 
@@ -396,37 +395,36 @@ Availability impact is an optional integer value, and the other three impact typ
 
 If there was some impact, but it does not affect an information type of particular note then this can also be specified. The following example lists no physical impacts, integrity impacts or availability impacts, but a confidentiality impact that does not include PII.
 
-\{ +
-"`type`": "`incident`", +
-"`name`": "`Financial Theft`", +
-… +
-"`extension-definition–ef765651-680c-498d-9894-99799f2fa126`": \{ +
-"`extension_type`": "`property-extension`", +
-"`investigation_status`": "`closed`", +
-"`determination`": "`successful-attempt`", +
-"`availability_impact`": 0, +
-"`confidentiality_impacts`": [ +
-\{ +
-"`information_type`": "`financial`", +
-"`loss_type`": "`confirmed-loss`" +
-}, +
-\{ +
-"`information_type`": "`pii`", +
-"`loss_type`": "`none`" +
-} +
-], +
-"`integrity_impacts`": [ +
-\{ +
-"`alteration`": "`none`" +
-} +
-], +
-"`physical_impacts`": [ +
-\{ +
-"`impact_type`": "`none`" +
-} +
-] +
-} +
+----
+{ 
+`type`: `incident`,
+`name`: `Financial Theft`,
+
+`extension-definition–ef765651-680c-498d-9894-99799f2fa126`: {
+`extension_type`: `property-extension`,
+`investigation_status`: `closed`,
+`determination`: `successful-attempt`,
+`availability_impact`: 0,
+`confidentiality_impacts`: [
+{
+`information_type`: `financial`,
+`loss_type`: `confirmed-loss`
+},
+{ 
+`information_type`: `pii`,
+`loss_type`: `none`
 }
+],
+`integrity_impacts`: [
+{
+`alteration`: `none`
+}
+],
+`physical_impacts`: [
+{
+`impact_type`: `none`
+} ] } }
+----
 
 === *Infrastructure*
 
