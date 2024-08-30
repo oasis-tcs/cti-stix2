@@ -523,18 +523,18 @@ Standard relationship names defined in the specification should be used when pos
 
 Several common relationship names are mentioned in the specification.
 
-* derived-from
+* `derived-from`
 ** Use if creating a new object from an existing one – _not for versioning_.
-* duplicate-of
-** A trust group should agree which is the duplicate – the source or the target. The name of this relationship implies if A is a duplicate-of B, then A is the extraneous object. However, this might be incorrect inference.
+* `duplicate-of`
+** A trust group should agree which is the duplicate – the source or the target. The name of this relationship implies if A is a `duplicate-of` B, then A is the extraneous object. However, this might be incorrect inference.
 ** *Best Practice: Duplicate objects should be merged into a single new object.*
 +
 A best practice might be to merge the information in the duplicates by creating a new object. Care needs to be taken because other objects might refer to the source or target object. Once again, this is a product design issue.
 +
-Assuming that the new object creator has not created the two original duplicates, a derived-from relationships could be created between the original objects and the new object.
+Assuming that the new object creator has not created the two original duplicates, a `derived-from` relationships could be created between the original objects and the new object.
 +
 If the original objects are owned by the same object creator, that creator could make a new version of one of the original objects that contains the union of the information from both original objects, and revoke the other.
-* related-to
+* `related-to`
 ** Use this relationship type if the semantics of the relationship are not fully defined or known. It is a best practice to use this type sparingly. It is preferable to have trust groups define additional, more specific relationship types for the group’s uses.
 
 === *Sightings*
@@ -543,7 +543,7 @@ If the original objects are owned by the same object creator, that creator could
 
 The only other type of SRO defined in the specification, beyond the generic Relationship object, is the Sighting object. The purpose of the Sighting object is not to indicate that an SCO has been seen. That fact should be represented using an Observed Data object. A Sighting object denotes the inference that some higher-level cyber threat object has been sighted.
 
-For instance, an Indicator pattern that has been shared is used to discover that some locally observed SCO is malicious. A Sighting object states that the Indicator has been "`sighted`" – using the *sighting_of_ref* property. The Observed Data object that the pattern matches is found in the *observed_data_refs* property.
+For instance, an Indicator pattern that has been shared is used to discover that some locally observed SCO is malicious. A Sighting object states that the Indicator has been "`sighted`" – using the `sighting_of_ref` property. The Observed Data object that the pattern matches is found in the `observed_data_refs` property.
 
 A more interesting example is to use a Sighting object to state that a threat actor has been "`sighted`" because of the existence of a particular file has been observed.
 
@@ -553,7 +553,7 @@ Whenever possible (e.g., in cases where it doesn’t reveal sensitive or proprie
 
 *Best Practice: Changes to certain properties should not be viewed as a material change to the Sighting object.*
 
-Changes to properties that are expected to change regularly, for instance, *last_seen* and *count*, constitute non-material changes to a Sighting Object.
+Changes to properties that are expected to change regularly, for instance, `last_seen` and `count`, constitute non-material changes to a Sighting Object.
 
 *Best Practice: A Sighting with count=0 can be used to indicate a window of time when an SDO was not seen.*
 
@@ -590,13 +590,13 @@ However, when sharing smaller artifacts, the use of the *payload_bin* property m
 
 === *Email Message*
 
-Almost all of the properties of the Email Message SCO are optional. If possible, a best practice is to populate optional properties such as *date*, *from_ref*, *to_refs, subject,* and *body* (or *body_multipart* if the message is a multipart).
+Almost all of the properties of the Email Message SCO are optional. If possible, a best practice is to populate optional properties such as `date`, `from_ref`, `to_refs`, `subject`, and `body` (or `body_multipart` if the message is a multipart).
 
 === *Processes*
 
 *Best Practice: Specifying only the parent_ref property is sufficient*
 
-SCOs for processes have the properties *parent_ref* and *child_refs* to indicate their parent and child processes, respectively. However, the *child_refs* property is redundant. Therefore it is best practice to only populate the *parent_ref* property. This property is always known when a process is observed, and is sufficient to construct a tree of related processes. Additionally, it is difficult to maintain the correctness of both of these references because SCOs are not usually versioned.
+SCOs for processes have the properties `parent_ref` and `child_refs` to indicate their parent and child processes, respectively. However, the `child_refs` property is redundant. Therefore it is best practice to only populate the `parent_ref` property. This property is always known when a process is observed, and is sufficient to construct a tree of related processes. Additionally, it is difficult to maintain the correctness of both of these references because SCOs are not usually versioned.
 
 === *Software*
 
@@ -638,36 +638,39 @@ When Observed Data objects have a deprecated container of cyber observables, all
 
 For example:
 
-*\{* +
-*"`type`": "`observed-data`",* +
-*"`spec_version`": "`2.1`",* +
-*"`id`": "`observed-data–b67d30ff-02ac-498a-92f9-32f845f448cf`",* +
-*"`created_by_ref`": "`identity–f431f809-377b-45e0-aa1c-6a4751cae5ff`",* +
-*"`created`": "`2016-04-06T19:58:16.000Z`",* +
-*"`modified`": "`2016-04-06T19:58:16.000Z`",* +
-*"`first_observed`": "`2015-12-21T19:00:00Z`",* +
-*"`last_observed`": "`2015-12-21T19:00:00Z`",* +
-*"`number_observed`": 50,* +
-*"`object_refs`": [* +
-*"`ipv4-address–efcd5e80-570d-4131-b213-62cb18eaa6a8`",* +
-*"`domain-name–ecb120bf-2694-4902-a737-62b74539a41b`"* +
-*]* +
-*}*
+----
+{
+`type`: `observed-data`,
+`spec_version`: "`2.1`,
+`id`: `observed-data–b67d30ff-02ac-498a-92f9-32f845f448cf`,
+`created_by_ref`": "`identity–f431f809-377b-45e0-aa1c-6a4751cae5ff`,
+`created`: `2016-04-06T19:58:16.000Z`,
+`modified`: `2016-04-06T19:58:16.000Z`,
+`first_observed`": "`2015-12-21T19:00:00Z`,
+`last_observed`: `2015-12-21T19:00:00Z`,
+`number_observed`: 50,
+`object_refs`: [
+`ipv4-address–efcd5e80-570d-4131-b213-62cb18eaa6a8`,
+`domain-name–ecb120bf-2694-4902-a737-62b74539a41b`
+]
+}
 
-*\{* +
-*"`type`": "`domain-name`",* +
-*"`spec_version`": "`2.1`",* +
-*"`id`": "`domain-name–ecb120bf-2694-4902-a737-62b74539a41b`",* +
-*"`value`": "`example.com`",* +
-*"`resolves_to_refs`": ["`ipv4-addr–efcd5e80-570d-4131-b213-62cb18eaa6a8`"]* +
-*}*
+{
+`type`: `domain-name`,
+`spec_version`: `2.1`,
+`id`: `domain-name–ecb120bf-2694-4902-a737-62b74539a41b`,
+`value`": "`example.com`,
+`resolves_to_refs`: [`ipv4-addr–efcd5e80-570d-4131-b213-62cb18eaa6a8`]
+}
 
-*\{* +
-*"`type`": "`ipv4-addr`",* +
-*"`spec_version`": "`2.1`",* +
-*"`id`": "`ipv4-addr–efcd5e80-570d-4131-b213-62cb18eaa6a8`",* +
-"`value`": "`198.51.100.3`" +
-} +
+{
+`type`: `ipv4-addr`,
+`spec_version`: `2.1`,
+`id`: `ipv4-addr–efcd5e80-570d-4131-b213-62cb18eaa6a8`,
+value`: `198.51.100.3`
+}
+----
+
 would match this STIX pattern:
 
 *[domain-name:value = '`example.com`' AND domain-name.resolves_to_refs[*].value = '`198.51.100.3`']*
@@ -699,9 +702,7 @@ Here are some ways patterns may be simplified.
 ** Reduce repetition by factoring out commonalities from ORs (does not work with ANDs)
 ** A OR (A AND B) = A
 * Prefer IP address comparison expressions with ISSUBSET/ISSUPERSET and CIDR notation subnets, to long sequences of "`=`" comparisons to single IP addresses
-[arabic, start=2]
-. {blank}
-+
+
 ==== *Pattern Style Tips*
 
 These tips are intended to produce more understandable and correct patterns, without necessarily producing clearly "`simpler`" patterns.
@@ -777,9 +778,7 @@ If IP addresses are formatted in standard ways, their equivalences and differenc
 * When using CIDR notation, zero out low-order bits
 * Drop "`/32`" from IPv4 CIDR subnets and "`/128`" from IPv6 CIDR subnets and treat them as plain IP addresses
 * Format IP address portions in standard ways, e.g., according to RFC 5952 for IPv6 addresses
-[arabic, start=3]
-. {blank}
-+
+
 === *Conformance Levels Can Influence How to Write a Pattern*
 
 As discussed above, there are three conformance levels defined in the STIX 2.1 specification. When it is possible to write a pattern in different ways, it is a best practice to write them using syntax from the lowest conformance level. For example, the OR operator need not be supported for level 1 compliance. However, for certain patterns the use of the IN comparison operator can be used instead to express the same pattern semantics. Therefore, to support interoperability, using the IN operator can make the pattern useful to more implementations.
@@ -861,7 +860,7 @@ Therefore, this document should be considered an initial assessment of the best 
 |[3] |Organization for the Advancement of Structured Information Standards (OASIS), "`STIX™ 2.1 Interoperability Test Document Version 1.0 Committee Specification Draft 01`" Available: https://docs.oasis-open.org/cti/stix-2.1-interop/v1.0/stix-2.1-interop-v1.0.html. [Accessed 4 April 2022]
 |===
 
-======= *List of Abbreviations*
+== *List of Abbreviations*
 
 [width="100%",cols="<50%,<50%",options="header",]
 |===
@@ -885,5 +884,3 @@ Therefore, this document should be considered an initial assessment of the best 
 |STIX |Structured Threat Information Expression
 |TLP |Traffic Light Protocol
 |===
-
-== 
