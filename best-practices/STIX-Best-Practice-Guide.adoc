@@ -607,11 +607,11 @@ Often, information like the CPE (or SWID) for a Software object might not be ava
 
 === *User Account*
 
-The properties *user_id* and *account_login* can be confusing. The *account_login* property should hold the username that is specified when logging in or is the username part of an email address. The *user_id* is usually an internal indicator for an account (e.g., a UID on a Unix system). Sometimes these properties have the same value. In this case, it is a best practice to populate both.
+The properties `user_id` and `account_login` can be confusing. The `account_login` property should hold the username that is specified when logging in or is the username part of an email address. The `user_id` is usually an internal indicator for an account (e.g., a UID on a Unix system). Sometimes these properties have the same value. In this case, it is a best practice to populate both.
 
 === *Windows Registry Keys*
 
-The *key* property of a registry key object must be the full name of the key, including the hive. The hive must not be abbreviated, and the whole key should be expressed with the case preserved, as a best practice.
+The `key` property of a registry key object must be the full name of the key, including the hive. The hive must not be abbreviated, and the whole key should be expressed with the case preserved, as a best practice.
 
 == *Best Practices for Patterns*
 
@@ -708,21 +708,22 @@ These tips are intended to produce more understandable and correct patterns, wit
 
 * If the property is a list, use of the [] notation is needed.
 ** For example:
-+
-....
-\[email-message:to\_refs\[\*\].value \= 'barney@abc.com' OR 
 
- email-message:to\_refs\[\*\].value \= 'wilma@abc.com'\]
-....
+----
+[email-message:to_refs[*].value = 'barney@abc.com' OR 
+email-message:to_refs[*].value = 'wilma@abc.com']
+----
+
 ** When checking for presence of a value in a list-valued property, use a single comparison expression with the "`*`" list index. It is possible to use integer indices but that would be unwieldy and imply either knowing the length of the list, or the order of values within it.
 * For comparison expressions whose right-hand side contains a backslash (\), remember you need to escape the backslash (i.e., \\). In general, a JSON string must also escape a backslash. This leads to the need for four backslashes (\\\\) in pattern strings when in the context of JSON. Note, in Section 9 of the specification, which describes STIX patterns, the examples contain only two backslashes, because they are presented independent of the JSON context.
 * An Observable Expression containing the OR operator is more natural for testing for the match of different values for the same property. See the following sections for more advice on OR expressions.
-+
+
 For example:
-+
-[ipv4-addr:value = '`219.90.112.203`' OR ipv4-addr:value = '`202.65.222.45`' OR
-+
-ipv4-addr:value = '`219.90.112.197`' OR ipv4-addr:value = '`202.65.220.64`']
+
+----
+[ipv4-addr:value = '219.90.112.203' OR ipv4-addr:value = '202.65.222.45' OR
+ipv4-addr:value = '219.90.112.197' OR ipv4-addr:value = '202.65.220.64']
+----
 
 ===== *Observation Expression Splits and Merges*
 
@@ -732,8 +733,10 @@ The following describes how simple observation expressions may be merged or spli
 
 Flexibility exists in how you express STIX criteria within a pattern when that pattern contains certain structure. For example, consider these two patterns:
 
-{empty}[domain-name:value = '`example.com`' OR ip4-addr:value = '`198.51.100.3`'] +
-[domain-name:value = '`example.com`'] OR [ip4-addr:value = '`198.51.100.3`']
+----
+[domain-name:value = 'example.com' OR ip4-addr:value = '198.51.100.3']
+[domain-name:value = 'example.com'] OR [ip4-addr:value = '198.51.100.3']
+----
 
 A simple observation OR expression, whose operands are comparison expressions, may be split into separate observation expressions. Also, two or more OR’d simple observation expressions may be combined into a single observation expression.
 
@@ -743,26 +746,34 @@ This may not be intuitive since it appears as though the first pattern matches o
 
 If a simple observation expression contains comparison expression operands using different SCO types that are OR’d together, it is preferable to split the observation expression according to SCO type. For example, the observation expression:
 
-{empty}[ipv4-addr:value = '`219.90.112.203`' OR ipv4-addr:value = '`202.65.222.45`' OR +
-ipv4-addr:value = '`219.90.112.197`' OR domain-name:value = '`example.com`' OR +
-domain-name:value = '`abc.com`' OR file:name = '`foo.dll`']
+----
+[ipv4-addr:value = '219.90.112.203' OR ipv4-addr:value = '202.65.222.45' OR 
+ipv4-addr:value = '219.90.112.197' OR domain-name:value = 'example.com' OR
+domain-name:value = 'abc.com' OR file:name = 'foo.dll']
+----
 
 should be split into three, according to the SCO types:
 
-{empty}[ipv4-addr:value = '`219.90.112.203`' OR ipv4-addr:value = '`202.65.222.45`' OR +
-ipv4-addr:value = '`219.90.112.197`'] OR +
-[domain-name:value = '`example.com`' OR domain-name:value = '`abc.com`'] OR +
-[file:name = '`foo.dll`']
+----
+[ipv4-addr:value = '219.90.112.203' OR ipv4-addr:value = '202.65.222.45' OR
+ipv4-addr:value = '219.90.112.197'] OR
+[domain-name:value = 'example.com' OR domain-name:value = 'abc.com'] OR
+[file:name = 'foo.dll']
+----
 
 If a compound OR observation expression has operands whose comparison expressions are of homogenous and identical SCO type, they should be merged together. For example:
 
-{empty}[file:name = '`foo.dll`' AND file:parent_directory_ref.path = '`C:\\Windows\\System32`'] OR +
+----
+[file:name = 'foo.dll' AND file:parent_directory_ref.path = 'C:\\Windows\\System32'] OR
 [file:size = 12345]
+----
 
 Should be merged to:
 
-{empty}[(file:name = '`foo.dll`' AND file:parent_directory_ref.path = '`C:\\Windows\\System32`') OR +
+----
+[(file:name = 'foo.dll' AND file:parent_directory_ref.path = 'C:\\Windows\\System32') OR
 file:size = 12345]
+----
 
 *Best Practice: Simple observation expressions should be used to express SCO requirements and the criteria related to a single SCO type should be grouped together in the same observation expression.*
 
