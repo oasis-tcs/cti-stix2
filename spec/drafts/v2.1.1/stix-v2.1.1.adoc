@@ -678,7 +678,7 @@ The JSON MTI serialization uses the JSON String type <<RFC8259>> when representi
 
 {
   "type": "ipv4-addr",
-  "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "value": "198.51.100.3"
 }
 --------------------------------------
@@ -2913,7 +2913,7 @@ image:images/malware_c2_infrastructure.png[Malware C2 Infrastructure,width=315,h
   "modified": "2016-05-09T08:17:27.000Z",
   "relationship_type": "consists-of",
   "source_ref": "infrastructure--38c47d93-d984-4fd9-b87b-d69d0841628d",
-  "target_ref": "ipv4-addr--b4e29b62-2053-47c4-bab4-bbce39e5ed67"
+  "target_ref": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4"
 },
 {
   "type": "relationship",
@@ -2928,13 +2928,13 @@ image:images/malware_c2_infrastructure.png[Malware C2 Infrastructure,width=315,h
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--b4e29b62-2053-47c4-bab4-bbce39e5ed67",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "value": "198.51.100.3"
 },
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--84445275-e371-444b-baea-ac7d07a180fd",
+  "id": "ipv4-addr--055987b7-7d94-5326-8e20-c3dad8241976",
   "value": "198.52.200.4"
 }
 --------------------------------------
@@ -3850,7 +3850,7 @@ Relationships can be created between any objects using the [stixliteral]#related
   ],
   "is_family": false,
   "sample_refs": [
-    "file--1190f2c9-166f-55f1-9706-eea3971d8082"
+    "file--ba8965d8-e4ec-5f9c-a4df-1c460994ca58"
   ]
 }
 {
@@ -3878,7 +3878,7 @@ Relationships can be created between any objects using the [stixliteral]#related
 }
 {
   "type": "file",
-  "id": "file--1190f2c9-166f-55f1-9706-eea3971d8082",
+  "id": "file--ba8965d8-e4ec-5f9c-a4df-1c460994ca58",
   "spec_version": "2.1",
   "hashes": {
     "MD5": "a92e5b2bae0b4b3a3d81c85610b95cd4",
@@ -3886,11 +3886,11 @@ Relationships can be created between any objects using the [stixliteral]#related
   },
   "size": 77312,
   "name": "a92e5b2bae.exe",
-  "parent_directory_ref": "directory--255cb0e4-8bdb-5d63-bb32-9c6f0b733ab2"
+  "parent_directory_ref": "directory--ab82f84a-5afc-5ea7-8d98-9fcbc277eda6"
 }
 {
   "type": "directory",
-  "id": "directory--255cb0e4-8bdb-5d63-bb32-9c6f0b733ab2",
+  "id": "directory--ab82f84a-5afc-5ea7-8d98-9fcbc277eda6",
   "spec_version": "2.1",
   "path": "C:\\"
 }
@@ -4156,21 +4156,21 @@ Observed Data that references two SCOs
   "last_observed": "2015-12-21T19:00:00Z",
   "number_observed": 50,
   "object_refs": [
-    "ipv4-addr--efcd5e80-570d-4131-b213-62cb18eaa6a8",
-    "domain-name--ecb120bf-2694-4902-a737-62b74539a41b"
+    "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
+    "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7"
   ]
 }
 {
   "type": "domain-name",
   "spec_version": "2.1",
-  "id": "domain-name--ecb120bf-2694-4902-a737-62b74539a41b",
+  "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
   "value": "example.com",
-  "resolves_to_refs": ["ipv4-addr--efcd5e80-570d-4131-b213-62cb18eaa6a8"]
+  "resolves_to_refs": ["ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4"]
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--efcd5e80-570d-4131-b213-62cb18eaa6a8",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "value": "198.51.100.3"
 }
 --------------------------------------
@@ -5423,7 +5423,7 @@ _Basic Image Artifact_
 {
   "type": "artifact",
   "spec_version": "2.1",
-  "id": "artifact--ca17bcf8-9846-5ab4-8662-75c1bf6e63ee",
+  "id": "artifact--a785c567-cc53-52a1-abeb-026bb7ddf8ba",
   "mime_type": "image/jpeg",
   "payload_bin": "VBORw0KGgoAAAANSUhEUgAAADI== ..."
 }
@@ -5434,7 +5434,7 @@ _Encrypted Zip Archive Artifact_
 {
   "type": "artifact",
   "spec_version": "2.1",
-  "id": "artifact--6f437177-6e48-5cf8-9d9e-872a2bddd641",
+  "id": "artifact--6be1fbcb-fd03-5ec3-b05f-4329746e9d2b",
   "mime_type": "application/zip",
   "payload_bin": "ZX7HIBWPQA99NSUhEUgAAADI== ...",
   "encryption_algorithm": "mime-type-indicated",
@@ -5491,7 +5491,7 @@ _Basic AS object_
 {
   "type": "autonomous-system",
   "spec_version": "2.1",
-  "id": "autonomous-system--f720c34b-98ae-597f-ade5-27dc241e8c74",
+  "id": "autonomous-system--3aa27478-50b5-5ab8-9da9-cdc12b657fff",
   "number": 15139,
   "name": "Slime Industries",
   "rir": "ARIN"
@@ -5562,7 +5562,7 @@ _Basic directory_
 {
   "type": "directory",
   "spec_version": "2.1",
-  "id": "directory--93c0a9b0-520d-545d-9094-1a08ddf46b05",
+  "id": "directory--0a58d0c1-59e6-5afd-8252-dcd3f13e5622",
   "path": "C:\\Windows\\System32"
 }
 --------------------------------------
@@ -5630,14 +5630,14 @@ _Basic FQDN_
 {
   "type": "domain-name",
   "spec_version": "2.1",
-  "id": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5",
+  "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
   "value": "example.com",
-  "resolves_to_refs": ["ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd"]
+  "resolves_to_refs": ["ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4"]
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "value": "198.51.100.3"
 }
 --------------------------------------
@@ -5699,7 +5699,7 @@ _Basic Email Address_
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--2d77a846-6264-5d51-b586-e43822ea1ea3",
+  "id": "email-addr--7165e2a9-671f-585d-b1e1-ca59c671d934",
   "value": "john@example.com",
   "display_name": "John Doe"
 }
@@ -5877,9 +5877,9 @@ _Simple Email Message_
 {
   "type": "email-message",
   "spec_version": "2.1",
-  "id": "email-message--72b7698f-10c2-565a-a2a6-b4996a2f2265",
-  "from_ref": "email-addr--89f52ea8-d6ef-51e9-8fce-6a29236436ed",
-  "to_refs": ["email-addr--e4ee5301-b52d-59cd-a8fa-8036738c7194"],
+  "id": "email-message--92fa1bfd-2c62-5a30-8b7c-5b91ea73cf29",
+  "from_ref": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
+  "to_refs": ["email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e"],
   "is_multipart": false,
   "date": "1997-11-21T15:55:06.000Z",
   "subject": "Saying Hello"
@@ -5887,14 +5887,14 @@ _Simple Email Message_
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--89f52ea8-d6ef-51e9-8fce-6a29236436ed",
+  "id": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
   "value": "jdoe@example.com",
   "display_name": "John Doe"
 }
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--e4ee5301-b52d-59cd-a8fa-8036738c7194",
+  "id": "email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e",
   "value": "mary@example.com",
   "display_name": "Mary Smith"
 }
@@ -5907,7 +5907,7 @@ _Simple Email Message_
   "spec_version": "2.1",
   "id": "email-message--0c57a381-2a17-5e61-8754-5ef96efb286c",
   "from_ref": "email-addr--9b7e29b3-fd8d-562e-b3f0-8fc8134f5dda",
-  "to_refs": ["email-addr--d1b3bf0c-f02a-51a1-8102-11aba7959868"],
+  "to_refs": ["email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746"],
   "is_multipart": false,
   "date": "2004-04-19T12:22:23.000Z",
   "subject": "Did you see this?",
@@ -5928,7 +5928,7 @@ _Simple Email Message_
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--d1b3bf0c-f02a-51a1-8102-11aba7959868",
+  "id": "email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746",
   "value": "bob@example.com",
   "display_name": "Bob Smith"
 }
@@ -5939,16 +5939,16 @@ _Simple Email Message_
 {
   "type": "email-message",
   "spec_version": "2.1",
-  "id": "email-message--cf9b4b7f-14c8-5955-8065-020e0316b559",
+  "id": "email-message--d7d69ead-3347-5772-815a-7766dc29c72c",
   "is_multipart": true,
   "received_lines": [
     "from mail.example.com ([198.51.100.3]) by smtp.gmail.com with ESMTPSA id q23sm23309939wme.17.2016.07.19.07.20.32 (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128); Tue, 19 Jul 2016 07:20:40 -0700 (PDT)"
   ],
   "content_type": "multipart/mixed",
   "date": "2016-06-19T14:20:40.000Z",
-  "from_ref": "email-addr--89f52ea8-d6ef-51e9-8fce-6a29236436ed",
-  "to_refs": ["email-addr--d1b3bf0c-f02a-51a1-8102-11aba7959868"],
-  "cc_refs": ["email-addr--e4ee5301-b52d-59cd-a8fa-8036738c7194"],
+  "from_ref": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
+  "to_refs": ["email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746"],
+  "cc_refs": ["email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e"],
   "subject": "Check out this picture of a cat!",
   "additional_header_fields": {
     "Content-Disposition": "inline",
@@ -5964,40 +5964,40 @@ _Simple Email Message_
     {
       "content_type": "image/png",
       "content_disposition": "attachment; filename=\"tabby.png\"",
-      "body_raw_ref": "artifact--4cce66f8-6eaa-53cb-85d5-3a85fca3a6c5"
+      "body_raw_ref": "artifact--0682152c-646a-513b-bc07-e516494ed178"
     },
     {
       "content_type": "application/zip",
       "content_disposition": "attachment; filename=\"tabby_pics.zip\"",
-      "body_raw_ref": "file--6ce09d9c-0ad3-5ebf-900c-e3cb288955b5"
+      "body_raw_ref": "file--cfebcece-2336-51b0-baf1-d94daae5e1d1"
     }
   ]
 }
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--89f52ea8-d6ef-51e9-8fce-6a29236436ed",
+  "id": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
   "value": "jdoe@example.com",
   "display_name": "John Doe"
 }
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--d1b3bf0c-f02a-51a1-8102-11aba7959868",
+  "id": "email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746",
   "value": "bob@example.com",
   "display_name": "Bob Smith"
 }
 {
   "type": "email-addr",
   "spec_version": "2.1",
-  "id": "email-addr--e4ee5301-b52d-59cd-a8fa-8036738c7194",
+  "id": "email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e",
   "value": "mary@example.com",
   "display_name": "Mary Smith"
 }
 {
   "type": "artifact",
   "spec_version": "2.1",
-  "id": "artifact--4cce66f8-6eaa-53cb-85d5-3a85fca3a6c5",
+  "id": "artifact--0682152c-646a-513b-bc07-e516494ed178"
   "mime_type": "image/jpeg",
   "payload_bin": "VBORw0KGgoAAAANSUhEUgAAADI== ...",
   "hashes": {
@@ -6007,7 +6007,7 @@ _Simple Email Message_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--6ce09d9c-0ad3-5ebf-900c-e3cb288955b5",
+  "id": "file--cfebcece-2336-51b0-baf1-d94daae5e1d1",
   "name": "tabby_pics.zip",
   "magic_number_hex": "504B0304",
   "hashes": {
@@ -6134,7 +6134,7 @@ _Basic file with file system properties without observed encoding_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--e277603e-1060-5ad4-9937-c26c97f1ca68",
+  "id": "file--949eb97a-da1e-5292-8959-03c4249dc9f3",
   "hashes": {
     "SHA-256": "fe90a7e910cb3a4739bed9180e807e93fa70c90f25a8915476f5e4bfbac681db"
   },
@@ -6149,7 +6149,7 @@ _Basic file with file system properties with observed encoding_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--90bd400b-89a5-51a5-b17d-55bc7719723b",
+  "id": "file--7d1e3a18-89e7-5bc5-be36-9879f5b7f5c8",
   "hashes": {
     "SHA-256": "841a8921140aba50671ebb0770fecc4ee308c4952cfeff8de154ab14eeef4649"
   },
@@ -6165,17 +6165,17 @@ _Basic file with parent directory_
 {
   "type": "directory",
   "spec_version": "2.1",
-  "id": "directory--93c0a9b0-520d-545d-9094-1a08ddf46b05",
+  "id": "directory--0a58d0c1-59e6-5afd-8252-dcd3f13e5622",
   "path": "C:\\Windows\\System32"
 }
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--5a27d487-c542-5f97-a131-a8866b477b46",
+  "id": "file--39643577-13b7-5f21-9584-df7e7c33f357",
   "hashes": {
     "SHA-256": "ceafbfd424be2ca4a5f0402cae090dda2fb0526cf521b60b60077c0f622b285a"
   },
-  "parent_directory_ref": "directory--93c0a9b0-520d-545d-9094-1a08ddf46b05",
+  "parent_directory_ref": "directory--0a58d0c1-59e6-5afd-8252-dcd3f13e5622",
   "name": "qwerty.dll"
 }
 --------------------------------------
@@ -6213,7 +6213,7 @@ _Basic unencrypted ZIP Archive_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--019fde1c-94ca-5967-8b3c-a906a51d87ac",
+  "id": "file--70221dbf-52fd-5377-9619-c0ce6b3ffc8c",
   "hashes": {
     "SHA-256": "ceafbfd424be2ca4a5f0402cae090dda2fb0526cf521b60b60077c0f622b285a"
   }
@@ -6221,7 +6221,7 @@ _Basic unencrypted ZIP Archive_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--94fc2163-dec3-5715-b824-6e689c4de865",
+  "id": "file--c0e2b1c9-232d-5b64-8b74-b6aee5bb9c47",
   "hashes": {
     "SHA-256": "19c549ec2628b989382f6b280cbd7bb836a0b461332c0fe53511ce7d584b89d3"
   }
@@ -6229,7 +6229,7 @@ _Basic unencrypted ZIP Archive_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--d07ff290-d7e0-545b-a2ff-04602a9e0b73",
+  "id": "file--5d0833b7-065e-571f-8bf2-657cb9569570",
   "hashes": {
     "SHA-256": "0969de02ecf8a5f003e3f6d063d848c8a193aada092623f8ce408c15bcb5f038"
   }
@@ -6246,9 +6246,9 @@ _Basic unencrypted ZIP Archive_
   "extensions": {
     "archive-ext": {
       "contains_refs": [
-        "file--019fde1c-94ca-5967-8b3c-a906a51d87ac",
-        "file--94fc2163-dec3-5715-b824-6e689c4de865",
-        "file--d07ff290-d7e0-545b-a2ff-04602a9e0b73"
+        "file--70221dbf-52fd-5377-9619-c0ce6b3ffc8c",
+        "file--c0e2b1c9-232d-5b64-8b74-b6aee5bb9c47",
+        "file--5d0833b7-065e-571f-8bf2-657cb9569570"
       ]
     }
   }
@@ -6314,7 +6314,7 @@ _NTFS File with a single alternate data stream_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--73c4cd13-7206-5100-88ef-822c42d3f02c",
+  "id": "file--ba04c974-3cef-5f42-adc7-084d467874e2",
   "hashes": {
     "SHA-256": "35a01331e9ad96f751278b891b6ea09699806faedfa237d40513d92ad1b7100f"
   },
@@ -6377,7 +6377,7 @@ _Basic PDF file_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--ec3415cc-5f4f-5ec8-bdb1-6f86996ae66d",
+  "id": "file--965aa96f-d90a-506a-8317-d38d44b235f9",
   "name": "example.pdf",
   "extensions": {
     "pdf-ext": {
@@ -6439,7 +6439,7 @@ _Simple Image File with EXIF Data_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--c7d1e135-8b34-549a-bb47-302f5cf998ed",
+  "id": "file--66772174-3442-5e0d-b577-4bd7be55fb87",
   "name": "picture.jpg",
   "hashes": {
     "SHA-256": "4bac27393bdd9777ce02453256c5577cd02275510b2227f473d03f533924f877"
@@ -6718,7 +6718,7 @@ _Typical EXE File_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--fb0419a8-f09c-57f8-be64-71a80417591c",
+  "id": "file--9af228db-9a04-5787-ad43-ccadc137a0e2",
   "name": "example.exe",
   "extensions": {
     "windows-pebinary-ext": {
@@ -6865,7 +6865,7 @@ _IPv4 Single Address_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "value": "198.51.100.3"
 }
 --------------------------------------
@@ -6875,7 +6875,7 @@ _IPv4 CIDR Block_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--5853f6a4-638f-5b4e-9b0f-ded361ae3812",
+  "id": "ipv4-addr--1ea47840-aa39-5aa8-b4a2-cd203eb6662a",
   "value": "198.51.100.0/24"
 }
 --------------------------------------
@@ -6957,7 +6957,7 @@ _IPv6 Single Address_
 {
   "type": "ipv6-addr",
   "spec_version": "2.1",
-  "id": "ipv6-addr--1e61d36c-a16c-53b7-a80f-2a00161c96b1",
+  "id": "ipv6-addr--85a85a8c-ee99-5722-946d-3c3a3270fc6f",
   "value": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
 }
 --------------------------------------
@@ -6967,7 +6967,7 @@ _IPv6 CIDR block_
 {
   "type": "ipv6-addr",
   "spec_version": "2.1",
-  "id": "ipv6-addr--5daf7456-8863-5481-9d42-237d477697f4",
+  "id": "ipv6-addr--084d3b4c-7785-568a-a569-0c61c95754ab",
   "value": "2001:0db8::/96"
 }
 --------------------------------------
@@ -7020,7 +7020,7 @@ _Typical MAC address_
 {
   "type": "mac-addr",
   "spec_version": "2.1",
-  "id": "mac-addr--65cfcf98-8a6e-5a1b-8f61-379ac4f92d00",
+  "id": "mac-addr--757b1725-9903-54f5-a855-1240691d7659",
   "value": "d2:fb:49:24:37:18"
 }
 --------------------------------------
@@ -7067,7 +7067,7 @@ _Malware mutex_
 {
   "type": "mutex",
   "spec_version": "2.1",
-  "id": "mutex--eba44954-d4e4-5d3b-814c-2b17dd8de300",
+  "id": "mutex--f93fe911-e545-5239-b9b0-597840d0c871",
   "name": "__CLEANSWEEP__"
 }
 --------------------------------------
@@ -7233,21 +7233,21 @@ _Basic TCP Network Traffic_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
+  "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
   "value": "198.51.100.2"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "value": "198.51.100.3"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--2568d22a-8998-58eb-99ec-3c8ca74f527d",
-  "src_ref": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
-  "dst_ref": "ipv4-addr--ff26c055-6336-5bc5-b98d-13d6226742dd",
+  "id": "network-traffic--6e0cb830-0305-57d4-8536-7be874d42005",
+  "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+  "dst_ref": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
   "protocols": [
     "tcp"
   ]
@@ -7259,14 +7259,14 @@ _Basic HTTP Network Traffic_
 {
   "type": "domain-name",
   "spec_version": "2.1",
-  "id": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5",
+  "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
   "value": "example.com"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--15a157a8-26e3-56e0-820b-0c2a8e553a2c",
-  "dst_ref": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5",
+  "id": "network-traffic--c695ada6-5d5d-5446-a661-935874e1d058",
+  "dst_ref": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
   "protocols": [
     "ipv4",
     "tcp",
@@ -7281,21 +7281,21 @@ _Network Traffic with Netflow Data_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--e42c19c8-f9fe-5ae9-9fc8-22c398f78fb7",
+  "id": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
   "value": "203.0.113.1"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--03b708d9-7761-5523-ab75-5ea096294a68",
+  "id": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
   "value": "203.0.113.5"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--630d7bb1-0bbc-53a6-a6d4-f3c2d35c2734",
-  "src_ref": "ipv4-addr--e42c19c8-f9fe-5ae9-9fc8-22c398f78fb7",
-  "dst_ref": "ipv4-addr--03b708d9-7761-5523-ab75-5ea096294a68",
+  "id": "network-traffic--44eb3012-751d-5c12-b9ba-1506e42e26ef",
+  "src_ref": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+  "dst_ref": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
   "protocols": [
     "ipv4",
     "tcp"
@@ -7314,27 +7314,27 @@ _Basic Tunneled Network Traffic_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
+  "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
   "value": "198.51.100.2"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--e42c19c8-f9fe-5ae9-9fc8-22c398f78fb7",
+  "id": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
   "value": "203.0.113.1"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--ffe65ce3-bf2a-577c-bb7e-947d39198637",
+  "id": "ipv4-addr--a2935766-2522-5939-9513-cc3536f212a3",
   "value": "203.0.113.2"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--ac267abc-1a41-536d-8e8d-98458d9bf491",
-  "src_ref": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
-  "dst_ref": "ipv4-addr--e42c19c8-f9fe-5ae9-9fc8-22c398f78fb7",
+  "id": "network-traffic--372c0c73-777a-50de-bc3a-92cc72fcf7dd",
+  "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+  "dst_ref": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
   "src_port": 2487,
   "dst_port": 1723,
   "protocols": [
@@ -7344,15 +7344,15 @@ _Basic Tunneled Network Traffic_
   "src_byte_count": 35779,
   "dst_byte_count": 935750,
   "encapsulates_refs": [
-    "network-traffic--53e0bf48-2eee-5c03-8bde-ed7049d2c0a3"
+    "network-traffic--8dce0dc4-f5ea-5313-8e6c-03646d419b6a"
   ]
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--53e0bf48-2eee-5c03-8bde-ed7049d2c0a3",
-  "src_ref": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
-  "dst_ref": "ipv4-addr--ffe65ce3-bf2a-577c-bb7e-947d39198637",
+  "id": "network-traffic--8dce0dc4-f5ea-5313-8e6c-03646d419b6a",
+  "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+  "dst_ref": "ipv4-addr--a2935766-2522-5939-9513-cc3536f212a3",
   "src_port": 24678,
   "dst_port": 80,
   "protocols": [
@@ -7362,7 +7362,7 @@ _Basic Tunneled Network Traffic_
   ],
   "src_packets": 14356,
   "dst_packets": 14356,
-  "encapsulated_by_ref": "network-traffic--ac267abc-1a41-536d-8e8d-98458d9bf491"
+  "encapsulated_by_ref": "network-traffic--372c0c73-777a-50de-bc3a-92cc72fcf7dd"
 }
 --------------------------------------
 
@@ -7371,27 +7371,27 @@ _Web traffic tunneled over DNS_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--e42c19c8-f9fe-5ae9-9fc8-22c398f78fb7",
+  "id": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
   "value": "203.0.113.1"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--f2d3c796-6c1a-5c4f-8516-d4db54727f89",
+  "id": "ipv4-addr--13cba85b-1780-5517-b600-7b6546cfd760",
   "value": "198.51.100.34"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--bb884ffe-f2e4-56bb-a0c3-21f6711cb649",
+  "id": "ipv4-addr--23476ffc-8715-5eee-bd37-2f204b7db486",
   "value": "198.51.100.54"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--b4a8c150-e214-57a3-9017-e85dfa345f46",
-  "src_ref": "ipv4-addr--e42c19c8-f9fe-5ae9-9fc8-22c398f78fb7",
-  "dst_ref": "ipv4-addr--f2d3c796-6c1a-5c4f-8516-d4db54727f89",
+  "id": "network-traffic--fc1686c0-b36e-5041-9ce4-c8df9cf10d6d",
+  "src_ref": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+  "dst_ref": "ipv4-addr--13cba85b-1780-5517-b600-7b6546cfd760",
   "src_port": 2487,
   "dst_port": 53,
   "protocols": [
@@ -7402,15 +7402,15 @@ _Web traffic tunneled over DNS_
   "src_byte_count": 35779,
   "dst_byte_count": 935750,
   "encapsulates_refs": [
-    "network-traffic--65a6016d-a91c-5781-baad-178cd55f01d4"
+    "network-traffic--27ed09d5-f85a-5a8e-8590-49a91d7e510e"
   ]
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--65a6016d-a91c-5781-baad-178cd55f01d4",
-  "src_ref": "ipv4-addr--f2d3c796-6c1a-5c4f-8516-d4db54727f89",
-  "dst_ref": "ipv4-addr--bb884ffe-f2e4-56bb-a0c3-21f6711cb649",
+  "id": "network-traffic--27ed09d5-f85a-5a8e-8590-49a91d7e510e",
+  "src_ref": "ipv4-addr--13cba85b-1780-5517-b600-7b6546cfd760",
+  "dst_ref": "ipv4-addr--23476ffc-8715-5eee-bd37-2f204b7db486",
   "src_port": 24678,
   "dst_port": 443,
   "protocols": [
@@ -7421,7 +7421,7 @@ _Web traffic tunneled over DNS_
   ],
   "src_packets": 14356,
   "dst_packets": 14356,
-  "encapsulated_by_ref": "network-traffic--b4a8c150-e214-57a3-9017-e85dfa345f46"
+  "encapsulated_by_ref": "network-traffic--fc1686c0-b36e-5041-9ce4-c8df9cf10d6d"
 }
 --------------------------------------
 
@@ -7478,15 +7478,15 @@ _Basic HTTP Request_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--6da8dad3-4de3-5f8e-ab23-45d0b8f12f16",
+  "id": "ipv4-addr--165070a8-c561-58a8-8659-fce2f255c2c0",
   "value": "198.51.100.53"
 
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--f8ae967a-3dc3-5cdf-8f94-8505abff00c2",
-  "dst_ref": "ipv4-addr--6da8dad3-4de3-5f8e-ab23-45d0b8f12f16",
+  "id": "network-traffic--fdd6dbda-a206-52fe-b19b-64d908748850",
+  "dst_ref": "ipv4-addr--165070a8-c561-58a8-8659-fce2f255c2c0",
   "protocols": [
     "tcp",
     "http"
@@ -7537,21 +7537,21 @@ _Basic ICMP Traffic_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--d7177770-fc12-586b-9244-426596a7008e",
+  "id": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6",
   "value": "198.51.100.9"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--03b708d9-7761-5523-ab75-5ea096294a68",
+  "id": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
   "value": "203.0.113.5"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--e7a939ca-78c6-5f27-8ae0-4ad112454626",
-  "src_ref": "ipv4-addr--d7177770-fc12-586b-9244-426596a7008e",
-  "dst_ref": "ipv4-addr--03b708d9-7761-5523-ab75-5ea096294a68",
+  "id": "network-traffic--4f156a67-4efc-58fb-b0a7-f2612927a37d",
+  "src_ref": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6",
+  "dst_ref": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
   "protocols": [
     "icmp"
   ],
@@ -7623,14 +7623,14 @@ _Basic Stream Socket_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
+  "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
   "value": "198.51.100.2"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--c95e972a-20a4-5307-b00d-b8393faf02c5",
-  "src_ref": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
+  "id": "network-traffic--59d8852c-0c68-5e0c-8ae2-f3c46bd7b1df",
+  "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
   "src_port": 223,
   "protocols": [
     "ip",
@@ -7684,21 +7684,21 @@ _Basic TCP Traffic_
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--89830c10-2e94-57fa-8ca6-e0537d2719d1",
+  "id": "ipv4-addr--f85034be-e4ad-5153-aa6b-79c450eb25b3",
   "value": "198.51.100.5"
 }
 {
   "type": "ipv4-addr",
   "spec_version": "2.1",
-  "id": "ipv4-addr--45f4c6fb-2d7d-576a-a571-edc78d899a72",
+  "id": "ipv4-addr--72073c96-1246-5058-8e5c-6ca59d656dee",
   "value": "198.51.100.6"
 }
 {
   "type": "network-traffic",
   "spec_version": "2.1",
-  "id": "network-traffic--09ca55c3-97e5-5966-bad0-1d41d557ae13",
-  "src_ref": "ipv4-addr--89830c10-2e94-57fa-8ca6-e0537d2719d1",
-  "dst_ref": "ipv4-addr--45f4c6fb-2d7d-576a-a571-edc78d899a72",
+  "id": "network-traffic--47b27c77-4272-563f-91ca-87e2a4afd6ef",
+  "src_ref": "ipv4-addr--f85034be-e4ad-5153-aa6b-79c450eb25b3",
+  "dst_ref": "ipv4-addr--72073c96-1246-5058-8e5c-6ca59d656dee",
   "src_port": 3372,
   "dst_port": 80,
   "protocols": [
@@ -7817,7 +7817,7 @@ _Basic Process_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--edb1ebee-4387-41cc-943b-f94fd491118c",
+  "id": "file--3eb55c0e-fe96-588b-a7ab-10f55f7ec596",
   "name": "gedit-bin",
   "hashes": {
     "SHA-256": "aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f"
@@ -7826,7 +7826,7 @@ _Basic Process_
 {
   "type": "process",
   "spec_version": "2.1",
-  "id": "process--d2ec5aab-808d-4492-890a-3c1a1e3cb06e",
+  "id": "process--8fac80fe-a220-4ba9-8ffe-4f43ce8edff8",
   "pid": 1221,
   "created_time": "2016-01-20T14:11:25.55Z",
   "command_line": "./gedit-bin --new-window",
@@ -7892,7 +7892,7 @@ _Basic Windows Process_
 {
   "type": "process",
   "spec_version": "2.1",
-  "id": "process--de02a3e4-4b96-460a-b799-684347004444",
+  "id": "process--65a99d8a-e5b2-44bb-8311-963a580ee9a1",
   "pid": 314,
   "extensions": {
     "windows-process-ext": {
@@ -7970,7 +7970,7 @@ _Basic Windows Service_
 {
   "type": "file",
   "spec_version": "2.1",
-  "id": "file--4b9a516b-4974-4ff8-a50d-a8b8d552ce1f",
+  "id": "file--ca7d6a8a-b79e-5c3b-b736-8d48adcf0c97",
   "hashes": {
     "SHA-256": "bf07a7fbb825fc0aae7bf4a1177b2b31fcf8a3feeaf7092761e18c859ee52a9c"
   },
@@ -7979,7 +7979,7 @@ _Basic Windows Service_
 {
   "type": "process",
   "spec_version": "2.1",
-  "id": "process--70b17c6c-93e5-4c80-8683-5a4d4e51f2c1",
+  "id": "process--ab1ff083-dc96-4896-8c8d-4e623f6e145e",
   "pid": 2217,
   "command_line": "C:\\Windows\\System32\\sirvizio.exe /s",
   "image_ref": "file--3916128d-69af-5525-be7a-99fac2383a59",
@@ -8062,7 +8062,7 @@ _Typical Software Instance_
 {
   "type": "software",
   "spec_version": "2.1",
-  "id": "software--a1827f6d-ca53-5605-9e93-4316cd22a00a",
+  "id": "software--710b0b41-d4d0-5d6c-a400-fc9254554ffc",
   "name": "Word",
   "cpe": "cpe:2.3:a:microsoft:word:2000:*:*:*:*:*:*:*",
   "version": "2002",
@@ -8112,7 +8112,7 @@ _Typical URL_
 {
   "type": "url",
   "spec_version": "2.1",
-  "id": "url--c1477287-23ac-5971-a010-5c287877fa60",
+  "id": "url--47c3cf9a-5027-5bf0-997a-017c7edc7c55",
   "value": "https://example.com/research/index.html"
 }
 --------------------------------------
@@ -8232,7 +8232,7 @@ _Basic Unix Account_
 {
   "type": "user-account",
   "spec_version": "2.1",
-  "id": "user-account--0d5b424b-93b8-5cd8-ac36-306e1789d63c",
+  "id": "user-account--f94d689e-707d-58c3-b803-c720bb6ed096",
   "user_id": "1001",
   "account_login": "jdoe",
   "account_type": "unix",
@@ -8252,7 +8252,7 @@ _Basic Twitter Account_
 {
   "type": "user-account",
   "spec_version": "2.1",
-  "id": "user-account--9bd3afcf-deee-54f9-83e2-520653cb6bba",
+  "id": "user-account--f223e803-846b-591a-aefa-545e938f8a56",
   "user_id": "thegrugq_ebooks",
   "account_login": "thegrugq_ebooks",
   "account_type": "twitter",
@@ -8300,7 +8300,7 @@ _Basic UNIX Account_
 {
   "type": "user-account",
   "spec_version": "2.1",
-  "id": "user-account--0d5b424b-93b8-5cd8-ac36-306e1789d63c",
+  "id": "user-account--f94d689e-707d-58c3-b803-c720bb6ed096",
   "user_id": "1001",
   "account_login": "jdoe",
   "account_type": "unix",
@@ -8411,7 +8411,7 @@ _Simple registry key_
 {
   "type": "windows-registry-key",
   "spec_version": "2.1",
-  "id": "windows-registry-key--9d60798d-4e3e-5fe4-af8a-0e4986f0f90b",
+  "id": "windows-registry-key--1884b770-b679-522a-a9c7-45fadaaec7bb",
   "key": "HKEY_LOCAL_MACHINE\\System\\Foo\\Bar"
 }
 --------------------------------------
@@ -8421,7 +8421,7 @@ _Registry key with values_
 {
   "type": "windows-registry-key",
   "spec_version": "2.1",
-  "id": "windows-registry-key--2ba37ae7-2745-5082-9dfd-9486dad41016",
+  "id": "windows-registry-key--f6a11ddf-fa2b-54c8-97ab-e7f28413095a",
   "key": "hkey_local_machine\\system\\bar\\foo",
   "values": [
     {
@@ -8631,7 +8631,7 @@ _Basic X.509 certificate_
 {
   "type": "x509-certificate",
   "spec_version": "2.1",
-  "id": "x509-certificate--463d7b2a-8516-5a50-a3d7-6f801465d5de",
+  "id": "x509-certificate--bf86f034-2390-54d7-8426-d08433db3fbe",
   "issuer": "C=ZA, ST=Western Cape, L=Cape Town, O=Thawte Consulting cc, OU=Certification Services Division, CN=Thawte Server CA/emailAddress=server-certs@thawte.com",
   "validity_not_before": "2016-03-12T12:00:00Z",
   "validity_not_after": "2016-08-21T12:00:00Z",
@@ -8643,7 +8643,7 @@ _X.509 Certificate w/ V3 Extensions_
 {
   "type":"x509-certificate",
   "spec_version": "2.1",
-  "id": "x509-certificate--b595eaf0-0b28-5dad-9e8e-0fab9c1facc9",
+  "id": "x509-certificate--5adb038a-160d-5d1c-826e-bde4926a0d2d",
   "issuer":"C=ZA, ST=Western Cape, L=Cape Town, O=Thawte Consulting cc, OU=Certification Services Division, CN=Thawte Server CA/emailAddress=server-certs@thawte.com",
   "validity_not_before":"2016-03-12T12:00:00Z",
   "validity_not_after":"2016-08-21T12:00:00Z",
@@ -12328,10 +12328,10 @@ image:images/malware_and_target_list_hosting_domain.png[Malware and Target List 
   "modified": "2016-11-23T10:42:39.000Z",
   "relationship_type": "consists-of",
   "source_ref": "infrastructure--d09c50cf-5bab-465e-9e2d-543912148b73",
-  "target_ref": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5"
+  "target_ref": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7"
 },
 {
-  "id": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5",
+  "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
   "type": "domain-name",
   "value": "example.com"
 }
@@ -12380,10 +12380,10 @@ image:images/malware_botnet_infrastructure.png[Malware Botnet Infrastructure,wid
   "modified": "2017-03-16T10:19:23.000Z",
   "relationship_type": "consists-of",
   "source_ref": "infrastructure--78cc7b4b-c6ab-40d1-82eb-95a3059641da",
-  "target_ref": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53"
+  "target_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b"
 },
 {
-  "id": "ipv4-addr--4d22aae0-2bf9-5427-8819-e4f6abf20a53",
+  "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
   "type": "ipv4-addr",
   "value": "198.51.100.2"
 },
@@ -12440,10 +12440,10 @@ image:images/botnet_infrastructure.png[Botnet Infrastructure,width=624,height=28
   "modified": "2016-11-23T10:42:39.000Z",
   "relationship_type": "consists-of",
   "source_ref": "infrastructure--767ed805-f00a-4603-9bd8-5b5a006b56fa",
-  "target_ref": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5"
+  "target_ref": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7"
 },
 {
-  "id": "domain-name--3c10e93f-798e-5a26-a0c1-08156efab7f5",
+  "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
   "type": "domain-name",
   "value": "example.com"
 },
@@ -12503,10 +12503,10 @@ image:images/botnet_infrastructure.png[Botnet Infrastructure,width=624,height=28
   "modified": "2016-11-18T06:22:31.000Z",
   "relationship_type": "consists-of",
   "source_ref": "infrastructure--a3536537-456a-47b5-84dc-fb7c340959e8",
-  "target_ref": "ipv4-addr--d7177770-fc12-586b-9244-426596a7008e"
+  "target_ref": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6"
 },
 {
-  "id": "ipv4-addr--d7177770-fc12-586b-9244-426596a7008e",
+  "id": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6",
   "type": "ipv4-addr",
   "value": "198.51.100.9"
 },
@@ -12677,7 +12677,7 @@ This example shows how one can also add the same extension (properties *rank* an
 {
   "type": "artifact",
   "spec_version": "2.1",
-  "id": "artifact--6f437177-6e48-5cf8-9d9e-872a2bddd641",
+  "id": "artifact--6be1fbcb-fd03-5ec3-b05f-4329746e9d2b",
   "mime_type": "application/zip",
   "payload_bin": "ZX7HIBWPQA99NSUhEUgAAADI== ...",
   "encryption_algorithm": "mime-type-indicated",
@@ -13880,7 +13880,7 @@ This version was not submitted to become a new CSD as it only contained non-mate
 |Emily Ratliff, Rich Piazza
 |Converted to asciidoc format to improve transparency and collaborative editing.
 
-Github Issues: 325, 322, 319, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314
+Github Issues: 325, 322, 319, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314, 318
 
 |===
 
