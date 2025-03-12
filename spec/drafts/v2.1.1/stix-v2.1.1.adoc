@@ -11391,7 +11391,7 @@ If the objects are there to simply provide evidence or context for other objects
 |===
 2+|[stixtr]*Vocabulary Summary*
 
-2+|[stixliteral]#attack-pattern#, [stixliteral]#campaign#, [stixliteral]#identity#, [stixliteral]#indicator#, [stixliteral]#intrusion-set#, [stixliteral]#malware#, [stixliteral]#observed-data#, [stixliteral]#threat-actor#, [stixliteral]#threat-report#, [stixliteral]#tool#, [stixliteral]#vulnerability#
+2+|[stixliteral]#attack-pattern#, [stixliteral]#campaign#, [stixliteral]#identity#, [stixliteral]#incident#, [stixliteral]#indicator#, [stixliteral]#intrusion-set#, [stixliteral]#malware#, [stixliteral]#observed-data#, [stixliteral]#threat-actor#, [stixliteral]#threat-report#, [stixliteral]#tool#, [stixliteral]#vulnerability#
 |===
 [width="100%",cols="22%,78%",]
 |===
