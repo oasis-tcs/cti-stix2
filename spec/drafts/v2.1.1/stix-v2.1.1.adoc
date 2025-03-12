@@ -13153,7 +13153,7 @@ Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Infor
 
 anchor:ShannonEntropy[Shannon Entropy]
 *[Shannon Entropy]* +
-Shannon entropy. (2022, February 20). Wiktionary, The Free Dictionary [Online]. Available: https://en.wiktionary.org/w/index.php?title=Shannon_entropy&oldid=65871309[https://en.wiktionary.org/wiki/Shannon_entropy]. 
+Shannon entropy - "A Mathematical Theory of Communication" - by Claude E. Shannon, July 1948, https://web.archive.org/web/20130510074504/http://www.alcatel-lucent.com/bstj/vol27-1948/articles/bstj27-4-623.pdf[https://web.archive.org/web/20130510074504/http://www.alcatel-lucent.com/bstj/vol27-1948/articles/bstj27-4-623.pdf]
 
 anchor:SNORT[]
 *[SNORT]* +
