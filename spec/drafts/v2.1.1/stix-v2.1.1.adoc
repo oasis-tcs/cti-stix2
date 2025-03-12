@@ -3872,7 +3872,7 @@ Relationships can be created between any objects using the [stixliteral]#related
   "id": "relationship--014841f8-eb38-4673-9904-70f67c92dd8b",
   "created": "2020-01-16T18:52:24.277Z",
   "modified": "2020-01-16T18:52:24.277Z",
-  "relationship_type": "analysis-of",
+  "relationship_type": "av-analysis-of",
   "source_ref": "malware-analysis--d25167b7-fed0-4068-9ccd-a73dd2c5b07c",
   "target_ref": "malware--8bcf14e9-2ba2-44ef-9e32-fbbc9d2608b2"
 }
@@ -12263,7 +12263,7 @@ If there is a discrepancy between this table and the relationships defined with 
 |[stixtype]#malware# |[stixliteral]#uses# |[stixtype]#attack-pattern#, [stixtype]#infrastructure#, [stixtype]#malware#, [stixtype]#tool#
 |[stixtype]#malware# |[stixliteral]#variant-of# |[stixtype]#malware#
 |[stixtype]#malware-analysis# |[stixliteral]#characterizes# |[stixtype]#malware#
-|[stixtype]#malware-analysis# |[stixliteral]#analysis-of# |[stixtype]#malware#
+|[stixtype]#malware-analysis# |[stixliteral]#av-analysis-of# |[stixtype]#malware#
 |[stixtype]#malware-analysis# |[stixliteral]#static-analysis-of# |[stixtype]#malware#
 |[stixtype]#malware-analysis# |[stixliteral]#dynamic-analysis-of# |[stixtype]#malware#
 |[stixtype]#threat-actor# |[stixliteral]#attributed-to# |[stixtype]#identity#
