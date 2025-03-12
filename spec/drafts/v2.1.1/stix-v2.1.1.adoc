@@ -36,10 +36,10 @@ Marlon Taylor (mailto:marlon.taylor@cisa.dhs.gov[marlon.taylor@cisa.dhs.gov]), h
 Alexandre Dulaunoy (mailto:alexandre.dulaunoy@x.circl.lu[alexandre.dulaunoy@x.circl.lu]), https://www.circl.lu/[CIRCL]
 
 *Editors:* +
-Trey Darley (mailto:trey.darley@accenture.com[trey.darley@accenture.com]), https://www.accenture.com/[Accenture] +
-Bret Jordan (mailto:bj@ctin.us[bj@ctin.us]), Individual member +
 Rich Piazza (mailto:rpiazza@mitre.org[rpiazza@mitre.org]), http://www.mitre.org/[MITRE Corporation] +
-Emily Ratliff (mailto:rpiazza@mitre.org[emily.ratliff@ibm.com]), http://www.ibm.com/[IBM]
+Emily Ratliff (mailto:rpiazza@mitre.org[emily.ratliff@ibm.com]), http://www.ibm.com/[IBM] +
+Stephan Relitz (mailto:stephan.relitz@peraton.com[stephan.relitz@peraton.com]), https://www.peraton.com/[Peraton] +
+Christian Studer (mailto:christian.studer@circl.lu[christian.studer@circl.lu]), https://www.circl.lu/[CIRCL]
 
 anchor:RelatedWork[]
 *Related work:* +
@@ -13187,7 +13187,7 @@ YARA: The pattern matching swiss knife for malware researchers (and everyone els
 
 Christian Studer, CIRCL
 
-Emily Ratliff, IBM
+Stephan Relitz, Peraton
 
 *Special Thanks:*
 
@@ -13653,6 +13653,8 @@ Joel Myhre, Pacific Disaster Center
 
 Vishaal Hariprasad, Palo Alto Networks
 
+Stephan Relitz, Peraton
+
 Brad Bohen, Perch
 
 Aharon Chernin, Perch
@@ -13881,6 +13883,13 @@ This version was not submitted to become a new CSD as it only contained non-mate
 |Converted to asciidoc format to improve transparency and collaborative editing.
 
 Github Issues: 325, 322, 319, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314
+
+|14
+|2025-03-12
+|Christian Studer, Stephan Relitz, Emily Ratliff
+|Updated document based on the remaining GitHub issues.
+
+Github Issues: 278, 294, 299, 313, 315, 318
 
 |===
 
