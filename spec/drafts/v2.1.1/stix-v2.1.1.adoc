@@ -10595,13 +10595,13 @@ An enumeration of encryption algorithms for sharing defanged and/or confidential
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#AES-256-GCM#, [stixliteral]#ChaCha20-Poly1305#, [stixliteral]#mime-type-indicated#
 |===
 [width="100%",cols="26%,74%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#AES-256-GCM#
 |Specifies the AES-256-GCM cipher, as defined in [<<NISTSP80038D>>]
@@ -10617,19 +10617,19 @@ This is intended for formats like Zip files and Word files which take a simple p
 
 === Extension Types Enumeration
 
-*Vocabulary Name:* [stixtype]#extension-type-enum#
+*Enumeration Name:* [stixtype]#extension-type-enum#
 
 The Extensions Type enumeration is used in the Extension meta-object.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#new-sdo#, [stixliteral]#new-sco#, [stixliteral]#new-sro#, [stixliteral]#property-extension#, [stixliteral]#toplevel-property-extension#
 |===
 [width="100%",cols="25%,75%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#new-sdo#
 |Specifies that the Extension includes a new SDO
@@ -11160,13 +11160,13 @@ An enumeration of network socket address family types.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#AF_UNSPEC#, [stixliteral]#AF_INET#, [stixliteral]#AF_IPX#, [stixliteral]#AF_APPLETALK#, [stixliteral]#AF_NETBIOS#, [stixliteral]#AF_INET6#, [stixliteral]#AF_IRDA#, [stixliteral]#AF_BTH#
 |===
 [width="100%",cols="23%,77%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#AF_UNSPEC# |Specifies an unspecified address family.
 |[stixliteral]#AF_INET# |Specifies the IPv4 address family.
@@ -11191,13 +11191,13 @@ An enumeration of network socket types.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#SOCK_STREAM,# [stixliteral]#AF_ISOCK_DGRAMNET#, [stixliteral]#SOCK_RAW#, [stixliteral]#SOCK_RDM#, [stixliteral]#SOCK_SEQPACKET#
 |===
 [width="100%",cols="22%,78%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#SOCK_STREAM#
 |Specifies a pipe-like socket which operates over a connection with a particular remote socket and transmits data reliably as a stream of bytes.
@@ -11696,13 +11696,13 @@ Windows integrity levels are a security feature and represent the trustworthines
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#low#, [stixliteral]#medium#, [stixliteral]#high#, [stixliteral]#system#
 |===
 [width="100%",cols="25%,75%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#low# |A low level of integrity.
 |[stixliteral]#medium# |A medium level of integrity.
@@ -11748,13 +11748,13 @@ An enumeration of Windows registry data types.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#REG_NONE#, [stixliteral]#REG_SZ#, [stixliteral]#REG_EXPAND_SZ#, [stixliteral]#REG_BINARY#, [stixliteral]#REG_DWORD#, [stixliteral]#REG_DWORD_BIG_ENDIAN#, [stixliteral]#REG_DWORD_LITTLE_ENDIAN#, [stixliteral]#REG_LINK#, [stixliteral]#REG_MULTI_SZ#, [stixliteral]#REG_RESOURCE_LIST#, [stixliteral]#REG_FULL_RESOURCE_DESCRIPTION#, [stixliteral]#REG_RESOURCE_REQUIREMENTS_LIST,# [stixliteral]#REG_QWORD#, [stixliteral]#REG_INVALID_TYPE#
 |===
 [width="100%",cols="39%,61%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#REG_NONE#
 |No defined value type.
@@ -11815,13 +11815,13 @@ An enumeration of Windows service start types.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#SERVICE_AUTO_START#, [stixliteral]#SERVICE_BOOT_START#, [stixliteral]#SERVICE_DEMAND_START#, [stixliteral]#SERVICE_DISABLED#, [stixliteral]#SERVICE_SYSTEM_ALERT#
 |===
 [width="100%",cols="28%,72%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#SERVICE_AUTO_START# |A service started automatically by the service control manager during system startup.
 |[stixliteral]#SERVICE_BOOT_START# |A device driver started by the system loader. This value is valid only for driver services.
@@ -11842,13 +11842,13 @@ An enumeration of Windows service types.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#SERVICE_KERNEL_DRIVER#, [stixliteral]#SERVICE_FILE_SYSTEM_DRIVER#, [stixliteral]#SERVICE_WIN32_OWN_PROCESS#, [stixliteral]#SERVICE_WIN32_SHARE_PROCESS#
 |===
 [width="100%",cols="40%,60%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#SERVICE_KERNEL_DRIVER# |The service is a device driver.
 |[stixliteral]#SERVICE_FILE_SYSTEM_DRIVER# |The service is a file system driver.
@@ -11868,14 +11868,14 @@ An enumeration of Windows service statuses.
 
 [width="100%",]
 |===
-|[stixtr]*Vocabulary Summary*
+|[stixtr]*Enumeration Summary*
 
 |[stixliteral]#SERVICE_CONTINUE_PENDING#, [stixliteral]#SERVICE_PAUSE_PENDING#, [stixliteral]#SERVICE_PAUSED#, [stixliteral]#SERVICE_RUNNING#, [stixliteral]#SERVICE_START_PENDING#, [stixliteral]#SERVICE_STOP_PENDING#, [stixliteral]#SERVICE_STOPPED#
 
 |===
 [width="100%",cols="45%,55%",]
 |===
-|[stixtr]*Vocabulary Value* |[stixtr]*Description*
+|[stixtr]*Enumeration Value* |[stixtr]*Description*
 
 |[stixliteral]#SERVICE_CONTINUE_PENDING# |The service continue is pending.
 |[stixliteral]#SERVICE_PAUSE_PENDING# |The service pause is pending.
