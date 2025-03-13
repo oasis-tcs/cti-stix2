@@ -276,21 +276,72 @@ This specification is the normative description of STIX 2.1.
 
 === Changes From Earlier Versions
 
-This section lists all of the major changes from the previous 2.0 version of STIX.
+This section lists all of the changes from the previous 2.1 version of STIX.
 
-==== STIX 2.1 Major Changes and Additions
+==== STIX 2.1.1 Changes from earlier versions
 
-STIX 2.1 differs from STIX 2.0 in the following ways:
+STIX 2.1.1 differs from STIX 2.1 in the following ways:
 
-* New objects: Grouping, Infrastructure, Language-Content (internationalization), Location, Malware-Analysis, Note, Opinion
-* Objects that have undergone significant change: Malware, all SCOs
-* New concepts: Confidence
-* STIX Cyber-observable Objects can now be directly related using STIX Relationship Objects
-* Renamed conflicting properties on Directory Object, File Object, Process Object, and Windows Registry Key Object.
-* Added relationship from Indicator to Observed Data called "based-on".
-* Added a description to Sighting and added a name to Location.
-* Made some SCO relationships external on Domain-Name, IPv4-Addr, and IPv6-Addr.
-* Added STIX Extension mechanisms and deprecated custom properties, objects, and extensions.
+* Updated Malware Embedded Relationships table with missing property in <<_relationships_11>>.
+** *operating_system_refs* is no longer missing in the table.
+* Malware Analysis Relationships table fixed with the right relationship type between Malware Analysis and Malware in <<_relationships_12>>.
+** wrong [stixliteral]#analysis-of# is replaced with the right [stixliteral]#av-analysis-of# relationship type.
+* Email Message property descriptions fixed in <<_properties_28>>.
+** *from_ref*, *sender_ref*, *to_refs*, *cc_refs* and *bcc_refs* properties descriptions now mention the right [stixtype]#email-addr# type they are referencing.
+* HTTP Request Extension examples fixed in <<_properties_44>>.
+** the *request_header* property is now a [stixtype]#list# of type [stixtype]#string# in the examples, as expected from the description.
+* Observation Expression Qualifiers example fixed in <<_observation_expression_qualifiers>>.
+** the example used to illustrate the use of _Observation Expression_ [stixliteral]#WITHIN# _x_ [stixliteral]#SECONDS# now has the right [stixtype]#windows-registry-key# Observable type.
+* Updated Implementation Language Vocabulary in <<_implementation_language_vocabulary>>.
+** [stixliteral]#rust# value was added.
+* Updated Industry Sector Vocabulary in <<_industry_sector_vocabulary>>.
+** [stixliteral]#legal# value was added.
+* Fixed Infrastructure Type Vocabulary Summary in <<_infrastructure_type_vocabulary>>.
+** missing [stixliteral]#control-system#, [stixliteral]#firewall#, [stixliteral]#routers-switches# and [stixliteral]#workstation# values were added to the Summary as they were already described in the Vocabulary table.
+* Enhanced Malware Result Vocabulary in <<_malware_result_vocabulary>>.
+** descriptions for every vocabulary values were improved with more descriptive definitions.
+* Fixed Report Type Vocabulary in <<_report_type_vocabulary>>.
+** missing [stixliteral]#incident# value was added.
+* Updated Threat Actor Type Vocabulary in <<_threat_actor_type_vocabulary>>.
+** [stixliteral]#private-sector# value was added.
+* Fixed multiple Enumeration headers
+** Enumerations now have the right headers, to differenciate enumerations from vocabularies, including:
+*** *Enumeration Name* is now used instead of *Vocabulary Name*
+*** *Enumeration Summary* is now used instead of *Vocabulary Summary*
+*** *Enumeration Value* is now used instead of *Vocabulary Value*
+** These changes apply on:
+*** Encryption Algorithm Enumeration in <<_encryption_algorithm_enumeration>>
+*** Extension Type Enumeration in <<_extension_type_enumeration>>
+*** Network Socket Address Family Enumeration in <<_network_socket_address_family_enumeration>>
+*** Network Socket Type Enumeration in <<_network_socket_type_enumeration>>
+*** Opinion Enumeration <<_opinion_enumeration>>
+*** Windows™ Integrity Level Enumeration in <<_windows_integrity_level_enumeration>>
+*** Windows™ Registry Datatype Enumeration in <<_windows_registry_datatype_enumeration>>
+*** Windows™ Service Start Type Enumeration in <<_windows_service_start_type_enumeration>>
+*** Windows™ Service Type Enumeration in <<_windows_service_type_enumeration>>
+*** Windows™ Service Status Enumeration in <<_windows_service_status_enumeration>>
+* Relationship Summary Table has been update in <<_relationship_summary_table>>.
+** Duplicated relationship [stixliteral]#located-at# between [stixtype]#threat-actor# and [stixtype]#location# has been removed.
+** Misspelled relationship [stixliteral]#exfiltrates-to# between [stixtype]#malware# and [stixtype]#infrastructure# has been fixed.
+** Missing relationships have been added, including:
+*** [stixliteral]#remediates# between [stixtype]#course-of-action# and [stixtype]#malware#
+*** [stixliteral]#remediates# between [stixtype]#course-of-action# and [stixtype]#vulnerability#
+*** [stixliteral]#uses# between [stixtype]#tool# and [stixtype]#infrastructure#
+*** [stixliteral]#resolves-to# between [stixtype]#domain-name# and [stixtype]#domain-name#
+*** [stixliteral]#resolves-to# between [stixtype]#domain-name# and [stixtype]#ipv4-addr#
+*** [stixliteral]#resolves-to# between [stixtype]#domain-name# and [stixtype]#ipv6-addr#
+*** [stixliteral]#resolves-to# between [stixtype]#ipv4-addr# and [stixtype]#mac-addr#
+*** [stixliteral]#belongs-to# between [stixtype]#ipv6-addr# and [stixtype]#autonomous-system#
+*** [stixliteral]#resolves-to# between [stixtype]#ipv4-addr# and [stixtype]#mac-addr#
+*** [stixliteral]#belongs-to# between [stixtype]#ipv6-addr# and [stixtype]#autonomous-system#
+* Fixed typos in Extension Definition Additional Examples
+*** typos were fixed in titles for <<_adding_properties_to_an_existing_stix_object_instance>> and <<_adding_properties_to_an_existing_stix_relationship_object_instance>>.
+* Special characters were fixed in some participants names in <<_acknowledgments>>.
+* all SCO ids were updated in examples to agree with the `generate_id` method in _python-stix2_ library.
+* Improved references through the document.
+** missing references to sections were added at different places.
+** some references were fixed to point to the right section.
+** in the description of STIX object properties whose value is either a vocabulary or an enumeration, a reference poiting to the given vocabulary or enumeration was added.
 
 [template="glossary",id="terms"]
 === Glossary
