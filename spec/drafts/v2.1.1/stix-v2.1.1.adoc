@@ -9675,7 +9675,7 @@ a|
 --------------------------------------
 |===
 
-=== 9.2 Constants
+=== Constants
 
 The data types enumerated below are supported as operands within Comparison Expressions.
 This table is included here as a handy reference for implementers.
