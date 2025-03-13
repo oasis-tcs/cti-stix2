@@ -10615,7 +10615,7 @@ The specified mime-type tells you which format it is, e.g., Word Doc or GPG.
 This is intended for formats like Zip files and Word files which take a simple password, or GPG armored files that contain the key blob along with the file.
 |===
 
-=== Extension Types Enumeration
+=== Extension Type Enumeration
 
 *Enumeration Name:* [stixtype]#extension-type-enum#
 
