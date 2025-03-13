@@ -11427,7 +11427,7 @@ Actor types are not mutually exclusive: a threat actor can be both a disgruntled
 |===
 |[stixtr]*Vocabulary Summary*
 
-|[stixliteral]#activist#, [stixliteral]#competitor#, [stixliteral]#crime-syndicate#, [stixliteral]#criminal#, [stixliteral]#hacker#, [stixliteral]#insider-accidental#, [stixliteral]#insider-disgruntled#, [stixliteral]#nation-state#, [stixliteral]#sensationalist#, [stixliteral]#spy#, [stixliteral]#terrorist#, [stixliteral]#unknown#
+|[stixliteral]#activist#, [stixliteral]#competitor#, [stixliteral]#crime-syndicate#, [stixliteral]#criminal#, [stixliteral]#hacker#, [stixliteral]#insider-accidental#, [stixliteral]#insider-disgruntled#, [stixliteral]#nation-state#, [stixliteral]#private-sector#, [stixliteral]#sensationalist#, [stixliteral]#spy#, [stixliteral]#terrorist#, [stixliteral]#unknown#
 |===
 [width="100%",cols="26%,74%",]
 |===
