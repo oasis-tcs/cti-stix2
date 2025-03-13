@@ -73,12 +73,12 @@ When referencing this specification, the following citation format should be use
 
 *[STIX-v2.1.1]*
 
-_STIX Version 2.1.1_. Edited by Trey Darley, Bret Jordan, Rich Piazza, and Emily Ratliff. 18 January 2023. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.html. Latest stage: https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.html.
+_STIX Version 2.1.1_. Edited by Rich Piazza, Emily Ratliff, Stephan Relitz and Christian Studer. 13 March 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.html. Latest stage: https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.html.
 
 [discrete]
 == Notices
 
-Copyright © OASIS Open 2024. All Rights Reserved.
+Copyright © OASIS Open 2025. All Rights Reserved.
 
 Distributed under the terms of the OASIS IPR Policy, [https://www.oasis-open.org/policies-guidelines/ipr/].
 For complete copyright information please see the full Notices section in an Appendix below.
@@ -13889,14 +13889,14 @@ Github Issues: 325, 322, 319, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 
 |Christian Studer, Stephan Relitz, Emily Ratliff
 |Updated document based on the remaining GitHub issues.
 
-Github Issues: 278, 294, 299, 313, 315, 318
+Github Issues: 278, 294, 299, 313, 315, 318, 337
 
 |===
 
 [appendix]
 == Notices
 
-Copyright © OASIS Open 2023. All Rights Reserved.
+Copyright © OASIS Open 2025. All Rights Reserved.
 
 All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy").
 The full Policy may be found at the OASIS website: [https://www.oasis-open.org/policies-guidelines/ipr/].
