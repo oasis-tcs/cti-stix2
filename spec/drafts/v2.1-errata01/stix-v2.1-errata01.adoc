@@ -151,6 +151,7 @@ STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:
 *** typos were fixed in titles for _Section C.2.2 - Adding properties to an existing STIX object instance_ and _Section C.2.3 - Adding properties to an existing STIX relationship object instance_.
 * Special characters were fixed in some participants names in _Appendix F: Acknowledgments_.
 * All SCO ids were updated in examples to agree with the `generate_id` method in _python-stix2_ library.
+* Included all changes based on ITU recommandations.
 * Improved references through the document.
 ** missing references to sections were added at different places.
 ** some references were fixed to point to the right section.

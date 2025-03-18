@@ -338,6 +338,7 @@ STIX 2.1.1 differs from STIX 2.1 in the following ways:
 *** typos were fixed in titles for <<_adding_properties_to_an_existing_stix_object_instance>> and <<_adding_properties_to_an_existing_stix_relationship_object_instance>>.
 * Special characters were fixed in some participants names in <<_acknowledgments>>.
 * All SCO ids were updated in examples to agree with the `generate_id` method in _python-stix2_ library.
+* Included all changes based on ITU recommandations.
 * Improved references through the document.
 ** missing references to sections were added at different places.
 ** some references were fixed to point to the right section.
