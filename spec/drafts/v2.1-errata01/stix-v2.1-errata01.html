@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.23">
+<title></title>
+<style>
+/*Stylesheet for STIX specification derived from Asciidoctor default stylesheet */
+@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#446CAA;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#073763}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,00,.8);text-align:left}
+table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8)}
+table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#446CAA;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #073763}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#073763}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#073763; color:#FFFFFF}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+/* Custom styles for STIX */
+.stixtype{font-family:Consolas;color:#C7254E;background:#F9F2F4}
+.stixliteral{font-family:Consolas;color:#073763; background:#CFE2F3}
+.stixrelationship{font-family:Consolas;color:#073763;background:#CFE2F3}
+.stixtitle{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	color:#446CAA;
+	font-weight:bold;}
+.stixsubtitle{margin-top:0in;
+		margin-right:0in;
+		margin-bottom:12.0pt;
+		margin-left:0in;
+		line-height:115%;
+		page-break-after:avoid;
+		font-size:14.0pt;
+		font-family:"Arial",sans-serif;
+		color:#446CAA;
+		font-weight:bold;}
+.stixvocab{font-family:Consolas;color:#C7254E;background:#F9F2F4;text-decoration:underline;}
+.stixalt{font-family:Consolas;color:black;background:#EFEFEF}
+.stixtr{color:#FFFFFF}
+/*.stixreq{color:#F4CCCC}*/
+.stixreq{color:#bf0000}
+/*.stixopt{color:#FFF2CC}*/
+.stixopt{color:#446CAA}
+/*.stixna{color:#D9D9D9}*/
+.stixna{color:#909090}
+
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1><span class="image"><img src="images/oasis-logo.png" alt="OASIS logo" width="306" height="63"></span></h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<h2 id="_stix_version_2_1_errata_01" class="discrete"><span class="stixtitle">STIX Version 2.1 Errata 01</span></h2>
+<h3 id="_committee_specification_draft_01" class="discrete"><span class="stixsubtitle">Committee Specification Draft 01</span></h3>
+<h3 id="_02_april_2025" class="discrete"><span class="stixsubtitle">02 April 2025</span></h3>
+<div class="paragraph">
+<p><strong>This stage:</strong><br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-csd01.docx" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-csd01.docx</a> (Authoritative)<br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-csd01.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-csd01.html</a><br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-csd01.pdf" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-csd01.pdf</a><br>
+<strong>Previous stage:</strong><br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.docx" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.docx</a> (Authoritative)<br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html</a><br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.pdf" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.pdf</a><br>
+<strong>Latest stage:</strong><br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx</a> (Authoritative)<br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html</a><br>
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf</a><br></p>
+</div>
+<div class="paragraph">
+<p><strong>Technical Committee:</strong><br>
+<a href="https://www.oasis-open.org/committees/cti/">OASIS Cyber Threat Intelligence (CTI) TC</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Chairs:</strong><br>
+Marlon Taylor (<a href="mailto:marlon.taylor@cisa.dhs.gov">marlon.taylor@cisa.dhs.gov</a>), <a href="http://www.cisa.gov/">DHS Office of Cybersecurity and Communications</a><br>
+Alexandre Dulaunoy (<a href="mailto:alexandre.dulaunoy@x.circl.lu">alexandre.dulaunoy@x.circl.lu</a>), <a href="https://www.circl.lu/">CIRCL</a></p>
+</div>
+<div class="paragraph">
+<p><strong>Editors:</strong><br>
+Rich Piazza (<a href="mailto:rpiazza@mitre.org">rpiazza@mitre.org</a>), <a href="http://www.mitre.org/">MITRE Corporation</a><br>
+Emily Ratliff (<a href="mailto:rpiazza@mitre.org">emily.ratliff@ibm.com</a>), <a href="http://www.ibm.com/">IBM</a><br>
+Stephan Relitz (<a href="mailto:stephan.relitz@peraton.com">stephan.relitz@peraton.com</a>), <a href="https://www.peraton.com/">Peraton</a><br>
+Christian Studer (<a href="mailto:christian.studer@circl.lu">christian.studer@circl.lu</a>), <a href="https://www.circl.lu/">CIRCL</a></p>
+</div>
+<div class="paragraph">
+<p><a id="RelatedWork"></a>
+<strong>Related work:</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>STIX Version 2.1.</em> Edited by Bret Jordan, Rich Piazza, and Trey Darley. Latest stage: <a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This specification is related to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>TAXII Version 2.1.</em> Edited by Bret Jordan and Drew Varner. Latest stage: <a href="https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html">https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html</a>.</p>
+</li>
+<li>
+<p><em>STIX/TAXII 2.0 Interoperability Test Document: Part 1 Version 1.1.</em> Edited by Allan Thomson and Jason Keirstead. Latest stage: <a href="https://docs.oasis-open.org/cti/stix-taxii-2-interop-p1/v1.1/stix-taxii-2-interop-p1-v1.1.html">https://docs.oasis-open.org/cti/stix-taxii-2-interop-p1/v1.1/stix-taxii-2-interop-p1-v1.1.html</a>.</p>
+</li>
+<li>
+<p><em>STIX/TAXII 2.0 Interoperability Test Document: Part 2 Version 1.0.</em> Edited by Allan Thomson and Jason Keirstead. Latest stage: <a href="https://docs.oasis-open.org/cti/stix-taxii-2-interop-p2/v1.0/stix-taxii-2-interop-p2-v1.0.html">https://docs.oasis-open.org/cti/stix-taxii-2-interop-p2/v1.0/stix-taxii-2-interop-p2-v1.0.html</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Abstract:</strong><br>
+This document provides Errata for the OASIS Standard STIX Version 2.1. It corrects non-material issues identified or reported by participants to the TC, listed in the Github issues system, and discussed during CTI TC working call sessions.</p>
+</div>
+<div class="paragraph">
+<p><strong>Status:</strong><br>
+This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti#technical</a>.</p>
+</div>
+<div class="paragraph">
+<p>TC members should send comments on this document to the TC&#8217;s email list. Others should send comments to the TC&#8217;s public comment list, after subscribing to it by following the instructions at the "<a href="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=cti">Send A Comment</a>" button on the TC&#8217;s web page at <a href="https://www.oasis-open.org/committees/cti/">https://www.oasis-open.org/committees/cti/</a>.</p>
+</div>
+<div class="paragraph">
+<p>This specification is provided under the <a href="https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode">Non-Assertion</a> Mode of the <a href="https://www.oasis-open.org/policies-guidelines/ipr/">OASIS IPR Policy</a>, the mode chosen when the Technical Committee was established. For information on whether any patents have been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC&#8217;s web page (<a href="https://www.oasis-open.org/committees/cti/ipr.php">https://www.oasis-open.org/committees/cti/ipr.php</a>).</p>
+</div>
+<div class="paragraph">
+<p>Note that any machine-readable content (<a href="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26#wpComponentsCompLang">Computer Language Definitions</a>) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content in the Work Product&#8217;s prose narrative document(s), the content in the separate plain text file prevails.</p>
+</div>
+<div class="paragraph">
+<p><strong>Citation format:</strong><br>
+When referencing this specification, the following citation format should be used:</p>
+</div>
+<div class="paragraph">
+<p><strong>[STIX-v2.1-errata01]</strong></p>
+</div>
+<div class="paragraph">
+<p><em>STIX Version 2.1 Errata 01</em>. Edited by Rich Piazza, Emily Ratliff, Stephan Relitz and Christian Studer. 14 March 2025. OASIS Committee Specification Draft 01. <a href="https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.html</a>. Latest stage: <a href="https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.html</a>.</p>
+</div>
+<h2 id="_notices" class="discrete">Notices</h2>
+<div class="paragraph">
+<p>Copyright © OASIS Open 2025. All Rights Reserved.</p>
+</div>
+<div class="paragraph">
+<p>Distributed under the terms of the OASIS IPR Policy, [<a href="https://www.oasis-open.org/policies-guidelines/ipr/" class="bare">https://www.oasis-open.org/policies-guidelines/ipr/</a>].
+For complete copyright information please see the full Notices section in an Appendix below.</p>
+</div>
+<div style="page-break-after: always;"></div>
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_scope_of_changes">1.1. Scope of changes</a></li>
+<li><a href="#_description_of_changes">1.2. Description of changes</a></li>
+</ul>
+</li>
+<li><a href="#_conformance">2. Conformance</a></li>
+<li><a href="#_normative_references">Appendix A: Normative References</a></li>
+<li><a href="#_acknowledgments">Appendix B: Acknowledgments</a></li>
+<li><a href="#_notices_2">Appendix C: Notices</a></li>
+</ul>
+</div>
+<div style="page-break-after: always;"></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document lists all the corrections made to STIX Version 2.1.</p>
+</div>
+<div class="sect2">
+<h3 id="_scope_of_changes">1.1. Scope of changes</h3>
+<div class="paragraph">
+<p>Non-material corrections have been made to the STIX 2.1 specification to address issues identified or reported by participants to the TC, listed in the Github issues system, and discussed during CTI TC working call sessions. Changes provide additional or missing vocabulary values, fix typos, improve descriptions, correct examples or</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_description_of_changes">1.2. Description of changes</h3>
+<div class="paragraph">
+<p>STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated Malware Embedded Relationships table with missing property in <em>Section 4.11.2 - Malware Relationships</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>operating_system_refs</strong> is no longer missing in the table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Malware Analysis Relationships table fixed with the right relationship type between Malware Analysis and Malware in <em>Section 4.12.2 - Malware Analysis Relationships</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p>wrong <span class="stixliteral">analysis-of</span> is replaced with the right <span class="stixliteral">av-analysis-of</span> relationship type.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Property descriptions fixed in <em>Section 6.6.1 - Email Message Object Properties</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>from_ref</strong>, <strong>sender_ref</strong>, <strong>to_refs</strong>, <strong>cc_refs</strong> and <strong>bcc_refs</strong> properties descriptions now mention the right <span class="stixtype">email-addr</span> type they are referencing.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Examples fixed in <em>Section 6.12.2.1 - HTTP Request Extension Properties</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the <strong>request_header</strong> property is now a <span class="stixtype">list</span> of type <span class="stixtype">string</span> in the examples, as expected from the description.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Example fixed in <em>Section 9.5.1 - Observation Expression Qualifiers</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the example used to illustrate the use of <em>Observation Expression</em> <span class="stixliteral">WITHIN</span> <em>x</em> <span class="stixliteral">SECONDS</span> now has the right <span class="stixtype">windows-registry-key</span> Observable type.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated <em>Section 10.9 - Implementation Language Vocabulary</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="stixliteral">rust</span> value was added.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated <em>Section 10.11 - Industry Sector Vocabulary</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="stixliteral">legal</span> value was added.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fixed summary in <em>Section 10.12 - Infrastructure Type Vocabulary</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>missing <span class="stixliteral">control-system</span>, <span class="stixliteral">firewall</span>, <span class="stixliteral">routers-switches</span> and <span class="stixliteral">workstation</span> values were added to the Summary as they were already described in the Vocabulary table.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhanced descriptions in <em>Section 10.13 - Malware Result Vocabulary</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>descriptions for every vocabulary values were improved with more descriptive definitions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fixed missing value in <em>Section 10.22 - Report Type Vocabulary</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="stixliteral">incident</span> value was added.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated <em>Section 10.23 - Threat Actor Type Vocabulary</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="stixliteral">private-sector</span> value was added.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fixed multiple Enumeration headers</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enumerations now have the right headers, to differenciate enumerations from vocabularies, including:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Enumeration Name</strong> is now used instead of <strong>Vocabulary Name</strong></p>
+</li>
+<li>
+<p><strong>Enumeration Summary</strong> is now used instead of <strong>Vocabulary Summary</strong></p>
+</li>
+<li>
+<p><strong>Enumeration Value</strong> is now used instead of <strong>Vocabulary Value</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>These changes apply on:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Section 10.4 - Encryption Algorithm Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.5 - Extension Type Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.16 - Network Socket Address Family Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.17 - Network Socket Type Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.18 - Opinion Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.27 - Windows™ Integrity Level Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.29 - Windows™ Registry Datatype Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.30 - Windows™ Service Start Type Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.31 - Windows™ Service Type Enumeration</em></p>
+</li>
+<li>
+<p><em>Section 10.32 - Windows™ Service Status Enumeration</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated <em>Appendix B: Relationship Summary Table</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Duplicated relationship <span class="stixliteral">located-at</span> between <span class="stixtype">threat-actor</span> and <span class="stixtype">location</span> has been removed.</p>
+</li>
+<li>
+<p>Misspelled relationship <span class="stixliteral">exfiltrates-to</span> between <span class="stixtype">malware</span> and <span class="stixtype">infrastructure</span> has been fixed.</p>
+</li>
+<li>
+<p>Missing relationships have been added, including:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="stixliteral">remediates</span> between <span class="stixtype">course-of-action</span> and <span class="stixtype">malware</span></p>
+</li>
+<li>
+<p><span class="stixliteral">remediates</span> between <span class="stixtype">course-of-action</span> and <span class="stixtype">vulnerability</span></p>
+</li>
+<li>
+<p><span class="stixliteral">uses</span> between <span class="stixtype">tool</span> and <span class="stixtype">infrastructure</span></p>
+</li>
+<li>
+<p><span class="stixliteral">resolves-to</span> between <span class="stixtype">domain-name</span> and <span class="stixtype">domain-name</span></p>
+</li>
+<li>
+<p><span class="stixliteral">resolves-to</span> between <span class="stixtype">domain-name</span> and <span class="stixtype">ipv4-addr</span></p>
+</li>
+<li>
+<p><span class="stixliteral">resolves-to</span> between <span class="stixtype">domain-name</span> and <span class="stixtype">ipv6-addr</span></p>
+</li>
+<li>
+<p><span class="stixliteral">resolves-to</span> between <span class="stixtype">ipv4-addr</span> and <span class="stixtype">mac-addr</span></p>
+</li>
+<li>
+<p><span class="stixliteral">belongs-to</span> between <span class="stixtype">ipv6-addr</span> and <span class="stixtype">autonomous-system</span></p>
+</li>
+<li>
+<p><span class="stixliteral">resolves-to</span> between <span class="stixtype">ipv4-addr</span> and <span class="stixtype">mac-addr</span></p>
+</li>
+<li>
+<p><span class="stixliteral">belongs-to</span> between <span class="stixtype">ipv6-addr</span> and <span class="stixtype">autonomous-system</span></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Fixed typos in Extension Definition Additional Examples</p>
+<div class="ulist">
+<ul>
+<li>
+<p>typos were fixed in titles for <em>Section C.2.2 - Adding properties to an existing STIX object instance</em> and <em>Section C.2.3 - Adding properties to an existing STIX relationship object instance</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Special characters were fixed in some participants names in <em>Appendix F: Acknowledgments</em>.</p>
+</li>
+<li>
+<p>All SCO ids were updated in examples to agree with the <code>generate_id</code> method in <em>python-stix2</em> library.</p>
+</li>
+<li>
+<p>Included all changes based on ITU recommandations.</p>
+</li>
+<li>
+<p>Improved references through the document.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>missing references to sections were added at different places.</p>
+</li>
+<li>
+<p>some references were fixed to point to the right section.</p>
+</li>
+<li>
+<p>in the description of STIX object properties whose value is either a vocabulary or an enumeration, a reference poiting to the given vocabulary or enumeration was added.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conformance">2. Conformance</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The conformance requirements stated in the OASIS Standard STIX Version 2.1 [STIX-v2.1] are not changed in any way by the publication of this Errata document.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_normative_references">Appendix A: Normative References</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following documents are referenced in such a way that some or all of their content constitutes requirements of this document.</p>
+</div>
+<div class="paragraph">
+<p><strong>[STIX-v2.1]</strong></p>
+</div>
+<div class="paragraph">
+<p>STIX Version 2.1. Edited by Bret Jordan, Rich Piazza, and Trey Darley. 10 June 2021. OASIS Standard. <a href="https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html</a>. Latest stage: <a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html" class="bare">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_acknowledgments">Appendix B: Acknowledgments</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>STIX Subcommittee Chairs:</strong></p>
+</div>
+<div class="paragraph">
+<p>Christian Studer, CIRCL</p>
+</div>
+<div class="paragraph">
+<p>Stephan Relitz, Peraton</p>
+</div>
+<div class="paragraph">
+<p><strong>Participants:</strong></p>
+</div>
+<div class="paragraph">
+<p>The following individuals were members of the OASIS CTI Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:</p>
+</div>
+<div class="paragraph">
+<p>Kai Li, 360 Enterprise Security Group</p>
+</div>
+<div class="paragraph">
+<p>shu li, 360 Enterprise Security Group</p>
+</div>
+<div class="paragraph">
+<p>qian yin, 360 Enterprise Security Group</p>
+</div>
+<div class="paragraph">
+<p>Xinhua Zheng, 360 Enterprise Security Group</p>
+</div>
+<div class="paragraph">
+<p>Robert Coderre, Accenture</p>
+</div>
+<div class="paragraph">
+<p>Kyle Maxwell, Accenture</p>
+</div>
+<div class="paragraph">
+<p>David Crawford, Aetna</p>
+</div>
+<div class="paragraph">
+<p>Marcos Orallo, Airbus Group SAS</p>
+</div>
+<div class="paragraph">
+<p>Roman Fiedler, AIT Austrian Institute of Technology</p>
+</div>
+<div class="paragraph">
+<p>Florian Skopik, AIT Austrian Institute of Technology</p>
+</div>
+<div class="paragraph">
+<p>Ryan Clough, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Nicholas Hayden, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Wei Huang, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Russell Matbouli, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Angela Nichols, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Hugh Njemanze, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Katie Pelusi, Anomali</p>
+</div>
+<div class="paragraph">
+<p>Patrick Maroney, AT&amp;T</p>
+</div>
+<div class="paragraph">
+<p>Dean Thompson, Australia and New Zealand Banking Group (ANZ Bank)</p>
+</div>
+<div class="paragraph">
+<p>Radu Marian, Bank of America</p>
+</div>
+<div class="paragraph">
+<p>Sounil Yu, Bank of America</p>
+</div>
+<div class="paragraph">
+<p>Vicky Laurens, Bank of Montreal</p>
+</div>
+<div class="paragraph">
+<p>Bret Jordan, Broadcom</p>
+</div>
+<div class="paragraph">
+<p>Trey Darley, CCB/CERT.be</p>
+</div>
+<div class="paragraph">
+<p>Alexandre Dulaunoy, CIRCL</p>
+</div>
+<div class="paragraph">
+<p>Andras Iklody, CIRCL</p>
+</div>
+<div class="paragraph">
+<p>Christian Studer, CIRCL</p>
+</div>
+<div class="paragraph">
+<p>Raphaël Vinot, CIRCL</p>
+</div>
+<div class="paragraph">
+<p>Syam Appala, Cisco Systems</p>
+</div>
+<div class="paragraph">
+<p>Ted Bedwell, Cisco Systems</p>
+</div>
+<div class="paragraph">
+<p>Pavan Reddy, Cisco Systems</p>
+</div>
+<div class="paragraph">
+<p>Omar Santos, Cisco Systems</p>
+</div>
+<div class="paragraph">
+<p>Sam Taghavi Zargar, Cisco Systems</p>
+</div>
+<div class="paragraph">
+<p>Jyoti Verma, Cisco Systems</p>
+</div>
+<div class="paragraph">
+<p>Jart Armin, Cyber Threat Intelligence Network, Inc. (CTIN)</p>
+</div>
+<div class="paragraph">
+<p>Doug DePeppe, Cyber Threat Intelligence Network, Inc. (CTIN)</p>
+</div>
+<div class="paragraph">
+<p>Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)</p>
+</div>
+<div class="paragraph">
+<p>Ben Ottoman, Cyber Threat Intelligence Network, Inc. (CTIN)</p>
+</div>
+<div class="paragraph">
+<p>David Powell, Cyber Threat Intelligence Network, Inc. (CTIN)</p>
+</div>
+<div class="paragraph">
+<p>Andreas Sfakianakis, Cyber Threat Intelligence Network, Inc. (CTIN)</p>
+</div>
+<div class="paragraph">
+<p>Anuj Goel, Cyware Labs</p>
+</div>
+<div class="paragraph">
+<p>Avkash Kathiriya, Cyware Labs</p>
+</div>
+<div class="paragraph">
+<p>Jaeden Hampton, DarkLight, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Ryan Hohimer, DarkLight, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Ryan Joyce, DarkLight, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Shawn Riley, DarkLight, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Ian Roberts, DarkLight, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Andrew Byrne, Dell</p>
+</div>
+<div class="paragraph">
+<p>Jeff Odom, Dell</p>
+</div>
+<div class="paragraph">
+<p>Sreejith Padmajadevi, Dell</p>
+</div>
+<div class="paragraph">
+<p>Ravi Sharda, Dell</p>
+</div>
+<div class="paragraph">
+<p>Will Urbanski, Dell</p>
+</div>
+<div class="paragraph">
+<p>David Ailshire, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Steven Fox, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Taneika Hill, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Evette Maynard-Noel, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Jackie Eun Park, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Sean Sobieraj, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Marlon Taylor, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Preston Werntz, DHS Office of Cybersecurity and Communications (CS&amp;C)</p>
+</div>
+<div class="paragraph">
+<p>Jörg Abraham, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>wouter bolsterlee, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Adam Bradbury, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Marko Dragoljevic, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Oliver Gheorghe, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Joep Gommers, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Caitlin Huey, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Christopher O&#8217;Brien, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Sergey Polzunov, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Rutger Prins, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Aukjan van Belkum, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Raymon van der Velde, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Tom Vaughan, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Joseph Woodruff, EclecticIQ</p>
+</div>
+<div class="paragraph">
+<p>Ben Sooter, Electric Power Research Institute (EPRI)</p>
+</div>
+<div class="paragraph">
+<p>Chris Ricard, Financial Services Information Sharing and Analysis Center (FS-ISAC)</p>
+</div>
+<div class="paragraph">
+<p>Sean Barnum, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Phillip Boles, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Prasad Gaikwad, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Haripriya Gajendran, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Will Green, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Rajeev Jha, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Gary Katz, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Anuj Kumar, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>James Meck, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Shyamal Pandya, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Paul Patrick, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Remko Weterings, FireEye, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Tim Jones, ForeScout</p>
+</div>
+<div class="paragraph">
+<p>Ryusuke Masuoka, Fujitsu Limited</p>
+</div>
+<div class="paragraph">
+<p>Daisuke Murabayashi, Fujitsu Limited</p>
+</div>
+<div class="paragraph">
+<p>Derek Northrope, Fujitsu Limited</p>
+</div>
+<div class="paragraph">
+<p>Toshitaka Satomi, Fujitsu Limited</p>
+</div>
+<div class="paragraph">
+<p>Koji Yamada, Fujitsu Limited</p>
+</div>
+<div class="paragraph">
+<p>Kunihiko Yoshimura, Fujitsu Limited</p>
+</div>
+<div class="paragraph">
+<p>Robert van Engelen, Genivia</p>
+</div>
+<div class="paragraph">
+<p>Eric Burger, Georgetown University</p>
+</div>
+<div class="paragraph">
+<p>Allison Miller, Google Inc.</p>
+</div>
+<div class="paragraph">
+<p>Mark Risher, Google Inc.</p>
+</div>
+<div class="paragraph">
+<p>Yoshihide Kawada, Hitachi, Ltd.</p>
+</div>
+<div class="paragraph">
+<p>Jun Nakanishi, Hitachi, Ltd.</p>
+</div>
+<div class="paragraph">
+<p>Kazuo Noguchi, Hitachi, Ltd.</p>
+</div>
+<div class="paragraph">
+<p>Akihito Sawada, Hitachi, Ltd.</p>
+</div>
+<div class="paragraph">
+<p>Yutaka Takami, Hitachi, Ltd.</p>
+</div>
+<div class="paragraph">
+<p>Masato Terada, Hitachi, Ltd.</p>
+</div>
+<div class="paragraph">
+<p>Adrian Bishop, Huntsman Security</p>
+</div>
+<div class="paragraph">
+<p>Eldan Ben-Haim, IBM</p>
+</div>
+<div class="paragraph">
+<p>Allen Hadden, IBM</p>
+</div>
+<div class="paragraph">
+<p>Sandra Hernandez, IBM</p>
+</div>
+<div class="paragraph">
+<p>Jason Keirstead, IBM</p>
+</div>
+<div class="paragraph">
+<p>Chenta Lee, IBM</p>
+</div>
+<div class="paragraph">
+<p>John Morris, IBM</p>
+</div>
+<div class="paragraph">
+<p>Devesh Parekh, IBM</p>
+</div>
+<div class="paragraph">
+<p>Emily Ratliff, IBM</p>
+</div>
+<div class="paragraph">
+<p>Nick Rossmann, IBM</p>
+</div>
+<div class="paragraph">
+<p>Laura Rusu, IBM</p>
+</div>
+<div class="paragraph">
+<p>Ron Williams, IBM</p>
+</div>
+<div class="paragraph">
+<p>Paul Martini, iboss, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Vasileios Mavroeidis, IFI</p>
+</div>
+<div class="paragraph">
+<p>Kamer Vishi, IFI</p>
+</div>
+<div class="paragraph">
+<p>Joerg Eschweiler, Individual</p>
+</div>
+<div class="paragraph">
+<p>Elysa Jones, Individual</p>
+</div>
+<div class="paragraph">
+<p>Terry MacDonald, Individual</p>
+</div>
+<div class="paragraph">
+<p>Tim Casey, Intel Corporation</p>
+</div>
+<div class="paragraph">
+<p>Julie Modlin, Johns Hopkins University Applied Physics Laboratory</p>
+</div>
+<div class="paragraph">
+<p>Mark Moss, Johns Hopkins University Applied Physics Laboratory</p>
+</div>
+<div class="paragraph">
+<p>Mark Munoz, Johns Hopkins University Applied Physics Laboratory</p>
+</div>
+<div class="paragraph">
+<p>Nathan Reller, Johns Hopkins University Applied Physics Laboratory</p>
+</div>
+<div class="paragraph">
+<p>Pamela Smith, Johns Hopkins University Applied Physics Laboratory</p>
+</div>
+<div class="paragraph">
+<p>Vivek Jain, JPMorgan Chase Bank, N.A.</p>
+</div>
+<div class="paragraph">
+<p>Subodh Kumar, JPMorgan Chase Bank, N.A.</p>
+</div>
+<div class="paragraph">
+<p>David Laurance, JPMorgan Chase Bank, N.A.</p>
+</div>
+<div class="paragraph">
+<p>Russell Culpepper, Kaiser Permanente</p>
+</div>
+<div class="paragraph">
+<p>Beth Pumo, Kaiser Permanente</p>
+</div>
+<div class="paragraph">
+<p>Michael Slavick, Kaiser Permanente</p>
+</div>
+<div class="paragraph">
+<p>Daniel Ben-Chitrit, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Wesley Brown, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Dennis Hostetler, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Himanshu Kesar, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Matt Pladna, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Vlad Serban, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Allan Thomson, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Chris Wood, LookingGlass</p>
+</div>
+<div class="paragraph">
+<p>Kent Landfield, McAfee</p>
+</div>
+<div class="paragraph">
+<p>Jonathan Baker, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Desiree Beck, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Michael Chisholm, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Sam Cornwell, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Sarah Kelley, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Ivan Kirillov, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Michael Kouremetis, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Chris Lenk, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Nicole Parrish, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Richard Piazza, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Larry Rodrigues, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Jon Salwen, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Charles Schmidt, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Richard Struse, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Alex Tweed, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>Emmanuelle Vargas-Gonzalez, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>John Wunder, Mitre Corporation</p>
+</div>
+<div class="paragraph">
+<p>James Cabral, MTG Management Consultants, LLC.</p>
+</div>
+<div class="paragraph">
+<p>Scott Algeier, National Council of ISACs (NCI)</p>
+</div>
+<div class="paragraph">
+<p>Denise Anderson, National Council of ISACs (NCI)</p>
+</div>
+<div class="paragraph">
+<p>Josh Poster, National Council of ISACs (NCI)</p>
+</div>
+<div class="paragraph">
+<p>Mike Boyle, National Security Agency</p>
+</div>
+<div class="paragraph">
+<p>Jessica Fitzgerald-McKay, National Security Agency</p>
+</div>
+<div class="paragraph">
+<p>David Kemp, National Security Agency</p>
+</div>
+<div class="paragraph">
+<p>Shaun McCullough, National Security Agency</p>
+</div>
+<div class="paragraph">
+<p>Jason Romano, National Security Agency</p>
+</div>
+<div class="paragraph">
+<p>John Anderson, NC4</p>
+</div>
+<div class="paragraph">
+<p>Michael Butt, NC4</p>
+</div>
+<div class="paragraph">
+<p>Mark Davidson, NC4</p>
+</div>
+<div class="paragraph">
+<p>Daniel Dye, NC4</p>
+</div>
+<div class="paragraph">
+<p>Michael Pepin, NC4</p>
+</div>
+<div class="paragraph">
+<p>Natalie Suarez, NC4</p>
+</div>
+<div class="paragraph">
+<p>Benjamin Yates, NC4</p>
+</div>
+<div class="paragraph">
+<p>Sarah Brown, NCI Agency</p>
+</div>
+<div class="paragraph">
+<p>Oscar Serrano, NCI Agency</p>
+</div>
+<div class="paragraph">
+<p>Daichi Hasumi, NEC Corporation</p>
+</div>
+<div class="paragraph">
+<p>Takahiro Kakumaru, NEC Corporation</p>
+</div>
+<div class="paragraph">
+<p>Lauri Korts-Parn, NEC Corporation</p>
+</div>
+<div class="paragraph">
+<p>Kelly Cullinane, New Context Services, Inc.</p>
+</div>
+<div class="paragraph">
+<p>John-Mark Gurney, New Context Services, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Christian Hunt, New Context Services, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Danny Purcell, New Context Services, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Daniel Riedel, New Context Services, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Andrew Storms, New Context Services, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Drew Varner, NineFX, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Stephen Banghart, NIST</p>
+</div>
+<div class="paragraph">
+<p>David Darnell, North American Energy Standards Board</p>
+</div>
+<div class="paragraph">
+<p>James Crossland, Northrop Grumman</p>
+</div>
+<div class="paragraph">
+<p>Robert Van Dyk, Northrop Grumman</p>
+</div>
+<div class="paragraph">
+<p>Cheolho Lee, NSRI</p>
+</div>
+<div class="paragraph">
+<p>Cory Casanave, Object Management Group</p>
+</div>
+<div class="paragraph">
+<p>Joel Myhre, Pacific Disaster Center</p>
+</div>
+<div class="paragraph">
+<p>Vishaal Hariprasad, Palo Alto Networks</p>
+</div>
+<div class="paragraph">
+<p>Stephan Relitz, Peraton</p>
+</div>
+<div class="paragraph">
+<p>Brad Bohen, Perch</p>
+</div>
+<div class="paragraph">
+<p>Aharon Chernin, Perch</p>
+</div>
+<div class="paragraph">
+<p>Zach Kanzler, Perch</p>
+</div>
+<div class="paragraph">
+<p>Michael Lane, Perch</p>
+</div>
+<div class="paragraph">
+<p>Michael Riggs, Perch</p>
+</div>
+<div class="paragraph">
+<p>Sean O&#8217;Brien, Purism SPC</p>
+</div>
+<div class="paragraph">
+<p>John Tolbert, Queralt Inc.</p>
+</div>
+<div class="paragraph">
+<p>Forrest Hare, Science Application International</p>
+</div>
+<div class="paragraph">
+<p>Duncan Sparrell, sFractal Consulting LLC</p>
+</div>
+<div class="paragraph">
+<p>Thomas Schreck, Siemens AG</p>
+</div>
+<div class="paragraph">
+<p>Adam Wyner, Swansea University</p>
+</div>
+<div class="paragraph">
+<p>Bret Jordan, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Robert Keith, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Curtis Kostrosky, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Chris Larsen, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Michael Mauch, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Aubrey Merchant, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Efrain Ortiz, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Mingliang Pei, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Kenneth Schneider, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Arnaud Taddei, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Brian Witten, Symantec Corp.</p>
+</div>
+<div class="paragraph">
+<p>Greg Reaume, TELUS</p>
+</div>
+<div class="paragraph">
+<p>Alan Steer, TELUS</p>
+</div>
+<div class="paragraph">
+<p>Crystal Hayes, The Boeing Company</p>
+</div>
+<div class="paragraph">
+<p>Andrew Gidwani, ThreatConnect, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Cole Iliff, ThreatConnect, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Andrew Pendergast, ThreatConnect, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Jason Spies, ThreatConnect, Inc.</p>
+</div>
+<div class="paragraph">
+<p>Ryan Trost, ThreatQuotient, Inc.</p>
+</div>
+<div class="paragraph">
+<p>David Girard, Trend Micro</p>
+</div>
+<div class="paragraph">
+<p>Brandon Niemczyk, Trend Micro</p>
+</div>
+<div class="paragraph">
+<p>Eric Shulze, Trend Micro</p>
+</div>
+<div class="paragraph">
+<p>Patrick Coughlin, TruSTAR Technology</p>
+</div>
+<div class="paragraph">
+<p>Chris Roblee, TruSTAR Technology</p>
+</div>
+<div class="paragraph">
+<p>ADHAM ALBAKRI, University of Kent</p>
+</div>
+<div class="paragraph">
+<p>Jeffrey Mates, US Department of Defense (DoD)</p>
+</div>
+<div class="paragraph">
+<p>Evette Maynard-Noel, US Department of Homeland Security</p>
+</div>
+<div class="paragraph">
+<p>Lee Chieffalo, Viasat</p>
+</div>
+<div class="paragraph">
+<p>Wilson Figueroa, Viasat</p>
+</div>
+<div class="paragraph">
+<p>Andrew May, Viasat</p>
+</div>
+<div class="paragraph">
+<p>Ales Cernivec, XLAB</p>
+</div>
+<div class="paragraph">
+<p>Anthony Rutkowski, Yanna Technologies LLC</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notices_2">Appendix C: Notices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Copyright © OASIS Open 2025. All Rights Reserved.</p>
+</div>
+<div class="paragraph">
+<p>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy").
+The full Policy may be found at the OASIS website: [<a href="https://www.oasis-open.org/policies-guidelines/ipr/" class="bare">https://www.oasis-open.org/policies-guidelines/ipr/</a>].</p>
+</div>
+<div class="paragraph">
+<p>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are included on all such copies and derivative works.
+However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</p>
+</div>
+<div class="paragraph">
+<p>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</p>
+</div>
+<div class="paragraph">
+<p>This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</p>
+</div>
+<div class="paragraph">
+<p>As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply to OASIS Standards Final Deliverable documents (Committee Specifications, OASIS Standards, or Approved Errata).</p>
+</div>
+<div class="paragraph">
+<p>[OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable, to notify OASIS TC Administrator and provide an indication of its willingness to grant patent licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this deliverable.]</p>
+</div>
+<div class="paragraph">
+<p>[OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this OASIS Standards Final Deliverable. OASIS may include such claims on its website, but disclaims any obligation to do so.]</p>
+</div>
+<div class="paragraph">
+<p>[OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.]</p>
+</div>
+<div class="paragraph">
+<p>The name "OASIS" is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs.
+OASIS welcomes reference to, and implementation and use of, documents, while reserving the right to enforce its marks against misleading uses.
+Please see <a href="https://www.oasis-open.org/policies-guidelines/trademark/" class="bare">https://www.oasis-open.org/policies-guidelines/trademark/</a> for above guidance.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2025-06-30 11:23:39 +0200
+</div>
+</div>
+</body>
+</html>

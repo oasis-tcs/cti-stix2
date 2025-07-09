@@ -9,24 +9,26 @@
 :sectnums!:
 
 [discrete]
-== [stixtitle]#STIX Version 2.1.1#
+== [stixtitle]#STIX Version 2.1 Errata 01#
 
 [discrete]
-=== [stixsubtitle]#Committee Specification Draft 01#
+=== [stixsubtitle]#Committee Specification 01#
 
 [discrete]
-=== [stixsubtitle]#29 March 2024#
+=== [stixsubtitle]#02 April 2025#
 
 *This stage:* +
-https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.docx (Authoritative) +
-https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.html +
-https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.pdf +
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx (Authoritative) +
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html +
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf +
 *Previous stage:* +
-N/A +
+https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.docx (Authoritative) +
+https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html +
+https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.pdf +
 *Latest stage:* +
-https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.docx (Authoritative) +
-https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.html +
-https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.pdf
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx (Authoritative) +
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html +
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf +
 
 *Technical Committee:* +
 https://www.oasis-open.org/committees/cti/[OASIS Cyber Threat Intelligence (CTI) TC]
@@ -71,9 +73,9 @@ The key words "*MUST*", "*MUST NOT*", "*REQUIRED*", "*SHALL*", "*SHALL NOT*", "*
 *Citation format:* +
 When referencing this specification, the following citation format should be used:
 
-*[STIX-v2.1.1]*
+*[STIX-v2.1-errata01]*
 
-_STIX Version 2.1.1_. Edited by Rich Piazza, Emily Ratliff, Stephan Relitz and Christian Studer. 13 March 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/cti/stix/v2.1.1/csd01/stix-v2.1.1-csd01.html. Latest stage: https://docs.oasis-open.org/cti/stix/v2.1.1/stix-v2.1.1.html.
+_STIX Version 2.1 Errata 01_. Edited by Rich Piazza, Emily Ratliff, Stephan Relitz and Christian Studer. 02 April 2025. OASIS Committee Specification Draft 01. https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html. Latest stage: https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html.
 
 [discrete]
 == Notices
@@ -278,9 +280,9 @@ This specification is the normative description of STIX 2.1.
 
 This section lists all of the changes from the previous 2.1 version of STIX.
 
-==== STIX 2.1.1 Changes from earlier versions
+==== STIX 2.1 Errata 01 Changes from earlier versions
 
-STIX 2.1.1 differs from STIX 2.1 in the following ways:
+STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:
 
 * Updated Malware Embedded Relationships table with missing property in <<_relationships_11>>.
 ** *operating_system_refs* is no longer missing in the table.
@@ -338,6 +340,7 @@ STIX 2.1.1 differs from STIX 2.1 in the following ways:
 *** typos were fixed in titles for <<_adding_properties_to_an_existing_stix_object_instance>> and <<_adding_properties_to_an_existing_stix_relationship_object_instance>>.
 * Special characters were fixed in some participants names in <<_acknowledgments>>.
 * All SCO ids were updated in examples to agree with the `generate_id` method in _python-stix2_ library.
+* Included all changes based on ITU recommandations.
 * Improved references through the document.
 ** missing references to sections were added at different places.
 ** some references were fixed to point to the right section.
