@@ -90,11 +90,12 @@ h4{font-size:1.4375em}}
 table{background:#fff;margin-bottom:1.25em;border:1px solid #000000;word-wrap:normal}
 table thead,table tfoot{background:#004A7F}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,00,.8);text-align:left}
-table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8)}
-table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8);vertical-align:top;}
+table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8);vertical-align:top;}
 table tr.even,table tr.alt{background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
 table th,table td{border: 1px solid #000000;}
+table pre,table pre code{white-space:pre}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .center{margin-left:auto;margin-right:auto}
@@ -124,7 +125,7 @@ b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
 b.button::before{content:"[";padding:0 3px 0 2px}
 b.button::after{content:"]";padding:0 2px 0 3px}
 p a>code:hover{color:rgba(0,0,0,.9)}
-#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;position:relative;padding: 0 .9375em;margin-left:auto;margin-right:auto}
 #header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
 #header::after,#content::after,#footnotes::after,#footer::after{clear:both}
 #content{margin-top:1.25em}

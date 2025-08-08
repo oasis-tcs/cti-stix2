@@ -1,0 +1,9 @@
+/* page-overrides.css */
+body {
+    max-width: 62.5em;
+    /* ~1000px cap */
+    margin: 0 auto;
+    /* center */
+    padding-inline: .9375em;
+    /* small gutters */
+}
