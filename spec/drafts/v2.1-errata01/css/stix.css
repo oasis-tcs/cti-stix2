@@ -427,9 +427,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 /* Custom styles for STIX */
-.stixtype{font-family:Consolas;color:#C7254E;background:#F8D8E3}
-.stixliteral{font-family:Consolas;color:#094B88; background:#CAD3EB}
-.stixrelationship{font-family:Consolas;color:#094B88;background:#CAD3EB}
+.stixtype{font-family:Consolas;color:#C7254E;background:#FFE3ED}
+.stixliteral{font-family:Consolas;color:#094B88; background:#D9E3FB}
+.stixrelationship{font-family:Consolas;color:#094B88;background:#D9E3FB}
 .stixtitle{margin-top:0in;
 	margin-right:0in;
 	margin-bottom:12.0pt;
