@@ -90,7 +90,7 @@ h4{font-size:1.4375em}}
 table{background:#fff;margin-bottom:1.25em;border:1px solid #000000;word-wrap:normal}
 table thead,table tfoot{background:#004A7F}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,00,.8);text-align:left}
-table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8);vertical-align:top;}
+table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8);vertical-align:top;text-align:left}
 table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8);vertical-align:top;}
 table tr.even,table tr.alt{background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
@@ -427,9 +427,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 /* Custom styles for STIX */
-.stixtype{font-family:Consolas;color:#C7254E;background:#F9F2F4}
-.stixliteral{font-family:Consolas;color:#073763; background:#CFE2F3}
-.stixrelationship{font-family:Consolas;color:#073763;background:#CFE2F3}
+.stixtype{font-family:Consolas;color:#C7254E;background:#F8D8E3}
+.stixliteral{font-family:Consolas;color:#094B88; background:#CAD3EB}
+.stixrelationship{font-family:Consolas;color:#094B88;background:#CAD3EB}
 .stixtitle{margin-top:0in;
 	margin-right:0in;
 	margin-bottom:12.0pt;
