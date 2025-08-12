@@ -2161,7 +2161,7 @@ For example, a Campaign could be used to describe a crime syndicate’s attack u
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class='stixtr'>Attack Pattern Specific Properties</span></th>
+    <th><span class='stixtr'>Campaign Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>aliases</strong>, <strong>first_seen</strong>, <strong>last_seen</strong>, <strong>objective</strong></td>
@@ -2338,7 +2338,7 @@ The Course of Action SDO contains a textual description of the action; a reserve
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class='stixtr'>Attack Pattern Specific Properties</span></th>
+    <th><span class='stixtr'>Course of Action Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>action</strong></td>
@@ -2514,7 +2514,7 @@ The Grouping SDO contains a list of references to SDOs, SCOs, SROs, and SMOs, al
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class='stixtr'>Attack Pattern Specific Properties</span></th>
+    <th><span class='stixtr'>Grouping Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>context</strong>, <strong>object_refs</strong></td>
@@ -2657,7 +2657,7 @@ The Identity SDO can capture basic identifying information, contact information,
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class='stixtr'>Attack Pattern Specific Properties</span></th>
+    <th><span class='stixtr'>Identity Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>roles</strong>, <strong>identity_class</strong>, <strong>sectors</strong>, <strong>contact_information</strong></td>
@@ -2829,7 +2829,7 @@ Relationships are not restricted to those listed below. Relationships can be cre
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class='stixtr'>Attack Pattern Specific Properties</span></th>
+    <th><span class='stixtr'>Incident Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong></td>
@@ -2952,7 +2952,7 @@ Relationships from the Indicator can describe the malicious or suspicious behavi
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class='stixtr'>Attack Pattern Specific Properties</span></th>
+    <th><span class='stixtr'>Indicator Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>indicator_types</strong>, <strong>pattern</strong>, <strong>pattern_type</strong>, <strong>pattern_version</strong>, <strong>valid_from</strong>, <strong>valid_until</strong>, <strong>kill_chain_phases</strong></td>
@@ -3677,7 +3677,7 @@ If precision is specified, then the datum for **latitude** and **longitude** **M
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Location Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>latitude</strong>, <strong>longitude</strong>, <strong>precision</strong>, <strong>region</strong>, <strong>country</strong>, <strong>administrative_area</strong>, <strong>city</strong>, <strong>street_address</strong>, <strong>postal_code</strong></td>
@@ -3892,7 +3892,7 @@ To minimize the risk of a consumer compromising their system in parsing malware 
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Malware Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>malware_types</strong>, <strong>is_family</strong>, <strong>aliases</strong>, <strong>kill_chain_phases</strong>, <strong>first_seen</strong>, <strong>last_seen</strong>, <strong>operating_system_refs</strong>, <strong>architecture_execution_envs</strong>, <strong>implementation_languages</strong>, <strong>capabilities</strong>, <strong>sample_refs</strong></td>
@@ -4175,7 +4175,7 @@ One of **result** or **analysis_sco_refs** properties **MUST** be provided.
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Malware Analysis Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>product</strong>, <strong>version</strong>, <strong>host_vm_ref</strong>, <strong>operating_system_ref</strong>, <strong>installed_software_refs</strong>, <strong>configuration_version</strong>, <strong>modules</strong>, <strong>analysis_engine_version</strong>, <strong>analysis_definition_version</strong>, <strong>submitted</strong>, <strong>analysis_started</strong>, <strong>analysis_ended</strong>, <strong>result_name</strong>, <strong>result</strong>, <strong>analysis_sco_refs</strong>, <strong>sample_ref</strong></td>
@@ -4464,7 +4464,7 @@ Because Notes are typically (though not always) created by human analysts and ar
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Note Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>abstract</strong>, <strong>content</strong>, <strong>authors</strong>, <strong>object_refs</strong></td>
@@ -4587,7 +4587,7 @@ To support backwards compatibility, related SCOs can still be specified using th
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Observed Data Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>first_observed</strong>, <strong>last_observed</strong>, <strong>number_observed</strong>, <strong>objects</strong>, <strong>object_refs</strong></td>
@@ -4773,7 +4773,7 @@ This is distinct from the **created_by_ref** property, which is meant to capture
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Opinion Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>explanation</strong>, <strong>authors</strong>, <strong>opinion</strong>, <strong>object_refs</strong></td>
@@ -4909,7 +4909,7 @@ For example, a threat report produced by ACME Defense Corp. discussing the Glass
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Report Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>report_types</strong>, <strong>published</strong>, <strong>object_refs</strong></td>
@@ -5128,7 +5128,7 @@ Threat Actors can be characterized by their motives, capabilities, goals, sophis
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Threat Actor Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>threat_actor_types</strong>, <strong>aliases</strong>, <strong>first_seen</strong>, <strong>last_seen</strong>, <strong>roles</strong>, <strong>goals</strong>, <strong>sophistication</strong>, <strong>resource_level</strong>, <strong>primary_motivation</strong>, <strong>secondary_motivations</strong>, <strong>personal_motivations</strong></td>
@@ -5371,7 +5371,7 @@ This SDO **MUST NOT** be used to characterize malware. Further, Tool **MUST NOT*
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Tool Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong>, <strong>tool_types</strong>, <strong>aliases</strong>, <strong>kill_chain_phases</strong>, <strong>tool_version</strong></td>
@@ -5572,7 +5572,7 @@ The Vulnerability SDO is primarily used to link to external definitions of vulne
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Vulnerability Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>name</strong>, <strong>description</strong></td>
@@ -5746,7 +5746,7 @@ A relationship summary table for all specification-defined relationships can be 
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Relationship Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>relationship_type</strong>, <strong>description</strong>, <strong>source_ref</strong>, <strong>target_ref</strong>, <strong>start_time</strong>, <strong>stop_time</strong></td>
@@ -5858,7 +5858,7 @@ Sighting is distinct from Observed Data in that Sighting is an intelligence asse
     <td><strong>defanged</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr"> Specific Properties</span></th>
+    <th><span class="stixtr">Sighting Specific Properties</span></th>
   </tr>
   <tr>
     <td><strong>description</strong>, <strong>first_seen</strong>, <strong>last_seen</strong>, <strong>count</strong>, <strong>sighting_of_ref</strong>, <strong>observed_data_refs</strong>, <strong>where_sighted_refs</strong>, <strong>summary</strong></td>
@@ -6002,3 +6002,3827 @@ The only type of relationship that can point to a Sighting Object is the embedde
   }
 ]
 ```
+
+# 6. STIX Cyber-observable Objects <a id="stix-cyber-observable-objects"></a>
+
+## 6.1 Artifact Object <a id="artifact-object"></a>
+
+**Type Name:** <span class="stixtype">artifact</span>
+
+The Artifact object permits capturing an array of bytes (8-bits)..., as a base64-encoded string, or linking to a file-like payload.
+
+One of **payload_bin** or **url** **MUST** be provided. It is incumbent on sharing communities to ensure that the URL is accessible for downstream consumers.
+
+### 6.1.1 Properties <a id="artifact-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Artifact Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>mime_type</strong>, <strong>payload_bin</strong>, <strong>url</strong>, <strong>hashes</strong>, <strong>encryption_algorithm</strong>, <strong>decryption_key</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong>, <strong>payload_bin</strong><br><br>If the <strong>hashes</strong> property is present, include only one hash. The selected hash <strong>SHOULD</strong> come from this ordered list (based on the following order of preference) [ MD5, SHA-1, SHA-256, SHA-512 ].</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">artifact</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>mime_type</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Whenever feasible, this value <strong>SHOULD</strong> be one of the values defined in the Template column in the IANA media type registry [<a href="#media-types">Media Types</a>]. Maintaining a comprehensive universal catalog of all extant file types is obviously not possible. When specifying a MIME Type not included in the IANA registry, implementers should use their best judgement so as to facilitate interoperability.</td>
+  </tr>
+  <tr>
+    <td><strong>payload_bin</strong> (optional)</td>
+    <td><span class="stixtype">binary</span></td>
+    <td>Specifies the binary data contained in the artifact as a base64-encoded string.<br><br>This property <strong>MUST NOT</strong> be present if <strong>url</strong> is provided.</td>
+  </tr>
+  <tr>
+    <td><strong>url</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be a valid URL that resolves to the unencoded content.<br><br>This property <strong>MUST NOT</strong> be present if <strong>payload_bin</strong> is provided.</td>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies a dictionary of hashes for the contents of the <strong>url</strong> or the <strong>payload_bin</strong>.<br><br>This property <strong>MUST</strong> be present when the <strong>url</strong> property is present.<br><br>Dictionary keys <strong>MUST</strong> come from the <span class="stixliteral"><a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a></span> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>encryption_algorithm</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>If the artifact is encrypted, specifies the type of encryption algorithm the binary data (either via <strong>payload_bin</strong> or <strong>url</strong>) is encoded in.<br><br>The value of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href="#encryption-algorithm-enumeration">encryption-algorithm-enum</a></span> enumeration.<br><br>If both <strong>mime_type</strong> and <strong>encryption_algorithm</strong> are included, this signifies that the artifact represents an encrypted archive.</td>
+  </tr>
+  <tr>
+    <td><strong>decryption_key</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the decryption key for the encrypted binary data (either via <strong>payload_bin</strong> or <strong>url</strong>). For example, this may be useful in cases of sharing malware samples, which are often encoded in an encrypted archive.<br><br>This property <strong>MUST NOT</strong> be present when the <strong>encryption_algorithm</strong> property is absent.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic Image Artifact*
+
+```JSON
+{
+  "type": "artifact",
+  "spec_version": "2.1",
+  "id": "artifact--a785c567-cc53-52a1-abeb-026bb7ddf8ba",
+  "mime_type": "image/jpeg",
+  "payload_bin": "VBORw0KGgoAAAANSUhEUgAAADI== ..."
+}
+```
+
+*Encrypted Zip Archive Artifact*
+
+```JSON
+{
+  "type": "artifact",
+  "spec_version": "2.1",
+  "id": "artifact--6be1fbcb-fd03-5ec3-b05f-4329746e9d2b",
+  "mime_type": "application/zip",
+  "payload_bin": "ZX7HIBWPQA99NSUhEUgAAADI== ...",
+  "encryption_algorithm": "mime-type-indicated",
+  "decryption_key": "My voice is my passport"
+}
+```
+
+## 6.2 Autonomous System (AS) Object <a id="autonomous-system-as-object"></a>
+
+**Type Name:** <span class="stixtype">autonomous-system</span>
+
+This object represents the properties of an Autonomous System (AS).
+
+### 6.2.1 Properties <a id="autonomous-system-as-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>AS Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>number</strong>, <strong>name</strong>, <strong>rir</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>number</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">autonomous-system</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>number</strong> (required)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number assigned to the AS. Such assignments are typically performed by a Regional Internet Registry (RIR).</td>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the AS.</td>
+  </tr>
+  <tr>
+    <td><strong>rir</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the Regional Internet Registry (RIR) that assigned the number to the AS.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic AS object*
+
+```JSON
+{
+  "type": "autonomous-system",
+  "spec_version": "2.1",
+  "id": "autonomous-system--3aa27478-50b5-5ab8-9da9-cdc12b657fff",
+  "number": 15139,
+  "name": "Slime Industries",
+  "rir": "ARIN"
+}
+```
+
+## 6.3 Directory Object <a id="directory-object"></a>
+
+**Type Name:** <span class="stixtype">directory</span>
+
+The Directory object represents the properties common to a file system directory.
+
+### 6.3.1 Properties <a id="directory-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Directory Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>path</strong>, <strong>path_enc</strong>, <strong>ctime</strong>, <strong>mtime</strong>, <strong>atime</strong>, <strong>contains_refs</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>path</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">directory</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>path</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the path, as originally observed, to the directory on the file system.</td>
+  </tr>
+  <tr>
+    <td><strong>path_enc</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the observed encoding for the path. The value <strong>MUST</strong> be specified if the path is stored in a non-Unicode encoding. This value <strong>MUST</strong> be specified using the corresponding name from the 2013-12-20 revision of the IANA character set registry [<a href="#character-sets">Character Sets</a>]. If the preferred MIME name for a character set is defined, this value <strong>MUST</strong> be used; if it is not defined, then the Name value from the registry <strong>MUST</strong> be used instead.</td>
+  </tr>
+  <tr>
+    <td><strong>ctime</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the directory was created.</td>
+  </tr>
+  <tr>
+    <td><strong>mtime</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the directory was last written to/modified.</td>
+  </tr>
+  <tr>
+    <td><strong>atime</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the directory was last accessed.</td>
+  </tr>
+  <tr>
+    <td><strong>contains_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to other File and/or Directory objects contained within the directory.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">file</span> or <span class="stixtype">directory</span>.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic directory*
+
+```JSON
+{
+  "type": "directory",
+  "spec_version": "2.1",
+  "id": "directory--0a58d0c1-59e6-5afd-8252-dcd3f13e5622",
+  "path": "C:\\Windows\\System32"
+}
+```
+
+## 6.4 Domain Name Object <a id="domain-name-object"></a>
+
+**Type Name:** <span class="stixtype">domain-name</span>
+
+The Domain Name object represents the properties of a network domain name.
+
+### 6.4.1 Properties <a id="domain-name-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Domain Name Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong>, <strong>resolves_to_refs</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">domain-name</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of the domain name. The value of this property <strong>MUST</strong> conform to [<a href="#rfc1034">RFC1034</a>], and each domain and sub-domain contained within the domain name <strong>MUST</strong> conform to [<a href="#rfc5890">RFC5890</a>].</td>
+  </tr>
+  <tr>
+    <td><strong>resolves_to_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to one or more IP addresses or domain names that the domain name resolves to.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">ipv4-addr</span> or <span class="stixtype">ipv6-addr</span> or <span class="stixtype">domain-name</span> (for cases such as CNAME records).</td>
+  </tr>
+</table>
+
+### 6.4.2 Relationships <a id="domain-name-object-relationships"></a>
+
+These are the relationships explicitly defined between the Domain Name object and other STIX Objects. The table identifies the relationships that can be made from this object type to another object type by way of the Relationship object.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th width="20%"><span class='stixtr'>Source</span></th>
+    <th width="20%""><span class='stixtr'>Relationship Type</span></th>
+    <th width="20%"><span class='stixtr'>Target</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixtype">domain-name</span></td>
+    <td><span class="stixliteral">resolves-to</span></td>
+    <td><span class="stixtype">domain-name</span>, <span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span></td>
+    <td>This Relationship describes that this Domain Name resolves to one or more IP addresses or domain names.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic FQDN*
+
+```JSON
+[
+  {
+    "type": "domain-name",
+    "spec_version": "2.1",
+    "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
+    "value": "example.com",
+    "resolves_to_refs": ["ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4"]
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
+    "value": "198.51.100.3"
+  }
+]
+```
+
+## 6.5 Email Address Object <a id="email-address-object"></a>
+
+**Type Name:** <span class="stixtype">email-addr</span>
+
+The Email Address object represents a single email address.
+
+### 6.5.1 Properties <a id="email-address-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Email Address Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong>, <strong>display_name</strong>, <strong>belongs_to_ref</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">email-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of the email address. This <strong>MUST NOT</strong> include the display name.<br><br>This property corresponds to the addr-spec construction in section 3.4 of [<a href="#rfc5322">RFC5322</a>], for example, <span class="stixliteral">jane.smith@example.com</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>display_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a single email display name, i.e., the name that is displayed to the human user of a mail application.<br><br>This property corresponds to the display-name construction in section 3.4 of [<a href="#rfc5322">RFC5322</a>], for example, <span class="stixliteral">Jane Smith.</span></td>
+  </tr>
+  <tr>
+    <td><strong>belongs_to_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the user account that the email address belongs to, as a reference to a User Account object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">user-account</span>.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic Email Address*
+
+```JSON
+{
+  "type": "email-addr",
+  "spec_version": "2.1",
+  "id": "email-addr--7165e2a9-671f-585d-b1e1-ca59c671d934",
+  "value": "john@example.com",
+  "display_name": "John Doe"
+}
+```
+
+## 6.6 Email Message Object <a id="email-message-object"></a>
+
+**Type Name:** <span class="stixtype">email-message</span>
+
+The Email Message object represents an instance of an email message, corresponding to the internet message format described in \[[RFC5322](#rfc5322)\] and related RFCs.
+
+Header field values that have been encoded as described in section 2 of \[[RFC2047](#rfc2047)\] **MUST** be decoded before inclusion in Email Message object properties.
+For example, <span class="stixalt">this is some text</span> **MUST** be used instead of <span class="stixalt">=?iso-8859-1?q?this=20is=20some=20text?=</span>.
+Any characters in the encoded value which cannot be decoded into Unicode **SHOULD** be replaced with the 'REPLACEMENT CHARACTER' (U+FFFD).
+If it is necessary to capture the header value as observed, this can be achieved by referencing an Artifact object through the **raw_email_ref** property.
+
+### 6.6.1 Properties <a id="email-message-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Email Message Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>is_multipart</strong>, <strong>date</strong>, <strong>content_type</strong>, <strong>from_ref</strong>, <strong>sender_ref</strong>, <strong>to_refs</strong>, <strong>cc_refs</strong>, <strong>bcc_refs</strong>, <strong>subject</strong>, <strong>received_lines</strong>, <strong>additional_header_fields</strong>, <strong>body</strong>, <strong>body_multipart</strong>, <strong>raw_email_ref</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>from_ref</strong>, <strong>subject</strong>, <strong>body</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">email-message</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>is_multipart</strong> (required)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Indicates whether the email body contains multiple MIME parts.</td>
+  </tr>
+  <tr>
+    <td><strong>date</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time that the email message was sent.</td>
+  </tr>
+  <tr>
+    <td><strong>content_type</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of the "Content-Type" header of the email message.</td>
+  </tr>
+  <tr>
+    <td><strong>from_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the value of the "From:" header of the email message. The "From:" field specifies the author of the message, that is, the mailbox(es) of the person or system responsible for the writing of the message.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">email-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>sender_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the value of the "Sender" field of the email message. The "Sender:" field specifies the mailbox of the agent responsible for the actual transmission of the message.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">email-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>to_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies the mailboxes that are "To:" recipients of the email message.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">email-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>cc_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies the mailboxes that are "CC:" recipients of the email message.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">email-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>bcc_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies the mailboxes that are "BCC:" recipients of the email message.<br><br>As per [<a href="#rfc5322">RFC5322</a>], the absence of this property should not be interpreted as semantically equivalent to an absent BCC header on the message being characterized.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">email-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>message_id</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the Message-ID field of the email message.</td>
+  </tr>
+  <tr>
+    <td><strong>subject</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the subject of the email message.</td>
+  </tr>
+  <tr>
+    <td><strong>received_lines</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">string</span></span></td>
+    <td>Specifies one or more "Received" header fields that may be included in the email headers.<br><br>List values <strong>MUST</strong> appear in the same order as present in the email message.</td>
+  </tr>
+  <tr>
+    <td><strong>additional_header_fields</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies any other header fields (except for <strong>date</strong>, <strong>received_lines</strong>, <strong>content_type</strong>, <strong>from_ref</strong>, <strong>sender_ref</strong>, <strong>to_refs</strong>, <strong>cc_refs</strong>, <strong>bcc_refs</strong>, and <strong>subject</strong>) found in the email message, as a dictionary.<br><br>Each key/value pair in the dictionary represents the name/value of a single header field or names/values of a header field that occurs more than once. Each dictionary key <strong>SHOULD</strong> be a case-preserved version of the header field name. The corresponding value for each dictionary key <strong>MUST</strong> always be a <span class="stixtype">list</span> of type <span class="stixtype">string</span> to support when a header field is repeated.</td>
+  </tr>
+  <tr>
+    <td><strong>body</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a <span class="stixtype">string</span> containing the email body. This property <strong>MUST NOT</strong> be used if <strong>is_multipart</strong> is true.</td>
+  </tr>
+  <tr>
+    <td><strong>body_multipart</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">email-mime-part-type</span></span></td>
+    <td>Specifies a list of the MIME parts that make up the email body. This property <strong>MUST NOT</strong> be used if <strong>is_multipart</strong> is false.</td>
+  </tr>
+  <tr>
+    <td><strong>raw_email_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the raw binary contents of the email message, including both the headers and body, as a reference to an Artifact object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">artifact</span>.</td>
+  </tr>
+</table>
+
+### 6.6.2 Email MIME Component Type <a href="#email-mime-component-type"></a>
+
+**Type Name:** <span class="stixtype">email-mime-part-type</span>
+
+Specifies one component of a multi-part email body.
+
+There is no property to capture the value of the "Content-Transfer-Encoding" header field, since the body <strong>MUST</strong> be decoded before being represented in the <strong>body</strong> property.
+
+One of <strong>body</strong> OR <strong>body_raw_ref MUST</strong> be included.
+
+#### Properties
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>body</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the contents of the MIME part if the <strong>content_type</strong> is not provided or starts with <span class="stixliteral">text/</span> (e.g., in the case of plain text or HTML email).<br><br>For inclusion in this property, the contents <strong>MUST</strong> be decoded to Unicode. Note that the charset provided in <strong>content_type</strong> is for informational usage and not for decoding of this property.</td>
+  </tr>
+  <tr>
+    <td><strong>body_raw_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the contents of non-textual MIME parts, that is those whose <strong>content_type</strong> does not start with <span class="stixliteral">text/</span>, as a reference to an Artifact object or File object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">artifact</span> or <span class="stixtype">file</span>. For use cases where conveying the actual data contained in the MIME part is of primary importance, <span class="stixtype">artifact</span> <strong>SHOULD</strong> be used. Otherwise, for use cases where conveying metadata about the file-like properties of the MIME part is of primary importance, <span class="stixtype">file</span> <strong>SHOULD</strong> be used.</td>
+  </tr>
+  <tr>
+    <td><strong>content_type</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of the "Content-Type" header field of the MIME part.<br><br>Any additional "Content-Type" header field parameters such as <span class="stixliteral">charset</span> <strong>SHOULD</strong> be included in this property.<br><br>Example:<br><blockquote>text/html; charset=UTF-8</blockquote></td>
+  </tr>
+  <tr>
+    <td><strong>content_disposition</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of the "Content-Disposition" header field of the MIME part.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Simple Email Message*
+
+```JSON
+[
+  {
+    "type": "email-message",
+    "spec_version": "2.1",
+    "id": "email-message--92fa1bfd-2c62-5a30-8b7c-5b91ea73cf29",
+    "from_ref": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
+    "to_refs": ["email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e"],
+    "is_multipart": false,
+    "date": "1997-11-21T15:55:06.000Z",
+    "subject": "Saying Hello"
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
+    "value": "jdoe@example.com",
+    "display_name": "John Doe"
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e",
+    "value": "mary@example.com",
+    "display_name": "Mary Smith"
+  }
+]
+```
+
+*Simple Email Message with Additional Header Properties*
+
+```JSON
+[
+  {
+    "type": "email-message",
+    "spec_version": "2.1",
+    "id": "email-message--0c57a381-2a17-5e61-8754-5ef96efb286c",
+    "from_ref": "email-addr--9b7e29b3-fd8d-562e-b3f0-8fc8134f5dda",
+    "to_refs": ["email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746"],
+    "is_multipart": false,
+    "date": "2004-04-19T12:22:23.000Z",
+    "subject": "Did you see this?",
+    "additional_header_fields": {
+      "Reply-To": [
+        "steve@example.com",
+        "jane@example.com"
+      ]
+    }
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--9b7e29b3-fd8d-562e-b3f0-8fc8134f5dda",
+    "value": "joe@example.com",
+    "display_name": "Joe Smith"
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746",
+    "value": "bob@example.com",
+    "display_name": "Bob Smith"
+  }
+]
+```
+
+​*Complex MIME Email Message*
+
+```JSON
+[
+  {
+    "type": "email-message",
+    "spec_version": "2.1",
+    "id": "email-message--d7d69ead-3347-5772-815a-7766dc29c72c",
+    "is_multipart": true,
+    "received_lines": [
+      "from mail.example.com ([198.51.100.3]) by smtp.gmail.com with ESMTPSA id q23sm23309939wme.17.2016.07.19.07.20.32 (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128); Tue, 19 Jul 2016 07:20:40 -0700 (PDT)"
+    ],
+    "content_type": "multipart/mixed",
+    "date": "2016-06-19T14:20:40.000Z",
+    "from_ref": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
+    "to_refs": ["email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746"],
+    "cc_refs": ["email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e"],
+    "subject": "Check out this picture of a cat!",
+    "additional_header_fields": {
+      "Content-Disposition": "inline",
+      "X-Mailer": "Mutt/1.5.23",
+      "X-Originating-IP": "198.51.100.3"
+    },
+    "body_multipart": [
+      {
+        "content_type": "text/plain; charset=utf-8",
+        "content_disposition": "inline",
+        "body": "Cats are funny!"
+      },
+      {
+        "content_type": "image/png",
+        "content_disposition": "attachment; filename=\"tabby.png\"",
+        "body_raw_ref": "artifact--0682152c-646a-513b-bc07-e516494ed178"
+      },
+      {
+        "content_type": "application/zip",
+        "content_disposition": "attachment; filename=\"tabby_pics.zip\"",
+        "body_raw_ref": "file--cfebcece-2336-51b0-baf1-d94daae5e1d1"
+      }
+    ]
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--6deb37bd-12b7-54ae-805f-5f7146f3d171",
+    "value": "jdoe@example.com",
+    "display_name": "John Doe"
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--3734e66b-c4e8-5d0b-bca9-befdd5699746",
+    "value": "bob@example.com",
+    "display_name": "Bob Smith"
+  },
+  {
+    "type": "email-addr",
+    "spec_version": "2.1",
+    "id": "email-addr--2aeeb98c-9db4-525e-874d-221fdfe9f76e",
+    "value": "mary@example.com",
+    "display_name": "Mary Smith"
+  },
+  {
+    "type": "artifact",
+    "spec_version": "2.1",
+    "id": "artifact--0682152c-646a-513b-bc07-e516494ed178"
+    "mime_type": "image/jpeg",
+    "payload_bin": "VBORw0KGgoAAAANSUhEUgAAADI== ...",
+    "hashes": {
+      "SHA-256": "effb46bba03f6c8aea5c653f9cf984f170dcdd3bbbe2ff6843c3e5da0e698766"
+    }
+  },
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--cfebcece-2336-51b0-baf1-d94daae5e1d1",
+    "name": "tabby_pics.zip",
+    "magic_number_hex": "504B0304",
+    "hashes": {
+      "SHA-256": "fe90a7e910cb3a4739bed9180e807e93fa70c90f25a8915476f5e4bfbac681db"
+    }
+  }
+]
+```
+
+## 6.7 File Object <a id="file-object"></a>
+
+**Type Name:** <span class="stixtype">file</span>
+
+The File object represents the properties of a file. A File object **MUST** contain at least one of **hashes** or **name**.
+
+### 6.7.1 Properties <a id="file-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>File Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong>, <strong>size</strong>, <strong>name</strong>, <strong>name_enc</strong>, <strong>magic_number_hex</strong>, <strong>mime_type</strong>, <strong>ctime</strong>, <strong>mtime</strong>, <strong>atime</strong>, <strong>parent_directory_ref</strong>, <strong>contains_refs</strong>, <strong>content_ref</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong>, <strong>name</strong>, <strong>extensions</strong>, <strong>parent_directory_ref</strong><br><br>If the <strong>hashes</strong> property is present, include only one hash. The selected hash <strong>SHOULD</strong> come from this ordered list (based on the following order of preference) [ MD5, SHA-1, SHA-256, SHA-512 ].</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">file</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>extensions</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>The File object defines the following extensions. In addition to these, producers <strong>MAY</strong> create their own.<br><br><span class="stixtype">ntfs-ext</span>, <span class="stixtype">raster-image-ext</span>, <span class="stixtype">pdf-ext</span>, <span class="stixtype">archive-ext</span>, <span class="stixtype">windows-pebinary-ext</span><br><br>Dictionary keys <strong>MUST</strong> use the specification defined name (examples above) or be the id of a STIX Extension object, depending on the type of extension being used.<br><br>The corresponding dictionary values <strong>MUST</strong> contain the contents of the extension instance.</td>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies a dictionary of hashes for the file.<br><br>(When used with the Archive File Extension, this refers to the hash of the <strong>entire</strong> archive file, <strong>not</strong> its contents.)<br><br>Dictionary keys <strong>MUST</strong> come from the <span class="stixliteral"><a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a></span> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>size</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the file, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the file.</td>
+  </tr>
+  <tr>
+    <td><strong>name_enc</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the observed encoding for the name of the file. This value <strong>MUST</strong> be specified using the corresponding name from the 2013-12-20 revision of the IANA character set registry [<a href="#character-sets">Character Sets</a>]. If the value from the Preferred MIME Name column for a character set is defined, this value <strong>MUST</strong> be used; if it is not defined, then the value from the Name column in the registry <strong>MUST</strong> be used instead.<br><br>This property allows for the capture of the original text encoding for the file name, which may be forensically relevant; for example, a file on an NTFS volume whose name was created using the windows-1251 encoding, commonly used for languages based on Cyrillic script.</td>
+  </tr>
+  <tr>
+    <td><strong>magic_number_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the hexadecimal constant ("magic number") associated with a specific file format that corresponds to the file, if applicable.</td>
+  </tr>
+  <tr>
+    <td><strong>mime_type</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the MIME type name specified for the file, e.g., <span class="stixliteral">application/msword</span>.<br><br>Whenever feasible, this value <strong>SHOULD</strong> be one of the values defined in the Template column in the IANA media type registry [<a href="#media-types">Media Types</a>].<br><br>Maintaining a comprehensive universal catalog of all extant file types is obviously not possible. When specifying a MIME Type not included in the IANA registry, implementers should use their best judgement so as to facilitate interoperability.</td>
+  </tr>
+  <tr>
+    <td><strong>ctime</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the file was created.</td>
+  </tr>
+  <tr>
+    <td><strong>mtime</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the file was last written to/modified.</td>
+  </tr>
+  <tr>
+    <td><strong>atime</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the file was last accessed.</td>
+  </tr>
+  <tr>
+    <td><strong>parent_directory_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the parent directory of the file, as a reference to a Directory object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">directory</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>contains_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to other Cyber-observable Objects contained within the file, such as another file that is appended to the end of the file, or an IP address that is contained somewhere in the file.<br><br>This is intended for use cases other than those targeted by the Archive extension.</td>
+  </tr>
+  <tr>
+    <td><strong>content_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the content of the file, represented as an Artifact object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">artifact</span>.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic file with file system properties without observed encoding*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.1",
+  "id": "file--949eb97a-da1e-5292-8959-03c4249dc9f3",
+  "hashes": {
+    "SHA-256": "fe90a7e910cb3a4739bed9180e807e93fa70c90f25a8915476f5e4bfbac681db"
+  },
+  "size": 25536,
+  "name": "foo.dll"
+}
+```
+
+*Basic file with file system properties with observed encoding*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.1",
+  "id": "file--7d1e3a18-89e7-5bc5-be36-9879f5b7f5c8",
+  "hashes": {
+    "SHA-256": "841a8921140aba50671ebb0770fecc4ee308c4952cfeff8de154ab14eeef4649"
+  },
+  "name": "quêry.dll",
+  "name_enc": "windows-1252"
+}
+```
+
+In this example, the file name would have originally appeared using the bytes 71 75 **ea** 72 79 2e 64 6c 6c. Representing it in UTF-8, as required for JSON, would use the bytes 71 75 **c3 aa** 72 79 2e 64 6c 6c.
+
+*Basic file with parent directory*
+
+```JSON
+[
+  {
+    "type": "directory",
+    "spec_version": "2.1",
+    "id": "directory--0a58d0c1-59e6-5afd-8252-dcd3f13e5622",
+    "path": "C:\\Windows\\System32"
+  },
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--39643577-13b7-5f21-9584-df7e7c33f357",
+    "hashes": {
+      "SHA-256": "ceafbfd424be2ca4a5f0402cae090dda2fb0526cf521b60b60077c0f622b285a"
+    },
+    "parent_directory_ref": "directory--0a58d0c1-59e6-5afd-8252-dcd3f13e5622",
+    "name": "qwerty.dll"
+  }
+]
+```
+
+### 6.7.2 Archive File Extension <a id="#archive-file-extension"></a>
+
+**Type Name**: <span class="stixtype">archive-ext</span>
+
+The Archive File extension specifies a default extension for capturing properties specific to archive files. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">archive-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+#### Properties <a id="#archive-file-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>contains_refs</strong> (required)</td>
+    <td><span style="white-space: nowrap;"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>This property specifies the files that are contained in the archive. It <strong>MUST</strong> contain references to one or more File objects.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">file</span> or <span class="stixtype">directory</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>comment</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a comment included as part of the archive file.</td>
+</table>
+
+**Example**
+
+*Basic unencrypted ZIP Archive*
+
+```JSON
+[
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--70221dbf-52fd-5377-9619-c0ce6b3ffc8c",
+    "hashes": {
+      "SHA-256": "ceafbfd424be2ca4a5f0402cae090dda2fb0526cf521b60b60077c0f622b285a"
+    }
+  }
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--c0e2b1c9-232d-5b64-8b74-b6aee5bb9c47",
+    "hashes": {
+      "SHA-256": "19c549ec2628b989382f6b280cbd7bb836a0b461332c0fe53511ce7d584b89d3"
+    }
+  }
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--5d0833b7-065e-571f-8bf2-657cb9569570",
+    "hashes": {
+      "SHA-256": "0969de02ecf8a5f003e3f6d063d848c8a193aada092623f8ce408c15bcb5f038"
+    }
+  }
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--9a1f834d-2506-5367-baec-7aa63996ac43",
+    "name": "foo.zip",
+    "hashes": {
+      "SHA-256": "35a01331e9ad96f751278b891b6ea09699806faedfa237d40513d92ad1b7100f"
+    },
+    "mime_type": "application/zip",
+    "extensions": {
+      "archive-ext": {
+        "contains_refs": [
+          "file--70221dbf-52fd-5377-9619-c0ce6b3ffc8c",
+          "file--c0e2b1c9-232d-5b64-8b74-b6aee5bb9c47",
+          "file--5d0833b7-065e-571f-8bf2-657cb9569570"
+        ]
+      }
+    }
+  }
+]
+```
+
+### 6.7.3 NTFS File Extension <a id="#ntfs-file-extension"></a>
+
+**Type Name**: <span class="stixtype">ntfs-ext</span>
+
+The NTFS File extension specifies a set of properties specific to files stored on NTFS file systems. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">ntfs-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+An object using the NTFS File Extension **MUST** contain at least one property from this extension.
+
+#### Properties <a id="#ntfs-file-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>sid</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the security ID (SID) value assigned to the file.</td>
+  </tr>
+  <tr>
+    <td><strong>alternate_data_streams</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span style="white-space: nowrap;"><span class="stixtype">alternate-data-stream-type</span></span></td>
+    <td>Specifies a list of NTFS alternate data streams that exist for the file.</td>
+</table>
+
+#### Alternate Data Stream Type <a id="#alternate-data-stream-type"></a>
+
+**Type Name**: <span class="stixtype">alternate-data-stream-type</span>
+
+The Alternate Data Stream type represents an NTFS alternate data stream.
+
+##### Properties <a id="#alternate-data-stream-type-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the alternate data stream.</td>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies a dictionary of hashes for the data contained in the alternate data stream.<br><br>Dictionary keys <strong>MUST</strong> come from the <a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>size</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the alternate data stream, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+</table>
+
+**Example**
+
+*NTFS File with a single alternate data stream*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.1",
+  "id": "file--ba04c974-3cef-5f42-adc7-084d467874e2",
+  "hashes": {
+    "SHA-256": "35a01331e9ad96f751278b891b6ea09699806faedfa237d40513d92ad1b7100f"
+  },
+  "extensions": {
+    "ntfs-ext": {
+      "alternate_data_streams": [
+        {
+          "name": "second.stream",
+          "size": 25536
+        }
+      ]
+    }
+  }
+}
+```
+
+### 6.7.4 PDF File Extension <a id="#pdf-file-extension"></a>
+
+**Type Name**: <span class="stixtype">pdf-ext</span>
+
+The PDF file extension specifies a default extension for capturing properties specific to PDF files. The key for this extension when used in the extensions dictionary **MUST** be <span class="stixliteral">pdf-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+An object using the PDF File Extension **MUST** contain at least one property from this extension.
+
+#### Properties <a id="#pdf-file-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>version</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the decimal version number of the string from the PDF header that specifies the version of the PDF specification to which the PDF file conforms. E.g <span class="stixalt">1.4</span></td>
+  </tr>
+  <tr>
+    <td><strong>is_optimized</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether the PDF file has been optimized.</td>
+  </tr>
+  <tr>
+    <td><strong>document_info_dict</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies details of the PDF document information dictionary (DID), which includes properties like the document creation date and producer, as a dictionary. Each key in the dictionary <strong>SHOULD</strong> be a case-preserved version of the corresponding entry in the document information dictionary without the prepended forward slash, e.g., Title. The corresponding value for the key <strong>MUST</strong> be the value specified for the document information dictionary entry, as a <span class="stixtype">string</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>pdfid0</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the first file identifier found for the PDF file.</td>
+  </tr>
+  <tr>
+    <td><strong>pdfid1</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the second file identifier found for the PDF file.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic PDF file*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.1",
+  "id": "file--965aa96f-d90a-506a-8317-d38d44b235f9",
+  "name": "example.pdf",
+  "extensions": {
+    "pdf-ext": {
+      "version": "1.7",
+      "document_info_dict": {
+        "Title": "Sample document",
+        "Author": "Adobe Systems Incorporated",
+        "Creator": "Adobe FrameMaker 5.5.3 for Power Macintosh",
+        "Producer": "Acrobat Distiller 3.01 for Power Macintosh",
+        "CreationDate": "20070412090123-02"
+      },
+      "pdfid0": "DFCE52BD827ECF765649852119D",
+      "pdfid1": "57A1E0F9ED2AE523E313C"
+    }
+  }
+}
+```
+
+### 6.7.5 Raster Image File Extension <a id="#raster-image-file-extension"></a>
+
+**Type Name**: <span class="stixtype">raster-image-ext</span>
+
+The Raster Image file extension specifies a default extension for capturing properties specific to raster image files. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">raster-image-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+An object using the Raster Image File Extension **MUST** contain at least one property from this extension.
+
+#### Properties <a id="#raster-image-file-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>image_height</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the height of the image in the image file, in pixels.</td>
+  </tr>
+  <tr>
+    <td><strong>image_width</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the width of the image in the image file, in pixels.</td>
+  </tr>
+  <tr>
+    <td><strong>bits_per_pixel</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the sum of bits used for each color channel in the image file, and thus the total number of pixels used for expressing the color depth of the image.</td>
+  </tr>
+  <tr>
+    <td><strong>exif_tags</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies the set of EXIF tags found in the image file, as a dictionary. Each key/value pair in the dictionary represents the name/value of a single EXIF tag. Accordingly, each dictionary key <strong>MUST</strong> be a case-preserved version of the EXIF tag name, e.g., <span class="stixliteral">XResolution</span>. Each dictionary value <strong>MUST</strong> be either an <span class="stixtype">integer</span> (for int* EXIF datatypes) or a <span class="stixtype">string</span> (for all other EXIF datatypes).</td>
+  </tr>
+</table>
+
+**Example**
+
+*Simple Image File with EXIF Data*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.1",
+  "id": "file--66772174-3442-5e0d-b577-4bd7be55fb87",
+  "name": "picture.jpg",
+  "hashes": {
+    "SHA-256": "4bac27393bdd9777ce02453256c5577cd02275510b2227f473d03f533924f877"
+  },
+  "extensions": {
+    "raster-image-ext": {
+      "exif_tags": {
+        "Make": "Nikon",
+        "Model": "D7000",
+        "XResolution": 4928,
+        "YResolution": 3264
+      }
+    }
+  }
+}
+```
+
+### 6.7.6 Windows™ PE Binary File Extension <a id="#windows-pe-binary-file-extension"></a>
+
+**Type Name:**: <span class="stixtype">windows-pebinary-ext</span>
+
+The Windows™ PE Binary File extension specifies a default extension for capturing properties specific to Windows portable executable (PE) files. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">windows-pebinary-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+An object using the Windows™ PE Binary File Extension **MUST** contain at least one property other than the required **pe_type** property from this extension.
+
+#### Properties <a id="#windows-pebinary-ext-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>pe_type</strong> (required)</td>
+    <td><span class="stixtype">open-vocab</span></td>
+    <td>Specifies the type of the PE binary. This is an open vocabulary and values <strong>SHOULD</strong> come from the <span class="stixliteral"><a href="#windows-pe-binary-vocabulary">windows-pebinary-type-ov</a></span> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>imphash</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the special import hash, or 'imphash', calculated for the PE Binary based on its imported libraries and functions.</td>
+  </tr>
+  <tr>
+    <td><strong>machine_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the type of target machine.</td>
+  </tr>
+  <tr>
+    <td><strong>number_of_sections</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of sections in the PE binary, as a non-negative integer.</td>
+  </tr>
+  <tr>
+    <td><strong>time_date_stamp</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the time when the PE binary was created. The timestamp value <strong>MUST</strong> be precise to the second.</td>
+  </tr>
+  <tr>
+    <td><strong>pointer_to_symbol_table_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the file offset of the COFF symbol table.</td>
+  </tr>
+  <tr>
+    <td><strong>number_of_symbols</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of entries in the symbol table of the PE binary, as a non-negative integer.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_optional_header</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the optional header of the PE binary. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>characteristics_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the flags that indicate the file’s characteristics.</td>
+  </tr>
+  <tr>
+    <td><strong>file_header_hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies any hashes that were computed for the file header.<br><br>Dictionary keys <strong>MUST</strong> come from the <span class="stixliteral"><a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a></span> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>optional_header</strong> (optional)</td>
+    <td><span style="white-space: nowrap;"><span class="stixtype">windows-pe-optional-header-type</span></span></td>
+    <td>Specifies the PE optional header of the PE binary. When used, at least one property from the <span class="stixtype">windows-pe-optional-header-type</span> <strong>MUST</strong> be included.</td>
+  </tr>
+  <tr>
+    <td><strong>sections</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span style="white-space: nowrap;"><span class="stixtype">windows-pe-section-type</span></span></td>
+    <td>Specifies metadata about the sections in the PE file.</td>
+  </tr>
+</table>
+
+#### Windows™ PE Optional Header Type <a id="windows-pe-optional-header-type"></a>
+
+**Type Name:** <span class="stixtype">windows-pe-optional-header-type</span>
+
+The Windows PE Optional Header type represents the properties of the PE optional header. An object using the Windows PE Optional Header Type **MUST** contain at least one property from this type.
+
+##### Properties <a id="windows-pe-optional-header-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>magic_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the hex value that indicates the type of the PE binary.</td>
+  </tr>
+  <tr>
+    <td><strong>major_linker_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the linker major version number.</td>
+  </tr>
+  <tr>
+    <td><strong>minor_linker_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the linker minor version number.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_code</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the code (text) section. If there are multiple such sections, this refers to the sum of the sizes of each section. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_initialized_data</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the initialized data section. If there are multiple such sections, this refers to the sum of the sizes of each section. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_uninitialized_data</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the uninitialized data section. If there are multiple such sections, this refers to the sum of the sizes of each section. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>address_of_entry_point</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the address of the entry point relative to the image base when the executable is loaded into memory.</td>
+  </tr>
+  <tr>
+    <td><strong>base_of_code</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the address that is relative to the image base of the beginning-of-code section when it is loaded into memory.</td>
+  </tr>
+  <tr>
+    <td><strong>base_of_data</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the address that is relative to the image base of the beginning-of-data section when it is loaded into memory.</td>
+  </tr>
+  <tr>
+    <td><strong>image_base</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the preferred address of the first byte of the image when loaded into memory.</td>
+  </tr>
+  <tr>
+    <td><strong>section_alignment</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the alignment (in bytes) of PE sections when they are loaded into memory.</td>
+  </tr>
+  <tr>
+    <td><strong>file_alignment</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the factor (in bytes) that is used to align the raw data of sections in the image file.</td>
+  </tr>
+  <tr>
+    <td><strong>major_os_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the major version number of the required operating system.</td>
+  </tr>
+  <tr>
+    <td><strong>minor_os_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the minor version number of the required operating system.</td>
+  </tr>
+  <tr>
+    <td><strong>major_image_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the major version number of the image.</td>
+  </tr>
+  <tr>
+    <td><strong>minor_image_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the minor version number of the image.</td>
+  </tr>
+  <tr>
+    <td><strong>major_subsystem_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the major version number of the subsystem.</td>
+  </tr>
+  <tr>
+    <td><strong>minor_subsystem_version</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the minor version number of the subsystem.</td>
+  </tr>
+  <tr>
+    <td><strong>win32_version_value_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the reserved win32 version value.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_image</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the image in bytes, including all headers, as the image is loaded in memory. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_headers</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the combined size of the MS-DOS, PE header, and section headers, rounded up to a multiple of the value specified in the file_alignment header. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>checksum_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the checksum of the PE binary.</td>
+  </tr>
+  <tr>
+    <td><strong>subsystem_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the subsystem (e.g., GUI, device driver, etc.) that is required to run this image.</td>
+  </tr>
+  <tr>
+    <td><strong>dll_characteristics_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the flags that characterize the PE binary.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_stack_reserve</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the stack to reserve, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_stack_commit</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the stack to commit, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_heap_reserve</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the local heap space to reserve, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>size_of_heap_commit</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the local heap space to commit, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>loader_flags_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the reserved loader flags.</td>
+  </tr>
+  <tr>
+    <td><strong>number_of_rva_and_sizes</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of data-directory entries in the remainder of the optional header.</td>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies any hashes that were computed for the optional header.<br><br>Dictionary keys <strong>MUST</strong> come from the <span class="stixliteral"><a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a></span> open vocabulary.</td>
+  </tr>
+</table>
+
+#### Windows™ PE Section Type <a id="windows-pe-section-type"></a>
+
+**Type Name:** <span class="stixtype">windows-pe-section-type</span>
+
+The Windows PE Section type specifies metadata about a PE file section.
+
+##### Properties <a id="windows-pe-section-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the section.</td>
+  </tr>
+  <tr>
+    <td><strong>size</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the size of the section, in bytes. The value of this property <strong>MUST NOT</strong> be negative.</td>
+  </tr>
+  <tr>
+    <td><strong>entropy</strong> (optional)</td>
+    <td><span class="stixtype">float</span></td>
+    <td>Specifies the calculated entropy for the section, as calculated using the Shannon algorithm [<a href="#shannon-entropy">Shannon Entropy</a>]. The size of each input character is defined as a byte, resulting in a possible range of 0 through 8.</td>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies any hashes computed over the section.<br><br>Dictionary keys <strong>MUST</strong> come from the <span class="stixliteral"><a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a></span> open vocabulary.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Typical EXE File*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.1",
+  "id": "file--9af228db-9a04-5787-ad43-ccadc137a0e2",
+  "name": "example.exe",
+  "extensions": {
+    "windows-pebinary-ext": {
+      "pe_type": "exe",
+      "machine_hex": "014c",
+      "number_of_sections": 4,
+      "time_date_stamp": "2016-01-22T12:31:12Z",
+      "pointer_to_symbol_table_hex": "74726144",
+      "number_of_symbols": 4542568,
+      "size_of_optional_header": 224,
+      "characteristics_hex": "818f",
+      "optional_header": {
+        "magic_hex": "010b",
+        "major_linker_version": 2,
+        "minor_linker_version": 25,
+        "size_of_code": 512,
+        "size_of_initialized_data": 283648,
+        "size_of_uninitialized_data": 0,
+        "address_of_entry_point": 4096,
+        "base_of_code": 4096,
+        "base_of_data": 8192,
+        "image_base": 14548992,
+        "section_alignment": 4096,
+        "file_alignment": 4096,
+        "major_os_version": 1,
+        "minor_os_version": 0,
+        "major_image_version": 0,
+        "minor_image_version": 0,
+        "major_subsystem_version": 4,
+        "minor_subsystem_version": 0,
+        "win32_version_value_hex": "00",
+        "size_of_image": 299008,
+        "size_of_headers": 4096,
+        "checksum_hex": "00",
+        "subsystem_hex": "03",
+        "dll_characteristics_hex": "00",
+        "size_of_stack_reserve": 100000,
+        "size_of_stack_commit": 8192,
+        "size_of_heap_reserve": 100000,
+        "size_of_heap_commit": 4096,
+        "loader_flags_hex": "abdbffde",
+        "number_of_rva_and_sizes": 3758087646
+      },
+      "sections": [
+        {
+          "name": "CODE",
+          "entropy": 0.061089
+        },
+        {
+          "name": "DATA",
+          "entropy": 7.980693
+        },
+        {
+          "name": "NicolasB",
+          "entropy": 0.607433
+        },
+        {
+          "name": ".idata",
+          "entropy": 0.607433
+        }
+      ]
+    }
+  }
+}
+```
+
+## 6.8 IPv4 Address Object <a id="ipv4-address-object"></a>
+
+**Type Name:** <span class="stixtype">ipv4-addr</span>
+
+The IPv4 Address object represents one or more IPv4 addresses expressed using CIDR notation.
+
+### 6.8.1 Properties <a id="ipv4-address-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>IPv4 Address Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong>, <strong>resolves_to_refs</strong>, <strong>belongs_to_refs</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixtype">ipv4-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td> Specifies the values of one or more IPv4 addresses expressed using CIDR notation.<br><br>If a given IPv4 Address object represents a single IPv4 address, the CIDR /32 suffix <strong>MAY</strong> be omitted.<br><br>Example:<br><blockquote><p>10.2.4.5/24</p></blockquote></td>
+  </tr>
+  <tr>
+    <td><strong>resolves_to_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to one or more Layer 2 Media Access Control (MAC) addresses that the IPv4 address resolves to.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">mac-addr</span></td>
+  </tr>
+  <tr>
+    <td><strong>belongs_to_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to one or more autonomous systems (AS) that the IPv4 address belongs to.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">autonomous-system</span></td>
+  </tr>
+</table>
+
+### 6.8.2 Relationships <a id="ipv4-address-object-relationships"></a>
+
+These are the relationships explicitly defined between the IPv4 Address object and other STIX Objects. The table identifies the relationships that can be made from this object type to another object type by way of the Relationship object.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th width="20%"><span class='stixtr'>Source</span></th>
+    <th width="20%""><span class='stixtr'>Relationship Type</span></th>
+    <th width="20%"><span class='stixtr'>Target</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv4-addr</span></td>
+    <td><span class="stixliteral">resolves-to</span></td>
+    <td><span class="stixtype">mac-addr</span></td>
+    <td>This Relationship describes that this IPv4 Address resolves to one or more Layer 2 Media Access Control (MAC) addresses.</td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv4-addr</span></td>
+    <td><span class="stixliteral">belongs-to</span></td>
+    <td><span class="stixtype">autonomous-system</span></td>
+    <td>This Relationship describes that this IPv4 Address belongs to one or more autonomous systems (AS).</td>
+</table>
+
+**Examples**
+
+*IPv4 Single Address*
+
+```JSON
+{
+  "type": "ipv4-addr",
+  "spec_version": "2.1",
+  "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
+  "value": "198.51.100.3"
+}
+```
+
+*IPv4 CIDR Block*
+
+```JSON
+{
+  "type": "ipv4-addr",
+  "spec_version": "2.1",
+  "id": "ipv4-addr--1ea47840-aa39-5aa8-b4a2-cd203eb6662a",
+  "value": "198.51.100.0/24"
+}
+```
+
+## 6.9 IPv6 Address Object <a id="ipv6-address-object"></a>
+
+**Type Name:** <span class="stixtype">ipv6-addr</span>
+
+The IPv4 Address object represents one or more IPv6 addresses expressed using CIDR notation.
+
+### 6.8.1 Properties <a id="ipv4-address-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>IPv6 Address Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong>, <strong>resolves_to_refs</strong>, <strong>belongs_to_refs</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixtype">ipv6-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td> Specifies the values of one or more IPv6 addresses expressed using CIDR notation.<br><br>If a given IPv6 Address object represents a single IPv6 address, the CIDR /128 suffix <strong>MAY</strong> be omitted.</td>
+  </tr>
+  <tr>
+    <td><strong>resolves_to_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to one or more Layer 2 Media Access Control (MAC) addresses that the IPv4 address resolves to.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">mac-addr</span></td>
+  </tr>
+  <tr>
+    <td><strong>belongs_to_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies a list of references to one or more autonomous systems (AS) that the IPv4 address belongs to.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">autonomous-system</span></td>
+  </tr>
+</table>
+
+### 6.9.2 Relationships <a id="ipv6-address-object-relationships"></a>
+
+These are the relationships explicitly defined between the IPv6 Address object and other STIX Objects. The table identifies the relationships that can be made from this object type to another object type by way of the Relationship object.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th width="20%"><span class='stixtr'>Source</span></th>
+    <th width="20%""><span class='stixtr'>Relationship Type</span></th>
+    <th width="20%"><span class='stixtr'>Target</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv6-addr</span></td>
+    <td><span class="stixliteral">resolves-to</span></td>
+    <td><span class="stixtype">mac-addr</span></td>
+    <td>This Relationship describes that this IPv6 Address resolves to one or more Layer 2 Media Access Control (MAC) addresses.</td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv6-addr</span></td>
+    <td><span class="stixliteral">belongs-to</span></td>
+    <td><span class="stixtype">autonomous-system</span></td>
+    <td>This Relationship describes that this IPv6 Address belongs to one or more autonomous systems (AS).</td>
+</table>
+
+**Examples**
+
+
+
+*IPv6 Single Address*
+
+```JSON
+{
+  "type": "ipv6-addr",
+  "spec_version": "2.1",
+  "id": "ipv6-addr--85a85a8c-ee99-5722-946d-3c3a3270fc6f",
+  "value": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+}
+```
+
+*IPv6 CIDR block*
+
+```JSON
+{
+  "type": "ipv6-addr",
+  "spec_version": "2.1",
+  "id": "ipv6-addr--084d3b4c-7785-568a-a569-0c61c95754ab",
+  "value": "2001:0db8::/96"
+}
+```
+
+## 6.10 MAC Address Object <a id="mac-address-object"></a>
+
+**Type Name:** <span class="stixtype">mac-addr</span>
+
+The MAC Address object represents a single Media Access Control (MAC) address.
+
+### 6.10.1 Properties <a id="mac-address-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>MAC Address Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">mac-addr</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of a single MAC address.<br><br>The MAC address value MUST be represented as a single colon-delimited, lowercase MAC-48 address, which MUST include leading zeros for each octet.<br><br>Example:<br><blockquote>00:00:ab:cd:ef:01</blockquote></td>
+  </tr>
+</table>
+
+**Example**
+
+*Typical MAC address*
+
+```JSON
+{
+  "type": "mac-addr",
+  "spec_version": "2.1",
+  "id": "mac-addr--757b1725-9903-54f5-a855-1240691d7659",
+  "value": "d2:fb:49:24:37:18"
+}
+```
+
+## 6.11 Mutex Object <a id="mutex-object"></a>
+
+**Type Name:** <span class="stixtype">mutex</span>
+
+The Mutex object represents the properties of a mutual exclusion (mutex) object.
+
+### 6.11.1 Properties <a id="mutex-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Mutex Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">mutex</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the mutex object.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Malware mutex*
+
+```JSON
+{
+  "type": "mutex",
+  "spec_version": "2.1",
+  "id": "mutex--f93fe911-e545-5239-b9b0-597840d0c871",
+  "name": "__CLEANSWEEP__"
+}
+```
+
+## 6.12 Network Traffic Object <a id="network-traffic-object"></a>
+
+**Type Name:** <span class="stixtype">network-traffic</span>
+
+The Network Traffic object represents arbitrary network traffic that originates from a source and is addressed to a destination.
+The network traffic **MAY** or **MAY NOT** constitute a valid unicast, multicast, or broadcast network connection.
+This **MAY** also include traffic that is not established, such as a SYN flood.
+
+To allow for use cases where a source or destination address may be sensitive and not suitable for sharing, such as addresses that are internal to an organization's network, the source and destination properties (**src_ref** and **dst_ref**, respectively) are defined as optional in the properties table below. However, a Network Traffic object **MUST** contain the **protocols** property and at least one of the **src_ref** or **dst_ref** properties and **SHOULD** contain the **src_port** and **dst_port** properties.
+
+### 6.12.1 Properties <a id="network-traffic-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Network Traffic Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>start</strong>, <strong>end</strong>, <strong>is_active</strong>, <strong>src_ref</strong>, <strong>dst_ref</strong>, <strong>src_port</strong>, <strong>dst_port</strong>, <strong>protocols</strong>, <strong>src_byte_count</strong>, <strong>dst_byte_count</strong>, <strong>src_packets</strong>, <strong>dst_packets</strong>, <strong>ipfix</strong>, <strong>src_payload_ref</strong>, <strong>dst_payload_ref</strong>, <strong>encapsulates_refs</strong>, <strong>encapsulated_by_ref</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>start</strong>, <strong>end</strong>, <strong>src_ref</strong>, <strong>dst_ref</strong>, <strong>src_port</strong>, <strong>dst_port</strong>, <strong>protocols</strong>, <strong>extensions</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">network-traffic</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>extensions</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>The Network Traffic object defines the following extensions. In addition to these, producers <strong>MAY</strong> create their own.<br><br><span class="stixtype">http-request-ext</span>, <span class="stixtype">tcp-ext</span>, <span class="stixtype">icmp-ext</span>, <span class="stixtype">socket-ext</span><br><br>Dictionary keys <strong>MUST</strong> use the specification defined name (examples above) or be the id of a STIX Extension object, depending on the type of extension being used.<br><br>The corresponding dictionary values <strong>MUST</strong> contain the contents of the extension instance.</td>
+  </tr>
+  <tr>
+    <td><strong>start</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the network traffic was initiated, if known.</td>
+  </tr>
+  <tr>
+    <td><strong>end</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time the network traffic ended, if known.<br><br>If the <strong>is_active</strong> property is true, then the <strong>end</strong> property <strong>MUST NOT</strong> be included.<br><br>If this property and the <strong>start</strong> property are both defined, then this property <strong>MUST</strong> be greater than or equal to the timestamp in the <strong>start</strong> property.</td>
+  </tr>
+  <tr>
+    <td><strong>is_active</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Indicates whether the network traffic is still ongoing.<br><br>If the <strong>end</strong> property is provided, this property <strong>MUST</strong> be <span class="stixliteral">false</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>src_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the source of the network traffic, as a reference to a Cyber-observable Object.<br><br>The object referenced <strong>MUST</strong> be of type <span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span>, <span class="stixtype">mac-addr</span>, or <span class="stixtype">domain-name</span> (for cases where the IP address for a domain name is unknown).</td>
+  </tr>
+  <tr>
+    <td><strong>dst_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the destination of the network traffic, as a reference to a Cyber-observable Object.<br><br>The object referenced <strong>MUST</strong> be of type <span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span>, <span class="stixtype">mac-addr</span>, or <span class="stixtype">domain-name</span> (for cases where the IP address for a domain name is unknown).</td>
+  </tr>
+  <tr>
+    <td><strong>src_port</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the source port used in the network traffic, as an integer. The port value <strong>MUST</strong> be in the range of 0 - 65535.</td>
+  </tr>
+  <tr>
+    <td><strong>dst_port</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the destination port used in the network traffic, as an integer. The port value <strong>MUST</strong> be in the range of 0 - 65535.</td>
+  </tr>
+  <tr>
+    <td><strong>protocols</strong> (required)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">string</span></span></td>
+    <td>Specifies the protocols observed in the network traffic, along with their corresponding state.
+
+Protocols <strong>MUST</strong> be listed in low to high order, from outer to inner in terms of packet encapsulation. That is, the protocols in the outer level of the packet, such as IP, <strong>MUST</strong> be listed first.
+
+The protocol names <strong>SHOULD</strong> come from the service names defined in the Service Name column of the IANA Service Name and Port Number Registry [<a href="#port-numbers">Port Numbers</a>]. In cases where there is variance in the name of a network protocol not included in the IANA Registry, content producers should exercise their best judgement, and it is recommended that lowercase names be used for consistency with the IANA registry.<br><br>If the protocol extension is present, the corresponding protocol value for that extension <strong>SHOULD</strong> be listed in this property.<br><br>Examples:<br><blockquote>ipv4, tcp, http<br>ipv4, udp<br>ipv6, tcp, http<br>ipv6, tcp, ssl, https</blockquote></td>
+  </tr>
+  <tr>
+    <td><strong>src_byte_count</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of bytes, as a positive integer, sent from the source to the destination.</td>
+  </tr>
+  <tr>
+    <td><strong>dst_byte_count</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of bytes, as a positive integer, sent from the destination to the source.</td>
+  </tr>
+  <tr>
+    <td><strong>src_packets</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of packets, as a positive integer, sent from the source to the destination.</td>
+  </tr>
+  <tr>
+    <td><strong>dst_packets</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of packets, as a positive integer, sent from the destination to the source.</td>
+  </tr>
+  <tr>
+    <td><strong>ipfix</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies any IP Flow Information Export [<a href="#ipfix">IPFIX</a>] data for the traffic, as a dictionary. Each key/value pair in the dictionary represents the name/value of a single IPFIX element. Accordingly, each dictionary key <strong>SHOULD</strong> be a case-preserved version of the IPFIX element name, e.g., octetDeltaCount. Each dictionary value <strong>MUST</strong> be either an <span class="stixtype">integer</span> or a <span class="stixtype">string</span>, as well as a valid IPFIX property.</td>
+  </tr>
+  <tr>
+    <td><strong>src_payload_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the bytes sent from the source to the destination.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">artifact</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>dst_payload_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the bytes sent from the destination to the source.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">artifact</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>encapsulates_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Links to other <span class="stixtype">network-traffic</span> objects encapsulated by this <span class="stixtype">network-traffic</span> object.<br><br>The objects referenced in this property <strong>MUST</strong> be of type <span class="stixtype">network-traffic</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>encapsulated_by_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Links to another <span class="stixtype">network-traffic</span> object which encapsulates this object.<br><br>The objects referenced in this property <strong>MUST</strong> be of type <span class="stixtype">network-traffic</span>.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic TCP Network Traffic*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "value": "198.51.100.2"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
+    "value": "198.51.100.3"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--6e0cb830-0305-57d4-8536-7be874d42005",
+    "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "dst_ref": "ipv4-addr--28bb3599-77cd-5a82-a950-b5bc3caf07c4",
+    "protocols": [
+      "tcp"
+    ]
+  }
+]
+```
+
+*Basic HTTP Network Traffic*
+
+```JSON
+[
+  {
+    "type": "domain-name",
+    "spec_version": "2.1",
+    "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
+    "value": "example.com"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--c695ada6-5d5d-5446-a661-935874e1d058",
+    "dst_ref": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
+    "protocols": [
+      "ipv4",
+      "tcp",
+      "http"
+    ]
+  }
+]
+```
+
+*Network Traffic with Netflow Data*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+    "value": "203.0.113.1"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
+    "value": "203.0.113.5"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--44eb3012-751d-5c12-b9ba-1506e42e26ef",
+    "src_ref": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+    "dst_ref": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
+    "protocols": [
+      "ipv4",
+      "tcp"
+    ],
+    "src_byte_count": 147600,
+    "src_packets": 100,
+    "ipfix": {
+      "minimumIpTotalLength": 32,
+      "maximumIpTotalLength": 2556
+    }
+  }
+]
+```
+
+*Basic Tunneled Network Traffic*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "value": "198.51.100.2"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+    "value": "203.0.113.1"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--a2935766-2522-5939-9513-cc3536f212a3",
+    "value": "203.0.113.2"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--372c0c73-777a-50de-bc3a-92cc72fcf7dd",
+    "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "dst_ref": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+    "src_port": 2487,
+    "dst_port": 1723,
+    "protocols": [
+      "ipv4",
+      "pptp"
+    ],
+    "src_byte_count": 35779,
+    "dst_byte_count": 935750,
+    "encapsulates_refs": [
+      "network-traffic--8dce0dc4-f5ea-5313-8e6c-03646d419b6a"
+    ]
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--8dce0dc4-f5ea-5313-8e6c-03646d419b6a",
+    "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "dst_ref": "ipv4-addr--a2935766-2522-5939-9513-cc3536f212a3",
+    "src_port": 24678,
+    "dst_port": 80,
+    "protocols": [
+      "ipv4",
+      "tcp",
+      "http"
+    ],
+    "src_packets": 14356,
+    "dst_packets": 14356,
+    "encapsulated_by_ref": "network-traffic--372c0c73-777a-50de-bc3a-92cc72fcf7dd"
+  }
+]
+```
+
+*Web traffic tunneled over DNS*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+    "value": "203.0.113.1"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--13cba85b-1780-5517-b600-7b6546cfd760",
+    "value": "198.51.100.34"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--23476ffc-8715-5eee-bd37-2f204b7db486",
+    "value": "198.51.100.54"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--fc1686c0-b36e-5041-9ce4-c8df9cf10d6d",
+    "src_ref": "ipv4-addr--ad74bc22-43d2-52ed-890e-7d382f58e1eb",
+    "dst_ref": "ipv4-addr--13cba85b-1780-5517-b600-7b6546cfd760",
+    "src_port": 2487,
+    "dst_port": 53,
+    "protocols": [
+      "ipv4",
+      "udp",
+      "dns"
+    ],
+    "src_byte_count": 35779,
+    "dst_byte_count": 935750,
+    "encapsulates_refs": [
+      "network-traffic--27ed09d5-f85a-5a8e-8590-49a91d7e510e"
+    ]
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--27ed09d5-f85a-5a8e-8590-49a91d7e510e",
+    "src_ref": "ipv4-addr--13cba85b-1780-5517-b600-7b6546cfd760",
+    "dst_ref": "ipv4-addr--23476ffc-8715-5eee-bd37-2f204b7db486",
+    "src_port": 24678,
+    "dst_port": 443,
+    "protocols": [
+      "ipv4",
+      "tcp",
+      "ssl",
+      "http"
+    ],
+    "src_packets": 14356,
+    "dst_packets": 14356,
+    "encapsulated_by_ref": "network-traffic--fc1686c0-b36e-5041-9ce4-c8df9cf10d6d"
+  }
+]
+```
+
+### 6.12.2 HTTP Request Extension <a id="http-request-extension"></a>
+
+**Type Name:** <span class="stixtype">http-request-ext</span>
+
+The HTTP request extension specifies a default extension for capturing network traffic properties specific to HTTP requests. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">http-request-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition). The corresponding protocol value for this extension is <span class="stixliteral">http</span>.
+
+#### Properties <a id="http-request-ext-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>request_method</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the HTTP method portion of the HTTP request line, as a lowercase string.</td>
+  </tr>
+  <tr>
+    <td><strong>request_value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value (typically a resource path) portion of the HTTP request line.</td>
+  </tr>
+  <tr>
+    <td><strong>request_version</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the HTTP version portion of the HTTP request line, as a lowercase string.</td>
+  </tr>
+  <tr>
+    <td><strong>request_header</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies all of the HTTP header fields that may be found in the HTTP client request, as a dictionary.<br><br>Each key in the dictionary <strong>MUST</strong> be the name of the header field and <strong>SHOULD</strong> preserve case, e.g., <span class="stixalt">User-Agent</span>. The corresponding value for each dictionary key <strong>MUST</strong> always be a <span class="stixtype">list</span> of type <span class="stixtype">string</span> to support when a header field is repeated.</td>
+  </tr>
+  <tr>
+    <td><strong>message_body_length</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the length of the HTTP message body, if included, in bytes.</td>
+  </tr>
+  <tr>
+    <td><strong>message_body_data_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the data contained in the HTTP message body, if included.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">artifact</span>.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic HTTP Request*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--165070a8-c561-58a8-8659-fce2f255c2c0",
+    "value": "198.51.100.53"
+
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--fdd6dbda-a206-52fe-b19b-64d908748850",
+    "dst_ref": "ipv4-addr--165070a8-c561-58a8-8659-fce2f255c2c0",
+    "protocols": [
+      "tcp",
+      "http"
+    ],
+    "extensions": {
+      "http-request-ext": {
+        "request_method": "get",
+        "request_value": "/download.html",
+        "request_version": "http/1.1",
+        "request_header": {
+          "Accept-Encoding": ["gzip,deflate"],
+          "User-Agent": ["Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.6) Gecko/20040113"],
+          "Host": ["www.example.com"]
+        }
+      }
+    }
+  }
+]
+```
+
+### 6.12.3 ICMP Extension <a id="icmp-extension"></a>
+
+**Type Name:** <span class="stixtype">icmp-ext</span>
+
+The ICMP extension specifies a default extension for capturing network traffic properties specific to ICMP. The key for this extension when used in the <strong>extensions</strong> dictionary <strong>MUST</strong> be <span class="stixliteral">icmp-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition). The corresponding protocol value for this extension is <span class="stixliteral">icmp</span>.
+
+#### Properties <a id="icmp-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>icmp_type_hex</strong> (required)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the ICMP type byte.</td>
+  </tr>
+  <tr>
+    <td><strong>icmp_code_hex</strong> (required)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the ICMP code byte.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic ICMP Traffic*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6",
+    "value": "198.51.100.9"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
+    "value": "203.0.113.5"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--4f156a67-4efc-58fb-b0a7-f2612927a37d",
+    "src_ref": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6",
+    "dst_ref": "ipv4-addr--826fe3cb-56b0-5620-9d30-4c17ed7b24e3",
+    "protocols": [
+      "icmp"
+    ],
+    "extensions": {
+      "icmp-ext": {
+        "icmp_type_hex": "08",
+        "icmp_code_hex": "00"
+      }
+    }
+  }
+]
+```
+
+### 6.12.4 Network Socket Extension <a id="network-socket-extension"></a>
+
+**Type Name:** <span class="stixtype">socket-ext</span>
+
+The Network Socket extension specifies a default extension for capturing network traffic properties associated with network sockets. The key for this extension when used in the extensions dictionary MUST be <span class="stixliteral">socket-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+#### Properties <a id="socket-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>address_family</strong> (required)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the address family (AF_*) that the socket is configured for.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href="#network-socket-address-family-enumeration">network-socket-address-family-enum</a></span> enumeration.</td>
+  </tr>
+  <tr>
+    <td><strong>is_blocking</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether the socket is in blocking mode.</td>
+  </tr>
+  <tr>
+    <td><strong>is_listening</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether the socket is in listening mode.</td>
+  </tr>
+  <tr>
+    <td><strong>options</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies any options (e.g., SO_*) that may be used by the socket, as a dictionary. Each key in the dictionary <strong>SHOULD</strong> be a case-preserved version of the option name, e.g., <span class="stixalt">SO_ACCEPTCONN</span>. Each key value in the dictionary <strong>MUST</strong> be the value for the corresponding options key. Each dictionary value <strong>MUST</strong> be an <span class="stixtype">integer</span>. For <span class="stixalt">SO_RCVTIMEO</span>, <span class="stixalt">SO_SNDTIMEO</span> and <span class="stixalt">SO_LINGER</span> the value represents the number of milliseconds. If the <span class="stixalt">SO_LINGER</span> key is present, it indicates that the <span class="stixalt">SO_LINGER</span> option is active.</td>
+  </tr>
+  <tr>
+    <td><strong>socket_type</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the type of the socket.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href="#network-socket-type-enumeration">network-socket-type-enum</a></span> enumeration.</td>
+  </tr>
+  <tr>
+    <td><strong>socket_descriptor</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the socket file descriptor value associated with the socket, as a non-negative integer.</td>
+  </tr>
+  <tr>
+    <td><strong>socket_handle</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the handle or inode value associated with the socket.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic Stream Socket*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "value": "198.51.100.2"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--59d8852c-0c68-5e0c-8ae2-f3c46bd7b1df",
+    "src_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "src_port": 223,
+    "protocols": [
+      "ip",
+      "tcp"
+    ],
+    "extensions": {
+      "socket-ext": {
+        "is_listening": true,
+        "address_family": "AF_INET",
+        "socket_type": "SOCK_STREAM"
+      }
+    }
+  }
+]
+```
+
+### 6.12.5 TCP Extension <a id="tcp-extension"></a>
+
+**Type Name:** <span class="stixtype">tcp-ext</span>
+
+
+
+The TCP extension specifies a default extension for capturing network traffic properties specific to TCP. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">tcp-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition). The corresponding protocol value for this extension is <span class="stixliteral">tcp</span>.
+
+An object using the TCP Extension **MUST** contain at least one property from this extension.
+
+#### Properties <a id="tcp-extension-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>src_flags_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the source TCP flags, as the union of all TCP flags observed between the start of the traffic (as defined by the <strong>start</strong> property) and the end of the traffic (as defined by the <strong>end</strong> property).<br><br>If the start and end times of the traffic are not specified, this property <strong>SHOULD</strong> be interpreted as the union of all TCP flags observed over the entirety of the network traffic being reported upon.</td>
+  </tr>
+  <tr>
+    <td><strong>dst_flags_hex</strong> (optional)</td>
+    <td><span class="stixtype">hex</span></td>
+    <td>Specifies the destination TCP flags, as the union of all TCP flags observed between the start of the traffic (as defined by the <strong>start</strong> property) and the end of the traffic (as defined by the <strong>end</strong> property).<br><br>If the start and end times of the traffic are not specified, this property <strong>SHOULD</strong> be interpreted as the union of all TCP flags observed over the entirety of the network traffic being reported upon.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic TCP Traffic*
+
+```JSON
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--f85034be-e4ad-5153-aa6b-79c450eb25b3",
+    "value": "198.51.100.5"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--72073c96-1246-5058-8e5c-6ca59d656dee",
+    "value": "198.51.100.6"
+  },
+  {
+    "type": "network-traffic",
+    "spec_version": "2.1",
+    "id": "network-traffic--47b27c77-4272-563f-91ca-87e2a4afd6ef",
+    "src_ref": "ipv4-addr--f85034be-e4ad-5153-aa6b-79c450eb25b3",
+    "dst_ref": "ipv4-addr--72073c96-1246-5058-8e5c-6ca59d656dee",
+    "src_port": 3372,
+    "dst_port": 80,
+    "protocols": [
+      "tcp"
+    ],
+    "extensions": {
+      "tcp-ext": {
+        "src_flags_hex": "00000002"
+      }
+    }
+  }
+]
+```
+
+## 6.13 Process Object <a id="process-object"></a>
+
+**Type Name:** <span class="stixtype">process</span>
+
+The Process object represents common properties of an instance of a computer program as executed on an operating system.
+A Process object **MUST** contain at least one property (other than **type**) from this object (or one of its extensions).
+
+### 6.13.1 Properties <a id="process-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Process Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>is_hidden</strong>, <strong>pid</strong>, <strong>created_time</strong>, <strong>cwd</strong>, <strong>command_line</strong>, <strong>environment_variables</strong>, <strong>opened_connection_refs</strong>, <strong>creator_user_ref</strong>, <strong>image_ref</strong>, <strong>parent_ref</strong>, <strong>child_refs</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><em>Since all properties on this object are optional, please use a UUIDv4 for the ID of this object.</em></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">process</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>extensions</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>The Process object defines the following extensions. In addition to these, producers <strong>MAY</strong> create their own.<br><br><span class="stixtype">windows-process-ext</span>, <span class="stixtype">windows-service-ext</span><br><br>Dictionary keys <strong>MUST</strong> use the specification defined name (examples above) or be the id of a STIX Extension object, depending on the type of extension being used.<br><br>The corresponding dictionary values <strong>MUST</strong> contain the contents of the extension instance.</td>
+  </tr>
+  <tr>
+    <td><strong>is_hidden</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether the process is hidden.</td>
+  </tr>
+  <tr>
+    <td><strong>pid</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the Process ID, or PID, of the process.</td>
+  </tr>
+  <tr>
+    <td><strong>created_time</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date/time at which the process was created.</td>
+  </tr>
+  <tr>
+    <td><strong>cwd</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the current working directory of the process.</td>
+  </tr>
+  <tr>
+    <td><strong>command_line</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the full command line used in executing the process, including the process name (which may be specified individually via the image_ref.name property) and any arguments.</td>
+  </tr>
+  <tr>
+    <td><strong>environment_variables</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies the list of environment variables associated with the process as a dictionary. Each key in the dictionary <strong>MUST</strong> be a case preserved version of the name of the environment variable, and each corresponding value <strong>MUST</strong> be the environment variable value as a <span class="stixtype">string</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>opened_connection_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies the list of network connections opened by the process, as a reference to one or more Network Traffic objects.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">network-traffic</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>creator_user_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the user that created the process, as a reference to a User Account object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">user-account</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>image_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the executable binary that was executed as the process image, as a reference to a File object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">file</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>parent_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies the other process that spawned (i.e. is the parent of) this one, as a reference to a Process object.<br><br>The object referenced in this property <strong>MUST</strong> be of type <span class="stixtype">process</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>child_refs</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></span></td>
+    <td>Specifies the other processes that were spawned by (i.e. children of) this process, as a reference to one or more other Process objects.<br><br>The objects referenced in this list <strong>MUST</strong> be of type <span class="stixtype">process</span>.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic Process*
+
+```JSON
+[
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--3eb55c0e-fe96-588b-a7ab-10f55f7ec596",
+    "name": "gedit-bin",
+    "hashes": {
+      "SHA-256": "aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f"
+    }
+  },
+  {
+    "type": "process",
+    "spec_version": "2.1",
+    "id": "process--8fac80fe-a220-4ba9-8ffe-4f43ce8edff8",
+    "pid": 1221,
+    "created_time": "2016-01-20T14:11:25.55Z",
+    "command_line": "./gedit-bin --new-window",
+    "image_ref": "file--e04f22d1-be2c-59de-add8-10f61d15fe20"
+  }
+]
+```
+
+### 6.13.2 Windows™ Process Extension <a id="windows-process-extension"></a>
+
+**Type Name:** <span class="stixtype">windows-process-ext</span>
+
+The Windows Process extension specifies a default extension for capturing properties specific to Windows processes. The key for this extension when used in the extensions dictionary **MUST** be <span class="stixliteral">windows-process-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+An object using the Windows Process Extension **MUST** contain at least one property from this extension.
+
+#### Properties <a id="windows-process-ext-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>aslr_enabled</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether Address Space Layout Randomization (ASLR) is enabled for the process.</td>
+  </tr>
+  <tr>
+    <td><strong>dep_enabled</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether Data Execution Prevention (DEP) is enabled for the process.</td>
+  </tr>
+  <tr>
+    <td><strong>priority</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the current priority class of the process in Windows. This value <strong>SHOULD</strong> be a string that ends in <span class="stixliteral">_CLASS</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>owner_sid</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the Security ID (SID) value of the owner of the process.</td>
+  </tr>
+  <tr>
+    <td><strong>windows_title</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the title of the main window of the process.</td>
+  </tr>
+  <tr>
+    <td><strong>startup_info</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>Specifies the STARTUP_INFO struct used by the process, as a dictionary. Each name/value pair in the struct <strong>MUST</strong> be represented as a key/value pair in the dictionary, where each key <strong>MUST</strong> be a case-preserved version of the original name. For example, given a name of "lpDesktop" the corresponding key would be lpDesktop.</td>
+  </tr>
+  <tr>
+    <td><strong>integrity_level</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the Windows integrity level, or trustworthiness, of the process.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href="#windows-integrity-level-enumeration">windows-integrity-level-enum</a></span> enumeration.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic Windows Process*
+
+```JSON
+{
+  "type": "process",
+  "spec_version": "2.1",
+  "id": "process--65a99d8a-e5b2-44bb-8311-963a580ee9a1",
+  "pid": 314,
+  "extensions": {
+    "windows-process-ext": {
+      "aslr_enabled": true,
+      "dep_enabled": true,
+      "priority": "HIGH_PRIORITY_CLASS",
+      "owner_sid": "S-1-5-21-186985262-1144665072-74031268-1309"
+    }
+  }
+}
+```
+
+
+### 6.13.3 Windows™ Service Extension <a id="windows-service-extension"></a>
+
+**Type Name:** <span class="stixtype">windows-service-ext</span>
+
+The Windows Service extension specifies a default extension for capturing properties specific to Windows services. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">windows-service-ext</span>. Note that this predefined extension does not use the extension facility described in [section 7.3](#extension-definition).
+
+As all properties of this extension are optional, at least one of the properties defined below **MUST** be included when using this extension.
+
+#### Properties <a id="windows-service-ext-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>service_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the service.</td>
+  </tr>
+  <tr>
+    <td><strong>descriptions</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span class="stixtype">string</span></td>
+    <td>Specifies the descriptions defined for the service.</td>
+  </tr>
+  <tr>
+    <td><strong>display_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the display name of the service in Windows GUI controls.</td>
+  </tr>
+  <tr>
+    <td><strong>group_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the load ordering group of which the service is a member.</td>
+  </tr>
+  <tr>
+    <td><strong>start_type</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the start options defined for the service.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href=#windows-service-start-type-enumeration">windows-service-start-type-enum</a</span> enumeration.</td>
+  </tr>
+  <tr>
+    <td><strong>service_dll_refs</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span class="stixtype">identifier</span></td>
+    <td>Specifies the DLLs loaded by the service, as a reference to one or more File objects.<br><br>The objects referenced in this property <strong>MUST</strong> be of type <span class="stixtype">file</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>service_type</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the type of the service.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href=#windows-service-type-enumeration">windows-service-type-enum</a</span> enumeration.</td>
+  </tr>
+  <tr>
+    <td><strong>service_status</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the current status of the service.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href=#windows-service-status-enumeration">windows-service-status-enum</a</span> enumeration.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic Windows Service*
+
+```JSON
+[
+  {
+    "type": "file",
+    "spec_version": "2.1",
+    "id": "file--ca7d6a8a-b79e-5c3b-b736-8d48adcf0c97",
+    "hashes": {
+      "SHA-256": "bf07a7fbb825fc0aae7bf4a1177b2b31fcf8a3feeaf7092761e18c859ee52a9c"
+    },
+    "name": "sirvizio.exe"
+  }
+  {
+    "type": "process",
+    "spec_version": "2.1",
+    "id": "process--ab1ff083-dc96-4896-8c8d-4e623f6e145e",
+    "pid": 2217,
+    "command_line": "C:\\Windows\\System32\\sirvizio.exe /s",
+    "image_ref": "file--3916128d-69af-5525-be7a-99fac2383a59",
+    "extensions": {
+      "windows-service-ext": {
+        "service_name": "sirvizio",
+        "display_name": "Sirvizio",
+        "start_type": "SERVICE_AUTO_START",
+        "service_type": "SERVICE_WIN32_OWN_PROCESS",
+        "service_status": "SERVICE_RUNNING"
+      }
+    }
+  }
+]
+```
+
+## 6.14 Software Object <a id="software-object"></a>
+
+**Type Name:** <span class="stixtype">software</span>
+
+The Software object represents high-level properties associated with software, including software products.
+
+### 6.14.1 Properties <a id="software-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Software Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong>, <strong>cpe</strong>, <strong>swid</strong>, <strong>languages</strong>, <strong>vendor</strong>, <strong>version</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong>, <strong>cpe</strong>, <strong>swid</strong>, <strong>vendor</strong>, <strong>version</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">software</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the software.</td>
+  </tr>
+  <tr>
+    <td><strong>cpe</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the Common Platform Enumeration (CPE) entry for the software, if available. The value for this property MUST be a CPE v2.3 entry from the official NVD CPE Dictionary [<a href="#nvd">NVD</a>].<br><br>While the CPE dictionary does not contain entries for <em>all</em> software, whenever it <em>does</em> contain an identifier for a given instance of software, this property <strong>SHOULD</strong> be present.</td>
+  </tr>
+  <tr>
+    <td><strong>swid</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the Software Identification (SWID) Tags [<a href="#swid">SWID</a>] entry for the software, if available. The tag attribute, tagId, a globally unique identifier, <strong>SHOULD</strong> be used as a proxy identifier of the tagged product.</td>
+  </tr>
+  <tr>
+    <td><strong>languages</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">string</span></span></td>
+    <td>Specifies the languages supported by the software. The value of each list member <strong>MUST</strong> be a language code conformant to [<a href="#rfc5646">RFC5646</a>].</td>
+  </tr>
+  <tr>
+    <td><strong>vendor</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the vendor of the software.</td>
+  </tr>
+  <tr>
+    <td><strong>version</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the version of the software.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Typical Software Instance*
+
+```JSON
+{
+  "type": "software",
+  "spec_version": "2.1",
+  "id": "software--710b0b41-d4d0-5d6c-a400-fc9254554ffc",
+  "name": "Word",
+  "cpe": "cpe:2.3:a:microsoft:word:2000:*:*:*:*:*:*:*",
+  "version": "2002",
+  "vendor": "Microsoft"
+}
+```
+
+## 6.15 URL Object <a id="url-object"></a>
+
+**Type Name:** <span class="stixtype">url</span>
+
+The URL object represents the properties of a uniform resource locator (URL).
+
+### 6.15.1 Properties <a id="url-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>URL Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>value</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">url</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>value</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the value of the URL. The value of this property <strong>MUST</strong> conform to [<a href="#rfc3986">RFC3986</a>], more specifically section 1.1.3 with reference to the definition for "Uniform Resource Locator".</td>
+  </tr>
+</table>
+
+**Example**
+
+*Typical URL*
+
+```JSON
+{
+  "type": "url",
+  "spec_version": "2.1",
+  "id": "url--47c3cf9a-5027-5bf0-997a-017c7edc7c55",
+  "value": "https://example.com/research/index.html"
+}
+```
+
+## 6.16 User Account Object <a id="user-account-object"></a>
+
+**Type Name:** <span class="stixtype">user-account</span>
+
+The User Account object represents an instance of any type of user account, including but not limited to operating system, device, messaging service, and social media platform accounts.
+As all properties of this object are optional, at least one of the properties defined below **MUST** be included when using this object.
+
+### 6.16.1 Properties <a id="user-account-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>User Account Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>user_id</strong>, <strong>credential</strong>, <strong>account_login</strong>, <strong>account_type</strong>, <strong>display_name</strong>, <strong>is_service_account</strong>, <strong>is_privileged</strong>, <strong>can_escalate_privs</strong>, <strong>is_disabled</strong>, <strong>account_created</strong>, <strong>account_expires</strong>, <strong>credential_last_changed</strong>, <strong>account_first_login</strong>, <strong>account_last_login</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>account_type</strong>, <strong>user_id</strong>, <strong>account_login</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">user-account</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>extensions</strong> (optional)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>The User Account object defines the following extensions. In addition to these, producers <strong>MAY</strong> create their own.<br><br><span class="stixtype">unix-account-ext</span><br><br>Dictionary keys <strong>MUST</strong> use the specification defined name (examples above) or be the id of a STIX Extension object, depending on the type of extension being used.<br><br>The corresponding dictionary values <strong>MUST</strong> contain the contents of the extension instance.</td>
+  </tr>
+  <tr>
+    <td><strong>user_id</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the identifier of the account. The format of the identifier depends on the system the user account is maintained in, and may be a numeric ID, a GUID, an account name, an email address, etc. The <strong>user_id</strong> property should be populated with whatever field is the unique identifier for the system the account is a member of. For example, on UNIX systems it would be populated with the UID.</td>
+  </tr>
+  <tr>
+    <td><strong>credential</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a cleartext credential. This is <strong>only</strong> intended to be used in capturing metadata from malware analysis (e.g., a hard-coded domain administrator password that the malware attempts to use for lateral movement) and <strong>SHOULD NOT</strong> be used for sharing of PII.</td>
+  </tr>
+  <tr>
+    <td><strong>account_login</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the account login string, used in cases where the <strong>user_id</strong> property specifies something other than what a user would type when they login.<br><br>For example, in the case of a Unix account with user_id 0, the account_login might be "root".</td>
+  </tr>
+  <tr>
+    <td><strong>account_type</strong> (optional)</td>
+    <td><span class="stixtype">open-vocab</span></td>
+    <td>Specifies the type of the account.<br><br>This is an open vocabulary and values <strong>SHOULD</strong> come from the <span class="stixliteral"><a href="#account-type-vocabulary">account-type-ov</a></span> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>display_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the display name of the account, to be shown in user interfaces, if applicable.<br><br>On Unix, this is equivalent to the GECOS field.</td>
+  </tr>
+  <tr>
+    <td><strong>is_service_account</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Indicates that the account is associated with a network service or system process (daemon), not a specific individual.</td>
+  </tr>
+  <tr>
+    <td><strong>is_privileged</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies that the account has elevated privileges (i.e., in the case of root on Unix or the Windows Administrator account).</td>
+  </tr>
+  <tr>
+    <td><strong>can_escalate_privs</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies that the account has the ability to escalate privileges (i.e., in the case of sudo on Unix or a Windows Domain Admin account)</td>
+  </tr>
+  <tr>
+    <td><strong>is_disabled</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies if the account is disabled.</td>
+  </tr>
+  <tr>
+    <td><strong>account_created</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies when the account was created.</td>
+  </tr>
+  <tr>
+    <td><strong>account_expires</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the expiration date of the account.</td>
+  </tr>
+  <tr>
+    <td><strong>credential_last_changed</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies when the account credential was last changed.</td>
+  </tr>
+  <tr>
+    <td><strong>account_first_login</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies when the account was first accessed.</td>
+  </tr>
+  <tr>
+    <td><strong>account_last_login</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies when the account was last accessed.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic Unix Account*
+
+```JSON
+{
+  "type": "user-account",
+  "spec_version": "2.1",
+  "id": "user-account--f94d689e-707d-58c3-b803-c720bb6ed096",
+  "user_id": "1001",
+  "account_login": "jdoe",
+  "account_type": "unix",
+  "display_name": "John Doe",
+  "is_service_account": false,
+  "is_privileged": false,
+  "can_escalate_privs": true,
+  "account_created": "2016-01-20T12:31:12Z",
+  "credential_last_changed": "2016-01-20T14:27:43Z",
+  "account_first_login": "2016-01-20T14:26:07Z",
+  "account_last_login": "2016-07-22T16:08:28Z"
+}
+```
+
+*Basic Twitter Account*
+
+```JSON
+{
+  "type": "user-account",
+  "spec_version": "2.1",
+  "id": "user-account--f223e803-846b-591a-aefa-545e938f8a56",
+  "user_id": "thegrugq_ebooks",
+  "account_login": "thegrugq_ebooks",
+  "account_type": "twitter",
+  "display_name": "the grugq"
+}
+```
+
+### 6.16.2 UNIX™ Account Extension <a id=unix-account-ext></a>
+
+**Type Name:** <span class="stixtype">unix-account-ext</span>
+
+The UNIX account extension specifies a default extension for capturing the additional information for an account on a UNIX system. The key for this extension when used in the **extensions** dictionary **MUST** be <span class="stixliteral">unix-account-ext</span>. Note that this predefined extension does not use the extension facility described in [Section 7.3](#extension-definition).
+
+An object using the UNIX Account Extension **MUST** contain at least one property from this extension.
+
+#### Properties
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>gid</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the primary group ID of the account.</td>
+  </tr>
+  <tr>
+    <td><strong>groups</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span class="stixtype">string</span></td>
+    <td>Specifies a list of names of groups that the account is a member of.</td>
+  </tr>
+  <tr>
+    <td><strong>home_dir</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the home directory of the account.</td>
+  </tr>
+  <tr>
+    <td><strong>shell</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the account’s command shell.</td>
+  </tr>
+</table>
+
+**Example**
+
+*Basic UNIX Account*
+
+```JSON
+{
+  "type": "user-account",
+  "spec_version": "2.1",
+  "id": "user-account--f94d689e-707d-58c3-b803-c720bb6ed096",
+  "user_id": "1001",
+  "account_login": "jdoe",
+  "account_type": "unix",
+  "display_name": "John Doe",
+  "is_service_account": false,
+  "is_privileged": false,
+  "can_escalate_privs": true,
+  "extensions": {
+    "unix-account-ext": {
+      "gid": 1001,
+      "groups": ["wheel"],
+      "home_dir": "/home/jdoe",
+      "shell": "/bin/bash"
+    }
+  }
+}
+```
+
+## 6.17 Windows™ Registry Key Object <a id="windows-registry-key-object"></a>
+
+**Type Name:** <span class="stixtype">windows-registry-key</span>
+
+The Registry Key object represents the properties of a Windows registry key. As all properties of this object are optional, at least one of the properties defined below **MUST** be included when using this object.
+
+### 6.17.1 Properties <a id="windows-registry-key-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Windows^TM^ Registry Key Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>key</strong>, <strong>values</strong>, <strong>modified_time</strong>, <strong>creator_user_ref</strong>, <strong>number_of_subkeys</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>key</strong>, <strong>values</strong> <em>(all items defined in the <strong>values</strong> property <strong>MUST</strong> be included)</em></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">windows-registry-key</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>key</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the full registry key including the hive.</td>
+  </tr>
+  <tr>
+    <td><strong>values</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span style="white-space:nowrap"><span class="stixtype">windows-registry-value-type</span></span></td>
+    <td>Specifies the values found under the registry key.<br><br>The value of the key, including the hive portion, <strong>SHOULD</strong> be case-preserved. The hive portion of the key <strong>MUST</strong> be fully expanded and not truncated; e.g., HKEY_LOCAL_MACHINE must be used instead of HKLM.</td>
+  </tr>
+  <tr>
+    <td><strong>modified_time</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the last date/time that the registry key was modified.</td>
+  </tr>
+  <tr>
+    <td><strong>creator_user_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>Specifies a reference to the user account that created the registry key.<br><br>The object referenced in this property MUST be of type <span class="stixtype">user-account</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>number_of_subkeys</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the number of subkeys contained under the registry key.</td>
+  </tr>
+</table>
+
+### 6.17.2 Windows™ Registry Value Type <a id="windows-registry-value-type"></a>
+
+**Type Name:** <span class="stixtype">windows-registry-value-type</span>
+
+The Windows Registry Value type captures the properties of a Windows Registry Key Value. As all properties of this type are optional, at least one of the properties defined below **MUST** be included when using this type.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the registry value. For specifying the default value in a registry key, an empty string <strong>MUST</strong> be used.</td>
+  </tr>
+  <tr>
+    <td><strong>data</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the data contained in the registry value.</td>
+  </tr>
+  <tr>
+    <td><strong>data_type</strong> (optional)</td>
+    <td><span class="stixtype">enum</span></td>
+    <td>Specifies the registry (REG_*) data type used in the registry value.<br><br>The values of this property <strong>MUST</strong> come from the <span class="stixliteral"><a href="#windows-registry-datatype-enumeration">windows-registry-datatype-enum</a></span> enumeration.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Simple registry key*
+
+```JSON
+{
+  "type": "windows-registry-key",
+  "spec_version": "2.1",
+  "id": "windows-registry-key--1884b770-b679-522a-a9c7-45fadaaec7bb",
+  "key": "HKEY_LOCAL_MACHINE\\System\\Foo\\Bar"
+}
+```
+
+*Registry key with values*
+
+```JSON
+{
+  "type": "windows-registry-key",
+  "spec_version": "2.1",
+  "id": "windows-registry-key--f6a11ddf-fa2b-54c8-97ab-e7f28413095a",
+  "key": "hkey_local_machine\\system\\bar\\foo",
+  "values": [
+    {
+      "name": "Foo",
+      "data": "qwerty",
+      "data_type": "REG_SZ"
+    },
+    {
+      "name": "Bar",
+      "data": "42",
+      "data_type": "REG_DWORD"
+    }
+  ]
+}
+```
+
+## 6.18 X.509 Certificate Object <a id="x-509-certificate-object"></a>
+
+**Type Name:** <span class="stixtype">x509-certificate</span>
+
+The X.509 Certificate object represents the properties of an X.509 certificate, as defined by ITU recommendation X.509 [<a href="#x509">X509</a>]. An X.509 Certificate object **MUST** contain at least one object specific property (other than **type**) from this object.
+
+### 6.18.1 Properties <a id="x-509-certificate-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>id</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Optional Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>X.509 Certificate Object Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>is_self_signed</strong>, <strong>hashes</strong>, <strong>version</strong>, <strong>serial_number</strong>, <strong>signature_algorithm</strong>, <strong>issuer</strong>, <strong>validity_not_before</strong>, <strong>validity_not_after</strong>, <strong>subject</strong>, <strong>subject_public_key_algorithm</strong>, <strong>subject_public_key_modulus</strong>, <strong>subject_public_key_exponent</strong>, <strong>x509_v3_extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class='stixtr'>ID Contributing Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong>, <strong>serial_number</strong><br><br>If the <strong>hashes</strong> property is present, include only one hash. The selected hash <strong>SHOULD</strong> come from this ordered list (based on the following order of preference) [ MD5, SHA-1, SHA-256, SHA-512 ].</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">x509-certificate</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>is_self_signed</strong> (optional)</td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>Specifies whether the certificate is self-signed, i.e., whether it is signed by the same entity whose identity it certifies.</td>
+  </tr>
+  <tr>
+    <td><strong>hashes</strong> (optional)</td>
+    <td><span class="stixtype">hashes</span></td>
+    <td>Specifies any hashes that were calculated for the entire contents of the certificate.<br><br>Dictionary keys <strong>MUST</strong> come from the <span class="stixliteral"></a href="#hash-algorithm-vocabulary">hash-algorithm-ov</a></span> open vocabulary.</td>
+  </tr>
+  <tr>
+    <td><strong>version</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the version of the encoded certificate.</td>
+  </tr>
+  <tr>
+    <td><strong>serial_number</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the unique identifier for the certificate, as issued by a specific Certificate Authority.</td>
+  </tr>
+  <tr>
+    <td><strong>signature_algorithm</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the algorithm used to sign the certificate.</td>
+  </tr>
+  <tr>
+    <td><strong>issuer</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the Certificate Authority that issued the certificate.</td>
+  </tr>
+  <tr>
+    <td><strong>validity_not_before</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date on which the certificate validity period begins.</td>
+  </tr>
+  <tr>
+    <td><strong>validity_not_after</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date on which the certificate validity period ends.</td>
+  </tr>
+  <tr>
+    <td><strong>subject</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the entity associated with the public key stored in the subject public key field of the certificate.</td>
+  </tr>
+  <tr>
+    <td><strong>subject_public_key_algorithm</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the name of the algorithm with which to encrypt data being sent to the subject.</td>
+  </tr>
+  <tr>
+    <td><strong>subject_public_key_modulus</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the modulus portion of the subject's public RSA key.</td>
+  </tr>
+  <tr>
+    <td><strong>subject_public_key_exponent</strong> (optional)</td>
+    <td><span class="stixtype">integer</span></td>
+    <td>Specifies the exponent portion of the subject's public RSA key, as an integer.</td>
+  </tr>
+  <tr>
+    <td><strong>x509_v3_extensions</strong> (optional)</td>
+    <td><span style="white-space: nowrap;"><span class="stixtype">x509-v3-extensions-type</span></span></td>
+    <td>Specifies any standard X.509 v3 extensions that may be used in the certificate.</td>
+  </tr>
+</table>
+
+### 6.18.2 X.509 v3 Extensions Type <a id="x509-v3-extensions-type"></a>
+
+**Type Name:** <span class="stixtype">x509-v3-extensions-type</span>
+
+The X.509 v3 Extensions type captures properties associated with X.509 v3 extensions, which serve as a mechanism for specifying additional information such as alternative subject names. An object using the X.509 v3 Extensions type **MUST** contain at least one property from this type.
+
+Note that the use of the term "extensions" in this context refers to the X.509 v3 Extensions type and is not a STIX Cyber Observables extension. Therefore, it is a type that describes X.509 extensions.
+
+#### Properties <a id="x509-v3-extensions-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Property Name</span></th>
+    <th><span class='stixtr'>Type</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>basic_constraints</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a multi-valued extension which indicates whether a certificate is a CA certificate. The first (mandatory) name is CA followed by TRUE or FALSE. If CA is TRUE, then an optional pathlen name followed by a non-negative value can be included. Also equivalent to the object ID (OID) value of 2.5.29.19.</td>
+  </tr>
+  <tr>
+    <td><strong>name_constraints</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a namespace within which all subject names in subsequent certificates in a certification path <strong>MUST</strong> be located. Also equivalent to the object ID (OID) value of 2.5.29.30.</td>
+  </tr>
+  <tr>
+    <td><strong>policy_constraints</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies any constraints on path validation for certificates issued to CAs. Also equivalent to the object ID (OID) value of 2.5.29.36.</td>
+  </tr>
+  <tr>
+    <td><strong>key_usage</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a multi-valued extension consisting of a list of names of the permitted key usages. Also equivalent to the object ID (OID) value of 2.5.29.15.</td>
+  </tr>
+  <tr>
+    <td><strong>extended_key_usage</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a list of usages indicating purposes for which the certificate public key can be used for. Also equivalent to the object ID (OID) value of 2.5.29.37.</td>
+  </tr>
+  <tr>
+    <td><strong>subject_key_identifier</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the identifier that provides a means of identifying certificates that contain a particular public key. Also equivalent to the object ID (OID) value of 2.5.29.14.</td>
+  </tr>
+  <tr>
+    <td><strong>authority_key_identifier</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the identifier that provides a means of identifying the public key corresponding to the private key used to sign a certificate. Also equivalent to the object ID (OID) value of 2.5.29.35.</td>
+  </tr>
+  <tr>
+    <td><strong>subject_alternative_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the additional identities to be bound to the subject of the certificate. Also equivalent to the object ID (OID) value of 2.5.29.17.</td>
+  </tr>
+  <tr>
+    <td><strong>issuer_alternative_name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the additional identities to be bound to the issuer of the certificate. Also equivalent to the object ID (OID) value of 2.5.29.18.</td>
+  </tr>
+  <tr>
+    <td><strong>subject_directory_attributes</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the identification attributes (e.g., nationality) of the subject. Also equivalent to the object ID (OID) value of 2.5.29.9.</td>
+  </tr>
+  <tr>
+    <td><strong>crl_distribution_points</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies how CRL information is obtained. Also equivalent to the object ID (OID) value of 2.5.29.31.</td>
+  </tr>
+  <tr>
+    <td><strong>inhibit_any_policy</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies the number of additional certificates that may appear in the path before anyPolicy is no longer permitted. Also equivalent to the object ID (OID) value of 2.5.29.54.</td>
+  </tr>
+  <tr>
+    <td><strong>private_key_usage_period_not_before</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date on which the validity period begins for the private key, if it is different from the validity period of the certificate.</td>
+  </tr>
+  <tr>
+    <td><strong>private_key_usage_period_not_after</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>Specifies the date on which the validity period ends for the private key, if it is different from the validity period of the certificate.</td>
+  </tr>
+  <tr>
+    <td><strong>certificate_policies</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies a sequence of one or more policy information terms, each of which consists of an object identifier (OID) and optional qualifiers. Also equivalent to the object ID (OID) value of 2.5.29.32.</td>
+  </tr>
+  <tr>
+    <td><strong>policy_mappings</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>Specifies one or more pairs of OIDs; each pair includes an issuerDomainPolicy and a subjectDomainPolicy. The pairing indicates whether the issuing CA considers its issuerDomainPolicy equivalent to the subject CA’s subjectDomainPolicy. Also equivalent to the object ID (OID) value of 2.5.29.33.</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Basic X.509 certificate*
+
+```JSon
+{
+  "type": "x509-certificate",
+  "spec_version": "2.1",
+  "id": "x509-certificate--bf86f034-2390-54d7-8426-d08433db3fbe",
+  "issuer": "C=ZA, ST=Western Cape, L=Cape Town, O=Thawte Consulting cc, OU=Certification Services Division, CN=Thawte Server CA/emailAddress=server-certs@thawte.com",
+  "validity_not_before": "2016-03-12T12:00:00Z",
+  "validity_not_after": "2016-08-21T12:00:00Z",
+  "subject": "C=US, ST=Maryland, L=Pasadena, O=Brent Baccala, OU=FreeSoft, CN=www.freesoft.org/emailAddress=baccala@freesoft.org",
+  "serial_number": "36:f7:d4:32:f4:ab:70:ea:d3:ce:98:6e:ea:99:93:49:32:0a:b7:06"
+}
+```
+
+*X.509 Certificate w/ V3 Extensions*
+
+```JSon
+{
+  "type":"x509-certificate",
+  "spec_version": "2.1",
+  "id": "x509-certificate--5adb038a-160d-5d1c-826e-bde4926a0d2d",
+  "issuer":"C=ZA, ST=Western Cape, L=Cape Town, O=Thawte Consulting cc, OU=Certification Services Division, CN=Thawte Server CA/emailAddress=server-certs@thawte.com",
+  "validity_not_before":"2016-03-12T12:00:00Z",
+  "validity_not_after":"2016-08-21T12:00:00Z",
+  "subject":"C=US, ST=Maryland, L=Pasadena, O=Brent Baccala, OU=FreeSoft, CN=www.freesoft.org/emailAddress=baccala@freesoft.org",
+  "serial_number": "02:08:87:83:f2:13:58:1f:79:52:1e:66:90:0a:02:24:c9:6b:c7:dc",
+  "x509_v3_extensions":{
+    "basic_constraints":"critical,CA:TRUE, pathlen:0",
+    "name_constraints":"permitted;IP:192.168.0.0/255.255.0.0",
+    "policy_constraints":"requireExplicitPolicy:3",
+    "key_usage":"critical, keyCertSign",
+    "extended_key_usage":"critical,codeSigning,1.2.3.4",
+    "subject_key_identifier":"hash",
+    "authority_key_identifier":"keyid,issuer",
+    "subject_alternative_name":"email:my@other.address,RID:1.2.3.4",
+    "issuer_alternative_name":"issuer:copy",
+    "crl_distribution_points":"URI:http://myhost.com/myca.crl",
+    "inhibit_any_policy":"2",
+    "private_key_usage_period_not_before":"2016-03-12T12:00:00Z",
+    "private_key_usage_period_not_after":"2018-03-12T12:00:00Z",
+    "certificate_policies":"1.2.4.5, 1.1.3.4"
+  }
+}
+```
+
