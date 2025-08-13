@@ -9826,3 +9826,878 @@ Note that the use of the term "extensions" in this context refers to the X.509 v
 }
 ```
 
+# 7. STIX Meta Objects <a id="stix-meta-objects"></a>
+
+## 7.1 Language Content <a id="language-content"></a>
+
+The Language Content object represents text content for STIX Objects represented in languages other than that of the original object. Language content may be a translation of the original object by a third-party, a first-source translation by the original publisher, or additional official language content provided at the time of creation.
+
+Language Content contains two important sets of properties:
+- The **object_ref** and **object_modified** properties specify the target object that the language content applies to.
+  - For example, to provide additional language content for a Campaign, the **object_ref** property should be set to the **id** of the Campaign and the **object_modified** property set to its modified time. Most relationships in STIX are not specific to a particular version of a STIX object, but because language content provides the translation of specific text, the **object_modified** property is necessary to provide that specificity.
+- The **content** property is a <span class="stixtype">dictionary</span> which maps to properties in the target object in order to provide a translation of them.
+
+### 7.1.1 Properties <a id="language-content-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Optional Common Properties></span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_marking_refs</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>lang</strong>, <strong>defanged</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Language Content Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>object_ref</strong>, <strong>object_modified</strong>, <strong>contents</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The <strong>type</strong> property identifies the type of object. The value of this property <strong>MUST</strong> be <span class="stixliteral">language-content</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>object_ref</strong> (required)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>The <strong>object_ref</strong> property identifies the <strong>id</strong> of the object that this Language Content applies to. It <strong>MUST</strong> be the identifier for a STIX Object.</td>
+  </tr>
+  <tr>
+    <td><strong>object_modified</strong> (optional)</td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>The <strong>object_modified</strong> property identifies the <strong>modified</strong> time of the object that this Language Content applies to. It <strong>MUST</strong> be an exact match for the <strong>modified</strong> time of the STIX Object being referenced.</td>
+  </tr>
+  <tr>
+    <td><strong>contents</strong> (required)</td>
+    <td><span class="stixtype">dictionary</span></td>
+    <td>
+      The <strong>contents</strong> property contains the actual Language Content (translation).<br><br>
+      The keys in the dictionary <strong>MUST</strong> be RFC 5646 language codes for which language content is being provided [<a href="#rfc5646">RFC5646</a>]. The values each consist of a dictionary that mirrors the properties in the target object (identified by <strong>object_ref</strong> and <strong>object_modified</strong>). For example, to provide a translation of the <strong>name</strong> property on the target object the key in the dictionary would be <strong>name</strong>.<br><br>
+      For each key in the nested dictionary:<br>
+      <ul>
+        <li>If the original property is a string, the corresponding property in the language content object <strong>MUST</strong> contain a string with the content for that property in the language of the top-level key.</li>
+        <li>If the original property is a list, the corresponding property in the translation object must also be a list. Each item in this list recursively maps to the item at the same position in the list contained in the target object. The lists <strong>MUST</strong> have the same length.</li>
+        <li>In the event that translations are only provided for some list items, the untranslated list items <strong>MUST</strong> be represented by an empty string (""). This indicates to a consumer of the Language Content object that they should interpolate the translated list items in the Language Content object with the corresponding (untranslated) list items from the original object as indicated by the <strong>object_ref</strong> property.</li>
+        <li>If the original property is an object (including dictionaries), the corresponding location in the translation object must also be an object. Each key/value field in this object recursively maps to the object with the same key in the original.</li>
+      </ul>
+      The translation object <strong>MAY</strong> contain only a subset of the translatable fields of the original. Keys that point to non-translatable properties in the target or to properties that do not exist in the target object <strong>MUST</strong> be ignored.
+    </td>
+  </tr>
+</table>
+
+### 7.1.2 Relationships <a id="language-content-relationships"></a>
+
+There are no relationships explicitly defined between the Language Content object and other STIX Objects, other than the embedded relationships listed below. These embedded relationships are listed by property name along with their corresponding target.
+
+Note that the **object_ref** relationship has a companion property, **object_modified**, that identifies the version of the object that the language content is being provided for.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th colspan='2'><span class='stixtr'>Embedded Relationships</span></th>
+  </tr>
+  <tr>
+    <td width="50%"><strong>created_by_ref</strong></td>
+    <td width="50%"><span class="stixtype">identifier</span> (of type <span class="stixtype">identity</span>)</td>
+  </tr>
+  <tr>
+    <td><strong>object_marking_refs</strong></td>
+    <td><span class="stixtype">list</span> of type <span class="stixtype">identifier</span> (of type <span class="stixtype">marking-definition</span>)</td>
+  </tr>
+  <tr>
+    <td><strong>object_ref</strong></td>
+    <td><span class="stixtype">identifier</span> (of type STIX Object)</td>
+  </tr>
+</table>
+
+**Examples**
+
+*Translation of a campaign*
+
+```JSON
+[
+  {
+    "type": "campaign",
+    "id": "campaign--12a111f0-b824-4baf-a224-83b80237a094",
+    "lang": "en",
+    "spec_version": "2.1",
+    "created": "2017-02-08T21:31:22.007Z",
+    "modified": "2017-02-08T21:31:22.007Z",
+    "name": "Bank Attack",
+    "description": "More information about bank attack"
+  },
+  {
+    "type": "language-content",
+    "id": "language-content--b86bd89f-98bb-4fa9-8cb2-9ad421da981d",
+    "spec_version": "2.1",
+    "created": "2017-02-08T21:31:22.007Z",
+    "modified": "2017-02-08T21:31:22.007Z",
+    "object_ref": "campaign--12a111f0-b824-4baf-a224-83b80237a094",
+    "object_modified": "2017-02-08T21:31:22.007Z",
+    "contents": {
+      "de": {
+        "name": "Bank Angriff",
+        "description": "Weitere Informationen über Banküberfall"
+      },
+      "fr": {
+        "name": "Attaque Bank",
+        "description": "Plus d'informations sur la crise bancaire"
+      }
+    }
+  }
+]
+```
+
+*The threat actor defined here, is from the example in [section4.17](#threat-actor)*
+
+```JSON
+{
+  "type": "language-content",
+  "id": "language-content--0911f616-727f-48cb-a4c5-9420299562a4",
+  "spec_version": "2.1",
+  "created": "2019-06-08T21:31:22.007Z",
+  "modified": "2019-07-08T21:31:22.007Z",
+  "object_ref": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+  "contents": {
+    "de": {
+      "goals": ["Bankgeld stehlen", "Kreditkarten stehlen"]
+    },
+    "fr": {
+      "goals": ["Voler de l'argent en banque", ""]
+    }
+  }
+}
+```
+
+## 7.2 Data Marking <a id="data-marking"></a>
+
+Data markings represent restrictions, permissions, and other guidance for how data can be used and shared. For example, data may be shared with the restriction that it must not be re-shared, or that it must be encrypted at rest. In STIX, data markings are specified using the <span class="stixtype">marking-definition</span> object. These definitions are applied to complete STIX Objects using object markings and to individual properties of STIX Objects via granular markings.
+
+Multiple markings can be added to the same object, including both object and granular markings. Some types of marking definitions or trust groups have rules about which markings override other markings or which markings can be additive to other markings. This specification does not define rules for how multiple markings applied to the same object or property should be interpreted.
+
+Granular data markings are also used to mark individual fields on an object with which language their text content is in. For example, granular markings can be used to indicate that while the rest of the object is in English, the **description** field is in Japanese. This mechanism does not use the marking-definition object to represent language, rather a separate **lang** field that can also be applied via granular markings.
+
+### 7.2.1 Marking Definition <a id="marking-definition"></a>
+
+**Type Name:** <span class="stixtype">marking-definition</span>
+
+The <span class="stixtype">marking-definition</span> object represents a specific marking. Data markings typically represent handling or sharing requirements for data and are applied in the **object_marking_refs** and **granular_markings** properties on STIX Objects, which reference a list of IDs for <span class="stixtype">marking-definition</span> objects.
+
+Two marking definition types are defined in this specification: TLP, to capture TLP markings, and Statement, to capture text marking statements. In addition, it is expected that the FIRST Information Exchange Policy (IEP) will be included in a future version once a machine-usable specification for it has been defined.
+
+Unlike other STIX Objects, Marking Definition objects cannot be versioned because it would allow for indirect changes to the markings on a STIX Object. For example, if a Statement marking is changed from "Reuse Allowed" to "Reuse Prohibited", all STIX Objects marked with that Statement marking would effectively have an updated marking without being updated themselves. Instead, a new Statement marking with the new text should be created and the marked objects updated to point to the new marking.
+
+The JSON MTI serialization uses the JSON Object type \[[RFC8259](#rfc8259)\] when representing <span class="stixtype">marking-definition</span>.
+
+#### Properties <a id="marking-definition-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Optional Common Properties></span></th>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_marking_refs</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>modified</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>defanged</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Marking Definition Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong>, <strong>definition_type</strong>, <strong>definition</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The <strong>type</strong> property identifies the type of object. The value of this property <strong>MUST</strong> be <span class="stixliteral">marking-definition</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>A name used to identify the Marking Definition.</td>
+  </tr>
+  <tr>
+    <td><strong>definition_type</strong> (optional - deprecated)</td>
+    <td><span class="stixtype">open-vocab</span></td>
+    <td>
+      The <strong>definition_type</strong> property identifies the type of Marking Definition. The value of the <strong>definition_type</strong> property <strong>SHOULD</strong> be one of the types defined in the subsections below: <span class="stixliteral">statement</span> or <span class="stixliteral">tlp</span> (see <a href="#statement-marking-object-type">section 7.2.1.3</a> and <a href="#tlp-marking-object-type">section 7.2.1.4</a>).<br><br>
+      Any new marking definitions <strong>SHOULD</strong> be specified using the extension facility described in <a href="#extension-definition">section 7.3</a>.<br><br>
+      If the <strong>extensions</strong> property is not present, this property <strong>MUST</strong> be present.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>definition</strong> (optional - deprecated)</td>
+    <td><span style="white-space: nowrap;">&lt;marking object&gt;</span></td>
+    <td>
+      The <strong>definition</strong> property contains the marking object itself (e.g., the TLP marking as defined in <a href="#tlp-marking-object-type">section 7.2.1.4</a>, the Statement marking as defined in <a href="#statement-marking-object-type">section 7.2.1.3</a>).<br><br>
+      Any new marking definitions <strong>SHOULD</strong> be specified using the extension facility described in <a href="#extension-definition">section 7.3</a>.<br><br>
+      If the <strong>extensions</strong> property is not present, this property <strong>MUST</strong> be present.
+    </td>
+  </tr>
+</table>
+
+#### Relationships <a id="marking-definition-relationships"></a>
+
+There are no relationships explicitly defined between the Marking Definition object and other STIX Objects, other than the embedded relationships listed below. These embedded relationships are listed by property name along with their corresponding target.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th colspan='2'><span class='stixtr'>Embedded Relationships</span></th>
+  </tr>
+  <tr>
+    <td width="50%"><strong>created_by_ref</strong></td>
+    <td width="50%"><span class="stixtype">identifier</span> (of type <span class="stixtype">identity</span>)</td>
+  </tr>
+  <tr>
+    <td><strong>object_marking_refs</strong></td>
+    <td><span class="stixtype">list</span> of type <span class="stixtype">identifier</span> (of type <span class="stixtype">marking-definition</span>)</td>
+  </tr>
+</table>
+
+#### Statement Marking Object Type <a id="statement-marking-object-type"></a>
+
+The Statement marking type defines the representation of a textual marking statement (e.g., copyright, terms of use, etc.) in a definition. The value of the **definition_type** property **MUST** be <span class="stixliteral">statement</span> when using this marking type. Statement markings are generally not machine-readable, and this specification does not define any behavior or actions based on their values.
+
+Content may be marked with multiple statements of use. In other words, the same content can be marked both with a statement saying "Copyright 2019" and a statement saying, "Terms of use are …​" and both statements apply.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>statement</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>A Statement (e.g., copyright, terms of use) applied to the content marked by this marking definition.</td>
+  </tr>
+</table>
+
+**Example**
+
+```JSON
+{
+  "type": "marking-definition",
+  "spec_version": "2.1",
+  "id": "marking-definition--4a0042fe-8b88-40fe-9600-dfa128ce6fbd",
+  "created": "2016-08-01T00:00:00.000Z",
+  "definition_type": "statement",
+  "definition": {
+    "statement": "Copyright 2019, Example Corp"
+  }
+}
+```
+
+#### TLP Marking Object Type <a id="tlp-marking-object-type"></a>
+
+The TLP marking type defines how you would represent a Traffic Light Protocol (TLP) marking in a definition property. The value of the **definition_type** property **MUST** be <span class="stixliteral">tlp</span> when using this marking type.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>tlp</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The TLP level [<a href="#tlp">TLP</a>] of the content marked by this marking definition, as defined in this section.</td>
+  </tr>
+</table>
+
+The following standard marking definitions **MUST** be used to reference or represent TLP markings. Other instances of <span class="stixtype">tlp-marking</span> **MUST NOT** be used or created (the only instances of TLP marking definitions permitted are those defined here).
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <td><span class="stixliteral">white</span></td>
+    <td><pre class="nowrap"><code class="language-JSON">{
+  "type": "marking-definition",
+  "spec_version": "2.1",
+  "id": "marking-definition--613f2e26-407d-48c7-9eca-b8e91df99dc9",
+  "created": "2017-01-20T00:00:00.000Z",
+  "definition_type": "tlp",
+  "name": "TLP:WHITE",
+  "definition": {
+    "tlp": "white"
+  }
+}</code></pre></td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">green</span></td>
+    <td><pre class="nowrap"><code class="language-JSON">{
+  "type": "marking-definition",
+  "spec_version": "2.1",
+  "id": "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da",
+  "created": "2017-01-20T00:00:00.000Z",
+  "definition_type": "tlp",
+  "name": "TLP:GREEN",
+  "definition": {
+    "tlp": "green"
+  }
+}</code></pre></td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">amber</span></td>
+    <td><pre class="nowrap"><code class="language-JSON">{
+  "type": "marking-definition",
+  "spec_version": "2.1",
+  "id": "marking-definition--f88d31f6-486f-44da-b317-01333bde0b82",
+  "created": "2017-01-20T00:00:00.000Z",
+  "definition_type": "tlp",
+  "name": "TLP:AMBER",
+  "definition": {
+    "tlp": "amber"
+  }
+}</code></pre></td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">red</span></td>
+    <td><pre class="nowrap"><code class="language-JSON">{
+  "type": "marking-definition",
+  "spec_version": "2.1",
+  "id": "marking-definition--5e57c739-391a-4eb3-b6be-7d15ca92d5ed",
+  "created": "2017-01-20T00:00:00.000Z",
+  "definition_type": "tlp",
+  "name": "TLP:RED",
+  "definition": {
+    "tlp": "red"
+  }
+}</code></pre></td>
+  </tr>
+</table>
+
+### 7.2.2 Object Markings <a id="object-markings"></a>
+
+Object Markings apply data markings to an entire STIX Object and all of its contents. Object Markings are specified as embedded relationships in the **object_marking_refs** property, which is an optional list of IDs for Marking Definition objects. The referenced markings apply to that STIX Object or Marking Definition and all of its contents. Changes to the **object_marking_refs** property (and therefore the markings applied to the object) are treated the same as changes to any other properties on the object and follow the same rules for versioning.
+
+**Example**
+
+*This example marks the Indicator and all its properties with the Marking Definition referenced by the ID.*
+
+```JSON
+{
+  "type": "indicator",
+  "spec_version": "2.1",
+  "id": "indicator--b346b4b3-f4b7-4235-b659-f985f65f0009",
+  ...
+  "object_marking_refs": ["marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"],
+  ...
+}
+```
+
+### 7.2.3 Granular Markings <a id="granular-markings"></a>
+
+Whereas object markings apply to an entire STIX Object or Marking Definition and all its properties, granular markings allow both data markings and language markings to be applied to individual portions of STIX Objects and Marking Definitions. Granular markings are specified in the **granular_markings** property, which is a list of <span class="stixtype">granular-marking</span> instances. Each of those instances contains a list of selectors to indicate what is marked and either a reference to the <span class="stixtype">marking-definition</span> object to be applied or a language code to be applied. Granular markings can be used, for example, to indicate that the **name** property of an <span class="stixtype">indicator</span> should be handled as TLP:GREEN, the **description** property as TLP:AMBER, and the **pattern** property as TLP:RED.
+
+The **granular_markings** property can also be used for language markings. To support applying both data markings and language markings to an object, the <span class="stixtype">granular-marking</span> type has a choice of two properties in addition to the selector: the lang property is used to apply language markings, and the **marking_ref** property is used to apply data markings. Because each granular marking instance applies to either a language or a marking, one and only one of these properties **MUST** be present on each instance of a granular marking.
+
+#### Granular Marking Type <a id="granular-marking-type"></a>
+
+The <span class="stixtype">granular-marking</span> type defines how the <span class="stixtype">marking-definition</span> object referenced by the **marking_ref** property or a language specified by the **lang** property applies to a set of content identified by the list of selectors in the **selectors** property.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>lang</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>
+      The <strong>lang</strong> property identifies the language of the text identified by this marking. The value of the <strong>lang</strong> property, if present, <strong>MUST</strong> be an <a href="#rfc5646">RFC5646</a> language code.<br><br>
+      If the <strong>marking_ref</strong> property is not present, this property <strong>MUST</strong> be present. If the <strong>marking_ref</strong> property is present, this property <strong>MUST NOT</strong> be present.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>marking_ref</strong> (optional)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>
+      The <strong>marking_ref</strong> property specifies the ID of the <span class="stixtype">marking-definition</span> object that describes the marking.<br><br>
+      If the <strong>lang</strong> property is not present, this property <strong>MUST</strong> be present. If the <strong>lang</strong> property is present, this property <strong>MUST NOT</strong> be present.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>selectors</strong> (required)</td>
+    <td><span style="white-space: nowrap;"><span class="stixtype">list</span> of type <span class="stixtype">string</span></span></td>
+    <td>
+      The <strong>selectors</strong> property specifies a list of selectors for content contained within the STIX Object in which this property appears. Selectors <strong>MUST</strong> conform to the syntax defined below.<br><br>The <span class="stixtype">marking-definition</span> referenced in the <strong>marking_ref</strong> property is applied to the content selected by the selectors in this list.<br><br>The <a href="#rfc5646">RFC5646</a> language code specified by the <strong>lang</strong> property is applied to the content selected by the selectors in this list.
+    </td>
+  </tr>
+</table>
+
+**Selector Syntax**
+
+Selectors contained in the **selectors** list are strings that consist of multiple components that **MUST** be separated by the . character. Each component **MUST** be one of:
+- A property name or dictionary key, e.g., <span class="stixliteral">description</span>, or;
+- A zero-based list index, specified as a non-negative integer in square brackets, e.g., <span class="stixliteral">[4]</span>
+
+Selectors denote path traversals: the root of each selector is the STIX Object that the **granular_markings** property appears in. Starting from that root, for each component in the selector, properties and list items are traversed. When the complete list has been traversed, the value of the content is considered selected.
+
+Selectors **MUST** refer to properties or list items that are actually present on the marked object.
+
+As an example, consider the following STIX Object:
+
+```JSON
+{
+  "id": "vulnerability--ee916c28-c7a4-4d0d-ad56-a8d357f89fef",
+  "spec_version": "2.1",
+  "created": "2016-02-14T00:00:00.000Z",
+  "modified": "2016-02-14T00:00:00.000Z",
+  "type": "vulnerability",
+  "name": "CVE-2014-0160",
+  "description": "The (1) TLS...",
+  "external_references": [
+    {
+      "source_name": "cve",
+      "external_id": "CVE-2014-0160"
+    }
+  ],
+  "labels": ["heartbleed", "has-logo"]
+}
+```
+
+Valid selectors:
+- <span class="stixliteral">description</span> selects the **description** property ("The (1) TLS…​").
+- <span class="stixliteral">external_references.[0].source_name</span> selects the **source_name** property of the first value of the **external_references** list ("cve").
+- <span class="stixliteral">labels.[0]</span> selects the first item contained within the **labels** list ("heartbleed").
+- <span class="stixliteral">labels</span> selects the list contained in the **labels** property. Due to the recursive nature of the selector, that includes all items in the list (["heartbleed", "has-logo"]).
+- <span class="stixliteral">external_references</span> selects the list contained in the **external_references** property. Due to the recursive nature of the selector, that includes all list items and all properties of those list items.
+
+Invalid selectors:
+- <span class="stixliteral">pattern</span> and <span class="stixliteral">external_references.[3]</span> are invalid selectors because they refer to content not present in that object.
+- <span class="stixliteral">description.[0]</span> is an invalid selector because the <span class="stixliteral">description</span> property is a string and not a list.
+- <span class="stixliteral">labels.name</span> is an invalid selector because <span class="stixliteral">labels</span> property is a list and not an object.
+
+This syntax is inspired by JSONPath \[[Goessner 2007](#goessner-2007)\] and is in fact a strict subset of allowable JSONPath expressions (with the exception that the '$' to indicate the root is implicit). Care should be taken when passing selectors to JSONPath evaluators to ensure that the root of the query is the individual STIX Object. It is expected, however, that selectors can be easily evaluated in programming languages that implement list and key/value mapping types (dictionaries, hashmaps, etc.) without resorting to an external library.
+
+**Examples**
+
+*This example marks the **description** and **labels** properties with the <span class="stixtype">marking-definition</span> referenced in the **granular_markings** property however the **name** property uses the object marking.*
+
+```JSON
+{
+  ...
+  "granular_markings": [
+    {
+      "marking_ref": "marking-definition--089a6ecb-cc15-43cc-9494-767639779123",
+      "selectors": ["description", "labels"]
+    }
+  ],
+  "object_marking_refs": ["marking-definition--79e2fa14-02c6-40d7-aa4b-ebf281dd78ef"],
+  "description": "Some description",
+  "name": "Some name",
+  "labels": ["first", "second"]
+}
+```
+
+*​​This example marks the default language for this object as English (in this case, the **name** property) and the **description** as German.*
+
+```JSON
+{
+  "type": "campaign",
+  "spec_version": "2.1",
+  "id": "campaign--12a111f0-b824-4baf-a224-83b80237a094",
+  "lang": "en",
+  "created": "2017-02-08T21:31:22.007Z",
+  "modified": "2017-02-08T21:31:22.007Z",
+  "name": "Bank Attack",
+  "description": "Weitere Informationen über Banküberfall",
+  "granular_markings": [
+    {
+      "selectors": ["description"],
+      "lang": "de"
+    }
+  ]
+}
+```
+
+## 7.3 Extension Definition <a id="extension-definition"></a>
+
+The STIX Extension Definition object allows producers of threat intelligence to extend existing STIX objects or to create entirely new STIX objects in a standardized way. This object contains detailed information about the extension and any additional properties and or objects that it defines. This extension mechanism **MUST NOT** be used to redefine existing standardized objects or properties.
+
+If a producer does not include the STIX Extension Definition object with the STIX objects that use it, consumers should refer to [section 3.3](#object-ids-and-references) for information in resolving references.
+
+
+
+There are three ways to extend STIX using STIX Extensions.
+- Define one or more new STIX Object types.
+- Define additional properties for an existing STIX Object type as a nested property extension. This is typically done to represent a sub-component or module of one or more STIX Object types.
+- Define additional properties for an existing STIX Object type at the object’s top-level. This can be done to represent properties that form an inherent part of the definition of an object type.
+
+When defining a new STIX Object (e.g., SDO, SCO, or SRO) all common properties associated with that type of object (SDO, SCO, SRO) **MUST** be included in the schema or definition of that new STIX Object type. Extensions that create new STIX objects **MUST** follow all conformance requirements for that object type (SDO, SCO, SRO) including all of the requirements for the common properties associated with that object type.
+
+When defining a STIX extension using the nested property extension mechanism the extensions property (as defined in [section 3.2](#common-properties)) **MUST** include the extension definition’s UUID that defines the extension definition object and the **extension_type** property.
+
+**IMPORTANT NOTE**: Producers using top-level property extensions should be mindful that another producer could also define a top-level property extension using the same property names but for different purposes causing name conflicts when both extensions are used in the same environment. This standard does not define any name conflict resolution for new STIX Objects or for top-level properties created by this extension mechanism. However, producers **SHOULD** follow industry best practices such as using unique property names that are guaranteed to avoid duplicates across all organizations to avoid naming conflicts.
+
+**IMPORTANT NOTE**: Producers using STIX extensions should be mindful that future versions of the STIX specification **MAY** define objects and or properties that conflict with existing non-standardized extensions. In these cases the meaning as defined in the STIX specification will override any and all conflicting extensions.
+
+Specific extensions, as with specific Custom Properties, **MAY NOT** be supported across implementations. A consumer that receives STIX content containing a STIX extension that it does not understand **MAY** refuse to process the content or **MAY** ignore that extension and continue processing the content.
+
+The three uses of this extension facility **MAY** be combined into a single Extension Definition object when appropriate.
+
+The following example highlights where this may be useful.
+
+**Hybrid Extension Example**
+
+An intelligence producer has a monitoring network of sensors that collect a variety of cybersecurity telemetry from each sensor where those sensors have unique data not currently defined in STIX 2.1. The producer wishes to create an extension that other downstream consumers can receive both the high-level summarization object but also the individual categorized telemetry from each sensor.
+- A new SDO representing the statistical summarization object.
+- A list of new properties to be added to the standard Observed Data object representing additional meta-data information associated with the telemetry.
+- A new SCO representing a new cyber observable data type.
+
+In this case, the producer creates a single extension that contains the following extension types:
+```
+"extension_types": [ "new-sdo", "new-sco", "property-extension" ]
+```
+
+Therefore, producers **MAY** use the hybrid extension mechanism when they wish to define a single extension that encompasses new SDO and/or sub-component or top-level property extension properties in a related extension.
+
+Producers **SHOULD NOT** use the hybrid extension mechanism if the extensions are not related to each other. If the extensions are independent features then a producer **SHOULD** consider creating separate extension definitions.
+
+### 7.3.1 Extension Definition Properties <a id="#extension-definition-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Required Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong>, <strong>created_by_ref</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Optional Common Properties></span></th>
+  </tr>
+  <tr>
+    <td><strong>revoked</strong>, <strong>labels</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_marking_refs</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr">Not Applicable Common Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>confidence</strong>, <strong>lang</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+  </tr>
+  <tr>
+    <th><span class="stixtr"> Specific Properties</span></th>
+  </tr>
+  <tr>
+    <td><strong>name</strong>, <strong>description</strong>, <strong> schema</strong>, <strong>version</strong>, <strong>extension_types</strong>, <strong>extension_properties</strong></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">extension-definition</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>name</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>A name used for display purposes during execution, development, or debugging.</td>
+  </tr>
+  <tr>
+    <td><strong>description</strong> (optional)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>A detailed explanation of what data the extension conveys and how it is intended to be used.<br><br>While the description property is optional this property <strong>SHOULD</strong> be populated.<br><br>Note that the <strong>schema</strong> property is the normative definition of the extension, and this property, if present, is for documentation purposes only.</td>
+  </tr>
+  <tr>
+    <td><strong>schema</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>
+      The normative definition of the extension, either as a URL or as plain text explaining the definition.<br><br>A URL <strong>SHOULD</strong> point to a JSON schema or a location that contains information about the schema.<br><br><strong>NOTE</strong>: It is recommended that an external reference be provided to the comprehensive documentation of the extension-definition.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>version</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>
+      The version of this extension. Producers of STIX extensions are encouraged to follow standard semantic versioning procedures where the version number follows the pattern, MAJOR.MINOR.PATCH. This will allow consumers to distinguish between the three different levels of compatibility typically identified by such versioning strings.<br><br>As with all STIX Objects, changing a STIX extension definition could involve STIX versioning. See <a href="#new-version-or-new-object">section 3.6.2</a> for more information on versioning an object versus creating a new one.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>extension_types</strong> (required)</td>
+    <td><span style="white-space:nowrap">list of type enum</span></td>
+    <td>This property specifies one or more extension types contained within this extension.<br><br>The values for this property <strong>MUST</strong> come from the <span class="stixliteral"><a href="#extension-type-enumeration">extension-type-enum</a></span> enumeration.<br><br>When this property includes <span class="stixliteral">toplevel-property-extension</span> then the <strong>extension_properties</strong> property <strong>SHOULD</strong> include one or more property names.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>extension_properties</strong> (optional)</td>
+    <td><span style="white-space:nowrap">list of type string</span></td>
+    <td>
+      This property contains the list of new property names that are added to an object by an extension.<br><br>
+      This property <strong>MUST</strong> only be used when the <strong>extension_types</strong> property includes a value of <span class="stixliteral">toplevel-property-extension</span>. In other words, when new properties are being added at the top-level of an existing object.
+    </td>
+  </tr>
+</table>
+
+### 7.3.2 Requirements for STIX Extension Schemas <a id="requirements-for-stix-extension-schemas"></a>
+
+The requirements listed below apply to the extension schema referred to by the **schema** property. These requirements are not for the Extension Definition object itself.
+
+#### Requirements for Extension Properties <a id="requirements-for-extension-properties"></a>
+
+- A STIX Object **MAY** have any number of Extensions containing one or more properties.
+- Extension property names **MUST** be in ASCII and **MUST** only contain the characters a–z (lowercase ASCII), 0–9, and underscore (_).
+- Extension property names **MUST** have a minimum length of 3 ASCII characters.
+- Extension property names **MUST** be no longer than 250 ASCII characters in length.
+- Extension properties **SHOULD** only be used when there are no existing properties defined by the STIX specification that fulfils that need.
+
+#### Requirements for Extension STIX Objects <a id="requirements-for-extension-stix-objects"></a>
+- Producers **MAY** include any number of STIX Extensions in STIX content.
+- Extension STIX Objects **MUST** support the Common Properties as defined in [section 3.2](#common-properties).
+  - Common property names **MUST NOT** be reused to represent the custom properties in the object.
+- An Extension STIX Object **MUST** have one or more properties.
+- The property names used in Extension STIX Object **MUST** be in ASCII and **MUST** only contain the characters a-z (lowercase ASCII), 0-9, and underscore (_).
+- The name of a property of a Extension STIX Object **MUST** have a minimum length of 3 ASCII characters.
+- The name of a property of a Extension STIX Object **MUST** be no longer than 250 ASCII characters in length.
+- The **type** property in an Extension STIX Object **MUST** be in ASCII and **MUST** only contain the characters a-z (lowercase ASCII), 0-9, and hyphen (-).
+- The **type** property **MUST NOT** contain a hyphen (-) character immediately following another hyphen (-) character.
+- Extension STIX Object names **MUST** have a minimum length of 3 ASCII characters.
+- Extension STIX Object names **MUST** be no longer than 250 ASCII characters in length.
+- The value of the **id** property in a Extension STIX Object **MUST** use the same format as the <span class="stixtype">identifier</span> type, namely, [object-type]--[UUID].
+- Extension STIX Objects **SHOULD** only be used when there is no existing STIX Object defined by the STIX specification that fulfils that need.
+
+**Examples** (additional examples can be found in [Appendix C](#additional-examples))
+
+*Create a new object type*
+
+This is an example of a new SDO object type being created with the STIX Extension mechanism.
+
+```JSON
+[
+  {
+    "id": "extension-definition--9c59fd79-4215-4ba2-920d-3e4f320e1e62",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "New SDO 1",
+    "description": "This schema creates a new object type called my-favorite-sdo-1",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-my-favorite-sdo-1/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "new-sdo" ]
+  },
+  {
+    "type": "my-favorite-sdo",
+    "spec_version": "2.1",
+    "id": "my-favorite-sdo--ac97aae4-83f1-46ca-a351-7aeb76678189",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "This is the name of my favorite",
+    "some_property_name1": "value1",
+    "some_property_name2": "value2",
+    "extensions": {
+      "extension-definition--9c59fd79-4215-4ba2-920d-3e4f320e1e62" : {
+        "extension_type" : "new-sdo"
+      }
+    }
+  }
+]
+```
+
+*Adding properties to an existing STIX object instance*
+
+This example adds the properties **rank** and **toxicity** to the <span class="stixtype">indicator</span> object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension Foo 1",
+    "description": "This schema adds two properties to a STIX object",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-foo-1/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "property-extension" ]
+  },
+  {
+    "type": "indicator",
+    "spec_version": "2.1",
+    "id": "indicator--e97bfccf-8970-4a3c-9cd1-5b5b97ed5d0c",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "File hash for Poison Ivy variant",
+    "description": "This file hash indicates that a sample of Poison Ivy is present.",
+    "labels": [
+      "malicious-activity"
+    ],
+    "pattern": "[file:hashes.'SHA-256' = 'ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c']",
+    "pattern_type": "stix",
+    "valid_from": "2014-02-20T09:00:00.000000Z",
+    "extensions": {
+      "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e" : {
+        "extension_type": "property-extension",
+        "rank": 5,
+        "toxicity": 8
+      }
+    }
+  }
+]
+```
+
+*Adding properties at the top-level to an existing STIX object instance*
+
+> NOTE: There is an example above using the preferred way, property-extension, of adding properties to an object.
+
+This example is similar to the previous example, but uses the <span class="stixtype">toplevel-property-extension</span> to add the properties **rank** and **toxicity** to a STIX object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--71736db5-10db-43d3-b0e3-65cf81601fe1",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension Foo 1a",
+    "description": "This schema adds two properties to a STIX object at the toplevel",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-foo-1a/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "toplevel-property-extension" ],
+    "extension_properties" : [
+      "toxicity",
+      "rank"
+    ]
+  },
+  {
+    "type": "indicator",
+    "spec_version": "2.1",
+    "id": "indicator--66a63e16-92d7-4b2f-bd3d-21540d6b3fc7",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "File hash for Poison Ivy variant",
+    "description": "This file hash indicates that a sample of Poison Ivy is present.",
+    "labels": [
+      "malicious-activity"
+    ],
+    "pattern": "[file:hashes.'SHA-256' = 'ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c']",
+    "pattern_type": "stix",
+    "valid_from": "2014-02-20T09:00:00.000000Z",
+    "rank": 1,
+    "toxicity": 2,
+    "extensions": {
+      "extension-definition--71736db5-10db-43d3-b0e3-65cf81601fe1" : {
+        "extension_type": "toplevel-property-extension"
+      }
+    }
+  }
+]
+```
+
+*Adding two new STIX objects and properties to an existing STIX object instance*
+
+In this example, the extension introduces a new SDO, SCO, and some properties to be added to the <span class="stixtype">indicator</span> object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--c5333451-c08c-4c48-be5e-9ad4c947776a",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension My Favorite SDO and Sub-Comp",
+    "description": "This schema adds a new object my-favorite-sdo and some sub-component to existing objects",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--c1694394-c150-4f80-a69a-59ca5e850df4",
+    "schema": "https://www.example.com/schema-newobj-subcomp/v1/schema.json",
+    "version": "1.2.1",
+    "extension_types": [ "new-sdo", "new-sco", "property-extension" ]
+  },
+  {
+    "type": "my-favorite-sdo",
+    "spec_version": "2.1",
+    "id": "my-favorite-sdo--a5461d2e-7ba9-43ef-9b3e-11471d1ad8da",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "This is the name of my favorite",
+    "some_field": "value",
+    "extensions": {
+      "extension-definition--c5333451-c08c-4c48-be5e-9ad4c947776a" : {
+        "extension_type": "new-sdo"
+      }
+    }
+  },
+  {
+    "type": "my-favorite-sco",
+    "spec_version": "2.1",
+    "id": "my-favorite-sco--f9dbe89c-0030-4a9d-8b78-0dcd0a0de874",
+    "name": "This is the name of my favorite SCO",
+    "some_network_protocol_field": "value",
+    "extensions": {
+      "extension-definition--c5333451-c08c-4c48-be5e-9ad4c947776a" : {
+        "extension_type": "new-sco"
+      }
+    }
+  },
+  {
+    "type": "indicator",
+    "spec_version": "2.1",
+    "id": "indicator--50a77dab-ccc6-439c-b142-92786c394b43",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "File hash for Poison Ivy variant",
+    "description": "This file hash indicates that a sample of Poison Ivy is present.",
+    "labels": [
+      "malicious-activity"
+    ],
+    "pattern": "[file:hashes.'SHA-256' = 'ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c']",
+    "pattern_type": "stix",
+    "valid_from": "2014-02-20T09:00:00.000000Z",
+    "extensions": {
+      "extension-definition--c5333451-c08c-4c48-be5e-9ad4c947776a" : {
+        "extension_type": "property-extension",
+        "rank" : 5,
+        "toxicity": 8
+      }
+    }
+  }
+]
+```
