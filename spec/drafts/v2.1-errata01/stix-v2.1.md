@@ -878,7 +878,7 @@ The JSON MTI serialization uses the JSON Object type \[[RFC8259](#RFC8259)\] whe
 
 An <span class="stixtype">external-reference</span> to a VERIS Community Database (VCDB) \[[VERIS](#VERIS)\] entry
 
-```JSON
+```json
 {
   ...
   "external_references": [
@@ -10700,4 +10700,805 @@ In this example, the extension introduces a new SDO, SCO, and some properties to
     }
   }
 ]
+```
+
+# 8. STIX Bundle Object <a id="stix-bundle-object"></a>
+
+**Type Name:** <span class="stixtype">bundle</span>
+
+A Bundle is a collection of arbitrary STIX Objects grouped together in a single container. A Bundle does not have any semantic meaning and the objects contained within the Bundle are not considered related by virtue of being in the same Bundle.
+
+A STIX Bundle Object is not a STIX Object but makes use of the **type** and **id** Common Properties. A Bundle is transient, and implementations **SHOULD NOT** assume that other implementations will treat it as a persistent object or keep any custom properties found on the bundle itself.
+
+The JSON MTI serialization uses the JSON Object type \[[RFC8259](#rfc8259)\] when representing <span class="stixtype">bundle</span>.
+
+## 8.1 Properties <a id="stix-bundle-object-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>type</strong> (required)</td>
+    <td><span class="stixtype">string</span></td>
+    <td>The value of this property <strong>MUST</strong> be <span class="stixliteral">bundle</span>.</td>
+  </tr>
+  <tr>
+    <td><strong>id</strong> (required)</td>
+    <td><span class="stixtype">identifier</span></td>
+    <td>An identifier for this Bundle. The <strong>id</strong> property for the Bundle is designed to help tools that may need it for processing, however, tools are not required to store or track it. Tools that consume STIX should not rely on the ability to refer to bundles by ID.</td>
+  </tr>
+  <tr>
+    <td><strong>objects</strong> (optional)</td>
+    <td><span style="white-space:nowrap"><span class="stixtype">list</span> of type <span class="stixtype">&lt;STIX Object&gt;</span></span></td>
+    <td>Specifies a set of one or more STIX Objects. Objects in this list <strong>MUST</strong> be a STIX Object.</td>
+  </tr>
+</table>
+
+## 8.2 Relationships <a id="stix-bundle-object-relationships"></a>
+
+STIX Bundle Object is not a STIX Object and **MUST NOT** have any relationships to or from it.
+
+**Example**
+
+```JSON
+{
+  "type": "bundle",
+  "id": "bundle--5d0092c5-5f74-4287-9642-33f4c354e56d",
+  "objects": [
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+      "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+      "created": "2016-04-29T14:09:00.000Z",
+      "modified": "2016-04-29T14:09:00.000Z",
+      "object_marking_refs": ["marking-definition--089a6ecb-cc15-43cc-9494-767639779123"],
+      "name": "Poison Ivy Malware",
+      "description": "This file is part of Poison Ivy",
+      "pattern": "[file:hashes.'SHA-256' = 'aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f']"
+    }
+  ]
+}
+```
+
+# 9. STIX Patterning <a id="stix-patterning"></a>
+
+## 9.1 Definitions <a id="stix-patterning-definitions"></a>
+
+The terms defined below are used throughout this document.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Terms</span></th>
+    <th><span class="stixtr">Definitions</span></th>
+    <th><span class="stixtr">Example</span></th>
+  </tr>
+  <tr>
+    <td>whitespace</td>
+    <td>Any Unicode code point that has WSpace set as a property, for example, line feeds, carriage returns, tabs, and spaces.</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td>Observation</td>
+    <td>Observations represent data about systems or networks that is observed at a particular point in time - for example, information about a file that existed, a process that was observed running, or network traffic that was transmitted between two IPs. In STIX, Observations are represented by Observed Data SDOs, with <strong>number_observed</strong> observations occurring between their <strong>first_observed</strong> and <strong>last_observed</strong> timestamps. It is not defined when the observations occur within that time window.<br><br>For additional background, refer to the STIX Observed Data object definition in <a href="#observed-data">section 4.14</a>.</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Comparison Expression</span></td>
+    <td>Comparison Expressions are the basic components of Observation Expressions. They consist of an Object Path and a constant joined by a Comparison Operator (listed in <a href="#comparison-operators">section 9.6.1</a>, Comparison Operators).</td>
+    <td><code>user-account:value = 'Peter'</code></td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Comparison Operator</span></td>
+    <td>Comparison Operators are used within Comparison Expressions to compare an Object Path against a constant or set of constants.</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Object Path</span></td>
+    <td>Object Paths define which properties of STIX Cyber-observable Objects (SCO) should be evaluated as part of a Comparison Expression. SCOs and their properties are defined in <a href="#stix-cyber-observable-objects">section 6.</a></td>
+    <td><code>ipv6-addr:value</code></td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Observation Expression</span></td>
+    <td>Observation Expressions consist of one or more Comparison Expressions joined with Boolean Operators and surrounded by square brackets.<br><br>An Observation Expression may consist of two Observation Expressions joined by an Observation Operator. This may be applied recursively to compose multiple Observation Expressions into a single Observation Expression.<br><br>Observation Expressions may optionally be followed by one or more Qualifiers further constraining the result set. Qualifiers may be applied to all of the Observation Expressions joined with Observation Operators; in this case, parentheses should be used to group the set of Observation Expressions, with the Qualifier following the closing parenthesis.</td>
+    <td>
+      <code>[ipv4-addr:value = '203.0.113.1' OR ipv4-addr:value = '203.0.113.2']</code><br><br>or (with Observation Operator):<br><br><code>([ipv4-addr:value = '198.51.100.5'] FOLLOWEDBY [ipv4-addr:value = '198.51.100.10'])</code><br><br>or (with Observation Operator and Qualifier):<br><br><code>([ipv4-addr:value = '198.51.100.5' ] AND [ipv4-addr:value = '198.51.100.10']) WITHIN 300 SECONDS</code>
+    </td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Boolean Operator</span></td>
+    <td>Boolean Operators are used to combine Comparison Expressions within an Observation Expression.</td>
+    <td>
+      <code>user-account:value = 'Peter' OR user-account:value = 'Mary'</code>
+    </td>
+  </tr>
+  <tr>
+    <td>Qualifier</td>
+    <td>Qualifiers provide a restriction on the Observations that are considered valid for matching the preceding Observation Expression.</td>
+    <td>
+      <code>[file:name = 'foo.dll'] START t'2016-06-01T00:00:00Z' STOP t'2016-07-01T00:00:00Z'</code>
+    </td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Observation Operator</span></td>
+    <td>Observation Operators are used to combine two Observation Expressions operating on two different Observed Data instances into a single pattern.<br><br>Note that some Observation Operators have the same name as Boolean Operators. However, the former connects Comparison Expressions and the latter connects Observation Expressions, and therefore each has slightly different semantics.</td>
+    <td>
+      <code>[ipv4-addr:value = '198.51.100.5'] AND [ ipv4-addr:value = '198.51.100.10']</code>
+    </td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;">Pattern Expression</span></td>
+    <td>A Pattern Expression represents a valid instance of a STIX cyber observable pattern. The most basic Pattern Expression consists of a single Observation Expression containing a single Comparison Expression.</td>
+    <td>
+      <code>[file:size = 25536]</code>
+    </td>
+  </tr>
+</table>
+
+## 9.2 Constants <a id="constants"></a>
+
+The data types enumerated below are supported as operands within Comparison Expressions. This table is included here as a handy reference for implementers.
+
+Note that unlike SCOs (which are defined in terms of the MTI JSON serialization), STIX Patterns are Unicode strings, regardless of the underlying serialization, hence the data types defined in the table below in some cases differ from the definitions contained in [section 2](#common-data-types).
+
+Each constant defined in Patterning has a limited set of STIX Data types that they are allowed to be compared against. In some cases, there are multiple STIX Data Types that could be compared against a STIX Patterning Constant; this is due to the fact that certain STIX Data Types are semantically indistinguishable because of their JSON serialization. The STIX Comparable Data Type(s) column in the table below defines these limitations.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">STIX Patterning Constant</span></th>
+    <th><span class="stixtr">STIX Comparable Data Type(s)</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>boolean</strong></td>
+    <td><span class="stixtype">boolean</span></td>
+    <td>
+      A constant of <span class="stixtype">boolean</span> type encodes truth or falsehood. Boolean truth is denoted by the literal <span class="stixliteral">true</span> and falsehood by the literal <span class="stixliteral">false</span>.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>binary</strong></td>
+    <td><span class="stixtype">binary</span><br><span class="stixtype">hex</span><br><span class="stixtype">string</span></td>
+    <td>
+      A constant of <span class="stixtype">binary</span> type is a base64 encoded array of octets (8-bit bytes) per [<a href="#rfc4648">RFC4648</a>]. The base64 string <strong>MUST</strong> be surrounded by apostrophes (<code>'</code> U+0027) and prefixed by a <code>b</code> (U+0062). Line feeds in the base64 encoded data <strong>MUST</strong> be supported and ignored but are not required to be inserted.<br><br>
+      Example:<br>
+      <code>b'ABI='</code>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>hex</strong></td>
+    <td><span class="stixtype">binary</span><br><span class="stixtype">hex</span><br><span class="stixtype">string</span></td>
+    <td>
+      A constant of <span class="stixtype">hex</span> type encodes an array of octets (8-bit bytes) as hexadecimal. The string <strong>MUST</strong> consist of an even number of hexadecimal characters, which are the digits '0' through '9' and the letters 'a' through 'f'. The hex string <strong>MUST</strong> be surrounded by apostrophes (<code>'</code> U+0027) and prefixed by an <code>h</code> (U+0068).<br><br>
+      Example:<br>
+      <code>h'ffc3'</code>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>integer</strong></td>
+    <td><span class="stixtype">integer</span><br><span class="stixtype">float</span></td>
+    <td>
+      A constant of <span class="stixtype">integer</span> type encodes a signed decimal number in the usual fashion (e.g., 123). In the case of positive integers, the integer <strong>MUST</strong> be represented as-is, omitting the plus sign (<code>+</code> U+002b). Negative integers <strong>MUST</strong> be represented by prepending a hyphen-minus (<code>-</code> U+002d).<br><br>
+      When compared against a <span class="stixtype">float</span>, the full value must be compared and must not be truncated. For example, the result of comparing a STIX Patterning constant integer value of 1 to a <span class="stixtype">float</span> value of 1.5 is not equal.<br><br>
+      The valid range of values is defined in <a href="#common-data-types">section 2</a>.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>float</strong></td>
+    <td><span class="stixtype">integer</span><br><span class="stixtype">float</span></td>
+    <td>
+      A constant of <span class="stixtype">float</span> type encodes a floating-point number in the usual fashion (e.g., 123.456). In the case of positive floating-point number, the floating-point number <strong>MUST</strong> be represented as-is, omitting the plus sign (<code>+</code> U+002b). Negative floating point-numbers <strong>MUST</strong> be represented by prepending a hyphen-minus (<code>-</code> U+002d).<br><br>
+      The valid range of values is defined in <a href="#common-data-types">section 2</a>.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>string</strong></td>
+    <td><span class="stixtype">string</span><br><span class="stixtype">binary</span><br><span class="stixtype">hex</span></td>
+    <td>
+      A constant of <span class="stixtype">string</span> type encodes a string as a list of Unicode code points surrounded by apostrophes (<code>'</code> U+0027).<br><br>
+      The escape character is the backslash (<code>\</code> U+005c). Only the apostrophe or the backslash may follow, and in that case, the respective character is used for the sequence.<br><br>
+      If a string only contains codepoints less than (U+0100), then the string <strong>MAY</strong> be converted to a binary type value (if needed for comparison). The mapping is code point U+0000 to 00 through U+00ff to ff.
+    </td>
+  </tr>
+  <tr>
+    <td><strong>timestamp</strong></td>
+    <td><span class="stixtype">timestamp</span></td>
+    <td>
+      A constant of <span class="stixtype">timestamp</span> type encodes a STIX timestamp (as specified in <a href="#timestamp">section 2.16</a>) as a string. The timestamp string <strong>MUST</strong> be surrounded by apostrophes (<code>'</code> U+0027) and prefixed with a <code>t</code> (U+0074).<br><br>
+      Example:<br>
+      <code>t'2014-01-13T07:03:17Z'</code>
+    </td>
+  </tr>
+</table>
+
+## 9.3 STIX Patterns <a id="stix-patterns"></a>
+
+STIX Patterns are composed of multiple building blocks, ranging from simple key-value comparisons to more complex, context-sensitive expressions. The most fundamental building block is the Comparison Expression, which is a comparison between a single property of a SCO and a given constant using a Comparison Operator. As a simple example, one might use the following Comparison Expression (contained within an Observation Expression) to match against an IPv4 address:
+
+```
+[ipv4-addr:value = '198.51.100.1/32']
+```
+\
+Moving up a level of complexity, the next building block of a STIX Pattern is the Observation Expression, which consists of one or more Comparison Expressions joined by Boolean Operators and bounded by square brackets. An Observation Expression refines which set of cyber observable data (i.e., as part of an Observation) will match the pattern, by selecting the set that has the SCOs specified by the Comparison Expressions. An Observation Expression consisting of a single Comparison Expression is the most basic valid STIX Pattern. Building upon the previous example, one might construct an Observation Expression to match against multiple IPv4 addresses and an IPv6 address:
+
+```
+[ipv4-addr:value = '198.51.100.1/32' OR ipv4-addr:value = '203.0.113.33/32' OR ipv6-addr:value = '2001:0db8:dead:beef:dead:beef:dead:0001/128']
+
+```
+\
+Observation Expressions may be followed by one or more Qualifiers, which allow for the expression of further restrictions on the set of data matching the pattern. Continuing with the above example, one might use a Qualifier to state that the IP addresses must be observed several times in repetition:
+
+```
+[ipv4-addr:value = '198.51.100.1/32' OR ipv4-addr:value = '203.0.113.33/32' OR ipv6-addr:value = '2001:0db8:dead:beef:dead:beef:dead:0001/128'] REPEATS 5 TIMES
+```
+\
+The final, highest level building block of STIX Patterning combines two or more Object Expressions via Observation Operators, yielding a STIX Pattern capable of matching across multiple STIX Observed Data SDOs. Building further upon our previous example, one might use an Observation Operator to specify that an observation of a particular domain name must follow the observation of the IP addresses (note the use of parentheses to encapsulate the two Observation Expressions), along with a different Qualifier to state that both the IP address and domain name must be observed within a specific time window:
+
+```
+([ipv4-addr:value = '198.51.100.1/32' OR ipv4-addr:value = '203.0.113.33/32' OR ipv6-addr:value = '2001:0db8:dead:beef:dead:beef:dead:0001/128'] FOLLOWEDBY [domain-name:value = 'example.com']) WITHIN 600 SECONDS
+```
+\
+The diagram below depicts a truncated version of the various STIX Patterning components in the above example.
+
+<img src="images/stix_patterning_components.png" alt="STIX Patterning Components"  width="80%">
+
+## 9.4 Pattern Expressions <a id="pattern-expressions"></a>
+
+Pattern Expressions evaluate to true or false. They comprise one or more Observation Expressions joined by Observation Operators. Pattern Expressions are evaluated against a set of specific Observations. If one or more of those Observations match the Pattern Expression, then it evaluates to true. If no Observations match, the Pattern Expression evaluates to false.
+
+Pattern Expressions **MUST** be encoded as Unicode strings.
+
+Whitespace (i.e., Unicode code points where WSpace=Y)# in the pattern string is used to delimit parts of the pattern, including keywords, constants, and field objects. Whitespace characters between operators, including line feeds and carriage returns, **MUST** be allowed. Multiple whitespace characters in a row **MUST** be treated as a single whitespace character.
+
+An invalid pattern resulting from parsing error or invalid constants (e.g., an invalid hex or binary constant) **MUST NOT** match any Observations.
+
+## 9.5 Observation Expressions <a id="observation-expressions"></a>
+
+Observation Expressions comprise one or more Comparison Expressions, joined via Boolean Operators.
+
+Observation Expressions **MUST** be delimited by left square bracket ('[' U+005b) and right square bracket (']' U+005d). One or more Observation Expression Qualifiers **MAY** be provided after the closing square bracket or closing parenthesis of an Observation Expression. Observation Expressions **MAY** be joined by Observation Operators.
+
+Individual Observation Expressions (e.g., <span class="stixalt">[a = b]</span>) match against a single Observation, i.e., a single STIX Observed Data instance. In cases where matching against multiple Observations is required, two or more Observation Expressions may be combined via Observation Operators, indicating that the pattern **MUST** be evaluated against two or more distinct Observations; however, in the case of <span class="sstixliteral">OR</span>, if the first Observation Expression evaluates to true, then evaluation **MUST** terminate and return <span class="sstixliteral">true</span>.
+
+When matching an Observation against an Observation Expression, all Comparison Expressions contained within the Observation Expression **MUST** start matching against the same SCO in the Observation. That is, when resolving object paths of each Comparison Expression, the <object-type>:<property_name> **MUST** start from the same SCO. Different SCO’s may ultimately be used in matching, but they **MUST** be referenced from the same, single SCO.
+
+For example, the following observed data does not match this example observation clause because although these IP addresses are both part of the same observed-data object, there is not a single network-traffic SCO that references each IP address, and therefore does not satisfy the condition in the preceding paragraph:
+
+```
+[ network-traffic:src_ref.value = '203.0.113.10' AND network-traffic:dst_ref.value = '198.51.100.58' ]
+```
+
+```JSON
+{
+  "type": "observed-data",
+  "id": "observed-data--0960319a-3cab-4258-a143-4dbb25525bb1",
+  "first_observed": "2019-10-20T00:12:01.000000Z",
+  "last_observed": "2019-10-20T00:51:02.000000Z",
+  "number_observed": 1,
+  "objects": {
+    "0": {
+      "type": "network-traffic",
+      "src_ref": "1"
+    },
+    "1": {
+      "type": "ipv4-addr",
+      "value": "203.0.113.10"
+    },
+    "2": {
+      "type": "network-traffic",
+      "dst_ref": "3"
+    },
+    "3": {
+      "type": "ipv4-addr",
+      "value": "198.51.100.58"
+    }
+  }
+}
+```
+
+An Observation Expression **MAY** contain Comparison Expressions with Object Paths that start with different object types, but such Comparison Expressions **MUST** be joined by OR. All operands of AND in an Observation Expression **MUST** be satisfiable with the same object.
+
+For example, consider the following Pattern Expression:
+```
+[(type-a:property-j = 'W' AND type-a:property-k = 'X') OR (type-b:property-m = 'Y' AND type-b:property-n = 'Z')]
+```
+\
+This expression can match an Observable with an object of either type-a or type-b, but both Comparison Expressions for that specific type must evaluate to true for the same object. Comparison Expressions that are intended to match a single object type can be joined by either AND or OR. For example:
+```
+[type-a:property-j = 'W' AND type-a:property-k = 'X' OR type-a:property-l = 'Z']
+```
+\
+As AND has higher precedence than OR, the preceding example requires an Observation to have either both property-j = 'W' AND property-k = 'X' or just property-l = 'Z'.
+
+Observation Expressions, along with their Observation Operators and optional Qualifiers, **MAY** be surrounded with parentheses to delineate which Observation Expressions the Qualifiers apply to. For example:
+```
+([ a ] AND [ b ] REPEATS 5 TIMES) WITHIN 5 MINUTES
+```
+\
+The preceding example results in one a and 5 b's that all match in a 5-minute period. As another example:
+```
+([ a ] AND [ b ]) REPEATS 5 TIMES WITHIN 5 MINUTES
+```
+\
+The preceding example results in 5 a's and 5 b's (10 Observations) that all match in a 5-minute period.
+
+### 9.5.1 Observation Expression Qualifiers <a id="observation-expression-qualifiers"></a>
+
+Each Observation Expression **MAY** have additional temporal or repetition restrictions using the respective <span class="stixliteral">WITHIN</span>, <span class="stixliteral">START</span>/<span class="stixliteral">STOP</span>, and <span class="stixliteral">REPEATS</span> keywords. An Observation Expression **MUST NOT** have more than one Qualifier of a particular type.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Qualifiers</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space:nowrap;"><em>a</em> <span class="stixliteral">REPEATS</span> <em>x</em> <span class="stixliteral">TIMES</span></span></td>
+    <td><em>a</em> <strong>MUST</strong> be an Observation Expression or a preceding Qualifier. <em>a</em> <strong>MUST</strong> match at least <em>x</em> times, where each match is a different Observation. <em>x</em> <strong>MUST</strong> be a positive integer.<br><br>This is purely a shorthand way of writing:<br>"<em>a</em>" followed by "AND <em>a</em>", x-1 times.<br><br>Example:<br><pre><code>[ b ] FOLLOWEDBY [ c ] REPEATS 5 TIMES</code></pre>In this example, the <span class="stixliteral">REPEATS</span> applies to c, and it does not apply to b. The results will be b plus 5 c's where all 5 c's were observed after the b. Note that there is only a single Qualifier in this example; more complex patterns may use more than one.
+  </tr>
+  <tr>
+    <td><span style="white-space:nowrap;"><em>a</em> <span class="stixliteral">WITHIN</span> <em>x</em> <span class="stixliteral">SECONDS</span></span></td>
+    <td>
+      <em>a</em> <strong>MUST</strong> be an Observation Expression or a preceding Qualifier. All Observations matched by <em>a</em> <strong>MUST</strong> occur, or have been observed, within the specified time window. <em>x</em> <strong>MUST</strong> be a positive floating-point or integer value.<br><br>If there is a set of two or more Observations matched by <em>a</em>, the most recent Observation timestamp contained within that set <strong>MUST NOT</strong> be equal to or later than the delta of the earliest Observation timestamp within the set plus the specified time window.<br><br>Example:<br><pre><code>([file:hashes.'SHA-256' = '13987239847...'] AND [windows-registry-key:key = 'hkey']) WITHIN 120 SECONDS</code></pre>The above Pattern Expression looks for a file hash and a registry key that were observed within 120 seconds of each other. The parentheses are needed to apply the <span class="stixliteral">WITHIN</span> Qualifier to both Observation Expressions.
+    </td>
+  </tr>
+  <tr>
+    <td><span style="white-space:nowrap;"><em>a</em> <span class="stixliteral">START</span> <em>x</em> <span class="stixliteral">STOP</span> <em>y</em></span></td>
+    <td>
+      <em>a</em> <strong>MUST</strong> be an Observation Expression or a preceding Qualifier. All Observations that match <em>a</em> <strong>MUST</strong> have an observation time &gt;= <em>x</em> and &lt; <em>y</em>.<br><br><em>x</em> and <em>y</em> <strong>MUST</strong> be of type <span class="stixtype">timestamp</span>.<br><br>In the event that the Pattern Expression is being used inside a STIX Indicator <span class="stixtype">pattern</span> property (see <a href="#indicator">section 4.7</a>) <em>x</em> <strong>SHOULD</strong> be greater than or equal to the value contained in the <span class="stixtype">valid_from</span> Indicator property, and <em>y</em> <strong>SHOULD</strong> be less than or equal to the value contained in the <span class="stixtype">valid_until</span> Indicator property.
+    </td>
+  </tr>
+</table>
+
+### 9.5.2 Observation Operators <a id="observation-operators"></a>
+
+Two or more Observation Expressions **MAY** be combined using an Observation Operator in order to further constrain the set of Observations that match against the Pattern Expression.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Observation Operators</span></th>
+    <th><span class="stixtr">Description</span></th>
+    <th><span class="stixtr">Associativity</span></th>
+  </tr>
+  <tr>
+    <td>[ <em>a</em> ] <span class="stixliteral">AND</span> [ <em>b</em> ]</td>
+    <td><em>a</em> and <em>b</em> <strong>MUST</strong> both be Observation Expressions and <strong>MUST</strong> both evaluate to true on <em>different</em> Observations.</td>
+    <td>Left to right</td>
+  </tr>
+  <tr>
+    <td>[ <em>a</em> ] <span class="stixliteral">OR</span> [ <em>b</em> ]</td>
+    <td><em>a</em> and <em>b</em> <strong>MUST</strong> both be Observation Expressions and one of <em>a</em> or <em>b</em> <strong>MUST</strong> evaluate to true on <em>different</em> Observations.</td>
+    <td>Left to right</td>
+  </tr>
+  <tr>
+    <td><span style="white-space:nowrap;">[ <em>a</em> ] <span class="stixliteral">FOLLOWEDBY</span> [ <em>b</em> ]</span></td>
+    <td><em>a</em> and <em>b</em> <strong>MUST</strong> both be Observation Expressions. Both <em>a</em> and <em>b</em> <strong>MUST</strong> both evaluate to true, where the observation timestamp associated with <em>b</em> is greater than or equal to the observation timestamp associated with <em>a</em> and <strong>MUST</strong> evaluate to true on <em>different</em> Observations.</td>
+    <td>Left to right</td>
+  </tr>
+</table>
+
+For example, consider the following Pattern Expression:
+```
+[ a = 'b' ] FOLLOWEDBY [ c = 'd' ] REPEATS 5 TIMES
+```
+\
+The preceding expression says to match an Observation with a equal to 'b' that precedes 5 occurrences of Observations that have c equal to 'd', for a total of 6 Observations matched. This interpretation is due to qualifiers not being greedy and is equivalent to [ a = 'b' ] FOLLOWEDBY ( [ c = 'd' ] REPEATS 5 TIMES).
+
+Alternatively, using parentheses to group the initial portion, we get the following example:
+```
+([ a = 'b' ] FOLLOWEDBY [ c = 'd' ]) REPEATS 5 TIMES
+```
+\
+The preceding expression will match 5 pairs of Observations where a equals 'b' followed by an Observation where c is equal to 'd', for a total of 10 Observations matched.
+
+### 9.5.3 Operator Precedence <a id="operator-precedence"></a>
+
+Operator associativity and precedence may be overridden by the use of parentheses. Unless otherwise specified, operator associativity (including for parentheses) is left-to-right. Precedence in the below table is from highest to lowest.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Operators</span></th>
+    <th><span class="stixtr">Associativity</span></th>
+    <th><span class="stixtr">Valid Scope</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">()</span></td>
+    <td>left to right</td>
+    <td>Observation Expression or Pattern Expression, Observation Expression and Qualifier</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AND</span></td>
+    <td>left to right</td>
+    <td>Observation Expression, Pattern Expression</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">OR</span></td>
+    <td>left to right</td>
+    <td>Observation Expression, Pattern Expression</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">FOLLOWEDBY</span> (Observation Operator)</td>
+    <td>left to right</td>
+    <td>Pattern Expression</td>
+  </tr>
+</table>
+
+## 9.6 Comparison Expressions <a id="comparison-expressions"></a>
+
+Comparison Expressions are the most basic components of STIX Patterning, comprising an Object Path and a constant joined by a Comparison Operator. Each Comparison Expression is a singleton, and so they are evaluated from left to right.
+
+A Boolean Operator joins two Comparison Expressions together. In the following table, a or b is either a Comparison Expression or a composite expression (which may be composed recursively) consisting of two or more Comparison Expressions joined with Boolean Operators and enclosed by parentheses.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Boolean Operator</span></th>
+    <th><span class="stixtr">Description</span></th>
+    <th><span class="stixtr">Associativity</span></th>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">AND</span> <em>b</em></td>
+    <td><em>a</em> and <em>b</em> <strong>MUST</strong> both be Comparison Expressions or a composite expression (which may be composed recursively) consisting of two or more Comparison Expressions joined with Boolean Operators and enclosed by parentheses.<br><br><em>a</em> and <em>b</em> <strong>MUST</strong> both evaluate to true on the same Observation.</td>
+    <td>Left to right</td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">OR</span> <em>b</em></td>
+    <td><em>a</em> and <em>b</em> <strong>MUST</strong> both be Comparison Expressions or a composite expression (which may be composed recursively) consisting of two or more Comparison Expressions joined with Boolean Operators and enclosed by parentheses.<br><br>Either <em>a</em> or <em>b</em> <strong>MUST</strong> evaluate to true.</td>
+    <td>Left to right</td>
+  </tr>
+</table>
+
+Comparison Expressions may include one or more Object Path(s) not obtainable within a given Observation, either because the Object Path(s) are not present within the Observation or because the evaluating entity does not have access to the data necessary in order to evaluate the specified Object Path(s). When evaluating a Comparison Expression against one or more Object Path(s) that are not present or whose data cannot be obtained, the Comparison Expression **MUST** evaluate to **FALSE**, regardless of the operators included in the expression.
+
+### 9.6.1 Comparison Operators <a id="comparison-operators"></a>
+
+The table below describes the available Comparison Operators for use in Comparison Expressions; in the table, *a* **MUST** be an Object Path and *b* **MUST** be a constant. If the arguments to the Comparison Operators are of incompatible types (e.g., the Object Path is an integer and the constant is a string), the results are false; the sole exception is the <span class="stixliteral">!=</span> operator in which case the result is true. Some STIX Patterning constants and STIX data types may be comparable in a Comparison Expression. For example, the <span class="stixtype">hex</span> and <span class="stixtype">binary</span> types both represent binary data, and their representative binary data is that which must be compared for equality. See [section 2](#common-data-types) for type compatibility between STIX Patterning and STIX types.
+
+A Comparison Operator **MAY** be preceded by the modifier <span class="stixliteral">NOT</span>, in which case the resultant Comparison Expression is logically negated.
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Comparison Operator</span></th>
+    <th><span class="stixtr">Description</span></th>
+    <th><span class="stixtr">Example</span></th>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">=</span> <em>b</em></td>
+    <td><em>a</em> and <em>b</em> <strong>MUST</strong> be equal (transitive), where <em>a</em> <strong>MUST</strong> be an Object Path and <em>b</em> <strong>MUST</strong> be a constant of the same data type as the object property specified by <em>a</em>.</td>
+    <td><pre><code>file:name = 'foo.dll'</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">!=</span> <em>b</em></td>
+    <td><em>a</em> and <em>b</em> <strong>MUST NOT</strong> be equal (transitive), where <em>a</em> <strong>MUST</strong> be an Object Path and <em>b</em> <strong>MUST</strong> be a constant of the same data type as the Object property specified by <em>a</em>.</td>
+    <td><pre><code>file:size != 4112</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">&gt;</span> <em>b</em></td>
+    <td><em>a</em> is numerically or lexically greater than <em>b</em>, where <em>a</em> <strong>MUST</strong> be an Object Path and <em>b</em> <strong>MUST</strong> be a constant of the same data type as the Object property specified by <em>a</em>.</td>
+    <td><pre><code>file:size > 256</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">&lt;</span> <em>b</em></td>
+    <td><em>a</em> is numerically or lexically less than <em>b</em>, where <em>a</em> <strong>MUST</strong> be an Object Path and <em>b</em> <strong>MUST</strong> be a constant of the same data type as the Object property specified by <em>a</em>.</td>
+    <td><pre><code>file:size < 1024</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">&lt;=</span> <em>b</em></td>
+    <td><em>a</em> is numerically or lexically less than or equal to <em>b</em>, where <em>a</em> <strong>MUST</strong> be an Object Path and <em>b</em> <strong>MUST</strong> be a constant of the same data type as the Object property specified by <em>a</em>.</td>
+    <td><pre><code>file:size <= 25145</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">&gt;=</span> <em>b</em></td>
+    <td><em>a</em> is numerically or lexically greater than or equal to <em>b</em>, where <em>a</em> <strong>MUST</strong> be an Object Path and <em>b</em> <strong>MUST</strong> be a constant of the same data type as the Object property specified by <em>a</em>.</td>
+    <td><pre><code>file:size >= 33312</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">IN</span> <em>(x,y,…​)</em></td>
+    <td><em>a</em> <strong>MUST</strong> be an Object Path and <strong>MUST</strong> evaluate to one of the values enumerated in the set of x,y,…​ (transitive). The set values in <em>b</em> <strong>MUST</strong> be constants of homogeneous data type and <strong>MUST</strong> be valid data types for the Object Property specified by <em>a</em>. The return value is true if <em>a</em> is equal to one of the values in the list. If <em>a</em> is not equal to any of the items in the list, then the Comparison Expression evaluates to false.</td>
+    <td><pre><code>process:name IN ('proccy', 'proximus', 'badproc')</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">LIKE</span> <em>b</em></td>
+    <td><em>a</em> <strong>MUST</strong> be an Object Path and <strong>MUST</strong> match the pattern specified in <em>b</em> where any '%' is 0 or more characters and '_' is any one character.<br><br>This operator is based upon the SQL LIKE clause and makes use of the same wildcards.<br><br>The string constant <em>b</em> <strong>MUST</strong> be NFC normalized [<a href="#david">Davis</a>] prior to evaluation.</td>
+    <td><pre><code>directory:path LIKE 'C:\\Windows\\%\\foo'</code></pre></td>
+  </tr>
+  <tr>
+    <td><em>a</em> <span class="stixliteral">MATCHES</span> <em>b</em></td>
+    <td><em>a</em> <strong>MUST</strong> be an Object Path and <strong>MUST</strong> be matched by the pattern specified in <em>b</em>, where <em>b</em> is a string constant containing a PCRE compliant regular expression. <em>a</em> <strong>MUST</strong> be NFC normalized [<a href="#davis">Davis</a>] before comparison if the property is of string type.<br><br>Regular expressions <strong>MUST</strong> be conformant to the syntax defined by the Perl-compatible Regular Expression (PCRE) library [<a href="#pcre">PCRE</a>]. The search function <strong>MUST</strong> be used. The DOTALL option <strong>MUST</strong> be specified. The standard beginning and end anchors may be used in the pattern to obtain match behavior.<br><br>In the case that the property is binary (e.g., the property name ends in <strong>_bin</strong> or <strong>_hex</strong>), then the UNICODE flag <strong>MUST NOT</strong> be specified.</td>
+    <td><pre><code>directory:path MATCHES '^C:\\\\Windows\\w+$'</code></pre></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Set Operator</span></th>
+    <th><span class="stixtr">Description</span></th>
+    <th><span class="stixtr">Example</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><em>a</em> <span class="stixliteral">ISSUBSET</span> <em>b</em></span></td>
+    <td>When <em>a</em> is a set that is wholly contained by the set <em>b</em>, the Comparison Expression evaluates to true. <em>a</em> <strong>MUST</strong> be an Object Path referring to the <strong>value</strong> property of an Object of type ipv4-addr or ipv6-addr. <em>b</em> <strong>MUST</strong> be a valid string representation of the corresponding Object type (as defined in <a href="#stix-cyber-observable-objects">section 6</a>).<br><br>For example, if ipv4-addr:value was 198.51.100.0/27, ISSUBSET '198.51.100.0/24' would evaluate to true.<br><br>In the case that both <em>a</em> and <em>b</em> evaluate to an identical single IP address or an identical IP subnet, the Comparison Expression evaluates to true.</td>
+    <td><pre><code>ipv4-addr:value ISSUBSET '198.51.100.0/24'</code></pre></td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><em>a</em> <span class="stixliteral">ISSUPERSET</span> <em>b</em></span></td>
+    <td>When <em>a</em> is a set that wholly contains the set specified by <em>b</em>, the Comparison Expression evaluates to true. <em>a</em> <strong>MUST</strong> be an Object Path referring either an ipv4-addr or ipv6-addr Object. <em>b</em> <strong>MUST</strong> be a valid string representation of the corresponding Object type (as defined in <a href="#stix-cyber-observable-objects">section 6</a>).<br><br>For example, if ipv4-addr:value was 198.51.100.0/24, ISSUPERSET '198.51.100.0/27' would evaluate to true.<br><br>In the case that both <em>a</em> and <em>b</em> evaluate to an identical single IP address or an identical IP subnet, the Comparison Expression evaluates to true.</td>
+    <td><pre><code>ipv4-addr:value ISSUPERSET '198.51.100.0/24'</code></pre></td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">EXISTS</span> <em>a</em></td>
+    <td><em>a</em> <strong>MUST</strong> be an Object Path which specifies a single property that <strong>MUST</strong> exist on the Object specified by the Observation Expression in order for the Comparison Expression to evaluate to true.<br><br>For example, EXISTS windows-registry-key:values would evaluate to true on a registry key that contains a 'values' property (regardless of its contents).</td>
+    <td><pre><code>EXISTS windows-registry-key:values</code></pre></td>
+  </tr>
+</table>
+
+### 9.6.2 String Comparison <a id="string-comparison"></a>
+
+For simple string operators, i.e., "<span class="stixliteral">=</span>", "<span class="stixliteral">!=</span>", "<span class="stixliteral"><</span>", "<span class="stixliteral">></span>", "<span class="stixliteral"><=</span>" and "<span class="stixliteral">>=</span>", as collation languages and methods are unspecifiable, a simple code point (binary) comparison **MUST** be used. If one string is longer than the other, but otherwise equal, the longer string is greater than, but not equal to, the shorter string. Unicode normalization **MUST NOT** be performed on the string. This means that combining marks \[[Davis](#davis)\] are sorted by their code point, not the NFC normalized value. E.g. 'o' U+006f < 'oz' U+006f U+007a < 'ò' U+006f U+0300 < 'z' U+007a < ‘ò' U+00f2. Although Unicode recommends normalizing strings for comparisons, the use of combining marks may be significant, and normalizing by default would remove this information.
+
+NFC normalization is, however, required for other Comparison Operators, e.g., <span class="stixliteral">LIKE</span> and <span class="stixliteral">MATCHES</span>.
+
+### 9.6.3 Binary Type Comparison <a id="binary-type-comparison"></a>
+
+When the value of two binary object properties are compared, they are compared as unsigned octets. That is, <span class="stixliteral">00</span> is less than <span class="stixliteral">ff</span>. If one value is longer than the other, but they are otherwise equal, the longer value is considered greater than, but not equal to, the shorter value.
+
+### 9.6.4 Native Format Comparison <a id="native-format-comparison"></a>
+
+The SCO’s value **MUST** be in its native format when doing the comparison. For example, Cyber-observable Object properties that use the <span class="stixtype">binary</span> type (defined in [section 2.1](#binary)) must have their value decoded into its constituent bytes prior to comparison. This also means that Object Properties which use the <span class="stixtype">hex</span> type must be decoded into raw octets prior to being evaluated.
+
+In cases where a binary SCO property (i.e., one ending with **_bin** or **_hex**) is evaluated against a string constant, the string constant **MUST** be converted into a binary constant when all of the constituent string code points are less than U+0100. If this conversion is not possible, the comparison **MUST** evaluate to false, unless the comparison operator is <span class="stixliteral">!=</span>, in which case it **MUST** evaluate to true.
+
+For example, given the following object, where the **payload_bin** property is of <span class="stixtype">binary</span> type:
+```JSON
+{
+  "0":{
+    "type": "artifact",
+    "mime_type": "application/octet-stream",
+    "payload_bin": "dGhpcyBpcyBhIHRlc3Q="
+  }
+}
+```
+
+The pattern
+```
+"artifact:payload_bin = 'dGhpcyBpcyBhIHRlc3Q='"
+```
+would evaluate to false, while the following patterns would all evaluate to true:
+```
+"artifact:payload_bin = 'this is a test'", "artifact:payload_bin = b'dGhpcyBpcyBhIHRlc3Q='",
+```
+and
+```
+"artifact:payload_bin = h'7468697320697320612074657374'".
+```
+
+## 9.7 Object Path Syntax <a id="object-path-syntax"></a>
+
+Defined below is the syntax for addressing properties of SCOs within a STIX Pattern. The following notation is used throughout the definitions below:
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Notation</span></th>
+    <th><span class="stixtr">Definition</span></th>
+  </tr>
+  <tr>
+    <td>&lt;object-type&gt;</td>
+    <td>The type of SCO to match against. This <strong>MUST</strong> be the value of the <strong>type</strong> field specified for a given SCO in an Observation.</td>
+  </tr>
+  <tr>
+    <td>&lt;property_name&gt;</td>
+    <td>The name of a SCO property to match against. This <strong>MUST</strong> be a valid property name as specified in the definition of the SCO type referenced by the &lt;object-type&gt; notation.<br><br>If the &lt;property_name&gt; contains a hyphen-minus ('-' U+002d) or a full stop ('.' U+002e), the &lt;property_name&gt; <strong>MUST</strong> be enclosed in apostrophes (''' U+0027).<br><br>Properties that are nested (i.e., are children of other properties in a SCO) <strong>MUST</strong> be specified using the syntax &lt;property_name&gt;.&lt;property_name&gt;, where the &lt;property_name&gt; preceding the ''.' is the name of the parent property and the one following is the name of the child property.<br><br>If the property name is a reference to another SCO, the referenced Object <strong>MUST</strong> be dereferenced, so that its properties function as if they are nested in the Object that it is referenced by. For example, if the <strong>src_ref</strong> property of the Network Traffic object references an IPv4 Address object, the value of this IPv4 address would be specified by <strong>network-traffic:src_ref.value</strong>.<br><br><strong>NOTE</strong>: the STIX Patterning language currently does not support specifying and/or dereferencing top-level relationships between SCOs as part of its object syntax. Therefore, it is recommended to use the deprecated embedded relationships for this purpose, if necessary.</td>
+  </tr>
+</table>
+
+### 9.7.1 Basic Object Properties <a id="basic-object-properties"></a>
+
+Any non-dictionary and non-list property that is directly specified on a SCO.
+
+**Syntax**
+
+*&lt;object-type&gt;:&lt;property_name&gt;*
+
+**Example**
+```
+file:size
+```
+
+### 9.7.2 List Object Properties <a id="list-object-properties"></a>
+
+Any property on a SCO that uses the <span class="stixtype">list</span> data type.
+
+**Syntax**
+
+*&lt;object-type&gt;:&lt;property_name&gt;[list_index].&lt;property_name&gt;*
+
+Where the first property_name **MUST** be the name of an Object property of type <span class="stixtype">list</span> and list_index **MUST** be one of the following:
+- An integer in the range of 0…​N-1, where N is the length of the list. If list_index is out of range, the result of any operation is false.
+- The literal '#*' indicates that all of the items in the list shall be tried as a value to be evaluated with the Comparison Operator and other value. If any of these evaluations are true, then the result is true.
+
+**Examples**
+```
+file:extensions.'windows-pebinary-ext'.sections[*].entropy
+
+network-traffic:protocols[0]
+```
+
+### 9.7.3. Dictionary Object Properties <a id="dictionary-object-properties"></a>
+
+Any property on an SCO that uses the <span class="stixtype">dictionary</span> data type.
+
+**Syntax**
+
+*&lt;object-type&gt;:&lt;property_name&gt;.&lt;key_name&gt;*
+
+Where <property_name> **MUST** be the name of an Object property of type <span class="stixtype">dictionary</span> and <key_name> **MUST** be the name of key in the dictionary.
+
+**Examples**
+```
+file:hashes.ssdeep
+
+file:extensions.'raster-image-ext'.image_height
+```
+
+### 9.7.4. Object Reference Properties <a id="object-reference-properties"></a>
+
+Any property on an SCO that represents an embedded relationship and uses the <span class="stixtype">identifier</span> data type, either as a singleton or as a list (i.e., <span class="stixtype">list</span> of type <span class="stixtype">identifier</span>).
+
+**Syntax**
+
+*&lt;object-type&gt;:&lt;property_name&gt;.&lt;dereferenced_object_property&gt;*
+
+Where <property_name> **MUST** be the name of an Object property that represents an embedded relationships and is of type <span class="stixtype">identifier</span> and <dereferenced_object_property> **MUST** be the name of a valid property of the dereferenced Object (i.e., the Object in an Observation that is referenced via <property_name>).
+
+For example, when processing the Observed Data SDO that uses the **object_refs** property instead of the deprecated **objects** property, only those SCO’s that are listed in the **object_refs** may be followed. This means that if the object <span class="stixtype">identifier</span> is not listed in **object_refs** property, then that object is considered not found, and any references to properties of that object are considered not present.
+
+For cases where <property_name> represents a list of embedded relationships and is a <span class="stixtype">list</span> of type <span class="stixtype">identifier</span>, the corresponding syntax applies:
+
+*&lt;object-type&gt;:&lt;property_name&gt;[list_index].&lt;dereferenced_object_property&gt;*
+
+Accordingly, the same semantics for list indices as defined in [section 9.7.2](#list-object-properties) apply in this case.
+
+**Examples**
+```
+email-message:from_ref.value
+
+directory:contains_refs[*].name
+```
+
+## 9.8. Examples <a id="examples"></a>
+
+Note: the examples below are **NOT** JSON encoded. This means that some characters, like double quotes, are not escaped, though they will be when encoded in a JSON string.
+
+*Matching a File with a SHA-256 hash*
+
+```
+[file:hashes.'SHA-256' = 'aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f']
+```
+\
+*Matching an Email Message with a particular From Email Address and Attachment File Name Using a Regular Expression*
+
+```
+[email-message:from_ref.value MATCHES '.+\\@example\\.com$' AND email-message:body_multipart[*].body_raw_ref.name MATCHES '^Final Report.+\\.exe$']
+```
+\
+*Matching a File with a SHA-256 hash and a PDF MIME type*
+
+```
+[file:hashes.'SHA-256' = 'aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f' AND file:mime_type = 'application/x-pdf']
+```
+\
+*Matching a File with SHA-256 or a MD5 hash (e.g., for the case of two different end point tools generating either an MD5 or a SHA-256), and a different File that has a different SHA-256 hash, against two different Observations*
+
+```
+[file:hashes.'SHA-256' = 'bf07a7fbb825fc0aae7bf4a1177b2b31fcf8a3feeaf7092761e18c859ee52a9c' OR file:hashes.MD5 = 'cead3f77f6cda6ec00f57d76c9a6879f']
+AND [file:hashes.'SHA-256' = 'aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f']
+```
+\
+*Matching a File with a MD5 hash, followed by (temporally) a Registry Key object that matches a value, within 5 minutes*
+
+```
+([file:hashes.MD5 = '79054025255fb1a26e4bc422aef54eb4'] FOLLOWEDBY [windows-registry-key:key = 'HKEY_LOCAL_MACHINE\\foo\\bar']) WITHIN 300 SECONDS
+```
+\
+*Matching three different, but specific Unix User Accounts*
+
+```
+[user-account:account_type = 'unix' AND user-account:user_id = '1007' AND user-account:account_login = 'Peter'] AND [user-account:account_type = 'unix' AND user-account:user_id = '1008' AND user-account:account_login = 'Paul'] AND [user-account:account_type = 'unix' AND user-account:user_id = '1009' AND user-account:account_login = 'Mary']
+```
+\
+*Matching an Artifact object PCAP payload header*
+
+```
+[artifact:mime_type = 'application/vnd.tcpdump.pcap' AND artifact:payload_bin MATCHES '\\xd4\\xc3\\xb2\\xa1\\x02\\x00\\x04\\x00']
+```
+\
+*Matching a File object with a Windows file path*
+
+```
+[file:name = 'foo.dll' AND file:parent_directory_ref.path = 'C:\\Windows\\System32']
+```
+\
+*Matching on a Windows PE File with high section entropy*
+
+```
+[file:extensions.'windows-pebinary-ext'.sections[*].entropy > 7.0]
+```
+\
+*Matching on a mismatch between a File object magic number and mime type*
+
+```
+[file:mime_type = 'image/bmp' AND file:magic_number_hex = h'ffd8']
+```
+\
+*Matching on Network Traffic with a particular destination*
+
+```
+[network-traffic:dst_ref.type = 'ipv4-addr' AND network-traffic:dst_ref.value = '203.0.113.33/32']
+```
+\
+*Matching on Malware Beaconing to a Domain Name*
+
+```
+[network-traffic:dst_ref.type = 'domain-name' AND network-traffic:dst_ref.value = 'example.com'] REPEATS 5 TIMES WITHIN 1800 SECONDS
+```
+\
+*Matching on a Domain Name with IPv4 Resolution*
+
+```
+[domain-name:value = 'www.5z8.info' AND domain-name:resolves_to_refs[*].value = '198.51.100.1/32']
+```
+\
+*Matching on a URL*
+
+```
+[url:value = 'http://example.com/foo' OR url:value = 'http://example.com/bar']
+```
+\
+*Matching on an X509 Certificate*
+
+```
+[x509-certificate:issuer = 'CN=WEBMAIL' AND x509-certificate:serial_number = '4c:0b:1d:19:74:86:a7:66:b4:1a:bf:40:27:21:76:28']
+```
+\
+*Matching on a Windows Registry Key*
+
+```
+[windows-registry-key:key = 'HKEY_CURRENT_USER\\Software\\CryptoLocker\\Files' OR windows-registry-key:key = 'HKEY_CURRENT_USER\\Software\\Microsoft\\CurrentVersion\\Run\\CryptoLocker_0388']
+```
+\
+*Matching on a File with a set of properties*
+
+```
+[(file:name = 'pdf.exe' OR file:size = 371712) AND file:created = t'2014-01-13T07:03:17Z']
+```
+\
+*Matching on an Email Message with specific Sender and Subject*
+
+```
+[email-message:sender_ref.value = 'jdoe@example.com' AND email-message:subject = 'Conference Info']
+```
+\
+*Matching on a Custom USB Device*
+
+```
+[x-usb-device:usbdrive.serial_number = '575833314133343231313937']
+```
+\
+*Matching on Two Processes Launched with a Specific Set of Command Line Arguments Within a Certain Time Window*
+
+```
+[process:command_line MATCHES '^.+>-add GlobalSign.cer -c -s -r localMachine Root$'] FOLLOWEDBY [process:command_line MATCHES'^.+>-add GlobalSign.cer -c -s -r localMachineTrustedPublisher$'] WITHIN 300 SECONDS
+```
+\
+*Matching on a Network Traffic IP that is part of a particular Subnet*
+
+```
+[network-traffic:dst_ref.value ISSUBSET '2001:0db8:dead:beef:0000:0000:0000:0000/64']
+```
+\
+*Matching on several different combinations of Malware Artifacts. Note the following pattern requires that both a file and registry key exist, or that one of two processes exist.*
+
+```
+([file:name = 'foo.dll'] AND [windows-registry-key:key = 'HKEY_LOCAL_MACHINE\\foo\\bar']) OR [process:image_ref.name = 'fooproc' OR process:image_ref.name = 'procfoo']
 ```
