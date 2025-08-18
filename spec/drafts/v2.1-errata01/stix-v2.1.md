@@ -11502,3 +11502,4439 @@ AND [file:hashes.'SHA-256' = 'aec070645fe53ee3b3763059376134f058cc337247c978add1
 ```
 ([file:name = 'foo.dll'] AND [windows-registry-key:key = 'HKEY_LOCAL_MACHINE\\foo\\bar']) OR [process:image_ref.name = 'fooproc' OR process:image_ref.name = 'procfoo']
 ```
+
+# 10. STIX Vocabularies <a id=stix-vocabularies></a>
+
+The following sections provide object-specific listings for each of the vocabularies referenced in the object description sections defined in [section 4](#stix-domain-objects), [section 5](#stix-relationship-objects), [section 6](#stix-cyber-observable-objects), and [section 7](#stix-meta-objects).
+
+STIX vocabularies that have type names ending in '-ov', are "open": they provide a listing of common and industry accepted terms as a guide to the user but do not limit the user to that defined list. These vocabularies are referenced from the STIX Objects as type <span class="stixtype">open-vocab</span> and have a statement indicating which vocabulary should be used.
+
+STIX vocabularies that have type names ending in '-enum' are "closed": the only valid values are those in the vocabulary. These vocabularies are referenced from the STIX Objects as type <span class="stixtype">enum</span> and have a statement indicating which enumeration must be used.
+
+## 10.1 Account Type Vocabulary <a id='account-type-vocabulary'></a>
+
+**Vocabulary Name:** <span class="stixtype">account-type-ov</span>
+
+The account type vocabulary is currently used in the following SCOs:
+- User Account
+
+An open vocabulary of User Account types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">facebook</span>, <span class="stixliteral">ldap</span>, <span class="stixliteral">nis</span>, <span class="stixliteral">openid</span>, <span class="stixliteral">radius</span>, <span class="stixliteral">skype</span>, <span class="stixliteral">tacacs</span>, <span class="stixliteral">twitter</span>, <span class="stixliteral">unix</span>, <span class="stixliteral">windows-local</span>, <span class="stixliteral">windows-domain</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">facebook</span></td>
+    <td>Specifies a Facebook account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">ldap</span></td>
+    <td>Specifies an LDAP account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">nis</span></td>
+    <td>Specifies a NIS account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">openid</span></td>
+    <td>Specifies an OpenID account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">radius</span></td>
+    <td>Specifies a RADIUS account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">skype</span></td>
+    <td>Specifies a Skype account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">tacacs</span></td>
+    <td>Specifies a TACACS account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">twitter</span></td>
+    <td>Specifies a Twitter account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unix</span></td>
+    <td>Specifies a POSIX account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">windows-local</span></td>
+    <td>Specifies a Windows local account.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">windows-domain</span></td>
+    <td>Specifies a Windows domain account.</td>
+  </tr>
+</table>
+
+## 10.2 Attack Motivation Vocabulary <a id='attack-motivation-vocabulary'></a>
+
+**Vocabulary Name:** <span class="stixtype">attack-motivation-ov</span>
+
+The attack motivation vocabulary is currently used in the following SDOs:
+- Intrusion Set
+- Threat Actor
+
+Knowing a Threat Actor or Intrusion Set’s motivation may allow an analyst or defender to better understand likely targets and behaviors.
+
+Motivation shapes the intensity and the persistence of an attack. Threat Actors and Intrusion Sets usually act in a manner that reflects their underlying emotion or situation, and this informs defenders of the manner of attack. For example, a cyber-vandal out for notoriety can create an intense and attention-grabbing attack but may quickly lose interest and move on. Understanding these differences allows defenders to implement controls tailored to each type of attack for greatest efficiency.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">accidental</span>, <span class="stixliteral">coercion</span>, <span class="stixliteral">dominance</span>, <span class="stixliteral">ideology</span>, <span class="stixliteral">notoriety</span>, <span class="stixliteral">organizational-gain</span>, <span class="stixliteral">personal-gain</span>, <span class="stixliteral">personal-satisfaction</span>, <span class="stixliteral">revenge</span>, <span class="stixliteral">unpredictable</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">accidental</span></td>
+    <td>A non-hostile actor whose benevolent or harmless intent inadvertently causes harm.<br><br>For example, a well-meaning and dedicated employee who through distraction or poor training unintentionally causes harm to his or her organization.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">coercion</span></td>
+    <td>Being forced to act on someone else’s behalf.<br><br>Adversaries who are motivated by coercion are often forced through intimidation or blackmail to act illegally for someone else’s benefit. Unlike the other motivations, a coerced person does not act for personal gain, but out of fear of incurring a loss.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">dominance</span></td>
+    <td>A desire to assert superiority over someone or something else.<br><br>Adversaries who are seeking dominance over a target are focused on using their power to force their target into submission or irrelevance.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">ideology</span></td>
+    <td>A passion to express a set of ideas, beliefs, and values that may shape and drive harmful and illegal acts.<br><br>Adversaries who act for ideological reasons are not usually motivated primarily by the desire for profit; they are acting on their own sense of morality, justice, or political loyalty.<br><br>For example, an activist group may sabotage a company’s equipment because they believe the company is harming the environment.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">notoriety</span></td>
+    <td>Seeking prestige or to become well known through some activity.<br><br>Adversaries motivated by notoriety are often seeking either personal validation or respect within a community and staying covert is not a priority. In fact, one of the main goals is to garner the respect of their target audience.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">organizational-gain</span></span></td>
+    <td>Seeking advantage over a competing organization.<br><br>Adversaries motivated by increased profit or other gains through an unfairly obtained competitive advantage are often seeking theft of intellectual property, business processes, or supply chain agreements and thus accelerating their position in a market or capability.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">personal-gain</span></span></td>
+    <td>The desire to improve one’s own financial status.<br><br>Adversaries motivated by a selfish desire for personal gain are often out for gains that come from financial fraud, hacking for hire, or intellectual property theft.<br><br>While a Threat Actor or Intrusion Set may be seeking personal gain, this does not mean they are acting alone. Individuals can band together solely to maximize their own personal profits.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">personal-satisfaction</span></span></td>
+    <td>A desire to satisfy a strictly personal goal, including curiosity, thrill-seeking, amusement, etc.<br><br>Threat Actors or Intrusion Set driven by personal satisfaction may incidentally receive some other gain from their actions, such as a profit, but their primary motivation is to gratify a personal, emotional need. Individuals can band together with others toward a mutual, but not necessarily organizational, objective.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">revenge</span></td>
+    <td>A desire to avenge perceived wrongs through harmful actions such as sabotage, violence, theft, fraud, or embarrassing certain individuals or the organization.<br><br>A disgruntled Threat Actor or Intrusion Set seeking revenge can include current or former employees, who may have extensive knowledge to leverage when conducting attacks. Individuals can band together with others if the individual believes that doing so will enable them to cause more harm.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unpredictable</span></td>
+    <td>Acting without identifiable reason or purpose and creating unpredictable events.<br><br>Unpredictable is not a miscellaneous or default category. Unpredictable means a truly random and likely bizarre event, which seems to have no logical purpose to the victims.</td>
+  </tr>
+</table>
+
+## 10.3 Attack Resource Level Vocabulary <a id="attack-resource-level-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">attack-resource-level-ov</span>
+
+The attack resource level vocabulary is currently used in the following SDO(s):
+- Intrusion Set
+- Threat Actor
+
+Attack Resource Level is an open vocabulary that captures the general level of resources that a threat actor, intrusion set, or campaign might have access to. It ranges from individual, a person acting alone, to government, the resources of a national government.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">individual</span>, <span class="stixliteral">club</span>, <span class="stixliteral">contest</span>, <span class="stixliteral">team</span>, <span class="stixliteral">organization</span>, <span class="stixliteral">government</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+    <td><span class="stixliteral">individual</span></td>
+    <td>Resources limited to the average individual; Threat Actor acts independently.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">club</span></td>
+    <td>Members interact on a social and volunteer basis, often with little personal interest in the specific target. An example might be a core group of unrelated activists who regularly exchange tips on a particular blog. Group persists long term.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">contest</span></td>
+    <td>A short-lived and perhaps anonymous interaction that concludes when the participants have achieved a single goal. For example, people who break into systems just for thrills or prestige may hold a contest to see who can break into a specific target first.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">team</span></td>
+    <td>A formally organized group with a leader, typically motivated by a specific goal and organized around that goal. Group persists long term and typically operates within a single geography.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">organization</span></td>
+    <td>Larger and better resourced than a team; typically, a company or crime syndicate. Usually operates in multiple geographic areas and persists long term.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">government</span></td>
+    <td>Controls public assets and functions within a jurisdiction; very well resourced and persists long term.</td>
+  </tr>
+</table>
+
+## 10.4 Encryption Algorithm Enumeration <a id="encryption-algorithm-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">encryption-algorithm-enum</span>
+
+The encryption algorithm enumeration is currently used in the following SCOs:
+- Artifact
+
+An enumeration of encryption algorithms for sharing defanged and/or confidential artifacts.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AES-256-GCM</span>, <span class="stixliteral">ChaCha20-Poly1305</span>, <span class="stixliteral">mime-type-indicated</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">AES-256-GCM</span></span></td>
+    <td>Specifies the AES-256-GCM cipher, as defined in [<a href="nist-sp800-380">NIST SP800-38D</a>].</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">ChaCha20-Poly1305</span></span></td>
+    <td>Specifies the ChaCha20-Poly1305 stream cipher, as defined in [<a href="rfc7539">RFC7539</a>].</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">mime-type-indicated</span></span></td>
+    <td>The encryption algorithm is self-defined by the artifact’s data. The specified mime-type tells you which format it is, e.g., Word Doc or GPG. This is intended for formats like Zip files and Word files which take a simple password, or GPG armored files that contain the key blob along with the file.</td>
+  </tr>
+</table>
+
+## 10.5 Extension Type Enumeration <a id="extension-type-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">extension-type-enum</span>
+
+The Extensions Type enumeration is used in the Extension meta-object.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">new-sdo</span>, <span class="stixliteral">new-sco</span>, <span class="stixliteral">new-sro</span>, <span class="stixliteral">property-extension</span>, <span class="stixliteral">toplevel-property-extension</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">new-sdo</span></span></td>
+    <td>Specifies that the Extension includes a new SDO</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">new-sco</span></span></td>
+    <td>Specifies that the Extension includes a new SCO</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">new-sro</span></span></td>
+    <td>Specifies that the Extension includes a new SRO</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">property-extension</span></span></td>
+    <td>Specifies that the Extension includes additional properties for a given STIX Object.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">toplevel-property-extension</span></span></td>
+    <td>Specifies that the Extension includes additional properties for a given STIX Object at the <em>top-level</em>. Organizations are encouraged to use the <span class="stixliteral">property-extension</span> instead of this extension type.</td>
+  </tr>
+</table>
+
+## 10.6 Grouping Context Vocabulary <a id="grouping-context-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">grouping-context-ov</span>
+
+The Grouping Context open vocabulary is currently used in the following object:
+- Grouping
+
+While the majority of this vocabulary is undefined (producers may use custom vocabulary entries), it has been added specifically to capture the <span class="stixliteral">suspicious-activity-event</span> value. That value indicates that the information contained in the Grouping relates to a suspicious event.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th colspan='2'><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">suspicious-activity</span>, <span class="stixliteral">malware-analysis</span>, <span class="stixliteral">unspecified</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">suspicious-activity</span></span></td>
+    <td>A set of STIX content related to a particular suspicious activity event.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">malware-analysis</span></span></td>
+    <td>A set of STIX content related to a particular malware instance or family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unspecified</span></td>
+    <td>A set of STIX content contextually related but without any precise characterization of the contextual relationship between the objects.</td>
+  </tr>
+</table>
+
+## 10.7 Hashing Algorithm Vocabulary <a id="hashing-algorithm-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">hash-algorithm-ov</span>
+
+The Hashing Algorithm open vocabulary is currently used in the following objects:
+- External Reference
+- Artifact
+- File
+- Alternate Data Stream
+- Windows™ PE Binary File
+- Windows™ PE Optional Header
+- Windows™ PE Section
+- X.509 Certificate
+
+A vocabulary of hashing algorithms.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">MD5</span>, <span class="stixliteral">SHA-1</span>, <span class="stixliteral">SHA-256</span>, <span class="stixliteral">SHA-512</span>, <span class="stixliteral">SHA3-256</span>, <span class="stixliteral">SHA3-512</span>, <span class="stixliteral">SSDEEP</span>, <span class="stixliteral">TLSH</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">MD5</span></td>
+    <td>Specifies the MD5 message digest algorithm. The corresponding hash string for this value <strong>MUST</strong> be a valid MD5 message digest as defined in [<a href="#rfc1321">RFC1321</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SHA-1</span></td>
+    <td>Specifies the SHA-1 (secure-hash algorithm 1) cryptographic hash function. The corresponding hash string for this value <strong>MUST</strong> be a valid SHA-1 message digest as defined in [<a href="#rfc3174">RFC3174</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SHA-256</span></td>
+    <td>Specifies the SHA-256 cryptographic hash function (part of the SHA2 family). The corresponding hash string for this value <strong>MUST</strong> be a valid SHA-256 message digest as defined in [<a href="#rfc6234">RFC6234</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SHA-512</span></td>
+    <td>Specifies the SHA-512 cryptographic hash function (part of the SHA2 family). The corresponding hash string for this value <strong>MUST</strong> be a valid SHA-512 message digest as defined in [<a href="#rfc6234">RFC6234</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SHA3-256</span></td>
+    <td>Specifies the SHA3-256 cryptographic hash function. The corresponding hash string for this value <strong>MUST</strong> be a valid SHA3-256 message digest as defined in [<a href="#fips202">FIPS202</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SHA3-512</span></td>
+    <td>Specifies the SHA3-512 cryptographic hash function. The corresponding hash string for this value <strong>MUST</strong> be a valid SHA3-512 message digest as defined in [<a href="#fips202">FIPS202</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SSDEEP</span></td>
+    <td>Specifies the ssdeep fuzzy hashing algorithm. The corresponding hash string for this value <strong>MUST</strong> be a valid piecewise hash as defined in the [<a href="#ssdeep">SSDEEP</a>] specification.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">TLSH</span></td>
+    <td>Specifies the TLSH fuzzy hashing algorithm. The corresponding hash string for this value <strong>MUST</strong> be a valid 35 byte long hash as defined in the [<a href="#tlsh">TLSH</a>] specification.</td>
+  </tr>
+</table>
+
+## 10.8 Identity Class Vocabulary <a id="identity-class-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">identity-class-ov</span>
+
+The identity class vocabulary is currently used in the following SDO(s):
+- Identity
+
+This vocabulary describes the type of entity that the Identity represents: whether it describes an organization, group, individual, or class.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">individual</span>, <span class="stixliteral">group</span>, <span class="stixliteral">system</span>, <span class="stixliteral">organization</span>, <span class="stixliteral">class</span>, <span class="stixliteral">unknown</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">individual</span></td>
+    <td>A single person.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">group</span></td>
+    <td>An informal collection of people, without formal governance, such as a distributed hacker group.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">system</span></td>
+    <td>A computer system, such as a SIEM.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">organization</span></td>
+    <td>A formal organization of people, with governance, such as a company or country.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">class</span></td>
+    <td>A class of entities, such as all hospitals, all Europeans, or the Domain Administrators in a system.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>It is unknown whether the classification is an individual, group, system, organization, or class.</td>
+  </tr>
+</table>
+
+## 10.9. Implementation Language Vocabulary <a id="implementation-language-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">implementation-language-ov</span>
+
+The implementation language vocabulary is currently used in the following SDO(s):
+- Malware
+
+This is a non-exhaustive, open vocabulary that covers common programming languages and is intended to characterize the languages that may have been used to implement a malware instance or family.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">applescript</span>, <span class="stixliteral">bash</span>, <span class="stixliteral">c</span>, <span class="stixliteral">c++</span>, <span class="stixliteral">c#</span>, <span class="stixliteral">go</span>, <span class="stixliteral">java</span>, <span class="stixliteral">javascript</span>, <span class="stixliteral">lua</span>, <span class="stixliteral">objective-c</span>, <span class="stixliteral">perl</span>, <span class="stixliteral">php</span>, <span class="stixliteral">powershell</span>, <span class="stixliteral">python</span>, <span class="stixliteral">ruby</span>, <span class="stixliteral">rust</span>, <span class="stixliteral">scala</span>, <span class="stixliteral">swift</span>, <span class="stixliteral">typescript</span>, <span class="stixliteral">visual-basic</span>, <span class="stixliteral">x86-32</span>, <span class="stixliteral">x86-64</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">applescript</span></td>
+    <td>Specifies the AppleScript programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">bash</span></td>
+    <td>Specifies the Bash programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">c</span></td>
+    <td>Specifies the C programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">c++</span></td>
+    <td>Specifies the C++ programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">c#</span></td>
+    <td>Specifies the C# programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">go</span></td>
+    <td>Specifies the Go programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">java</span></td>
+    <td>Specifies the Java programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">javascript</span></td>
+    <td>Specifies the JavaScript programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">lua</span></td>
+    <td>Specifies the Lua programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">objective-c</span></td>
+    <td>Specifies the Objective-C programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">perl</span></td>
+    <td>Specifies the Perl programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">php</span></td>
+    <td>Specifies the PHP programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">powershell</span></td>
+    <td>Specifies the Windows Powershell programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">python</span></td>
+    <td>Specifies the Python programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">ruby</span></td>
+    <td>Specifies the Ruby programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">rust</span></td>
+    <td>Specifies the Rust programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">scala</span></td>
+    <td>Specifies the Scala programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">swift</span></td>
+    <td>Specifies the Swift programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">typescript</span></td>
+    <td>Specifies the TypeScript programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">visual-basic</span></td>
+    <td>Specifies the Visual Basic programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">x86-32</span></td>
+    <td>Specifies the x86 32-bit Assembly programming language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">x86-64</span></td>
+    <td>Specifies the x86 64-bit Assembly programming language.</td>
+  </tr>
+</table>
+
+## 10.10 Indicator Type Vocabulary <a id="indicator-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">indicator-type-ov</span>
+
+The indicator type vocabulary is currently used in the following SDO(s):
+- Indicator
+
+Indicator type is an open vocabulary used to categorize Indicators. It is intended to be high-level to promote consistent practices. Indicator types should not be used to capture information that can be better captured via related Malware or Attack Pattern objects. It is better to link an Indicator to a Malware object describing Poison Ivy rather than simply providing a type or label of "poison-ivy".
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">anomalous-activity</span>, <span class="stixliteral">anonymization</span>, <span class="stixliteral">benign</span>, <span class="stixliteral">compromised</span>, <span class="stixliteral">malicious-activity</span>, <span class="stixliteral">attribution</span>, <span class="stixliteral">unknown</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anomalous-activity</span></span></td>
+    <td>Unexpected, or unusual activity that may not necessarily be malicious or indicate compromise. This type of activity may include reconnaissance-like behavior such as port scans or version identification, network behavior anomalies, and asset and/or user behavioral anomalies.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">anonymization</span></td>
+    <td>Suspected anonymization tools or infrastructure (proxy, TOR, VPN, etc.).</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">benign</span></td>
+    <td>Activity that is not suspicious or malicious in and of itself, but when combined with other activity may indicate suspicious or malicious behavior.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">compromised</span></td>
+    <td>Assets that are suspected to be compromised.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">malicious-activity</span></span></td>
+    <td>Patterns of suspected malicious objects and/or activity.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">attribution</span></td>
+    <td>Patterns of behavior that indicate attribution to a particular Threat Actor or Campaign.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>There is not enough information available to determine the type of indicator.</td>
+  </tr>
+</table>
+
+## 10.11 Industry Sector Vocabulary <a id="industry-sector-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">industry-sector-ov</span>
+
+The industry sector vocabulary is currently used in the following SDO(s):
+- Identity
+
+Industry sector is an open vocabulary that describes industrial and commercial sectors. It is intended to be holistic; it has been derived from several other lists and is not limited to "critical infrastructure" sectors.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">agriculture</span>, <span class="stixliteral">aerospace</span>, <span class="stixliteral">automotive</span>, <span class="stixliteral">chemical</span>, <span class="stixliteral">commercial</span>, <span class="stixliteral">communications</span>, <span class="stixliteral">construction</span>, <span class="stixliteral">defense</span>, <span class="stixliteral">education</span>, <span class="stixliteral">energy</span>, <span class="stixliteral">entertainment</span>, <span class="stixliteral">financial-services</span>, <span class="stixliteral">government</span> (<span class="stixliteral">emergency-services</span>, <span class="stixliteral">government-local</span>, <span class="stixliteral">government-national</span>, <span class="stixliteral">government-public-services</span>, <span class="stixliteral">government-regional</span>), <span class="stixliteral">healthcare</span>, <span class="stixliteral">hospitality-leisure</span>, <span class="stixliteral">infrastructure</span> (<span class="stixliteral">dams</span>, <span class="stixliteral">nuclear</span>, <span class="stixliteral">water</span>), <span class="stixliteral">insurance</span>, <span class="stixliteral">legal</span>, <span class="stixliteral">manufacturing</span>, <span class="stixliteral">mining</span>, <span class="stixliteral">non-profit</span>, <span class="stixliteral">pharmaceuticals</span>, <span class="stixliteral">retail</span>, <span class="stixliteral">technology</span>, <span class="stixliteral">telecommunications</span>, <span class="stixliteral">transportation</span>, <span class="stixliteral">utilities</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">agriculture</span></td>
+    <td>Relates to the agricultural industry sector.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">aerospace</span></td>
+    <td>Relates to the aerospace industry sector, including the design, manufacture, and operation of aircraft and spacecraft.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">automotive</span></td>
+    <td>Relates to the automotive industry sector, including the design, manufacture, and sale of motor vehicles.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">chemical</span></td>
+    <td>Relates to the chemical industry sector, including the production of chemicals and chemical products.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">commercial</span></td>
+    <td>Relates to the commercial sector, including businesses engaged in commerce, trade, and services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">communications</span></td>
+    <td>Relates to the communications sector, including telecommunications, broadcasting, and related services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">construction</span></td>
+    <td>Relates to the construction industry sector, including building, civil engineering, and infrastructure development.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">defense</span></td>
+    <td>Relates to the defense industry sector, including military, defense contractors, and related organizations.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">education</span></td>
+    <td>Relates to the education sector, including schools, universities, and other educational institutions.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">energy</span></td>
+    <td>Relates to the energy sector, including the production and distribution of electricity, oil, gas, and renewable energy.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">entertainment</span></td>
+    <td>Relates to the entertainment sector, including media, film, music, and related industries.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">financial-services</span></span></td>
+    <td>Relates to the financial services sector, including banking, investment, insurance, and related services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">government</span></td>
+    <td>Relates to the government sector, including all levels of government and public administration.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span style="white-space: nowrap;"><span class="stixliteral">emergency-services</span></span></td>
+    <td>Relates to emergency services, including police, fire, ambulance, and disaster response organizations.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span style="white-space: nowrap;"><span class="stixliteral">government-local</span></span></td>
+    <td>Relates to local government entities, such as city, municipal, or county administrations.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span style="white-space: nowrap;"><span class="stixliteral">government-national</span></span></td>
+    <td>Relates to national or federal government entities.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span style="white-space: nowrap;"><span class="stixliteral">government-public-services</span></span></td>
+    <td>Relates to government-provided public services, such as sanitation, public health, and welfare.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span style="white-space: nowrap;"><span class="stixliteral">government-regional</span></span></td>
+    <td>Relates to regional government entities, such as state or provincial administrations.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">healthcare</span></td>
+    <td>Relates to the healthcare sector, including hospitals, clinics, and other medical service providers.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">hospitality-leisure</span></span></td>
+    <td>Relates to the hospitality and leisure sector, including hotels, restaurants, travel, and recreation services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">infrastructure</span></td>
+    <td>Relates to critical infrastructure sectors that support the functioning of society and the economy.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">dams</span></td>
+    <td>Relates to the infrastructure sector focused on dams and water retention structures.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">nuclear</span></td>
+    <td>Relates to the infrastructure sector focused on nuclear power generation and facilities.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">water</span></td>
+    <td>Relates to the infrastructure sector focused on water supply, treatment, and distribution.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">insurance</span></td>
+    <td>Relates to the insurance sector, including companies providing risk management and insurance products.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">legal</span></td>
+    <td>Relates to the legal sector, including law firms, courts, and legal services providers.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">manufacturing</span></td>
+    <td>Relates to the manufacturing sector, including the production of goods and industrial products.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">mining</span></td>
+    <td>Relates to the mining sector, including extraction of minerals, metals, and other natural resources.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">non-profit</span></td>
+    <td>Relates to the non-profit sector, including charitable, humanitarian, and non-governmental organizations.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">pharmaceuticals</span></td>
+    <td>Relates to the pharmaceuticals sector, including drug development, manufacturing, and distribution.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">retail</span></td>
+    <td>Relates to the retail sector, including businesses selling goods and services directly to consumers.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">technology</span></td>
+    <td>Relates to the technology sector, including software, hardware, and IT services companies.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">telecommunications</span></td>
+    <td>Relates to the telecommunications sector, including providers of voice, data, and internet services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">transportation</span></td>
+    <td>Relates to the transportation sector, including air, rail, road, and maritime transport services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">utilities</span></td>
+    <td>Relates to the utilities sector, including providers of electricity, gas, water, and waste management services.</td>
+  </tr>
+</table>
+
+## 10.12 Infrastructure Type Vocabulary <a id="infrastructure-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">infrastructure-type-ov</span>
+
+The infrastructure type vocabulary is currently used in the following SDO(s):
+- Infrastructure
+
+A non-exhaustive enumeration of infrastructure types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">amplification</span>, <span class="stixliteral">anonymization</span>, <span class="stixliteral">botnet</span>, <span class="stixliteral">command-and-control</span>, <span class="stixliteral">control-system</span>, <span class="stixliteral">exfiltration</span>, <span class="stixliteral">firewall</span>, <span class="stixliteral">hosting-malware</span>, <span class="stixliteral">hosting-target-lists</span>, <span class="stixliteral">phishing</span>, <span class="stixliteral">reconnaissance</span>, <span class="stixliteral">routers-switches</span>, <span class="stixliteral">staging</span>, <span class="stixliteral">workstation</span>, <span class="stixliteral">unknown</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">amplification</span></td>
+    <td>Specifies infrastructure used for conducting amplification attacks.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">anonymization</span></td>
+    <td>Specific infrastructure used for anonymization, such as a proxy.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">botnet</span></td>
+    <td>Specifies the membership/makeup of a botnet, in terms of the network addresses of the hosts that comprise the botnet.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">command-and-control</span></span></td>
+    <td>Specifies infrastructure used for command and control (C2). This is typically a domain name or IP address.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">control-system</span></span></td>
+    <td>Specifies equipment such as IoT, HMI, RTU, PLC or other ICS devices.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">exfiltration</span></td>
+    <td>Specifies infrastructure used as an endpoint for data exfiltration.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">firewall</span></td>
+    <td>Specifies a device that inspects network traffic and restricts it based upon defined policies.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">hosting-malware</span></span></td>
+    <td>Specifies infrastructure used for hosting malware.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">hosting-target-lists</span></span></td>
+    <td>Specifies infrastructure used for hosting a list of targets for DDOS attacks, phishing, and other malicious activities. This is typically a domain name or IP address.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">phishing</span></td>
+    <td>Specifies infrastructure used for conducting phishing attacks.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">reconnaissance</span></td>
+    <td>Specifies infrastructure used for conducting reconnaissance activities.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">routers-switches</span></span></td>
+    <td>Specifies IT infrastructure used to connect devices to the network.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">staging</span></td>
+    <td>Specifies infrastructure used for staging.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">workstation</span></td>
+    <td>Specifies an endpoint machine used for work by an organization that needs protection.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>Specifies an infrastructure of some unknown type.</td>
+  </tr>
+</table>
+
+## 10.13 Malware Capabilities Vocabulary <a id="malware-capabilities-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">malware-capabilities-ov</span>
+
+The malware capabilities vocabulary is currently used in the following SDO(s):
+- Malware
+
+This is an open vocabulary that covers common capabilities that may be exhibited by a malware instance or family.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">accesses-remote-machines</span>, <span class="stixliteral">anti-debugging</span>, <span class="stixliteral">anti-disassembly</span>, <span class="stixliteral">anti-emulation</span>, <span class="stixliteral">anti-memory-forensics</span>, <span class="stixliteral">anti-sandbox</span>, <span class="stixliteral">anti-vm</span>, <span class="stixliteral">captures-input-peripherals</span>, <span class="stixliteral">captures-output-peripherals</span>, <span class="stixliteral">captures-system-state-data</span>, <span class="stixliteral">cleans-traces-of-infection</span>, <span class="stixliteral">commits-fraud</span>, <span class="stixliteral">communicates-with-c2</span>, <span class="stixliteral">compromises-data-availability</span>, <span class="stixliteral">compromises-data-integrity</span>, <span class="stixliteral">compromises-system-availability</span>, <span class="stixliteral">controls-local-machine</span>, <span class="stixliteral">degrades-security-software</span>, <span class="stixliteral">degrades-system-updates</span>, <span class="stixliteral">determines-c2-server</span>, <span class="stixliteral">emails-spam</span>, <span class="stixliteral">escalates-privileges</span>, <span class="stixliteral">evades-av</span>, <span class="stixliteral">exfiltrates-data</span>, <span class="stixliteral">fingerprints-host</span>, <span class="stixliteral">hides-artifacts</span>, <span class="stixliteral">hides-executing-code</span>, <span class="stixliteral">infects-files</span>, <span class="stixliteral">infects-remote-machines</span>, <span class="stixliteral">installs-other-components</span>, <span class="stixliteral">persists-after-system-reboot</span>, <span class="stixliteral">prevents-artifact-access</span>, <span class="stixliteral">prevents-artifact-deletion</span>, <span class="stixliteral">probes-network-environment</span>, <span class="stixliteral">self-modifies</span>, <span class="stixliteral">steals-authentication-credentials</span>, <span class="stixliteral">violates-system-operational-integrity</span>
+    </td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">accesses-remote-machines</span></span></td>
+    <td>Indicates that the malware instance or family is able to access one or more remote machines.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anti-debugging</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent itself from being debugged and/or from being run in a debugger or is able to make debugging more difficult.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anti-disassembly</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent itself from being disassembled or make disassembly more difficult.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anti-emulation</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent its execution inside of an emulator or is able to make emulation more difficult.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anti-memory-forensics</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent or make memory forensics more difficult.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anti-sandbox</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent sandbox-based behavioral analysis or make it more difficult.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">anti-vm</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent virtual machine (VM) based behavioral analysis or make it more difficult.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">captures-input-peripherals</span></span></td>
+    <td>Indicates that the malware instance or family is able to capture data from a system’s input peripheral devices, such as a keyboard or mouse. This includes things like keylogging.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">captures-output-peripherals</span></span></td>
+    <td>Indicates that the malware instance or family captures data sent to a system’s output peripherals, such as a display. Examples include things like screen scraping.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">captures-system-state-data</span></span></td>
+    <td>Indicates that the malware instance or family is able to capture information about a system’s state (e.g., data currently in its RAM).</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">cleans-traces-of-infection</span></span></td>
+    <td>Indicates that the malware instance or family is able to clean traces of its infection (e.g., file system artifacts) from a system.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">commits-fraud</span></span></td>
+    <td>Indicates that the malware instance or family commits fraud, such as click fraud (for example).</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">communicates-with-c2</span></span></td>
+    <td>Indicates that the malware instance or family is able to communicate (i.e., send or receive data) with a command and control (C2) server.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">compromises-data-availability</span></span></td>
+    <td>Indicates that the malware instance or family is able to compromise the availability of data on the local system on which it is executing and/or one or more remote systems. For example, encrypting data on disk, as done by ransomware.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">compromises-data-integrity</span></span></td>
+    <td>Indicates that the malware instance or family is able to compromise the integrity of some data that resides on (e.g., in the case of files) or is received/transmitted (e.g., in the case of network traffic) by the system on which it is executing.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">compromises-system-availability</span></span></td>
+    <td>Indicates that the malware instance or family is able to consume system resources for its malicious purposes, such as password cracking or participating in a DDoS botnet, thereby compromising the availability of the local system and/or one or more remote systems.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">controls-local-machine</span></span></td>
+    <td>Indicates that the malware instance or family is able to control the machine on which it is executing (e.g., RATs).</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">degrades-security-software</span></span></td>
+    <td>Indicates that the malware instance or family is able to bypass or disable security programs or operating system security features on a system (including mobile devices), either by stopping them from executing or by making changes to their code or configuration parameters. For example, malware that blocks the local machine from accessing the websites of security vendors.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">degrades-system-updates</span></span></td>
+    <td>Indicates that the malware instance or family is able to disable the downloading and installation of system updates and patches.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">determines-c2-server</span></span></td>
+    <td>Indicates that the malware instance or family is able to identify one or more command and control (C2) servers with which to communicate (e.g., DGA).</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">emails-spam</span></span></td>
+    <td>Indicates that the malware instance or family is able to send spam email messages.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">escalates-privileges</span></span></td>
+    <td>Indicates that the malware instance or family is able to escalate the privileges under which it is executing.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">evades-av</span></span></td>
+    <td>Indicates that the malware instance or family is able to evade detection by antivirus tools.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">exfiltrates-data</span></span></td>
+    <td>Indicates that the malware instance or family is able to gather, prepare, (possibly obfuscate) data and transmit it to exfiltration points.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">fingerprints-host</span></span></td>
+    <td>Indicates that the malware instance or family is able to fingerprint or probe the configuration of the host system on which it is executing for the purpose of altering its behavior based on this environment.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">hides-artifacts</span></span></td>
+    <td>Indicates that the malware instance or family is able to hide its artifacts, such as files and open ports.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">hides-executing-code</span></span></td>
+    <td>Indicates that the malware instance or family is able to hide its code by compromising the bootloader, kernel modules, hypervisor, etc.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">infects-files</span></span></td>
+    <td>Indicates that the malware instance or family is able to infect one or more files on the system on which it executes. For example, malware which injects a malicious payload into all PDFs on a host as a means of propagation.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">infects-remote-machines</span></span></td>
+    <td>Indicates that the malware instance or family is able to self-propagate to a remote machine or infect a remote machine with malware that is different than itself.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">installs-other-components</span></span></td>
+    <td>Indicates that the malware instance or family is able to install additional components. This encompasses the dropping/downloading of other malicious components such as libraries, other malware, and tools.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">persists-after-system-reboot</span></span></td>
+    <td>Indicates that the malware instance or family is able to continue executing after the reboot of the system on which it is resident.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">prevents-artifact-access</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent its artifacts (e.g., files, registry keys, etc.) from being accessed.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">prevents-artifact-deletion</span></span></td>
+    <td>Indicates that the malware instance or family is able to prevent its artifacts (e.g., files, registry keys, etc.) from being deleted.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">probes-network-environment</span></span></td>
+    <td>Indicates that the malware instance or family is able to probe the properties of its network environment, e.g. to determine whether it funnels traffic through a proxy.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">self-modifies</span></span></td>
+    <td>Indicates that the malware instance or family is able to modify itself.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">steals-authentication-credentials</span></span></td>
+    <td>Indicates that the malware instance or family is able to steal authentication credentials.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">violates-system-operational-integrity</span></span></td>
+    <td>Indicates that the malware instance is able to steal authentication credentials.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">violates-system-operational-integrity</span></span></td>
+    <td>Indicates that the malware instance or family is able to compromise the operational integrity of the system on which it is executing and/or one or more remote systems, e.g., by causing them to operate beyond their set of specified operational parameters. For example, malware that causes the CPU fan on the machine that it is executing to spin at a higher than normal speed.</td>
+  </tr>
+</table>
+
+## 10.14 Malware Result Vocabulary <a id="malware-result-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">malware-result-ov</span>
+
+The processor architecture vocabulary is currently used in the following SDO(s):
+- Malware Analysis
+
+This is a non-exhaustive, open vocabulary that captures common types of scanner or tool analysis process results.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">malicious</span>, <span class="stixliteral">suspicious</span>, <span class="stixliteral">benign</span>, <span class="stixliteral">unknown</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">malicious</span></td>
+    <td>The tool or human analysis determined that the sample is designed to operate, execute or take place in a manner that is not expected by legitimate users, or performs one or more actions generally deemed harmful to a system, or the legitimate users of a system. These can take the form of executables, source code, scripts or any other software or commands.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">suspicious</span></td>
+    <td>The tool or human analysis determined that the sample does not operate as expected or is is usually present in conjunction with a malicious file. But does not itself demonstrate malicious behaviors. Examples may include files not expected to be present or that support applications that have not been installed, files with an incorrect attribute (location, version, size), or which are accessed or loaded with unusual frequency or at unusual times. Other examples include files dropped or created when malware runs.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">benign</span></td>
+    <td>The tool or human analysis determined that the sample has been confirmed to not demonstrate malicious behaviors and is not in and of itself associated with malware or malicious activity.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>The tool or human analysis was unable to determine whether the malware binary is malicious.</td>
+  </tr>
+</table>
+
+## 10.15 Malware Type Vocabulary <a id="malware-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">malware-type-ov</span>
+
+The malware type vocabulary is currently used in the following SDO(s):
+- Malware
+
+Malware type is an open vocabulary that represents different types and functions of malware. Malware types are not mutually exclusive; for example, a malware instance can be both spyware and a screen capture tool.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">adware</span>, <span class="stixliteral">backdoor</span>, <span class="stixliteral">bot</span>, <span class="stixliteral">bootkit</span>, <span class="stixliteral">ddos</span>, <span class="stixliteral">downloader</span>, <span class="stixliteral">dropper</span>, <span class="stixliteral">exploit-kit</span>, <span class="stixliteral">keylogger</span>, <span class="stixliteral">ransomware</span>, <span class="stixliteral">remote-access-trojan</span>, <span class="stixliteral">resource-exploitation</span>, <span class="stixliteral">rogue-security-software</span>, <span class="stixliteral">rootkit</span>, <span class="stixliteral">screen-capture</span>, <span class="stixliteral">spyware</span>, <span class="stixliteral">trojan</span>, <span class="stixliteral">unknown</span>, <span class="stixliteral">virus</span>, <span class="stixliteral">webshell</span>, <span class="stixliteral">wiper</span>, <span class="stixliteral">worm</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Value</span></th>
+    <th><span class='stixtr'>Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">adware</span></td>
+    <td>Any software that is funded by advertising. Adware may also gather sensitive user information from a system.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">backdoor</span></td>
+    <td>A malicious program that allows an attacker to perform actions on a remote system, such as transferring files, acquiring passwords, or executing arbitrary commands [NIST800-83].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">bot</span></td>
+    <td>A program that resides on an infected system, communicating with and forming part of a botnet. The bot may be implanted by a worm or Trojan, which opens a backdoor. The bot then monitors the backdoor for further instructions.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">bootkit</span></td>
+    <td>A malicious program which targets the Master Boot Record of the target computer.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">ddos</span></td>
+    <td>A program that is used to perform a distributed denial of service attack.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">downloader</span></td>
+    <td>A small trojan file programmed to download and execute other files, usually more complex malware.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">dropper</span></td>
+    <td>A type of trojan that deposits an enclosed payload (generally, other malware) onto the target computer.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">exploit-kit</span></span></td>
+    <td>A software toolkit to target common vulnerabilities.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">keylogger</span></td>
+    <td>A type of malware that surreptitiously monitors keystrokes and either records them for later retrieval or sends them back to a central collection point.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">ransomware</span></td>
+    <td>A type of malware that encrypts files on a victim’s system, demanding payment of ransom in return for the access codes required to unlock files.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">remote-access-trojan</span></span></td>
+    <td>A remote access trojan program (or RAT), is a trojan horse capable of controlling a machine through commands issued by a remote attacker.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">resource-exploitation</span></span></td>
+    <td>A type of malware that steals a system’s resources (e.g., CPU cycles), such as a malicious bitcoin miner.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">rogue-security-software</span></span></td>
+    <td>A fake security product that demands money to clean phony infections.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">rootkit</span></td>
+    <td>A type of malware that hides its files or processes from normal methods of monitoring in order to conceal its presence and activities. Rootkits can operate at a number of levels, from the application level — simply replacing or adjusting the settings of system software to prevent the display of certain information — through hooking certain functions or inserting modules or drivers into the operating system kernel, to the deeper level of firmware or virtualization rootkits, which are activated before the operating system and thus even harder to detect while the system is running.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">screen-capture</span></span></td>
+    <td>A type of malware used to capture images from the target systems screen, used for exfiltration and command and control.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">spyware</span></td>
+    <td>Software that gathers information on a user’s system without their knowledge and sends it to another party. Spyware is generally used to track activities for the purpose of delivering advertising.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">trojan</span></td>
+    <td>Any malicious computer program which is used to hack into a computer by misleading users of its true intent.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>There is not enough information available to determine the type of malware.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">virus</span></td>
+    <td>A malicious computer program that replicates by reproducing itself or infecting other programs by modifying them.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">webshell</span></td>
+    <td>A malicious script used by an attacker with the intent to escalate and maintain persistent access on an already compromised web application.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">wiper</span></td>
+    <td>A piece of malware whose primary aim is to delete files or entire disks on a machine.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">worm</span></td>
+    <td>A self-replicating, self-contained program that usually executes itself without user intervention.</td>
+  </tr>
+</table>
+
+## 10.16 Network Socket Address Family Enumeration <a id=network-socket-address-family-enumeration></a>
+
+**Enumeration Name:** <span class="stixtype">network-socket-address-family-enum</span>
+
+The network socket address family vocabulary is currently used in the following SCO(s):
+- Network Traffic (Network Socket extension)
+
+An enumeration of network socket address family types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_UNSPEC</span>, <span class="stixliteral">AF_INET</span>, <span class="stixliteral">AF_IPX</span>, <span class="stixliteral">AF_APPLETALK</span>, <span class="stixliteral">AF_NETBIOS</span>, <span class="stixliteral">AF_INET6</span>, <span class="stixliteral">AF_IRDA</span>, <span class="stixliteral">AF_BTH</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_UNSPEC</span></td>
+    <td>Specifies an unspecified address family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_INET</span></td>
+    <td>Specifies the IPv4 address family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_IPX</span></td>
+    <td>Specifies the IPX (Novell Internet Protocol) address family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_APPLETALK</span></td>
+    <td>Specifies the APPLETALK DDP address family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_NETBIOS</span></td>
+    <td>Specifies the NETBIOS address family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_INET6</span></td>
+    <td>Specifies the IPv6 address family.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_IRDA</span></td>
+    <td>Specifies IRDA sockets.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">AF_BTH</span></td>
+    <td>Specifies BTH sockets.</td>
+  </tr>
+</table>
+
+## 10.17 Network Socket Type Enumeration <a id="network-socket-type-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">network-socket-type-enum</span>
+
+The network socket type vocabulary is currently used in the following SCO(s):
+- Network Traffic (Network Socket extension)
+
+An enumeration of network socket types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SOCK_STREAM</span>, <span class="stixliteral">AF_ISOCK_DGRAMNET</span>, <span class="stixliteral">SOCK_RAW</span>, <span class="stixliteral">SOCK_RDM</span>, <span class="stixliteral">SOCK_SEQPACKET</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SOCK_STREAM</span></td>
+    <td>Specifies a pipe-like socket which operates over a connection with a particular remote socket and transmits data reliably as a stream of bytes.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SOCK_DGRAM</span></td>
+    <td>Specifies a socket in which individually-addressed packets are sent (datagram).</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SOCK_RAW</span></td>
+    <td>Specifies raw sockets which allow new IP protocols to be implemented in user space. A raw socket receives or sends the raw datagram not including link level headers.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SOCK_RDM</span></td>
+    <td>Specifies a socket indicating a reliably-delivered message.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SOCK_SEQPACKET</span></td>
+    <td>Specifies a datagram congestion control protocol socket.</td>
+  </tr>
+</table>
+
+## 10.18 Opinion Enumeration <a id="opinion-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">opinion-enum</span>
+
+The agreement enumeration is currently used in the following SDOs:
+- Opinion
+
+This enumeration captures a degree of agreement with the information in a STIX Object. It is an ordered enumeration, with the earlier terms representing disagreement, the middle term neutral, and the later terms representing agreement.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td>strongly-disagree, disagree, neutral, agree, strongly-agree</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">strongly-disagree</span></td>
+    <td>The creator strongly disagrees with the information and believes it is inaccurate or incorrect.<br><br>This <strong>MAY</strong> be considered equivalent to a 1 in a numeric scale.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">disagree</span></td>
+    <td>The creator disagrees with the information and believes it is inaccurate or incorrect.<br><br>This <strong>MAY</strong> be considered equivalent to a 2 in a numeric scale.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">neutral</span></td>
+    <td>The creator is neutral about the accuracy or correctness of the information.<br><br>This <strong>MAY</strong> be considered equivalent to a 3 in a numeric scale.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">agree</span></td>
+    <td>The creator agrees with the information and believes that it is accurate and correct.<br><br>This <strong>MAY</strong> be considered equivalent to a 4 in a numeric scale.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">strongly-agree</span></td>
+    <td>The creator strongly agrees with the information and believes that it is accurate and correct.<br><br>This <strong>MAY</strong> be considered equivalent to a 5 in a numeric scale.</td>
+  </tr>
+</table>
+
+## 10.19 Pattern Type Vocabulary <a id="pattern-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">pattern-type-ov</span>
+
+The pattern type vocabulary is currently used in the following SDO(s):
+- Indicator
+
+This is a non-exhaustive, open vocabulary that covers common pattern languages and is intended to characterize the pattern language that the indicator pattern is expressed in.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">stix</span>, <span class="stixliteral">pcre</span>, <span class="stixliteral">sigma</span>, <span class="stixliteral">snort</span>, <span class="stixliteral">suricata</span>, <span class="stixliteral">yara</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">stix</span></td>
+    <td>Specifies the STIX pattern language defined in <a href="#stix-patterning">section 9</a>.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">pcre</span></td>
+    <td>Specifies the Perl Compatible Regular Expressions language [<a href="#pcre">PCRE</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">sigma</span></td>
+    <td>Specifies the SIGMA language.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">snort</span></td>
+    <td>Specifies the SNORT language [<a href="#snort">SNORT</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">suricata</span></td>
+    <td>Specifies the SURICATA language [<a href="#suricata">Suricata</a>].</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">yara</span></td>
+    <td>Specifies the YARA language [<a href="#yara">YARA</a>].</td>
+  </tr>
+</table>
+
+## 10.20. Processor Architecture Vocabulary <a id="processor-architecture-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">processor-architecture-ov</span>
+
+The processor architecture vocabulary is currently used in the following SDO(s):
+- Malware
+
+This is a non-exhaustive, open vocabulary that covers common processor architectures and is intended to characterize the architectures that a malware instance or family may be able to execute on.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">alpha</span>, <span class="stixliteral">arm</span>, <span class="stixliteral">ia-64</span>, <span class="stixliteral">mips</span>, <span class="stixliteral">powerpc</span>, <span class="stixliteral">sparc</span>, <span class="stixliteral">x86</span>, <span class="stixliteral">x86-64</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">alpha</span></td>
+    <td>Specifies the Alpha architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">arm</span></td>
+    <td>Specifies the ARM architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">ia-64</span></td>
+    <td>Specifies the 64-bit IA (Itanium) architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">mips</span></td>
+    <td>Specifies the MIPS architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">powerpc</span></td>
+    <td>Specifies the PowerPC architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">sparc</span></td>
+    <td>Specifies the SPARC architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">x86</span></td>
+    <td>Specifies the 32-bit x86 architecture.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">x86-64</span></td>
+    <td>Specifies the 64-bit x86 architecture.</td>
+  </tr>
+</table>
+
+## 10.21. Region Vocabulary <a id="region-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">region-ov</span>
+
+The region vocabulary is currently used in the following SDO(s):
+- Location
+
+A list of world regions based on the United Nations geoscheme [UNSD M49].
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">africa</span> (<span class="stixliteral">eastern-africa, <span class="stixliteral">middle-africa, <span class="stixliteral">northern-africa, <span class="stixliteral">southern-africa, <span class="stixliteral">western-africa</span>), <span class="stixliteral">americas</span> (<span class="stixliteral">caribbean, <span class="stixliteral">central-america, <span class="stixliteral">latin-america-caribbean, <span class="stixliteral">northern-america, <span class="stixliteral">south-america</span>), <span class="stixliteral">asia</span> (<span class="stixliteral">central-asia, <span class="stixliteral">eastern-asia, <span class="stixliteral">southern-asia, <span class="stixliteral">south-eastern-asia, <span class="stixliteral">western-asia</span>), <span class="stixliteral">europe</span> (<span class="stixliteral">eastern-europe, <span class="stixliteral">northern-europe, <span class="stixliteral">southern-europe, <span class="stixliteral">western-europe</span>), <span class="stixliteral">oceania</span> (<span class="stixliteral">antarctica, <span class="stixliteral">australia-new-zealand, <span class="stixliteral">melanesia, <span class="stixliteral">micronesia, <span class="stixliteral">polynesia</span>)</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">africa</span></td>
+    <td>Specifies the Africa region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">eastern-africa</span></td>
+    <td>Specifies the Eastern Africa region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">middle-africa</span></td>
+    <td>Specifies the Middle Africa region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">northern-africa</span></td>
+    <td>Specifies the Northern Africa region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">southern-africa</span></td>
+    <td>Specifies the Southern Africa region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">western-africa</span></td>
+    <td>Specifies the Western Africa region.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">americas</span></td>
+    <td>Specifies the Americas region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">caribbean</span></td>
+    <td>Specifies the Caribbean region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">central-america</span></td>
+    <td>Specifies the Central America region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">latin-america-caribbean</span></td>
+    <td>Specifies the Latin America and Caribbean region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">northern-america</span></td>
+    <td>Specifies the Northern America region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">south-america</span></td>
+    <td>Specifies the South America region.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">asia</span></td>
+    <td>Specifies the Asia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">central-asia</span></td>
+    <td>Specifies the Central Asia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">eastern-asia</span></td>
+    <td>Specifies the Eastern Asia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">southern-asia</span></td>
+    <td>Specifies the Southern Asia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">south-eastern-asia</span></td>
+    <td>Specifies the South-Eastern Asia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">western-asia</span></td>
+    <td>Specifies the Western Asia region.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">europe</span></td>
+    <td>Specifies the Europe region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">eastern-europe</span></td>
+    <td>Specifies the Eastern Europe region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">northern-europe</span></td>
+    <td>Specifies the Northern Europe region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">southern-europe</span></td>
+    <td>Specifies the Southern Europe region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">western-europe</span></td>
+    <td>Specifies the Western Europe region.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">oceania</span></td>
+    <td>Specifies the Oceania region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">antarctica</span></td>
+    <td>Specifies the Antarctica region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">australia-new-zealand</span></td>
+    <td>Specifies the Australia and New Zealand region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">melanesia</span></td>
+    <td>Specifies the Melanesia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">micronesia</span></td>
+    <td>Specifies the Micronesia region.</td>
+  </tr>
+  <tr>
+    <td style="text-indent:1em;"><span class="stixliteral">polynesia</span></td>
+    <td>Specifies the Polynesia region.</td>
+  </tr>
+</table>
+
+## 10.22. Report Type Vocabulary <a id="report-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">report-type-ov</span>
+
+The report type vocabulary is currently used in the following SDO(s):
+- Report
+
+Report type is an open vocabulary to describe the primary purpose or subject of a report. For example, a report that contains malware and indicators for that malware should have a report type of <span class="stixliteral">malware</span> to capture that the malware is the primary purpose. Report types are not mutually exclusive: a Report can be both a malware report and a tool report. Just because a report contains objects of a type does not mean that the report should include that type. If the objects are there to simply provide evidence or context for other objects, it is not necessary to include them in the type.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">attack-pattern</span>, <span class="stixliteral">campaign</span>, <span class="stixliteral">identity</span>, <span class="stixliteral">incident</span>, <span class="stixliteral">indicator</span>, <span class="stixliteral">intrusion-set</span>, <span class="stixliteral">malware</span>, <span class="stixliteral">observed-data</span>, <span class="stixliteral">threat-actor</span>, <span class="stixliteral">threat-report</span>, <span class="stixliteral">tool</span>, <span class="stixliteral">vulnerability</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">attack-pattern</span></td>
+    <td>Report subject is a characterization of one or more attack patterns and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">campaign</span></td>
+    <td>Report subject is a characterization of one or more campaigns and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">identity</span></td>
+    <td>Report subject is a characterization of one or more identities and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">incident</span></td>
+    <td>Report subject is a characterization of one or more incidents and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">indicator</span></td>
+    <td>Report subject is a characterization of one or more indicators and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">intrusion-set</span></td>
+    <td>Report subject is a characterization of one or more intrusion sets and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">malware</span></td>
+    <td>Report subject is a characterization of one or more malware instances and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">observed-data</span></td>
+    <td>Report subject is a characterization of observed data and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">threat-actor</span></td>
+    <td>Report subject is a characterization of one or more threat actors and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">threat-report</span></td>
+    <td>Report subject is a broad characterization of a threat across multiple facets.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">tool</span></td>
+    <td>Report subject is a characterization of one or more tools and related information.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">vulnerability</span></td>
+    <td>Report subject is a characterization of one or more vulnerabilities and related information.</td>
+  </tr>
+</table>
+
+## 10.23. Threat Actor Type Vocabulary <a id="threat-actor-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">threat-actor-type-ov</span>
+
+The threat actor type vocabulary is currently used in the following SDO(s):
+- Threat Actor
+
+Threat actor type is an open vocabulary used to describe what type of threat actor the individual or group is. For example, some threat actors are competitors who try to steal information, while others are activists who act in support of a social or political cause. Actor types are not mutually exclusive: a threat actor can be both a disgruntled insider and a sensationalist.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">activist</span>, <span class="stixliteral">competitor</span>, <span class="stixliteral">crime-syndicate</span>, <span class="stixliteral">criminal</span>, <span class="stixliteral">hacker</span>, <span class="stixliteral">insider-accidental</span>, <span class="stixliteral">insider-disgruntled</span>, <span class="stixliteral">nation-state</span>, <span class="stixliteral">private-sector</span>, <span class="stixliteral">sensationalist</span>, <span class="stixliteral">spy</span>, <span class="stixliteral">terrorist</span>, <span class="stixliteral">unknown</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">activist</span></td>
+    <td>Highly motivated, potentially destructive supporter of a social or political cause (e.g., trade, labor, environment, etc.) that attempts to disrupt an organization’s business model or damage their image.<br><br>This category includes actors sometimes referred to as anarchists, cyber vandals, extremists, and hacktivists.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">competitor</span></td>
+    <td>An organization that competes in the same economic marketplace.<br><br>The goal of a competitor is to gain an advantage in business with respect to the rival organization it targets. It usually does this by copying intellectual property, trade secrets, acquisition strategies, or other technical or business data from a rival organization with the intention of using the data to bolster its own assets and market position.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">crime-syndicate</span></span></td>
+    <td>An enterprise organized to conduct significant, large-scale criminal activity for profit.<br><br>Crime syndicates, also known as organized crime, are generally large, well-resourced groups that operate to create profit from all types of crime.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">criminal</span></td>
+    <td>Individual who commits computer crimes, often for personal financial gain and often involves the theft of something valuable.<br><br>Extortion via ransomware and physical destruction are common examples. A criminal as described here refers to those acting individually or in very small or informal groups.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">hacker</span></td>
+    <td>An individual that tends to break into networks for the thrill or the challenge of doing so.<br><br>Hackers may use advanced skills or simple attack scripts they have downloaded.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">insider-accidental</span></span></td>
+    <td>A non-hostile insider who unintentionally exposes the organization to harm.<br><br>"Insider" in this context includes any person extended internal trust, such as regular employees, contractors, consultants, and temporary workers.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">insider-disgruntled</span></span></td>
+    <td>Current or former insiders who seek revengeful and harmful retaliation for perceived wrongs.<br><br>"Insider" in this context includes any person extended internal trust, such as regular employees, contractors, consultants, and temporary workers.<br><br>Disgruntled threat actors may have extensive knowledge that can be leveraged when conducting attacks and can take any number of actions including sabotage, violence, theft, fraud, espionage, or embarrassing individuals or the organization.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">nation-state</span></span></td>
+    <td>Entities who work for the government of a nation state or who work at their direction.<br><br>These actors typically have access to significant support, resources, training, and tools and are capable of designing and executing very sophisticated and effective Intrusion Sets and Campaigns.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">private-sector</span></span></td>
+    <td>Entities who develop and sell attack tools and services for commercial gain.<br><br>These actors often do not choose the targets themselves but work for other threat actors who direct the attacks. These entities are alternatively known as private-sector offensive actors (PSOA), Mercenary APTs, hackers-for-hire, and Cyber Mercenaries.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">sensationalist</span></td>
+    <td>Seeks to cause embarrassment and brand damage by exposing sensitive information in a manner designed to cause a public relations crisis.<br><br>A sensationalist may be an individual or small group of people motivated primarily by a need for notoriety. Unlike the activist, the sensationalist generally has no political goal, and is not using bad PR to influence the target to change its behavior or business practices.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">spy</span></td>
+    <td>Secretly collects sensitive information for use, dissemination, or sale.<br><br>Traditional spies (governmental and industrial) are part of a well-resourced intelligence organization and are capable of very sophisticated clandestine operations. However, insiders such as employees or consultants acting as spies can be just as effective and damaging, even when their activities are largely opportunistic and not part of an overall campaign.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">terrorist</span></td>
+    <td>Uses extreme violence to advance a social or political agenda as well as monetary crimes to support its activities.<br><br>In this context a terrorist refers to individuals who target noncombatants with violence to send a message of fear far beyond the actual events. They may act independently or as part of a terrorist organization.<br><br>Terrorist organizations must typically raise much of their operating budget through criminal activity, which often occurs online. Terrorists are also often adept at using and covertly manipulating social media for both recruitment and impact.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>There is not enough information available to determine the type of threat actor.</td>
+  </tr>
+</table>
+
+## 10.24. Threat Actor Role Vocabulary <a id="threat-actor-role-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">threat-actor-role-ov</span>
+
+The threat actor role vocabulary is currently used in the following SDO(s):
+- Threat Actor
+
+Threat actor role is an open vocabulary that is used to describe the different roles that a threat actor can play. For example, some threat actors author malware or operate botnets while other actors actually carry out attacks directly.
+
+Threat actor roles are not mutually exclusive. For example, an actor can be both a financial backer for attacks and also direct attacks.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">agent</span>, <span class="stixliteral">director</span>, <span class="stixliteral">independent</span>, <span class="stixliteral">infrastructure-architect</span>, <span class="stixliteral">infrastructure-operator</span>, <span class="stixliteral">malware-author</span>, <span class="stixliteral">sponsor</span></td>
+  </tr>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">agent</span></td>
+    <td>Threat actor executes attacks either on behalf of themselves or at the direction of someone else.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">director</span></td>
+    <td>The threat actor who directs the activities, goals, and objectives of the malicious activities.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">independent</span></td>
+    <td>A threat actor acting by themselves.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">infrastructure-architect</span></span></td>
+    <td>Someone who designs the battle space.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">infrastructure-operator</span></span></td>
+    <td>The threat actor who provides and supports the attack infrastructure that is used to deliver the attack (botnet providers, cloud services, etc.).</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">malware-author</span></span></td>
+    <td>The threat actor who authors malware or other malicious tools.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">sponsor</span></td>
+    <td>The threat actor who funds the malicious activities.</td>
+  </tr>
+</table>
+
+## 10.25. Threat Actor Sophistication Vocabulary <a id="threat-actor-sophistication-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">threat-actor-sophistication-ov</span>
+
+Threat actor sophistication vocabulary is currently used in the following SDO(s):
+- Threat Actor
+
+Threat actor sophistication vocabulary captures the skill level of a threat actor. It ranges from "none", which describes a complete novice, to "strategic", which describes an attacker who is able to influence supply chains to introduce vulnerabilities. This vocabulary is separate from resource level because an innovative, highly-skilled threat actor may have access to very few resources while a minimal-level actor might have the resources of an organized crime ring.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">none</span>, <span class="stixliteral">minimal</span>, <span class="stixliteral">intermediate</span>, <span class="stixliteral">advanced</span>, <span class="stixliteral">expert</span>, <span class="stixliteral">innovator</span>, <span class="stixliteral">strategic</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">none</span></td>
+    <td>Can carry out random acts of disruption or destruction by running tools they do not understand. Actors in this category have average computer skills.<br><br>Example Roles: Average User <br><br>These actors: <br>- can not launch targeted attacks</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">minimal</span></td>
+    <td>Can minimally use existing and frequently well known and easy-to-find techniques and programs or scripts to search for and exploit weaknesses in other computers. Commonly referred to as a script-kiddie.<br><br>These actors rely on others to develop the malicious tools, delivery mechanisms, and execution strategy and often do not fully understand the tool they are using or how they work. They also lack the ability to conduct their own reconnaissance and targeting research.<br><br>Example Roles: Script-Kiddie<br><br>These actors:<br>- attack known weaknesses;<br>- use well known scripts and tools; and<br>- have minimal knowledge of the tools.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">intermediate</span></td>
+    <td>Can proficiently use existing attack frameworks and toolkits to search for and exploit vulnerabilities in computers or systems. Actors in this category have computer skills equivalent to an IT professional and typically have a working knowledge of networks, operating systems, and possibly even defensive techniques and will typically exhibit some operational security.<br><br>These actors rely others to develop the malicious tools and delivery mechanisms but are able to plan their own execution strategy. They are proficient in the tools they are using and how they work and can even make minimal modifications as needed.<br><br>Example Roles: Toolkit User<br><br>These actors:<br>- attack known vulnerabilities;<br>- use attack frameworks and toolkits; and<br>- have proficient knowledge of the tools.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">advanced</span></td>
+    <td>Can develop their own tools or scripts from publicly known vulnerabilities to target systems and users. Actors in this category are very adept at IT systems and have a background in software development along with a solid understanding of defensive techniques and operational security.<br><br>These actors rely on others to find and identify weaknesses and vulnerabilities in systems, but are able to create their own tools, delivery mechanisms, and execution strategies.<br><br>Example Roles: Toolkit Developer<br><br>These actors:<br>- attack known vulnerabilities;<br>- can create their own tools; and<br>- have proficient knowledge of the tools.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">expert</span></td>
+    <td>Can focus on the discovery and use of unknown malicious code, are is adept at installing user and kernel mode rootkits, frequently use data mining tools, target corporate executives and key users (government and industry) for the purpose of stealing personal and corporate data. Actors in this category are very adept at IT systems and software development and are experts with security systems, defensive techniques, attack methods, and operational security.<br><br>Example Roles: Vulnerability Researcher, Reverse Engineer, Threat Researcher, Malware Creator<br><br>These actors:<br>- attack unknown and known vulnerabilities;<br>- can create their own tools from scratch; and<br>- have proficient knowledge of the tools.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">innovator</span></td>
+    <td>Typically, organized, highly technical, proficient, well-funded professionals working in teams to discover new vulnerabilities and develop exploits.<br><br>Demonstrates sophisticated capability. An innovator has the ability to create and script unique programs and codes targeting virtually any form of technology. At this level, this actor has a deep knowledge of networks, operating systems, programming languages, firmware, and infrastructure topologies and will demonstrate operational security when conducting his activities. Innovators are largely responsible for the discovery of 0-day vulnerabilities and the development of new attack techniques.<br><br>Example Roles: Toolkit Innovator, 0-Day Exploit Author<br><br>These actors:<br>- attack unknown and known vulnerabilities;<br>- create attacks against 0-Day exploits from scratch; and<br>- create new and innovative attacks and toolkits.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">strategic</span></td>
+    <td>State actors who create vulnerabilities through an active program to "influence" commercial products and services during design, development or manufacturing, or with the ability to impact products while in the supply chain to enable exploitation of networks and systems of interest.<br><br>These actors:<br>- can create or use entire supply chains to launch an attack;<br>- can create and design attacks for any systems, software package, or device; and<br>- are responsible for APT-level attacks.</td>
+  </tr>
+</table>
+
+## 10.26. Tool Type Vocabulary <a id="tool-type-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">tool-type-ov</span>
+
+The tool type vocabulary is currently used in the following SDO(s):
+- Tool
+
+Tool types describe the categories of tools that can be used to perform attacks.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">denial-of-service</span>, <span class="stixliteral">exploitation</span>, <span class="stixliteral">information-gathering</span>, <span class="stixliteral">network-capture</span>, <span class="stixliteral">credential-exploitation</span>, <span class="stixliteral">remote-access</span>, <span class="stixliteral">vulnerability-scanning</span>, <span class="stixliteral">unknown</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">denial-of-service</span></span></td>
+    <td>Tools used to perform denial of service attacks or DDoS attacks, such as Low Orbit Ion Cannon (LOIC) and DHCPig.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">exploitation</span></td>
+    <td>Tools used to exploit software and systems, such as sqlmap and Metasploit.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">information-gathering</span></span></td>
+    <td>Tools used to enumerate system and network information, e.g., NMAP.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">network-capture</span></span></td>
+    <td>Tools used to capture network traffic, such as Wireshark and Kismet.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">credential-exploitation</span></span></td>
+    <td>Tools used to crack password databases or otherwise exploit/discover credentials, either locally or remotely, such as John the Ripper and NCrack.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">remote-access</span></span></td>
+    <td>Tools used to access machines remotely, such as VNC and Remote Desktop.</td>
+  </tr>
+  <tr>
+    <td><span style="white-space: nowrap;"><span class="stixliteral">vulnerability-scanning</span></span></td>
+    <td>Tools used to scan systems and networks for vulnerabilities, e.g., Nessus.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">unknown</span></td>
+    <td>There is not enough information available to determine the type of tool.</td>
+  </tr>
+</table>
+
+## 10.27. Windows™ Integrity Level Enumeration <a id="windows-integrity-level-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">windows-integrity-level-enum</span>
+
+The Windows integrity level enumeration is currently used in the following STIX Cyber-observable Object(s):
+- Process (Windows Process extension)
+
+Windows integrity levels are a security feature and represent the trustworthiness of an object.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">low</span>, <span class="stixliteral">medium</span>, <span class="stixliteral">high</span>, <span class="stixliteral">system</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">low</span></td>
+    <td>A low level of integrity.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">medium</span></td>
+    <td>A medium level of integrity.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">high</span></td>
+    <td>A high level of integrity.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">system</span></td>
+    <td>A system level of integrity.</td>
+  </tr>
+</table>
+
+## 10.28. Windows™ PE Binary Vocabulary <a id="windows-pe-binary-vocabulary"></a>
+
+**Vocabulary Name:** <span class="stixtype">windows-pebinary-type-ov</span>
+
+The Windows PE binary vocabulary is currently used in the following SCO(s):
+- File (Windows PE Binary extension)
+
+An open vocabulary of Windows PE binary types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Vocabulary Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">dll</span>, <span class="stixliteral">exe</span>, <span class="stixliteral">sys</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Vocabulary Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">dll</span></td>
+    <td>Specifies that the PE binary is a dynamically linked library (DLL).</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">exe</span></td>
+    <td>Specifies that the PE binary is an executable image (i.e., not an OBJ or DLL).</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">sys</span></td>
+    <td>Specifies that the PE binary is a device driver (SYS).</td>
+  </tr>
+</table>
+
+## 10.29. Windows™ Registry Datatype Enumeration <a id="windows-registry-datatype-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">windows-registry-datatype-enum</span>
+
+The Windows registry datatype vocabulary is currently used in the following SCO(s):
+- Windows Registry Key
+
+An enumeration of Windows registry data types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_NONE</span>, <span class="stixliteral">REG_SZ</span>, <span class="stixliteral">REG_EXPAND_SZ</span>, <span class="stixliteral">REG_BINARY</span>, <span class="stixliteral">REG_DWORD</span>, <span class="stixliteral">REG_DWORD_BIG_ENDIAN</span>, <span class="stixliteral">REG_DWORD_LITTLE_ENDIAN</span>, <span class="stixliteral">REG_LINK</span>, <span class="stixliteral">REG_MULTI_SZ</span>, <span class="stixliteral">REG_RESOURCE_LIST</span>, <span class="stixliteral">REG_FULL_RESOURCE_DESCRIPTION</span>, <span class="stixliteral">REG_RESOURCE_REQUIREMENTS_LIST</span>, <span class="stixliteral">REG_QWORD</span>, <span class="stixliteral">REG_INVALID_TYPE</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_NONE</span></td>
+    <td>No defined value type.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_SZ</span></td>
+    <td>A null-terminated string. This will be either a Unicode or an ANSI string, depending on whether you use the Unicode or ANSI functions.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_EXPAND_SZ</span></td>
+    <td>A null-terminated string that contains unexpanded references to environment variables (for example, "%PATH%"). It will be a Unicode or ANSI string depending on whether you use the Unicode or ANSI functions.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_BINARY</span></td>
+    <td>Binary data in any form.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_DWORD</span></td>
+    <td>A 32-bit number.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_DWORD_BIG_ENDIAN</span></td>
+    <td>A 32-bit number in big-endian format.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_DWORD_LITTLE_ENDIAN</span></td>
+    <td>A 32-bit number in little-endian format.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_LINK</span></td>
+    <td>A null-terminated Unicode string that contains the target path of a symbolic link.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_MULTI_SZ</span></td>
+    <td>A sequence of null-terminated strings, terminated by an empty string (\0).</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_RESOURCE_LIST</span></td>
+    <td>A series of nested lists designed to store a resource list used by a hardware device driver or one of the physical devices it controls. This data is detected and written into the ResourceMap tree by the system and is displayed in Registry Editor in hexadecimal format as a Binary Value.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_FULL_RESOURCE_DESCRIPTION</span></td>
+    <td>A series of nested lists designed to store a resource list used by a physical hardware device. This data is detected and written into the HardwareDescription tree by the system and is displayed in Registry Editor in hexadecimal format as a Binary Value.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_RESOURCE_REQUIREMENTS_LIST</span></td>
+    <td>A series of nested lists designed to store a resource list used by a hardware device driver or one of the physical devices it controls. This data is detected and written into the ResourceMap tree by the system and is displayed in Registry Editor in hexadecimal format as a Binary Value.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_QWORD</span></td>
+    <td>A 64-bit number.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">REG_INVALID_TYPE</span></td>
+    <td>Specifies an invalid key.</td>
+  </tr>
+</table>
+
+## 10.30. Windows™ Service Start Type Enumeration <a id="windows-service-start-type-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">windows-service-start-type-enum</span>
+
+The Windows service start type vocabulary is currently used in the following SCO(s):
+- Process (Windows Service extension)
+
+An enumeration of Windows service start types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_AUTO_START</span>, <span class="stixliteral">SERVICE_BOOT_START</span>, <span class="stixliteral">SERVICE_DEMAND_START</span>, <span class="stixliteral">SERVICE_DISABLED</span>, <span class="stixliteral">SERVICE_SYSTEM_ALERT</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_AUTO_START</span></td>
+    <td>A service started automatically by the service control manager during system startup.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_BOOT_START</span></td>
+    <td>A device driver started by the system loader. This value is valid only for driver services.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_DEMAND_START</span></td>
+    <td>A service started by the service control manager when a process calls the StartService function.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_DISABLED</span></td>
+    <td>A service that cannot be started. Attempts to start the service result in the error code ERROR_SERVICE_DISABLED.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_SYSTEM_ALERT</span></td>
+    <td>A device driver started by the IoInitSystem function. This value is valid only for driver services.</td>
+  </tr>
+</table>
+
+## 10.31. Windows™ Service Type Enumeration <a id="windows-service-type-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">windows-service-type-enum</span>
+
+The Windows service type vocabulary is currently used in the following SCO(s):
+- Process (Windows Service extension)
+
+An enumeration of Windows service types.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_KERNEL_DRIVER</span>, <span class="stixliteral">SERVICE_FILE_SYSTEM_DRIVER</span>, <span class="stixliteral">SERVICE_WIN32_OWN_PROCESS</span>, <span class="stixliteral">SERVICE_WIN32_SHARE_PROCESS</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_KERNEL_DRIVER</span></td>
+    <td>The service is a device driver.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_FILE_SYSTEM_DRIVER</span></td>
+    <td>The service is a file system driver.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_WIN32_OWN_PROCESS</span></td>
+    <td>The service runs in its own process.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_WIN32_SHARE_PROCESS</span></td>
+    <td>The service shares a process with other services.</td>
+  </tr>
+</table>
+
+## 10.32. Windows™ Service Status Enumeration <a id="windows-service-status-enumeration"></a>
+
+**Enumeration Name:** <span class="stixtype">windows-service-status-enum</span>
+
+The Windows service status vocabulary is currently used in the following SCO(s):
+- Process (Windows Service extension)
+
+An enumeration of Windows service statuses.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class='stixtr'>Enumeration Summary</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_CONTINUE_PENDING</span>, <span class="stixliteral">SERVICE_PAUSE_PENDING</span>, <span class="stixliteral">SERVICE_PAUSED</span>, <span class="stixliteral">SERVICE_RUNNING</span>, <span class="stixliteral">SERVICE_START_PENDING</span>, <span class="stixliteral">SERVICE_STOP_PENDING</span>, <span class="stixliteral">SERVICE_STOPPED</span></td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Enumeration Value</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_CONTINUE_PENDING</span></td>
+    <td>The service continue is pending.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_PAUSE_PENDING</span></td>
+    <td>The service pause is pending.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_PAUSED</span></td>
+    <td>The service is paused.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_RUNNING</span></td>
+    <td>The service is running.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_START_PENDING</span></td>
+    <td>The service is starting.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_STOP_PENDING</span></td>
+    <td>The service is stopping.</td>
+  </tr>
+  <tr>
+    <td><span class="stixliteral">SERVICE_STOPPED</span></td>
+    <td>The service is not running.</td>
+  </tr>
+</table>
+
+# 11. Customizing STIX (Deprecated) <a id="customizing-stix"></a>
+
+*The recommended method to extend STIX is defined by the STIX Extension mechanisms described in [section 7.3](#extension-definition). These new mechanisms replace the customization mechanisms defined in this section including three means to customize STIX: Custom Properties, Custom Objects and Custom Extensions. **These mechanisms are retained for backward-compatibility and should not be used to implement any new extensions of the specification.***
+
+Custom Properties provide a mechanism and requirements for adding properties not defined by this specification to existing STIX Objects. Custom Objects, on the other hand, provides a mechanism and requirements to create custom STIX Objects (objects not defined by this specification). Custom Extensions provide a mechanism and requirements for the specification of extensions not defined by this specification on SCOs.
+
+A consumer that receives STIX content containing Custom Properties, Objects, or Extensions it does not understand **MAY** refuse to process the content or **MAY** ignore those properties or objects and continue processing the content.
+
+Producers of STIX content that contain Custom Properties, Objects or Extensions should recognize that consumers may not understand them and may ignore them. Producers should define any Custom Properties, Objects and Extensions they use, along with any rules for processing them, and make these definitions and rules accessible to any potential consumers. This specification does not specify a process for doing this.
+
+Custom Properties **SHOULD** be used for cases where it is necessary to add one or more simple additional properties (i.e. key/value pairs) on an SCO. On the other hand, Custom Extensions **SHOULD** be used for cases where it is necessary to describe more complex additional properties (i.e., those with potentially multiple levels of hierarchy). As an example, a vendor-specific property that expresses some custom threat score for a File object should be added directly to the SCO as a custom property, whereas a set of properties that represent metadata around a new file system to the File object should be done as a custom extension.
+
+## 11.1. Custom Properties (Deprecated) <a id="custom-properties"></a>
+
+*Custom properties **SHOULD** be defined using the STIX Extension mechanism for **property-extension** as described in [section 7.3](#extension-definition).*
+
+There will be cases where certain information exchanges can be improved by adding properties to STIX Objects and STIX Cyber Observable (SCO) Extensions that are neither specified nor reserved in this specification; these properties are called **Custom Properties**. This section provides guidance and requirements for how producers can use Custom Properties and how consumers should interpret them in order to extend STIX in an interoperable manner.
+
+### 11.1.1 Requirements (Deprecated) <a id="custom-properties-requirements"></a>
+
+- A STIX Object **MAY** have any number of STIX Extensions containing one or more properties.
+- Custom Property names **MUST** be in ASCII and **MUST** only contain the characters a-z (lowercase ASCII), 0-9, and underscore (_).
+- Custom Property names **SHOULD** start with "x_" followed by a source unique identifier (such as a domain name with dots replaced by underscores), an underscore and then the name. For example, **x_example_com_customfield**.
+- Custom Property names **MUST** have a minimum length of 3 ASCII characters.
+- Custom Property names **MUST** be no longer than 250 ASCII characters in length.
+- Custom Property names that do not start with "x_" may be used in a future version of the specification for a different meaning. If compatibility with future versions of this specification is required, the "x_" prefix **MUST** be used.
+- Custom Properties **SHOULD** only be used when there are no existing properties defined by the STIX specification that fulfils that need.
+- For Custom Properties that use the <span class="stixtype">hex</span> type, the property name **MUST** end with '_hex'.
+- For Custom Properties that use the <span class="stixtype">binary</span> type, the property name **MUST** end with '_bin'.
+
+**Example**
+
+```JSON
+{
+  ...
+  "x_acme_org_risk_score": 10,
+  "x_acme_org_scoring": {
+    "impact": "high",
+    "probability": "low"
+  },
+  ...
+}
+```
+
+## 11.2 Custom Objects (Deprecated) <a id="custom-objects"></a>
+
+*Custom objects **SHOULD** be defined using the STIX Extension mechanism for **new SDO**, **new SCO** or **new SRO** as described in [section 7.3](#extension-definition).*
+
+There will be cases where certain information exchanges can be improved by adding objects that are not specified nor reserved in this specification; these objects are called Custom Objects. This section provides guidance and requirements for how producers can use **Custom Objects** and how consumers should interpret them in order to extend STIX in an interoperable manner.
+
+### 11.2.1 Requirements (Deprecated) <a id="custom-objects-requirements"></a>
+
+- Producers **MAY** include any number of Custom Objects in STIX content.
+- Custom Objects **MUST** support the Common Properties as defined in [section 3.2](#common-properties).
+  - Common property names **MUST NOT** be reused to represent the custom properties in the object.
+- A Custom Object **MUST** have one or more properties.
+- The name of a property of a Custom Object **MUST** be in ASCII and **MUST** only contain the characters a-z (lowercase ASCII), 0-9, and underscore (). The "x" prefix as described - [section 11.1.1](#custom-properties-requirements) **MAY** be used.
+- The name of a property of a Custom Object **MUST** have a minimum length of 3 ASCII characters.
+- The name of a property of a Custom Object **MUST** be no longer than 250 ASCII characters in length.
+- The **type** property in a Custom Object **MUST** be in ASCII and **MUST** only contain the characters a-z (lowercase ASCII), 0-9, and hyphen (-).
+- The **type** property **MUST NOT** contain a hyphen (-) character immediately following another hyphen (-) character.
+- Custom Object names **MUST** have a minimum length of 3 ASCII characters.
+- Custom Object names **MUST** be no longer than 250 ASCII characters in length.
+- The value of the **type** property in a Custom Object **SHOULD** start with "x-" followed by a source unique identifier (like a domain name with dots replaced by hyphens), a hyphen and then the name. For example, <span class="stixtype">x-example-com-customobject</span>.
+- A Custom Object whose name is not prefixed with "x-" may be used in a future version of the specification with a different meaning. Therefore, if compatibility with future versions of this specification is required, the "x-" prefix **MUST** be used.
+- The value of the id property in a Custom Object **MUST** use the same format as the <span class="stixtype">identifier</span> type, namely, <span class="stixalt">[object-type]--[UUID]</span>.
+- Custom Objects **SHOULD** only be used when there is no existing STIX Object defined by the STIX specification that fulfils that need.
+
+**Example**
+
+```JSON
+{
+  "type": "bundle",
+  "id": "bundle--f37aa79d-f5f5-4af7-874b-734d32c08c10",
+  "objects": [
+    {
+      "type": "x-example-com-customobject",
+      "id": "x-example-com-customobject--4527e5de-8572-446a-a57a-706f15467461",
+      "created": "2016-08-01T00:00:00.000Z",
+      "modified": "2016-08-01T00:00:00.000Z",
+      "some_custom_stuff": 14,
+      "other_custom_stuff": "hello"
+    }
+  ]
+}
+```
+
+## 11.3 Custom Object Extensions (Deprecated) <a id="custom-object-extensions"></a>
+
+*Custom Object Extensions **SHOULD** be defined using the STIX Extension mechanism for **property-extension** as described in [section 7.3](#extension-definition).*
+
+In addition to the Predefined Cyber Observable Object extensions, STIX supports user-defined custom extensions for STIX Cyber-observable Objects (SCO). As with Predefined Object Extensions, custom extension data **MUST** be conveyed under the extensions property. Note, custom extensions can only be used with SCOs.
+
+### 11.3.1 Requirements (Deprecated) <a id="custom-object-extensions-requirements"></a>
+
+- A SCO **MAY** have any number of Custom Extensions.
+- Custom Extension names **MUST** be in ASCII and are limited to characters a-z (lowercase ASCII), 0-9, and hyphen (-).
+- Custom Extension names **MUST** end with "-ext".
+- Custom Extension names **SHOULD** start with "x-" followed by a source unique identifier (like a domain name), a hyphen and then the name. For example: <span class="stixtype">x-example-com-customextension</span>.
+- Custom Extension names **MUST** have a minimum length of 3 ASCII characters.
+- Custom Extension names **MUST** be no longer than 250 ASCII characters in length.
+- Custom Extension names that are not prefixed with "x-" may be used in a future version of the specification for a different meaning. If compatibility with future versions of this specification is required, the "x-" prefix **MUST** be used.
+- Custom Extensions **SHOULD** only be used when there is no existing extension defined by the STIX 2.1 specification that fulfills that need.
+- A Custom Extension **MUST** have one or more properties.
+- The name of a property of a Custom Object Extension **MUST** be in ASCII and **MUST** only contain the characters a-z (lowercase ASCII), 0-9, and underscore (). The "x" prefix as described in [section 11.1.1](#custom-properties-requirements) **MAY** be used.
+
+**Example**
+
+*Custom File object extension*
+
+```JSON
+{
+  "type": "file",
+  "hashes": {
+    "SHA-256": "effb46bba03f6c8aea5c653f9cf984f170dcdd3bbbe2ff6843c3e5da0e698766"
+  },
+  "extensions": {
+    "x-example-com-foo": {
+      "foo_val": "foo",
+      "bar_val": "bar"
+    }
+  }
+}
+```
+
+# 12. Conformance <a id="conformance"></a>
+
+## 12.1 STIX Object Producers and Consumers <a id="stix-object-producers-and-consumers"></a>
+
+A "STIX 2.1 Producer" is any software that can create STIX 2.1 content and conforms to the following normative requirements:
+- It **MUST** be able to create content encoded as JSON.
+- All properties marked required in the property table for the STIX Object or type **MUST** be present in the created content.
+- All properties **MUST** conform to the data type and normative requirements for that property.
+- It **MUST** support at least one STIX Object.
+- It **MUST** support all features listed in [section 12.2](#stix-object-mandatory-features), Mandatory Features.
+- It **MAY** support any features listed in [section 12.3](#stix-object-optional-features), Optional Features. Software supporting an optional feature **MUST** comply with the normative requirements of that feature.
+- It **MUST** support JSON as a serialization format and **MAY** support serializations other than JSON.
+
+A "STIX 2.1 Consumer" is any software that can consume STIX 2.1 content and conforms to the following normative requirements:
+- It **MUST** support parsing all required properties for the content that it consumes.
+- It **MUST** support all features listed in [section 12.2](#stix-object-mandatory-features), Mandatory Features.
+- It **MAY** support any features listed in [section 12.3](#stix-object-optional-features), Optional Features. Software supporting an optional feature **MUST** comply with the normative requirements of that feature.
+- It **MUST** support JSON as a serialization format and **MAY** support serializations other than JSON.
+
+## 12.2 STIX Object Mandatory Features <a id="stix-object-mandatory-features"></a>
+
+### 12.2.1 Versioning <a id="conformance-versioning"></a>
+
+A STIX 2.1 Producer or STIX 2.1 Consumer **MUST** support versioning by following the normative requirements listed in [section 3.6](#versioning).
+
+## 12.3 STIX Object Optional Features <a id="stix-object-optional-features"></a>
+
+### 12.3.1 Object-Level Data Markings <a id="object-level-data-markings"></a>
+
+A STIX 2.1 Producer or STIX 2.1 Consumer **MAY** support "Object-Level Data Markings". Software claiming to support "Object-Level Data Markings" **MUST** follow the normative requirements listed in [section 7.2.1](#marking-definition) and [section 7.2.2](#object-markings).
+
+### 12.3.2. Granular Data Markings <a id="granular-data-markings"></a>
+
+A STIX 2.1 Producer or STIX 2.1 Consumer **MAY** support "Granular Data Markings". Software claiming to support "Granular Data Markings" **MUST** follow the normative requirements listed in [section 7.2.1](#marking-definition) and [section 7.2.3](#granular-markings).
+
+### 12.3.3. STIX Extensions <a id="stix-extensions"></a>
+
+A STIX 2.1 Producer or STIX 2.1 Consumer **MAY** support STIX Extensions as defined in [section 7.3](#extension-definition). Software claiming to support STIX Extensions **MUST** follow the normative requirements defined in [section 7.3](#extension-definition).
+
+## 12.4 STIX Patterning Conformance <a id="stix-patterning-conformance"></a>
+
+Implementers of the STIX Patterning language are not required to support the full capabilities provided by the language. Rather, implementers are strongly encouraged to support as much of STIX Patterning as feasible, given the capabilities of their products, but only required to support the minimum conformance level (defined below) necessary for their particular use cases. For example, the vendor of a network intrusion detection system (NIDS) that looks for malicious network traffic may only need to implement the Comparison Operators and support basic Observation Expressions to explicitly match against network traffic and IP addresses.
+
+While the STIX Patterning language specification is tightly coupled with the STIX Cyber-observable Object data models, it is understood that in many (or even most) implementations STIX Patterns will be used as an abstraction layer for transcoding into other proprietary query formats. STIX Patterns may be evaluated directly against a corpus of STIX Observed Data instances, but they may also, for example, be translated into some query syntax for a packet inspection device. In this second case, the STIX Patterns are in fact evaluated in the context of data passing on the wire, not in the form of STIX Cyber Observables.
+
+The STIX Patterning language’s Observation Operators allow for the creation of patterns that explicitly match across multiple Observations; however, the language purposefully does not specify anything about the source of the underlying data for each Observation. For example, depending on a particular patterning implementation, the data for a pattern that matches on network traffic could come from an endpoint or from a NIDS. It is incumbent upon implementers to ascertain the appropriate data sources (where applicable) for each Observation within a given pattern.
+
+## 12.5 STIX Pattern Producer <a id="stix-pattern-producer"></a>
+
+Software that creates STIX patterns is known as a "Pattern Producer". Such software **MUST** support the creation of patterns that conform to all normative statements and formatting rules in this document. Pattern Producers **MUST** specify their conformance in terms of the conformance levels defined in [section 12.7](#stix-patterning-conformance-levels).
+
+## 12.6 STIX Pattern Consumer <a id="stix-pattern-consumer"></a>
+
+Software that consumes STIX patterns is known as a "Pattern Consumer". Such software **MUST** support the consumption of patterns that conform to all normative statements and formatting rules in this document. Pattern Consumers **MUST** specify their conformance in terms of the conformance levels defined in [section 12.7](#stix-patterning-conformance-levels).
+
+## 12.7 STIX Patterning Conformance Levels <a id="stix-patterning-conformance-levels"></a>
+
+### 12.7.1 Level 1: Basic Conformance <a id="level-1-basic-conformance"></a>
+
+Software that conforms to the minimum required aspects of the patterning specification, is known as a "Level 1 STIX Patterning Implementation".
+
+Such software **MUST** support the following features by conforming to all normative statements and behaviors in the referenced sections:
+- Single Observation Expressions (omitting Qualifiers), as described in [section 9.5](#observation-expressions)
+- All Comparison Operators, as described in [section 9.6.1](#comparison-operators)
+
+This level of conformance is intended primarily for software that is deployed at endpoints or network boundaries and which is architecturally unable to maintain state, as would be required in order to support Qualifiers such as <span class="stixliteral">WITHIN</span>.
+
+### 12.7.2 Level 2: Basic Conformance plus Observation Operators <a id="level-2-basic-conformance-plus-observation-operators"></a>
+
+Software that supports the minimum required aspects of the patterning specification but can operate on multiple Observations, is known as a "Level 2 STIX Patterning Implementation".
+
+Such software **MUST** support the following features by conforming to all normative statements and behaviors in the referenced sections:
+- Single and Compound Observation Expressions (omitting Qualifiers) as described in [section 9.5](#observation-expressions)
+- The <span class="stixliteral">AND</span> Observation Operator, as described in [section 9.5.2](#observation-operators)
+- The <span class="stixliteral">OR</span> Observation Operator, as described in [section 9.5.2](#observation-operators)
+- All Comparison Operators, as described in [section 9.6.1](#comparison-operators)
+
+This level of conformance is intended primarily for software such as HIDS that can detect patterns across separate Observations but may not support temporal-based patterning.
+
+### 12.7.3 Level 3: Full Conformance <a id="level-3-full-conformance"></a>
+
+Software that is fully conformant with **all** of the capabilities of the patterning specification is known as a "Level 3 STIX Patterning Implementation".
+
+Such software **MUST** support the following features by conforming to all normative statements and behaviors in the referenced sections:
+- [section 9.1](#definitions) Definitions
+- [section 9.3](#stix-patterns) STIX Patterns
+- [section 9.4](#pattern-expressions) Pattern Expressions
+- [section 9.5](#observation-expressions) Observation Expressions
+- [section 9.6](#comparison-expressions) Comparison Expressions
+- [section 9.7](#object-path-syntax) Object Path Syntax
+
+This level of conformance is intended primarily for software such as SIEMs that support temporal-based patterning and can also aggregate and detect patterns across multiple and disparate sources of Observations.
+
+# Appendix A: Confidence Scales <a id="confidence-scales"></a>
+
+The use of these confidence scales is defined in [section 3.2](#common-properties), **confidence** property. A value of "Not Specified" in the table below means that the confidence property is not present.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">None/Low/Med/High</span></th>
+    <th><span class="stixtr">STIX Confidence Value</span></th>
+    <th><span class="stixtr">Ranges of Values</span></th>
+  </tr>
+  <tr>
+    <td>Not Specified</td>
+    <td>Not Specified</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>None</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Low</td>
+    <td>15</td>
+    <td>1-29</td>
+  </tr>
+  <tr>
+    <td>Med</td>
+    <td>50</td>
+    <td>30-69</td>
+  </tr>
+  <tr>
+    <td>High</td>
+    <td>85</td>
+    <td>70-100</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">0-10 Scale</span></th>
+    <th><span class="stixtr">STIX Confidence Value</span></th>
+    <th><span class="stixtr">Ranges of Values</span></th>
+  </tr>
+  <tr>
+    <td>Not Specified</td>
+    <td>Not Specified</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+    <td>0-4</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>10</td>
+    <td>5-14</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>20</td>
+    <td>15-24</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>30</td>
+    <td>25-34</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>40</td>
+    <td>35-44</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>50</td>
+    <td>45-54</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>60</td>
+    <td>55-64</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>70</td>
+    <td>65-74</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>80</td>
+    <td>75-84</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>90</td>
+    <td>85-94</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>100</td>
+    <td>95-100</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Admiralty Credibility</span></th>
+    <th><span class="stixtr">STIX Confidence Value</span></th>
+    <th><span class="stixtr">Ranges of Values</span></th>
+  </tr>
+  <tr>
+    <td>6 - Truth cannot be judged</td>
+    <td>Not Specified</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>5 - Improbable</td>
+    <td>10</td>
+    <td>0-19</td>
+  </tr>
+  <tr>
+    <td>4 - Doubtful</td>
+    <td>30</td>
+    <td>20-39</td>
+  </tr>
+  <tr>
+    <td>3 - Possibly True</td>
+    <td>50</td>
+    <td>40-59</td>
+  </tr>
+  <tr>
+    <td>2 - Probably True</td>
+    <td>70</td>
+    <td>60-79</td>
+  </tr>
+  <tr>
+    <td>1 - Confirmed by other sources</td>
+    <td>90</td>
+    <td>80-100</td>
+  </tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">WEP*</span></th>
+    <th><span class="stixtr">STIX Confidence Value</span></th>
+    <th><span class="stixtr">Ranges of Values</span></th>
+  </tr>
+  <tr>
+    <td>Not Specified</td>
+    <td>Not Specified</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>Impossible</td>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>Highly Unlikely/Almost Certainly Not</td>
+    <td>10</td>
+    <td>1-19</td>
+  </tr>
+  <tr>
+    <td>Unlikely/Probably Not</td>
+    <td>30</td>
+    <td>20-39</td>
+  </tr>
+  <tr>
+    <td>Even Chance</td>
+    <td>50</td>
+    <td>40-59</td>
+  </tr>
+  <tr>
+    <td>Likely/Probable</td>
+    <td>70</td>
+    <td>60-79</td>
+  </tr>
+  <tr>
+    <td>Highly likely/Almost Certain</td>
+    <td>90</td>
+    <td>80-99</td>
+  </tr>
+  <tr>
+    <td>Certain</td>
+    <td>100</td>
+    <td>100</td>
+  </tr>
+</table>
+
+*Words of Estimative Probability ([WEP](#wep))
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">DNI Scale*</span></th>
+    <th><span class="stixtr">STIX Confidence Value</span></th>
+    <th><span class="stixtr">Ranges of Values</span></th>
+  </tr>
+  <tr>
+    <td>Not Specified</td>
+    <td>Not Specified</td>
+    <td>N/A</td>
+  </tr>
+  <tr>
+    <td>Almost No Chance / Remote</td>
+    <td>5</td>
+    <td>0-9</td>
+  </tr>
+  <tr>
+    <td>Very Unlikely / Highly Improbable</td>
+    <td>15</td>
+    <td>10-19</td>
+  </tr>
+  <tr>
+    <td>Unlikely / Improbable</td>
+    <td>30</td>
+    <td>20-39</td>
+  </tr>
+  <tr>
+    <td>Roughly Even Chance / Roughly Even Odds</td>
+    <td>50</td>
+    <td>40-59</td>
+  </tr>
+  <tr>
+    <td>Likely / Probable</td>
+    <td>70</td>
+    <td>60-79</td>
+  </tr>
+  <tr>
+    <td>Very Likely / Highly Probable</td>
+    <td>85</td>
+    <td>80-89</td>
+  </tr>
+  <tr>
+    <td>Almost Certain / Nearly Certain</td>
+    <td>95</td>
+    <td>90-100</td>
+  </tr>
+</table>
+
+*DNI Scale ([ICD203](#icd-203))
+
+# Appendix B: Relationship Summary Table <a id=relationship-summary-table></a>
+
+This following relationship summary table is provided as a convenience. If there is a discrepancy between this table and the relationships defined with each of the SDOs, then the relationships defined with the SDOs **MUST** be viewed as authoritative.
+
+<table border="1" cellspacing="0" cellpadding="6" width="100%">
+  <tr>
+    <th><span class="stixtr">Source</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Target</span></th>
+  </tr>
+  <tr>
+    <td><span class="stixtype">attack-pattern</span></td>
+    <td><span class="stixliteral">delivers</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">attack-pattern</span></td>
+    <td><span class="stixliteral">targets</span></td>
+    <td><span class="stixtype">identity</span>, <span class="stixtype">location</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">attack-pattern</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">malware</span>, <span class="stixtype">tool</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">campaign</span></td>
+    <td><span class="stixliteral">attributed-to</span></td>
+    <td><span class="stixtype">intrusion-set</span>, <span class="stixtype">threat-actor</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">campaign</span></td>
+    <td><span class="stixliteral">compromises</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">campaign</span></td>
+    <td><span class="stixliteral">originates-from</span></td>
+    <td><span class="stixtype">location</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">campaign</span></td>
+    <td><span class="stixliteral">targets</span></td>
+    <td><span class="stixtype">identity</span>, <span class="stixtype">location</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">campaign</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">attack-pattern</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">malware</span>, <span class="stixtype">tool</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">course-of-action</span></td>
+    <td><span class="stixliteral">investigates</span></td>
+    <td><span class="stixtype">indicator</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">course-of-action</span></td>
+    <td><span class="stixliteral">mitigates</span></td>
+    <td><span class="stixtype">attack-pattern</span>, <span class="stixtype">indicator</span>, <span class="stixtype">malware</span>, <span class="stixtype">tool</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">course-of-action</span></td>
+    <td><span class="stixliteral">remediates</span></td>
+    <td><span class="stixtype">malware</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">domain-name</span></td>
+    <td><span class="stixliteral">resolves-to</span></td>
+    <td><span class="stixtype">domain-name</span>, <span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">identity</span></td>
+    <td><span class="stixliteral">located-at</span></td>
+    <td><span class="stixtype">location</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">indicator</span></td>
+    <td><span class="stixliteral">indicates</span></td>
+    <td><span class="stixtype">attack-pattern</span>, <span class="stixtype">campaign</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">intrusion-set</span>, <span class="stixtype">malware</span>, <span class="stixtype">threat-actor</span>, <span class="stixtype">tool</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">indicator</span></td>
+    <td><span class="stixliteral">based-on</span></td>
+    <td><span class="stixtype">observed-data</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">communicates-with</span></td>
+    <td><span class="stixtype">infrastructure</span>, <span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span>, <span class="stixtype">domain-name</span>, <span class="stixtype">url</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">consists-of</span></td>
+    <td><span class="stixtype">infrastructure</span>, <span class="stixtype">observed-data</span>, <span class="stixtype">&lt;All STIX Cyber-observable Objects&gt;</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">controls</span></td>
+    <td><span class="stixtype">infrastructure</span>, <span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">delivers</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">has</span></td>
+    <td><span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">hosts</span></td>
+    <td><span class="stixtype">tool</span>, <span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">located-at</span></td>
+    <td><span class="stixtype">location</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">infrastructure</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">intrusion-set</span></td>
+    <td><span class="stixliteral">attributed-to</span></td>
+    <td><span class="stixtype">threat-actor</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">intrusion-set</span></td>
+    <td><span class="stixliteral">compromises</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">intrusion-set</span></td>
+    <td><span class="stixliteral">hosts</span>, <span class="stixliteral">owns</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">intrusion-set</span></td>
+    <td><span class="stixliteral">originates-from</span></td>
+    <td><span class="stixtype">location</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">intrusion-set</span></td>
+    <td><span class="stixliteral">targets</span></td>
+    <td><span class="stixtype">identity</span>, <span class="stixtype">location</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">intrusion-set</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">attack-pattern</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">malware</span>, <span class="stixtype">tool</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv4-addr</span></td>
+    <td><span class="stixliteral">belongs-to</span></td>
+    <td><span class="stixtype">autonomous-system</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv4-addr</span></td>
+    <td><span class="stixliteral">resolves-to</span></td>
+    <td><span class="stixtype">mac-addr</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv6-addr</span></td>
+    <td><span class="stixliteral">belongs-to</span></td>
+    <td><span class="stixtype">autonomous-system</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">ipv6-addr</span></td>
+    <td><span class="stixliteral">resolves-to</span></td>
+    <td><span class="stixtype">mac-addr</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">authored-by</span></td>
+    <td><span class="stixtype">threat-actor</span>, <span class="stixtype">intrusion-set</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">beacons-to</span>, <span class="stixliteral">exfiltrates-to</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">communicates-with</span></td>
+    <td><span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span>, <span class="stixtype">domain-name</span>, <span class="stixtype">url</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">controls</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">downloads</span>, <span class="stixliteral">drops</span></td>
+    <td><span class="stixtype">malware</span>, <span class="stixtype">tool</span>, <span class="stixtype">file</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">exploits</span></td>
+    <td><span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">originates-from</span></td>
+    <td><span class="stixtype">location</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">targets</span></td>
+    <td><span class="stixtype">identity</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">location</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">attack-pattern</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">malware</span>, <span class="stixtype">tool</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware</span></td>
+    <td><span class="stixliteral">variant-of</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware-analysis</span></td>
+    <td><span class="stixliteral">characterizes</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware-analysis</span></td>
+    <td><span class="stixliteral">av-analysis-of</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware-analysis</span></td>
+    <td><span class="stixliteral">static-analysis-of</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">malware-analysis</span></td>
+    <td><span class="stixliteral">dynamic-analysis-of</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">attributed-to</span></td>
+    <td><span class="stixtype">identity</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">compromises</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">hosts</span>, <span class="stixliteral">owns</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">impersonates</span></td>
+    <td><span class="stixtype">identity</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">located-at</span></td>
+    <td><span class="stixtype">location</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">targets</span></td>
+    <td><span class="stixtype">identity</span>, <span class="stixtype">location</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">threat-actor</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">attack-pattern</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">malware</span>, <span class="stixtype">tool</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">tool</span></td>
+    <td><span class="stixliteral">delivers</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">tool</span></td>
+    <td><span class="stixliteral">drops</span></td>
+    <td><span class="stixtype">malware</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">tool</span></td>
+    <td><span class="stixliteral">has</span></td>
+    <td><span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">tool</span></td>
+    <td><span class="stixliteral">targets</span></td>
+    <td><span class="stixtype">identity</span>, <span class="stixtype">infrastructure</span>, <span class="stixtype">location</span>, <span class="stixtype">vulnerability</span></td>
+  </tr>
+  <tr>
+    <td><span class="stixtype">tool</span></td>
+    <td><span class="stixliteral">uses</span></td>
+    <td><span class="stixtype">infrastructure</span></td>
+  </tr>
+</table>
+
+# Appendix C: Additional Examples <a id="additional-examples"></a>
+
+## C.1 Infrastructure Additional Examples <a id="infrastructure-additional-examples"></a>
+
+### C.1.1 Malware & Target List Hosting Domain <a id="malware-target-list-hosting-domain"></a>
+
+<img src="images/malware_and_target_list_hosting_domain.png" alt="Malware & Target List Hosting Domain" width="50%">
+
+```JSON
+[
+  {
+    "type": "infrastructure",
+    "spec_version": "2.1",
+    "id": "infrastructure--d09c50cf-5bab-465e-9e2d-543912148b73",
+    "created": "2016-11-22T09:22:30.000Z",
+    "modified": "2016-11-22T09:22:30.000Z",
+    "name": "Example Target List Host",
+    "infrastructure_types": ["hosting-target-lists"]
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--37ac0c8d-f86d-4e56-aee9-914343959a4c",
+    "created": "2016-11-23T08:17:27.000Z",
+    "modified": "2016-11-23T08:17:27.000Z",
+    "relationship_type": "uses",
+    "source_ref": "malware--3a41e552-999b-4ad3-bedc-332b6d9ff80c",
+    "target_ref": "infrastructure--d09c50cf-5bab-465e-9e2d-543912148b73"
+  },
+  {
+    "type": "malware",
+    "spec_version": "2.1",
+    "id": "malware--3a41e552-999b-4ad3-bedc-332b6d9ff80c",
+    "created": "2016-11-12T14:31:09.000Z",
+    "modified": "2016-11-12T14:31:09.000Z",
+    "is_family": true,
+    "malware_types": [
+      "bot"
+    ],
+    "name": "IMDDOS"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--81f12913-1372-4c96-85ec-E9034ac98aba",
+    "created": "2016-11-23T10:42:39.000Z",
+    "modified": "2016-11-23T10:42:39.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--d09c50cf-5bab-465e-9e2d-543912148b73",
+    "target_ref": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7"
+  },
+  {
+    "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
+    "type": "domain-name",
+    "value": "example.com"
+  }
+]
+```
+
+### C.1.2 Malware Botnet Infrastructure <a id="malware-botnet-infrastructure"></a>
+
+<img src="images/malware_botnet_infrastructure.png" alt="Malware Botnet Infrastructure" width="50%">
+
+```JSON
+[
+  {
+    "type": "infrastructure",
+    "spec_version": "2.1",
+    "id": "infrastructure--78cc7b4b-c6ab-40d1-82eb-95a3059641da",
+    "created": "2017-03-15T04:22:30.000Z",
+    "modified": "2017-03-15T04:22:30.000Z",
+    "name": "Malware Botnet Example",
+    "infrastructure_types": ["botnet"]
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--edce6fe8-2ac7-49d6-bd57-3973a4f819b8",
+    "created": "2017-03-16T22:17:27.000Z",
+    "modified": "2017-03-16T22:17:27.000Z",
+    "relationship_type": "uses",
+    "source_ref": "malware--496cac0a-77ea-4da0-b913-88e553483c8d",
+    "target_ref": "infrastructure--78cc7b4b-c6ab-40d1-82eb-95a3059641da"
+  },
+  {
+    "type": "malware",
+    "spec_version": "2.1",
+    "id": "malware--496cac0a-77ea-4da0-b913-88e553483c8d",
+    "created": "2017-03-10T07:31:09.000Z",
+    "modified": "2017-03-10T07:31:09.000Z",
+    "is_family": true,
+    "malware_types": [
+      "bot"
+    ],
+    "name": "Asprox"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--7aebe2f0-28d6-48a2-9c3e-b0aaa60266ef",
+    "created": "2017-03-16T10:19:23.000Z",
+    "modified": "2017-03-16T10:19:23.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--78cc7b4b-c6ab-40d1-82eb-95a3059641da",
+    "target_ref": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b"
+  },
+  {
+    "id": "ipv4-addr--9cf4a8ec-7640-5f40-a006-79942896168b",
+    "type": "ipv4-addr",
+    "value": "198.51.100.2"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--2168b17d-f0ba-4c2e-920b-276ad803c5f3",
+    "created": "2017-03-16T10:29:55.000Z",
+    "modified": "2017-03-16T10:29:55.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--78cc7b4b-c6ab-40d1-82eb-95a3059641da",
+    "target_ref": "ipv4-addr--2ccfc50f-b0f0-5e06-ba9b-2aa51e23af61"
+  },
+  {
+    "id": "ipv4-addr--2ccfc50f-b0f0-5e06-ba9b-2aa51e23af61",
+    "type": "ipv4-addr",
+    "value": "198.51.100.4"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--2e48e1aa-469d-4473-a110-a128280db964",
+    "created": "2017-03-16T10:33:14.000Z",
+    "modified": "2017-03-16T10:33:14.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--78cc7b4b-c6ab-40d1-82eb-95a3059641da",
+    "target_ref": "ipv4-addr--3073f2be-0e15-5f42-b81d-495938860cd5"
+  },
+  {
+    "id": "ipv4-addr--3073f2be-0e15-5f42-b81d-495938860cd5",
+    "type": "ipv4-addr",
+    "value": "198.51.100.7"
+  }
+]
+```
+
+### C.1.3 Related/Component Botnet Infrastructure <a id="related-component-botnet-infrastructure"></a>
+
+<img src="images/botnet_infrastructure.png" alt="Related/Component Botnet Infrastructure" width="60%">
+
+```JSON
+[
+  {
+    "type": "infrastructure",
+    "spec_version": "2.1",
+    "id": "infrastructure--767ed805-f00a-4603-9bd8-5b5a006b56fa",
+    "created": "2016-11-21T09:22:30.000Z",
+    "modified": "2016-11-21T09:22:30.000Z",
+    "name": "Example Target List Host 2",
+    "infrastructure_types": ["hosting-target-lists"]
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--81f12913-1372-4c96-85ec-E9034ac98aba",
+    "created": "2016-11-23T10:42:39.000Z",
+    "modified": "2016-11-23T10:42:39.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--767ed805-f00a-4603-9bd8-5b5a006b56fa",
+    "target_ref": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7"
+  },
+  {
+    "id": "domain-name--bedb4899-d24b-5401-bc86-8f6b4cc18ec7",
+    "type": "domain-name",
+    "value": "example.com"
+  },
+  {
+    "type": "infrastructure",
+    "spec_version": "2.1",
+    "id": "infrastructure--e4ed271e-e023-45db-99e6-1f912e79bd06",
+    "created": "2016-11-22T11:04:18.000Z",
+    "modified": "2016-11-22T11:04:18.000Z",
+    "name": "Control.Example command-and-control",
+    "infrastructure_types": ["command-and-control"]
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--2f340a76-edef-443d-a203-bede067c0bb0",
+    "created": "2016-11-25T09:46:09.000Z",
+    "modified": "2016-11-25T09:46:09.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--e4ed271e-e023-45db-99e6-1f912e79bd06",
+    "target_ref": "domain-name--a56780a5-93a5-5047-97ab-6900d2441bca"
+  },
+  {
+    "id": "domain-name--a56780a5-93a5-5047-97ab-6900d2441bca",
+    "type": "domain-name",
+    "value": "control.example.com"
+  },
+  {
+    "type": "infrastructure",
+    "spec_version": "2.1",
+    "id": "infrastructure--a3536537-456a-47b5-84dc-fb7c340959e8",
+    "created": "2016-11-18T04:22:30.000Z",
+    "modified": "2016-11-18T04:22:30.000Z",
+    "name": "Botnet Example",
+    "infrastructure_types": ["botnet"]
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--3263dfe0-6bf4-42eb-bab9-5fc9edc6e443",
+    "created": "2016-11-18T08:27:37.000Z",
+    "modified": "2016-11-18T08:27:37.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--a3536537-456a-47b5-84dc-fb7c340959e8",
+    "target_ref": "ipv4-addr--182726c7-ba5e-5f77-97ef-378365bd0b79"
+  },
+  {
+    "id": "ipv4-addr--182726c7-ba5e-5f77-97ef-378365bd0b79",
+    "type": "ipv4-addr",
+    "value": "198.51.100.8"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--80d9ba7d-893b-4286-96f9-32225060a730",
+    "created": "2016-11-18T06:22:31.000Z",
+    "modified": "2016-11-18T06:22:31.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--a3536537-456a-47b5-84dc-fb7c340959e8",
+    "target_ref": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6"
+  },
+  {
+    "id": "ipv4-addr--4b8ed646-46df-5a9c-b5a6-b3ae128f35a6",
+    "type": "ipv4-addr",
+    "value": "198.51.100.9"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--43f753d8-61e2-472e-918e-d7c58e2463e7",
+    "created": "2016-11-25T13:37:27.000Z",
+    "modified": "2017-11-25T13:37:27.000Z",
+    "relationship_type": "uses",
+    "source_ref": "infrastructure--a3536537-456a-47b5-84dc-fb7c340959e8",
+    "target_ref": "infrastructure--767ed805-f00a-4603-9bd8-5b5a006b56fa"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--8386f241-b583-4c59-9056-a3b0db596d93",
+    "created": "2016-11-25T13:37:27.000Z",
+    "modified": "2017-11-25T13:37:27.000Z",
+    "relationship_type": "controls",
+    "source_ref": "infrastructure--e4ed271e-e023-45db-99e6-1f912e79bd06",
+    "target_ref": "infrastructure--a3536537-456a-47b5-84dc-fb7c340959e8"
+  }
+]
+```
+
+### C.1.4 Malware Instance Hosted on Compromised Domain <a id="malware-instance-hosted-on-compromised-domain"></a>
+
+<img src="images/malware_hosted_on_compromised_domain.png" alt="Malware Instance Hosted on Compromised Domain" width="40%">
+
+```JSON
+[
+  {
+    "type": "infrastructure",
+    "spec_version": "2.1",
+    "id": "infrastructure--33588e0e-2bab-430e-9073-cacf704ea1e7",
+    "created": "2017-04-04T13:01:21.000Z",
+    "modified": "2017-04-04T13:01:21.000Z",
+    "name": "Malware hosted on compromised domain",
+    "infrastructure_types": ["hosting-malware"]
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--409244ac-01cd-4465-ad30-3f92a226f59f",
+    "created": "2016-11-25T09:46:09.000Z",
+    "modified": "2016-11-25T09:46:09.000Z",
+    "relationship_type": "consists-of",
+    "source_ref": "infrastructure--33588e0e-2bab-430e-9073-cacf704ea1e7",
+    "target_ref": "domain-name--224dd5a2-d2db-5b8d-91f9-124a0c0c8546"
+  },
+  {
+    "id": "domain-name--224dd5a2-d2db-5b8d-91f9-124a0c0c8546",
+    "type": "domain-name",
+    "value": "foo.example.com"
+  },
+  {
+    "type": "relationship",
+    "spec_version": "2.1",
+    "id": "relationship--b3ab5ba1-e6d6-46b0-8ebe-91fc91978c85",
+    "created": "2017-04-05T13:37:27.000Z",
+    "modified": "2017-04-05T13:37:27.000Z",
+    "relationship_type": "delivers",
+    "source_ref": "infrastructure--33588e0e-2bab-430e-9073-cacf704ea1e7",
+    "target_ref": "malware--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061"
+  },
+  {
+    "type": "malware",
+    "spec_version": "2.1",
+    "id": "malware--0c7b5b88-8ff7-4a4d-aa9d-feb398cd0061",
+    "created": "2016-05-12T08:17:27.000Z",
+    "modified": "2016-05-12T08:17:27.000Z",
+    "name": "SpyEye",
+    "is_family": false,
+    "malware_types": [
+      "trojan"
+    ]
+  }
+]
+```
+
+## C.2 Extension Definition Additional Examples <a id="extension-definition-additional-examples"></a>
+
+### C.2.1 Create a new object type with a copyright marking definition <a id="create-a-new-object-type-with-a-copyright-marking-definition"></a>
+
+In this example one can see a new SDO object type being created with the STIX extension mechanism. This example also includes a copyright marking definition and an instance of the new SDO object type. This new SDO object type defines three properties, **name**, **some_property_name1**, and **some_property_name2**.
+
+```JSON
+[
+  {
+    "type": "marking-definition",
+    "spec_version": "2.1",
+    "id": "marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da",
+    "created": "2016-08-01T00:00:00.000Z",
+    "definition_type": "statement",
+    "definition": {
+      "statement": "Copyright 2019, Example Corp"
+    }
+  },
+  {
+    "id": "extension-definition--04b2d3ef-d061-4912-ab77-6bbe807a5bd5",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "name": "New SDO 2",
+    "description": "This schema creates a new object type called my-favorite-sdo-2",
+    "schema": "https://www.example.com/schema-my-favorite-sdo-2/v1/",
+    "version": "1.2.1",
+    "object_marking_refs": ["marking-definition--34098fce-860f-48ae-8e50-ebd3cc5e41da"],
+    "extension_types": [ "new-sdo" ]
+  },
+  {
+    "type": "my-favorite-sdo",
+    "spec_version": "2.1",
+    "id": "my-favorite-sdo--64b8f076-a336-4d08-a0a3-fa6bd4ccc7c6",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "This is the name of my favorite",
+    "some_property_name1": "value1",
+    "some_property_name2": "value2",
+    "extensions": {
+      "extension-definition--04b2d3ef-d061-4912-ab77-6bbe807a5bd5" : {
+        "extension_type": "new-sdo"
+      }
+    }
+  }
+]
+```
+
+### C.2.2 Adding properties to an existing STIX object instance <a id="adding-properties-to-an-existing-stix-object-instance"></a>
+
+This example adds the properties **rank** and **toxicity** to the <span class="stixtype">indicator</span> object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension Foo 1",
+    "description": "This schema adds two properties to a STIX object",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-foo-1/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "property-extension" ]
+  },
+  {
+    "type": "indicator",
+    "spec_version": "2.1",
+    "id": "indicator--e97bfccf-8970-4a3c-9cd1-5b5b97ed5d0c",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "name": "File hash for Poison Ivy variant",
+    "description": "This file hash indicates that a sample of Poison Ivy is present.",
+    "labels": [
+      "malicious-activity"
+    ],
+    "pattern": "[file:hashes.'SHA-256' = 'ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c']",
+    "pattern_type": "stix",
+    "valid_from": "2014-02-20T09:00:00.000000Z",
+    "extensions": {
+      "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e" : {
+        "extension_type": "property-extension",
+        "rank": 5,
+        "toxicity": 8
+      }
+    }
+  }
+]
+```
+
+This example shows how one can also add the same extension (properties **rank** and **toxicity**) to the <span class="stixtype">artifact</span> object.
+
+```JSON
+{
+  "type": "artifact",
+  "spec_version": "2.1",
+  "id": "artifact--6be1fbcb-fd03-5ec3-b05f-4329746e9d2b",
+  "mime_type": "application/zip",
+  "payload_bin": "ZX7HIBWPQA99NSUhEUgAAADI== ...",
+  "encryption_algorithm": "mime-type-indicated",
+  "decryption_key": "My voice is my passport",
+  "extensions": {
+    "extension-definition--d83fce45-ef58-4c6c-a3f4-1fbc32e98c6e" : {
+      "extension_type": "property-extension",
+      "rank" :5,
+      "toxicity": 8
+    }
+  }
+}
+```
+
+### C.2.3 Adding properties to an existing STIX relationship object instance <a id="adding-properties-to-an-existing-stix-relationship-object-instance"></a>
+
+This example adds the property **mysightingprop** to the <span class="stixtype">sighting</span> object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--a19a6f0a-93dc-4f34-ac9f-83a0141261de",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension Foo 2",
+    "description": "This schema adds a property to the sighting object",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-foo-2/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "property-extension" ]
+  },
+  {
+    "type": "sighting",
+    "spec_version": "2.1",
+    "id": "sighting--ee20065d-2555-424f-ad9e-0f8428623c75",
+    "created_by_ref": "identity--f431f809-377b-45e0-aa1c-6a4751cae5ff",
+    "created": "2016-04-06T20:08:31.000Z",
+    "modified": "2016-04-06T20:08:31.000Z",
+    "sighting_of_ref": "indicator--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+    "extensions": {
+      "extension-definition--a19a6f0a-93dc-4f34-ac9f-83a0141261de" : {
+        "extension_type": "property-extension",
+        "mysightingprop" : "life is a bunch of bananas"
+      }
+    }
+  }
+]
+```
+
+### C.2.4 Adding properties to an existing STIX marking definition object instance <a id=adding-properties-to-an-existing-stix-marking-definition-object-instance></a>
+
+This example adds the properties **additional_marking_prop** and **required_data_storage_hash** to the <span class="stixtype">marking-definition</span> object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--9ef47f81-1443-4632-8497-8b2878f8ac21",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension Foo 3",
+    "description": "This schema adds properties to the marking definition object",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-markingfoo-1/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "property-extension" ]
+  },
+  {
+    "type": "marking-definition",
+    "spec_version": "2.1",
+    "id": "marking-definition--7adc34dc-f5c7-4b7c-a7da-28fc4dd716cc",
+    "created": "2016-08-01T00:00:00.000Z",
+    "extensions": {
+      "extension-definition--9ef47f81-1443-4632-8497-8b2878f8ac21" : {
+        "extension_type": "property_extension",
+        "additional_marking_prop" : "if this data is leaked then the world will end",
+        "required_data_storage_hash" : "sha1024"
+      }
+    }
+  }
+]
+```
+
+### C.2.5 Adding properties to an existing STIX language content object instance <a id=adding-properties-to-an-existing-stix-language-content-object-instance></a>
+
+This example adds the property **translation_engine** to the <span class="stixtype">language-content</span> object.
+
+```JSON
+[
+  {
+    "id": "extension-definition--b63766f9-b39e-4a4f-9396-e5e753722df0",
+    "type": "extension-definition",
+    "spec_version": "2.1",
+    "name": "Extension Foo 4",
+    "description": "This schema adds translation engines to the language content object",
+    "created": "2014-02-20T09:16:08.989000Z",
+    "modified": "2014-02-20T09:16:08.989000Z",
+    "created_by_ref": "identity--11b76a96-5d2b-45e0-8a5a-f6994f370731",
+    "schema": "https://www.example.com/schema-langfoo-1/v1/",
+    "version": "1.2.1",
+    "extension_types": [ "property-extension" ]
+  },
+  {
+    "type": "language-content",
+    "id": "language-content--0911f616-727f-48cb-a4c5-9420299562a4",
+    "spec_version": "2.1",
+    "created": "2019-06-08T21:31:22.007Z",
+    "modified": "2019-07-08T21:31:22.007Z",
+    "object_ref": "threat-actor--8e2e2d2b-17d4-4cbf-938f-98ee46b3cd3f",
+    "contents": {
+      "de": {
+        "goals": ["Bankgeld stehlen", "Kreditkarten stehlen"]
+      },
+      "fr": {
+        "goals": ["Voler de l'argent en banque", ""]
+      }
+    },
+    "extensions": {
+      "extension-definition--b63766f9-b39e-4a4f-9396-e5e753722df0" : {
+        "extension_type": "property-extension",
+        "translation_engine" : "babblefish"
+      }
+    }
+  }
+]
+```
+
+# Appendix D: IANA Considerations <a id="iana-considerations"></a>
+
+This appendix contains the required information to register the STIX media type with IANA. While some of the information here is only for IANA, implementers of STIX should pay close attention to the security considerations and privacy considerations outlined in this appendix.
+
+Guidance for using STIX in a way that maximizes its benefits and reduces its challenges can be found in the STIX Best Practices Guide \[[BestPractices](#stixbestpractices)\].
+
+This document defines the `"application/stix+json"` media type.
+
+Media type name: `application`
+
+Media subtype name: `stix+json`
+
+Required parameters: None
+
+Optional parameters: version
+
+<div style="margin-left:2em;"><p>This parameter is used to designate the specification version of STIX that is being used during HTTP content negotiation. Example: "application/stix+json;version=2.1". The parameter value is of the form 'n.m', where n is the major version and m the minor version, both unsigned integer values.</p></div>
+
+Encoding considerations: binary
+
+<div style="margin-left:2em;"><p>Encoding considerations are identical to those specified for the <code>"application/json"</code> media type. See [<a href="#rfc8259">RFC8259</a>].</p></div>
+
+Security considerations:
+
+<div style="margin-left:2em;"><p>Security considerations relating to the generation and consumption of STIX messages are similar to <code>application/json</code> and are discussed in section 12 of [<a href="#rfc8259">RFC8259</a>].</p></div>
+
+<div style="margin-left:2em;"><p>Unicode is used to represent text such as descriptions in the format. The considerations documented by Unicode Technical Report #36: Unicode Security Considerations [<a href="#unicodetr36">UnicodeTR#36</a>] should be taken into account.</p></div>
+
+<div style="margin-left:2em;"><p>The STIX standard does not itself specify a transport mechanism for STIX documents. It is expected that TAXII is often used (which uses TLS via HTTPS). As there is no transport mechanism specified, it is up to the users of this to use an appropriately secured transport method. For example, TLS, JSON Web Encryption [<a href="#rfc7516">RFC7516</a>] and/or JSON Web Signature [<a href="#rfc7515">RFC7515</a>] can provide such mechanisms.</p></div>
+
+<div style="margin-left:2em;"><p>Documents of "application/stix+json" are STIX based Cyber Threat Intelligence (CTI) documents. The documents may contain active or executable content as well as URLs, IP addresses, and domain names that are known or suspected to be malicious. Systems should thus take appropriate precautions before decoding any of this content, either for persistent storage or execution purposes. Such precautions may include measures such as de-fanging, sandboxing, or other measures. The samples included in STIX documents are reference samples only, and there is no provision or expectation in the specification that they will be loaded and/or executed. There are provisions in the specification to encrypt these samples so that even if a tool decodes the data, a further active step must be done before the payload will be "live". It is highly recommended that all active code be armored in this manner.</p></div>
+
+<div style="margin-left:2em;"><p>STIX specifies the use of hashing and encryption mechanisms for some data types. A cryptography expert should be consulted when choosing which hashing or encryption algorithms to use to ensure that they do not have any security issues.</p></div>
+
+<div style="margin-left:2em;"><p>STIX provides a graph-based data model. As such, STIX implementations should implement protections against graph queries that can potentially consume a significant amount of resources and prevent the implementation from functioning in a normal way.</p></div>
+
+<div style="margin-left:2em;"><p>This specification also describes "STIX Patterning", a mechanism to describe and evaluate a search/match for data observed on systems and networks. Patterning is a grammar itself and includes PCRE regular expressions. Care should be taken when parsing and evaluating the grammar (particularly when evaluating PCRE from unknown or untrusted sources) as they can potentially consume a significant amount of resources.</p></div>
+
+<div style="margin-left:2em;"><p>Care must be taken when parsing and using CTI with SCOs that use UUIDv5 IDs. The recommended hash, SHA-1, is not cryptographically secure and does not guarantee that two SCOs are unique, e.g. two SCOs with contributing properties that are different and hashed per the recommended method, may have the same resulting UUIDv5. As SCOs using UUIDv5 are not tied to a particular author via created_by_ref, traditional filtering on TAXII feeds may fail to ensure invalid, or colliding objects are not integrated, utilized or distributed.</p></div>
+
+Privacy considerations:
+
+<div style="margin-left:2em;"><p>These considerations are, in part, derived from Section 10 of the Resource-Oriented Lightweight Information Exchange [<a href="#rfc8322">RFC8322</a>].</p></div>
+
+<div style="margin-left:2em;"><p>Documents may include highly confidential, personal (PII), and/or classified information. There are methods in the standard for marking elements of the document such that the consumer knows of these limitations. These markings may not always be used. For example, an out-of-band agreement may cover and restrict sharing. Just because a document is not marked as containing information that should not be shared does not mean that a document is free for sharing. It may be the case that a legal agreement has been entered into between the parties sharing documents, and that each party understands and follows their obligations under that agreement as well as any applicable laws or regulations.</p></div>
+
+<div style="margin-left:2em;"><p>Adoption of the information-sharing approach described in this document will enable users to more easily perform correlations across separate, and potentially unrelated, cybersecurity information providers. A client may succeed in assembling a data set that would not have been permitted within the context of the authorization policies of either provider when considered individually. Thus, providers may face a risk of an attacker obtaining an access that constitutes an undetected separation of duties (SOD) violation. It is important to note that this risk is not unique to this specification, and a similar potential for abuse exists with any other cybersecurity information-sharing protocol.</p></div>
+
+Interoperability considerations:
+
+<div style="margin-left:2em;"><p>The STIX specification specifies the format of conforming messages and the interpretation thereof. In addition, the OASIS Cyber Threat Intelligence (CTI) Technical Committee has defined interoperability tests to ensure conforming products and solutions can exchange STIX documents.</p></div>
+
+Published specification:
+
+<div style="margin-left:2em;"><p>STIX Version 2.1 OASIS Committee Specification 01<br>http://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html<br>Cited in the "OASIS Standards" document:<br>https://www.oasis-open.org/standards#oasiscommiteespecs, from<br>https://www.oasis-open.org/standards#stix2.1</p></div>
+
+Applications which use this media:
+
+<div style="margin-left:2em;"><p>Structured Threat Information Expression (STIX) is a language and serialization format used to exchange cyber threat intelligence (CTI) such as Threat Actors, Campaigns, Intrusion Sets, Attack Patterns, Indicators of Compromise, etc. STIX enables organizations to share CTI with one another in a consistent and machine-readable manner, allowing security communities to better understand what computer-based attacks they are most likely to see and to anticipate and/or respond to those attacks faster and more effectively. STIX is designed to improve many different capabilities, such as collaborative threat analysis, automated threat exchange, automated detection and response, and more.</p></div>
+
+Fragment identifier considerations: None
+
+Restrictions on usage: None
+
+Additional information:
+
+<div style="margin-left:2em;"><p>1. Deprecated alias names for this type: application/vnd.oasis.stix+json</p></div>
+
+<div style="margin-left:2em;"><p>2. Magic number(s): n/a [<a href="#rfc8259">RFC8259</a>]</p></div>
+
+<div style="margin-left:2em;"><p>3. File extension(s): stix</p></div>
+
+<div style="margin-left:2em;"><p>4. Macintosh file type code: TEXT [<a href="#rfc8259">RFC8259</a>]</p></div>
+
+<div style="margin-left:2em;"><p>5. Object Identifiers: None</p></div>
+
+Person and email to contact for further information: Chet Ensign (chet.ensign@oasis-open.org)
+
+Intended usage: COMMON
+
+Author:
+
+<div style="margin-left:2em;"><p>OASIS Cyber Threat Intelligence (CTI) Technical Committee;</p></div>
+
+<div style="margin-left:2em;"><p>URI reference: http://www.oasis-open.org/committees/cti/.</p></div>
+
+Change controller: OASIS
+
+Provisional registration: No
+
+# Appendix E: References <a id="references"></a>
+
+This appendix contains the normative and informative references that are used in this document. Normative references are specific (identified by date of publication and/or edition number or version number) and Informative references are either specific or non-specific. For specific references, only the cited version applies. For non-specific references, the latest version of the reference document (including any amendments) applies. While any hyperlinks included in this appendix were valid at the time of publication, OASIS cannot guarantee their long term validity.
+
+## E.1. Normative References <a id="normative-references"></a>
+
+The following documents are referenced in such a way that some or all of their content constitutes requirements of this document.
+
+**[Character Sets]** <a id="character-sets"></a>
+N. Freed and M. Dürst, "Character Sets", IANA, December 2013, [Online]. Available: http://www.iana.org/assignments/character-sets/character-sets.xhtml.
+
+**[Davis]** <a id="davis"></a>
+M. Davis and K. Whistler, "UNICODE NORMALIZATION FORMS", Unicode® Standard Annex 15, February 2016. [Online] Available: http://unicode.org/reports/tr15/.
+
+**[FIPS202]** <a id="fips202"></a>
+"SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions", FIPS PUB 202, August 2015, Information Technology Laboratory, National Institute of Standards and Technology (NIST). [Online]. Available: http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf.
+
+**[IEEE 754-2008]** <a id="ieee-754-2008"></a>
+"IEEE Standard for Floating-Point Arithmetic", IEEE 754-2008, August 2008. [Online]. Available: http://ieeexplore.ieee.org/document/4610935/.
+
+**[IPFIX]** <a id="ipfix"></a>
+IANA, "IP Flow Information Export (IPFIX) Entities", December 2016, [Online]. Available: http://www.iana.org/assignments/ipfix/ipfix.xhtml.
+
+**[ISO3166-1]** <a id="iso3166-1"></a>
+"ISO 3166-1:2013 Country Codes", 2013. [Online]. Available: https://www.iso.org/standard/63545.html.
+
+**[ISO3166-2]** <a id="iso3166-2"></a>
+"ISO 3166-2:2020 Codes for the representation of names of countries and their subdivisions — Part 2: Country subdivision code", 2020. [Online]. Available: https://www.iso.org/standard/72483.html.
+
+**[ISO10646]** <a id="iso10646"></a>
+"ISO/IEC 10646:2014 Information technology — Universal Coded Character Set (UCS)", 2014. [Online]. Available: http://unicode.org/L2/L2010/10038-fcd10646-main.pdf.
+
+**[Media Types]** <a id="media-types"></a>
+N. Freed, M. Kucherawy, M. Baker and B. Hoehrmann, "Media Types", IANA, December 2016. [Online]. Available: http://www.iana.org/assignments/media-types/media-types.xhtml.
+
+**[NIST SP800-38D]** <a id="nist-sp800-38d"></a>
+M. Dworkin, "Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC", NIST Special Publication 800-38D, November 2007. [Online]. Available: http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf.
+
+**[NVD]** <a id="nvd"></a>
+Official Common Platform Enumeration (CPE) Dictionary, National Vulnerability Database [Online]. Available: https://nvd.nist.gov/cpe.cfm.
+
+**[Port Numbers]** <a id="port-numbers"></a>
+J. Touch, A. Mankin, E. Kohler, et. al., "Service Name and Transport Protocol Port Number Registry", IANA, January 2017. [Online]. Available: http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml.
+
+**[RFC1034]** <a id="rfc1034"></a>
+Mockapetris, P., "Domain names - concepts and facilities", STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987, http://www.rfc-editor.org/info/rfc1034.
+
+**[RFC1321]** <a id="rfc1321"></a>
+Rivest, R., "The MD5 Message-Digest Algorithm", RFC 1321, DOI 10.17487/RFC1321, April 1992,; http://www.rfc-editor.org/info/rfc1321.
+
+**[RFC2047]** <a id="rfc2047"></a>
+Moore, K., "MIME (Multipurpose Internet Mail Extensions) Part Three: Message Header Extensions for Non-ASCII Text", RFC 2047, DOI 10.17487/RFC2047, November 1996, http://www.rfc-editor.org/info/rfc2047.
+
+**[RFC2119]** <a id="rfc2119"></a>
+Bradner, S., "Key words for use in RFCs to Indicate Requirement Levels", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997, http://www.rfc-editor.org/info/rfc2119.
+
+**[RFC3174]** <a id="rfc3174"></a>
+Eastlake 3rd, D. and P. Jones, "US Secure Hash Algorithm 1 (SHA1)", RFC 3174, DOI 10.17487/RFC3174, September 2001, http://www.rfc-editor.org/info/rfc3174.
+
+**[RFC3339]** <a id="rfc3339"></a>
+Klyne, G. and C. Newman, "Date and Time on the Internet: Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002, http://www.rfc-editor.org/info/rfc3339.
+
+**[RFC3986]** <a id="rfc3986"></a>
+Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax", STD 66, RFC 3986, DOI 10.17487/RFC3986, January 2005, http://www.rfc-editor.org/info/rfc3986#.
+
+**[RFC4122]** <a id="rfc4122"></a>
+Leach, P., Mealling, M., and R. Salz, "A Universally Unique IDentifier (UUID) URN Namespace", RFC 4122, DOI 10.17487/RFC4122, July 2005, http://www.rfc-editor.org/info/rfc4122.
+
+**[RFC4648]** <a id="rfc4648"></a>
+Josefsson, S., "The Base16, Base32, and Base64 Data Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006, http://www.rfc-editor.org/info/rfc4648.
+
+**[RFC5322]** <a id="rfc5322"></a>
+Resnick, P., Ed., "Internet Message Format", RFC 5322, DOI 10.17487/RFC5322, October 2008, http://www.rfc-editor.org/info/rfc5322.
+
+**[RFC5646]** <a id="rfc5646"></a>
+Phillips, A., Ed., and M. Davis, Ed., "Tags for Identifying Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646, September 2009, http://www.rfc-editor.org/info/rfc5646.
+
+**[RFC5890]** <a id="rfc5890"></a>
+Klensin, J., "Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework", RFC 5890, DOI 10.17487/RFC5890, August 2010, http://www.rfc-editor.org/info/rfc5890.
+
+**[RFC6234]** <a id="rfc6234"></a>
+Eastlake 3rd, D. and T. Hansen, "US Secure Hash Algorithms (SHA and SHA-based HMAC and HKDF)", RFC 6234, DOI 10.17487/RFC6234, May 2011, http://www.rfc-editor.org/info/rfc6234.
+
+**[RFC7493]** <a id="rfc7493"></a>
+Bray, T., Ed., "The I-JSON Message Format", RFC 7493, DOI 10.17487/RFC7493, March 2015, https://www.rfc-editor.org/info/rfc7493.
+
+**[RFC7539]** <a id="rfc7539"></a>
+Nir, Y. and A. Langley, "ChaCha20 and Poly1305 for IETF Protocols", RFC 7539, DOI 10.17487/RFC7539, May 2015, http://www.rfc-editor.org/info/rfc7539.
+
+**[RFC8174]** <a id="rfc8174"></a>
+Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017, https://www.rfc-editor.org/info/rfc8174.
+
+**[RFC8259]** <a id="rfc8259"></a>
+Bray, T., Ed., "The JavaScript Object Notation (JSON) Data Interchange Format", RFC 8259, DOI 10.17487/RFC8259, December 2017. http://www.rfc-editor.org/info/rfc8259.txt.
+
+**[RFC8785]** <a id="rfc8785"></a>
+Rundgren, A., Jordan, B., and S. Erdtman, "JSON Canonicalization Scheme (JCS)", RFC 8785, DOI 10.17487/RFC8785, June 2020, https://www.rfc-editor.org/info/rfc8785.
+
+**[SSDEEP]** <a id="ssdeep"></a>
+J. Kornblum, "Identifying Almost Identical Files Using Context Triggered Piecewise Hashing", Proceedings of The Digital Forensic Research Conference (DFRWS) 2006. [Online]. Available: https://dfrws.org/presentation/identifying-almost-identical-files-using-context-triggered-piecewise-hashing/#.
+
+**[SWID]** <a id="swid"></a>
+ISO/IEC 19770-2:2015 Information technology — IT asset management — Part 2: Software identification tag, 2015. [Online]. Available: https://www.iso.org/standard/65666.html.
+
+**[TLP]** <a id="tlp"></a>
+Traffic Light Protocol, Version 1.0 (TLP). (2016, Aug. 25). FIRST. [Online]. Available: https://first.org/tlp.
+
+**[TLSH]** <a id="tlsh"></a>
+Jonathan Oliver, Chun Cheng, and Yanggui Chen, TLSH - A Locality Sensitive Hash. 4th Cybercrime and Trustworthy Computing Workshop, Sydney, November 2013. Available: https://github.com/trendmicro/tlsh/blob/master/TLSH_CTC_final.pdf.
+
+**[UNSD M49]** <a id="unsd-m49"></a>
+Standard country or area codes for statistical use (M49), UN Statistics Division (UNSD), Available: https://unstats.un.org/unsd/methodology/m49/.
+
+**[WGS84]** <a id="wgs84"></a>
+National Imagery and Mapping Agency (NIMA), Department of Defense World Geodetic System 1984, NIMA TR8350.2, January 2000. Available: https://earth-info.nga.mil/php/download.php?file=coord-wgs84.
+
+**[X.509]** <a id="x509"></a>
+X.509 : Information technology - Open Systems Interconnection - The Directory: Public-key and attribute certificate frameworks, ITU, October 2016. [Online]. Available: https://www.itu.int/rec/T-REC-X.509/.
+
+## E.2. Informative References <a id="informative-references"></a>
+
+The following referenced documents are not required for the application of this document but may assist the reader with regard to a particular subject area.
+
+**[CAPEC]** <a id="capec"></a>
+Common Attack Pattern Enumeration and Classification (CAPEC). (2014, Nov. 7). The MITRE Corporation. [Online]. Available: http://capec.mitre.org.
+
+**[CVE]** <a id="cve"></a>
+Common Vulnerabilities and Exposures (CVE). The MITRE Corporation. [Online]. Available: http://cve.mitre.org.
+
+**[Goessner 2007]** <a id="goessner-2007"></a>
+Goessner, S., "JSONPath - XPath for JSON", February 2007. [Online]. Available: http://goessner.net/articles/JsonPath/.
+
+**[ICD 203]** <a id="icd-203"></a>
+"Analytic Standards", ICD 203, January 2015. [Online]. Available: https://www.dni.gov/files/documents/ICD/ICD%20203%20Analytic%20Standards.pdf.
+
+**[NIST800-83]** <a id="nist800-83"></a>
+M. Souppaya and K. Scarfone, "Guide to Malware Incident Prevention and Handling for Desktops and Laptops", NIST Special Publication 800-83, 2013. [Online]. Available: https://csrc.nist.gov/publications/detail/sp/800-83/rev-1/final.
+
+**[STIXBestPractices]** <a id="stixbestpractices"></a>
+OASIS Cyber Threat Intelligence (CTI) TC, STIX Best Practices Guide Version 1.0.0, 2022. [Online]. Available: https://docs.oasis-open.org/cti/stix-bp/v1.0.0/cn01/stix-bp-v1.0.0-cn01.html.
+
+**[PCRE]** <a id="pcre"></a>
+PCRE - Perl Compatible Regular Expressions [Online]. Available: https://www.pcre.org/.
+
+**[RFC7515]** <a id="rfc7515"></a>
+Jones, M., Bradley, J., and N. Sakimura, "JSON Web Signature (JWS)", RFC 7515, DOI 10.17487/RFC7515, May 2015, https://www.rfc-editor.org/info/rfc7515.
+
+**[RFC7516]** <a id="rfc7516"></a>
+Jones, M. and J. Hildebrand, "JSON Web Encryption (JWE)", RFC 7516, DOI 10.17487/RFC7516, May 2015, https://www.rfc-editor.org/info/rfc7516.
+
+**[RFC8322]** <a id="rfc8322"></a>
+Field, J., Banghart, S., and D. Waltermire, "Resource-Oriented Lightweight Information Exchange (ROLIE)", RFC 8322, DOI 10.17487/RFC8322, February 2018, https://www.rfc-editor.org/info/rfc8322.
+
+**[Shannon Entropy]** <a id="shannon-entropy"></a>
+Shannon entropy - "A Mathematical Theory of Communication" - by Claude E. Shannon, July 1948, https://web.archive.org/web/20130510074504/http://www.alcatel-lucent.com/bstj/vol27-1948/articles/bstj27-4-623.pdf
+
+**[SNORT]** <a id="snort"></a>
+Snort - Network Intrusion Detection & Prevention System, Cisco, 2019 [Online]. Available: https://www.snort.org/.
+
+**[Suricata]** <a id="suricata"></a>
+Suricata - Open Source IDS / IPS / NSM engine, Open Information Security Foundation (OISF), [Online]. Available: https://suricata-ids.org/.
+
+**[UnicodeTR#36]** <a id="unicodetr36"></a>
+Unicode Technical Report #36. UNICODE SECURITY CONSIDERATIONS, 2014 [Online]. Available: https://unicode.org/reports/tr36/.
+
+**[VERIS]** <a id="veris"></a>
+VERIS Community Database. (n.d.). [Online]. Available: http://veriscommunity.net/vcdb.html.
+
+**[WEP]** <a id="wep"></a>
+"Words of Estimative Probability", Kent, Sherman, March 2007. [Online]. Available: https://www.cia.gov/resources/csi/studies-in-intelligence/archives/vol-8-no-4/words-of-estimative-probability/.
+
+**[YARA]** <a id="yara"></a>
+YARA: The pattern matching swiss knife for malware researchers (and everyone else), Virus Total [Online]. Available: http://virustotal.github.io/yara/.
+
+# Appendix F: Acknowledgments <a id="acknowledgments"></a>
+
+**STIX Subcommitee Chairs**:
+
+Christian Studer, CIRCL
+
+Stephan Relitz, Peraton
+
+**Special Thanks**:
+
+
+
+Substantial contributions to this specification from the following individuals are gratefully acknowledged:
+
+Bret Jordan, Broadcom
+
+Trey Darley, CCB/CERT.be
+
+Terry MacDonald, Cosive
+
+Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Stephen Russett, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Marlon Taylor, DHS Office of Cybersecurity and Communications (CS&C)
+
+Chris Ricard, Financial Services Information Sharing and Analysis Center (FS-ISAC)
+
+Sean Barnum, FireEye
+
+Gary Katz, FireEye, Inc.
+
+Ryusuke Masuoka, Fujitsu Limited
+
+Iain Brown, GDS
+
+Jason Keirstead, IBM
+
+Emily Ratliff, IBM
+
+Tim Casey, Intel
+
+Justin Stewart, LookingGlass Cyber
+
+Allan Thomson, LookingGlass Cyber
+
+Greg Back, MITRE Corporation
+
+Jon Baker, MITRE Corporation
+
+Sarah Kelley, MITRE Corporation
+
+Ivan Kirillov, MITRE Corporation
+
+Chris Lenk, MITRE Corporation
+
+Richard Piazza, MITRE Corporation
+
+Richard Struse, MITRE Corporation
+
+Emmanuelle Vargas-Gonzalez, MITRE Corporation
+
+John Wunder, MITRE Corporation
+
+John-Mark Gurney, New Context Services, Inc.
+
+Christian Hunt, New Context Services, Inc.
+
+Drew Varner, NineFX, Inc.
+
+Aharon Chernin, Perch
+
+Dave Cridland, Surevine
+
+Jeffrey Mates, US Department of Defense (DoD)
+
+**Participants**:
+
+
+
+The following individuals were members of the OASIS CTI Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
+
+Kai Li, 360 Enterprise Security Group
+
+shu li, 360 Enterprise Security Group
+
+qian yin, 360 Enterprise Security Group
+
+Xinhua Zheng, 360 Enterprise Security Group
+
+Robert Coderre, Accenture
+
+Kyle Maxwell, Accenture
+
+David Crawford, Aetna
+
+Marcos Orallo, Airbus Group SAS
+
+Roman Fiedler, AIT Austrian Institute of Technology
+
+Florian Skopik, AIT Austrian Institute of Technology
+
+Ryan Clough, Anomali
+
+Nicholas Hayden, Anomali
+
+Wei Huang, Anomali
+
+Russell Matbouli, Anomali
+
+Angela Nichols, Anomali
+
+Hugh Njemanze, Anomali
+
+Katie Pelusi, Anomali
+
+Patrick Maroney, AT&T
+
+Dean Thompson, Australia and New Zealand Banking Group (ANZ Bank)
+
+Radu Marian, Bank of America
+
+Sounil Yu, Bank of America
+
+Vicky Laurens, Bank of Montreal
+
+Bret Jordan, Broadcom
+
+Trey Darley, CCB/CERT.be
+
+Alexandre Dulaunoy, CIRCL
+
+Andras Iklody, CIRCL
+
+Christian Studer, CIRCL
+
+Raphaël Vinot, CIRCL
+
+Syam Appala, Cisco Systems
+
+Ted Bedwell, Cisco Systems
+
+Pavan Reddy, Cisco Systems
+
+Omar Santos, Cisco Systems
+
+Sam Taghavi Zargar, Cisco Systems
+
+Jyoti Verma, Cisco Systems
+
+Jart Armin, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Doug DePeppe, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Ben Ottoman, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+David Powell, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Andreas Sfakianakis, Cyber Threat Intelligence Network, Inc. (CTIN)
+
+Anuj Goel, Cyware Labs
+
+Avkash Kathiriya, Cyware Labs
+
+Jaeden Hampton, DarkLight, Inc.
+
+Ryan Hohimer, DarkLight, Inc.
+
+Ryan Joyce, DarkLight, Inc.
+
+Shawn Riley, DarkLight, Inc.
+
+Ian Roberts, DarkLight, Inc.
+
+Andrew Byrne, Dell
+
+Jeff Odom, Dell
+
+Sreejith Padmajadevi, Dell
+
+Ravi Sharda, Dell
+
+Will Urbanski, Dell
+
+David Ailshire, DHS Office of Cybersecurity and Communications (CS&C)
+
+Steven Fox, DHS Office of Cybersecurity and Communications (CS&C)
+
+Taneika Hill, DHS Office of Cybersecurity and Communications (CS&C)
+
+Evette Maynard-Noel, DHS Office of Cybersecurity and Communications (CS&C)
+
+Jackie Eun Park, DHS Office of Cybersecurity and Communications (CS&C)
+
+Sean Sobieraj, DHS Office of Cybersecurity and Communications (CS&C)
+
+Marlon Taylor, DHS Office of Cybersecurity and Communications (CS&C)
+
+Preston Werntz, DHS Office of Cybersecurity and Communications (CS&C)
+
+Jörg Abraham, EclecticIQ
+
+wouter bolsterlee, EclecticIQ
+
+Adam Bradbury, EclecticIQ
+
+Marko Dragoljevic, EclecticIQ
+
+Oliver Gheorghe, EclecticIQ
+
+Joep Gommers, EclecticIQ
+
+Caitlin Huey, EclecticIQ
+
+Christopher O’Brien, EclecticIQ
+
+Sergey Polzunov, EclecticIQ
+
+Rutger Prins, EclecticIQ
+
+Aukjan van Belkum, EclecticIQ
+
+Raymon van der Velde, EclecticIQ
+
+Tom Vaughan, EclecticIQ
+
+Joseph Woodruff, EclecticIQ
+
+Ben Sooter, Electric Power Research Institute (EPRI)
+
+Chris Ricard, Financial Services Information Sharing and Analysis Center (FS-ISAC)
+
+Sean Barnum, FireEye, Inc.
+
+Phillip Boles, FireEye, Inc.
+
+Prasad Gaikwad, FireEye, Inc.
+
+Haripriya Gajendran, FireEye, Inc.
+
+Will Green, FireEye, Inc.
+
+Rajeev Jha, FireEye, Inc.
+
+Gary Katz, FireEye, Inc.
+
+Anuj Kumar, FireEye, Inc.
+
+James Meck, FireEye, Inc.
+
+Shyamal Pandya, FireEye, Inc.
+
+Paul Patrick, FireEye, Inc.
+
+Remko Weterings, FireEye, Inc.
+
+Tim Jones, ForeScout
+
+Ryusuke Masuoka, Fujitsu Limited
+
+Daisuke Murabayashi, Fujitsu Limited
+
+Derek Northrope, Fujitsu Limited
+
+Toshitaka Satomi, Fujitsu Limited
+
+Koji Yamada, Fujitsu Limited
+
+Kunihiko Yoshimura, Fujitsu Limited
+
+Robert van Engelen, Genivia
+
+Eric Burger, Georgetown University
+
+Allison Miller, Google Inc.
+
+Mark Risher, Google Inc.
+
+Yoshihide Kawada, Hitachi, Ltd.
+
+Jun Nakanishi, Hitachi, Ltd.
+
+Kazuo Noguchi, Hitachi, Ltd.
+
+Akihito Sawada, Hitachi, Ltd.
+
+Yutaka Takami, Hitachi, Ltd.
+
+Masato Terada, Hitachi, Ltd.
+
+Adrian Bishop, Huntsman Security
+
+Eldan Ben-Haim, IBM
+
+Allen Hadden, IBM
+
+Sandra Hernandez, IBM
+
+Jason Keirstead, IBM
+
+Chenta Lee, IBM
+
+John Morris, IBM
+
+Devesh Parekh, IBM
+
+Emily Ratliff, IBM
+
+Nick Rossmann, IBM
+
+Laura Rusu, IBM
+
+Ron Williams, IBM
+
+Paul Martini, iboss, Inc.
+
+Vasileios Mavroeidis, IFI
+
+Kamer Vishi, IFI
+
+Joerg Eschweiler, Individual
+
+Elysa Jones, Individual
+
+Terry MacDonald, Individual
+
+Tim Casey, Intel Corporation
+
+Julie Modlin, Johns Hopkins University Applied Physics Laboratory
+
+Mark Moss, Johns Hopkins University Applied Physics Laboratory
+
+Mark Munoz, Johns Hopkins University Applied Physics Laboratory
+
+Nathan Reller, Johns Hopkins University Applied Physics Laboratory
+
+Pamela Smith, Johns Hopkins University Applied Physics Laboratory
+
+Vivek Jain, JPMorgan Chase Bank, N.A.
+
+Subodh Kumar, JPMorgan Chase Bank, N.A.
+
+David Laurance, JPMorgan Chase Bank, N.A.
+
+Russell Culpepper, Kaiser Permanente
+
+Beth Pumo, Kaiser Permanente
+
+Michael Slavick, Kaiser Permanente
+
+Daniel Ben-Chitrit, LookingGlass
+
+Wesley Brown, LookingGlass
+
+Dennis Hostetler, LookingGlass
+
+Himanshu Kesar, LookingGlass
+
+Matt Pladna, LookingGlass
+
+Vlad Serban, LookingGlass
+
+Allan Thomson, LookingGlass
+
+Chris Wood, LookingGlass
+
+Kent Landfield, McAfee
+
+Jonathan Baker, Mitre Corporation
+
+Desiree Beck, Mitre Corporation
+
+Michael Chisholm, Mitre Corporation
+
+Sam Cornwell, Mitre Corporation
+
+Sarah Kelley, Mitre Corporation
+
+Ivan Kirillov, Mitre Corporation
+
+Michael Kouremetis, Mitre Corporation
+
+Chris Lenk, Mitre Corporation
+
+Nicole Parrish, Mitre Corporation
+
+Richard Piazza, Mitre Corporation
+
+Larry Rodrigues, Mitre Corporation
+
+Jon Salwen, Mitre Corporation
+
+Charles Schmidt, Mitre Corporation
+
+Richard Struse, Mitre Corporation
+
+Alex Tweed, Mitre Corporation
+
+Emmanuelle Vargas-Gonzalez, Mitre Corporation
+
+John Wunder, Mitre Corporation
+
+James Cabral, MTG Management Consultants, LLC.
+
+Scott Algeier, National Council of ISACs (NCI)
+
+Denise Anderson, National Council of ISACs (NCI)
+
+Josh Poster, National Council of ISACs (NCI)
+
+Mike Boyle, National Security Agency
+
+Jessica Fitzgerald-McKay, National Security Agency
+
+David Kemp, National Security Agency
+
+Shaun McCullough, National Security Agency
+
+Jason Romano, National Security Agency
+
+John Anderson, NC4
+
+Michael Butt, NC4
+
+Mark Davidson, NC4
+
+Daniel Dye, NC4
+
+Michael Pepin, NC4
+
+Natalie Suarez, NC4
+
+Benjamin Yates, NC4
+
+Sarah Brown, NCI Agency
+
+Oscar Serrano, NCI Agency
+
+Daichi Hasumi, NEC Corporation
+
+Takahiro Kakumaru, NEC Corporation
+
+Lauri Korts-Parn, NEC Corporation
+
+Kelly Cullinane, New Context Services, Inc.
+
+John-Mark Gurney, New Context Services, Inc.
+
+Christian Hunt, New Context Services, Inc.
+
+Danny Purcell, New Context Services, Inc.
+
+Daniel Riedel, New Context Services, Inc.
+
+Andrew Storms, New Context Services, Inc.
+
+Drew Varner, NineFX, Inc.
+
+Stephen Banghart, NIST
+
+David Darnell, North American Energy Standards Board
+
+James Crossland, Northrop Grumman
+
+Robert Van Dyk, Northrop Grumman
+
+Cheolho Lee, NSRI
+
+Cory Casanave, Object Management Group
+
+Joel Myhre, Pacific Disaster Center
+
+Vishaal Hariprasad, Palo Alto Networks
+
+Stephan Relitz, Peraton
+
+Brad Bohen, Perch
+
+Aharon Chernin, Perch
+
+Zach Kanzler, Perch
+
+Michael Lane, Perch
+
+Michael Riggs, Perch
+
+Sean O’Brien, Purism SPC
+
+John Tolbert, Queralt Inc.
+
+Forrest Hare, Science Application International
+
+Duncan Sparrell, sFractal Consulting LLC
+
+Thomas Schreck, Siemens AG
+
+Adam Wyner, Swansea University
+
+Bret Jordan, Symantec Corp.
+
+Robert Keith, Symantec Corp.
+
+Curtis Kostrosky, Symantec Corp.
+
+Chris Larsen, Symantec Corp.
+
+Michael Mauch, Symantec Corp.
+
+Aubrey Merchant, Symantec Corp.
+
+Efrain Ortiz, Symantec Corp.
+
+Mingliang Pei, Symantec Corp.
+
+Kenneth Schneider, Symantec Corp.
+
+Arnaud Taddei, Symantec Corp.
+
+Brian Witten, Symantec Corp.
+
+Greg Reaume, TELUS
+
+Alan Steer, TELUS
+
+Crystal Hayes, The Boeing Company
+
+Andrew Gidwani, ThreatConnect, Inc.
+
+Cole Iliff, ThreatConnect, Inc.
+
+Andrew Pendergast, ThreatConnect, Inc.
+
+Jason Spies, ThreatConnect, Inc.
+
+Ryan Trost, ThreatQuotient, Inc.
+
+David Girard, Trend Micro
+
+Brandon Niemczyk, Trend Micro
+
+Eric Shulze, Trend Micro
+
+Patrick Coughlin, TruSTAR Technology
+
+Chris Roblee, TruSTAR Technology
+
+ADHAM ALBAKRI, University of Kent
+
+Jeffrey Mates, US Department of Defense (DoD)
+
+Evette Maynard-Noel, US Department of Homeland Security
+
+Lee Chieffalo, Viasat
+
+Wilson Figueroa, Viasat
+
+Andrew May, Viasat
+
+Ales Cernivec, XLAB
+
+Anthony Rutkowski, Yanna Technologies LLC
+
+# Appendix G: Revision History <a id="revision-history"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Revision</span></th>
+    <th><span class="stixtr">Date</span></th>
+    <th><span class="stixtr">Editor</span></th>
+    <th><span class="stixtr">Changes Made</span></th>
+  </tr>
+  <tr>
+    <td>01</td>
+    <td>2018-07-20</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">John Wunder</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Ivan Kirillov</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Initial Version<br><br>Github Issues: 2, 3, 4, 5, 6, 7, 9, 11, 13, 15, 16, 17, 18, 19, 20, 21, 22, 25, 26, 27, 31, 33, 35, 36, 37, 38, 39, 40, 41, 42, 54, 55, 57, 68, 71, 78, 88, 89, 91, 98, 99, 121</td>
+  </tr>
+  <tr>
+    <td>02</td>
+    <td>2018-08-10</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">John Wunder</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Ivan Kirillov</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Multiple editorial, style, and grammar fixes.<br><br>Added normative text to ensure that the various ending timestamp properties are before the first timestamp.<br><br>Updates to the "labels" property description to better describe potential overlap with the specific classification properties.<br><br>Fixed relevant common properties to the definition for Language Content.<br><br>Language Content object: Fixed relevant common property definitions, expanded the definition of "contents" property to include handling of lists when not all list items have language content in that language.<br><br>Added a "roles" property to Identity.<br><br>Observed Data object: expanded description to broaden its usage, made "first_observed", "last_observed", and "number_observed" properties optional, added normative statements to "first_observed" and "last_observed" properties to address consistency between the properties.<br><br>Option object: renamed "description" property to "explanation".<br><br>Sighting object: updated normative text for the "where_sighted_refs" property to allow for using Location objects in addition to Identity objects.<br><br>Artifact object: updated normative text for "encryption_algorithm" from a SHOULD to a MUST use values from the defined enumeration.<br><br>Network Traffic object: added text to indicate that values for byte and packet counts are positive integers.<br><br>Patterning Observation Expression: updated normative text to clarify the behavior of Observation Expression comparisons with OR is a short-circuit.<br><br>Github Issues: n/a</td>
+  </tr>
+  <tr>
+    <td>03</td>
+    <td>2018-09-05</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">John Wunder</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Ivan Kirillov</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Reverted Observed Data properties back to required.<br><br>Github Issues: 90<br><br>This version became CSD 01.</td>
+  </tr>
+  <tr>
+    <td>04</td>
+    <td>2019-05-29</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Updated the entire introduction. Merged content down into a single document.<br><br>Merged down the following content sections into the master document: Introductions, Vocabularies, Customization, Conformance.<br><br>Added the following objects and their respective vocabularies: Infrastructure, Grouping, Malware Analysis.<br><br>Updated the following objects: COA, Malware.<br><br>Github Issues: 8, 10, 12, 14, 24, 32, 64, 72, 76, 79, 81, 87, 92, 93, 94, 101, 103, 104, 105, 106, 107, 108, 109, 110, 111, 113, 114, 116, 117, 118, 120, 122, 124, 127, 128, 129, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 147, 148, 152, 154</td>
+  </tr>
+  <tr>
+    <td>05</td>
+    <td>2019-07-12</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Some basic formatting cleanup. Renamed conflicting properties on Directory Object, File Object, Process Object, and Windows Registry Key Object. Changed Language Content property that allowed version pinning to be optional. Added relationship from Indicator to Observed Data called "based-on". Added a description to Sighting. Added a name to Location. Made some SCO relationships external on Domain-Name, IPv4-Addr, and IPv6-Addr. Added some text to 3.4 and 3.6.<br><br>Relaxed requirements that prevented relationships pointing to Language Content, Marking Definitions, and Relationships themselves.<br><br>Github Issues: 28, 47, 52, 77, 86, 95, 96, 102, 115, 130, 146, 150, 151, 156, 158<br><br>This version became CSD02.</td>
+  </tr>
+  <tr>
+    <td>06</td>
+    <td>2019-11-19</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Fix broken references / links. Moved indicator type inline vocab too vocabulary section. Added clause in patterning to address public comment. Added clause to fall back to UUIDv4 with no properties are included for UUIDv5 SCOs. Added clarification to Network Socket Extension.<br><br>Github Issues: 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191,193<br><br>This version became CSD03.</td>
+  </tr>
+  <tr>
+    <td>07</td>
+    <td>2020-02-19</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Github Issues: 23, 30, 34, 119, 126, 131, 153, 157, 159, 160, 161, 165, 192, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 215, 216, 217, 218, 219, 220, 221<br><br>This became CSD04.</td>
+  </tr>
+  <tr>
+    <td>08</td>
+    <td>2020-03-11</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Fixed formatting issues found by the TC admin during publication of CSPRD03. Fixed a typo in section 10.7. Fixed some stale links and some basic formatting problems that occurred during document export.<br><br>Github Issues: n/a<br><br>This version was not released as a working draft or CSD but published as Committee Specification 01 with non-material changes.</td>
+  </tr>
+  <tr>
+    <td>09</td>
+    <td>2020-11-16</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Added a new STIX Extension mechanism in section 7. Deprecated customization section 11. Updated common property extensions so that all object types can use extensions.<br><br>Github Issues: n/a</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>2020-12-09</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Replaced the prose text for extensions. Stubbed in the incident object.<br><br>Github Issues: n/a<br><br>This became CSD05.</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>2021-01-15</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Address two comments from public review.<br><br>Github Issues: n/a<br><br>This version became CSD06, CS02, and COS.</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>2021-05-11</td>
+    <td><span style="white-space: nowrap">Bret Jordan</span>, <span style="white-space: nowrap">Rich Piazza</span>, <span style="white-space: nowrap">Trey Darley</span></td>
+    <td>Addressed comments from public review.<br><br>Github Issues: 226, 227, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 258, 260, 261, 266, 267, 268, 269<br><br>This version was not submitted to become a new CSD as it only contained non-material changes. So it became CS03 and was submitted to become an OASIS Standard.</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>2024-04-12</td>
+    <td><span style="white-space: nowrap">Emily Ratliff</span>, <span style="white-space: nowrap">Rich Piazza</span></td>
+    <td>Converted to asciidoc format to improve transparency and collaborative editing.<br><br>Github Issues: 325, 322, 319, 270, 274, 275, 277, 278, 281, 289, 290, 291, 292, 294, 297, 299, 301, 307, 309, 312, 314, 318</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>2025-03-12</td>
+    <td><span style="white-space: nowrap">Christian Studer</span>, <span style="white-space: nowrap">Stephan Relitz</span>, <span style="white-space: nowrap">Emily Ratliff</span></td>
+    <td>Updated document based on the remaining GitHub issues.<br><br>Github Issues: 278, 294, 299, 313, 315, 318, 337</td>
+  </tr>
+</table>
+
+# Appendix H: Notices <a id="notices"></a>
+
+Copyright © OASIS Open 2025. All Rights Reserved.
+
+All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy may be found at the OASIS website: [https://www.oasis-open.org/policies-guidelines/ipr/].
+
+This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.
+
+The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.
+
+This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.
+
+As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply to OASIS Standards Final Deliverable documents (Committee Specifications, OASIS Standards, or Approved Errata).
+
+[OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable, to notify OASIS TC Administrator and provide an indication of its willingness to grant patent licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this deliverable.]
+
+[OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this OASIS Standards Final Deliverable. OASIS may include such claims on its website, but disclaims any obligation to do so.]
+
+[OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.]
+
+The name "OASIS" is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, documents, while reserving the right to enforce its marks against misleading uses. Please see https://www.oasis-open.org/policies-guidelines/trademark/ for above guidance.
