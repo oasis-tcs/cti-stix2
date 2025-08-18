@@ -450,7 +450,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 		font-family:"Arial",sans-serif;
 		color:#446CAA;
 		font-weight:bold;}
-.stixvocab{font-family:Consolas;color:#C7254E;background:#F9F2F4;text-decoration:underline;}
+.stixvocab{font-family:Consolas;color:#C7254E;background:#F9F2F4;}
 .stixalt{font-family:Consolas;color:black;background:#EFEFEF}
 .stixtr{color:#FFFFFF}
 /*.stixreq{color:#F4CCCC}*/
