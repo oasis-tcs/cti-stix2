@@ -4,15 +4,15 @@
 
 # STIX Version 2.1 Errata 01
 
-## Committee Specification 01
+## Oasis Standard incorporating Draft 01 of Errata 01
 
 ### 2 April 2025
 
 #### This stage:
 
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx (Authoritative) \
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html \
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf
+https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01-complete.md (Authoritative) \
+https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01-complete.html \
+https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01-complete.pdf
 
 #### Previous stage:
 
@@ -22,9 +22,9 @@ https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.pdf
 
 #### Latest stage:
 
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx (Authoritative) \
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html \
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf
+https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-complete.md (Authoritative) \
+https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-complete.html \
+https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-complete.pdf
 
 #### Technical Committee:
 
@@ -46,13 +46,13 @@ Christian Studer (<christian.studer@circl.lu>), [CIRCL](https://www.circl.lu/)
 
 This specification replaces or supersedes:
 
-- _STIX Version 2.1._ Edited by Bret Jordan, Rich Piazza, and Trey Darley. Latest stage: <https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html>.
+- *STIX Version 2.1.* Edited by Bret Jordan, Rich Piazza, and Trey Darley. Latest stage: <https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html>.
 
 This specification is related to:
 
-- _TAXII Version 2.1._ Edited by Bret Jordan and Drew Varner. Latest stage: <https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html>.
-- _STIX/TAXII 2.0 Interoperability Test Document: Part 1 Version 1.1._ Edited by Allan Thomson and Jason Keirstead. Latest stage: <https://docs.oasis-open.org/cti/stix-taxii-2-interop-p1/v1.1/stix-taxii-2-interop-p1-v1.1.html>.
-- _STIX/TAXII 2.0 Interoperability Test Document: Part 2 Version 1.0._ Edited by Allan Thomson and Jason Keirstead. Latest stage: <https://docs.oasis-open.org/cti/stix-taxii-2-interop-p2/v1.0/stix-taxii-2-interop-p2-v1.0.html>.
+- *TAXII Version 2.1.* Edited by Bret Jordan and Drew Varner. Latest stage: <https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html>.
+- *STIX/TAXII 2.0 Interoperability Test Document: Part 1 Version 1.1.* Edited by Allan Thomson and Jason Keirstead. Latest stage: <https://docs.oasis-open.org/cti/stix-taxii-2-interop-p1/v1.1/stix-taxii-2-interop-p1-v1.1.html>.
+- *STIX/TAXII 2.0 Interoperability Test Document: Part 2 Version 1.0.* Edited by Allan Thomson and Jason Keirstead. Latest stage: <https://docs.oasis-open.org/cti/stix-taxii-2-interop-p2/v1.0/stix-taxii-2-interop-p2-v1.0.html>.
 
 #### Abstract:
 
@@ -15206,127 +15206,33 @@ Christian Studer, CIRCL
 
 Stephan Relitz, Peraton
 
-**Special Thanks**:
-
-
-
-Substantial contributions to this specification from the following individuals are gratefully acknowledged:
-
-Bret Jordan, Broadcom
-
-Trey Darley, CCB/CERT.be
-
-Terry MacDonald, Cosive
-
-Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
-
-Stephen Russett, Cyber Threat Intelligence Network, Inc. (CTIN)
-
-Marlon Taylor, DHS Office of Cybersecurity and Communications (CS&C)
-
-Chris Ricard, Financial Services Information Sharing and Analysis Center (FS-ISAC)
-
-Sean Barnum, FireEye
-
-Gary Katz, FireEye, Inc.
-
-Ryusuke Masuoka, Fujitsu Limited
-
-Iain Brown, GDS
-
-Jason Keirstead, IBM
-
-Emily Ratliff, IBM
-
-Tim Casey, Intel
-
-Justin Stewart, LookingGlass Cyber
-
-Allan Thomson, LookingGlass Cyber
-
-Greg Back, MITRE Corporation
-
-Jon Baker, MITRE Corporation
-
-Sarah Kelley, MITRE Corporation
-
-Ivan Kirillov, MITRE Corporation
-
-Chris Lenk, MITRE Corporation
-
-Richard Piazza, MITRE Corporation
-
-Richard Struse, MITRE Corporation
-
-Emmanuelle Vargas-Gonzalez, MITRE Corporation
-
-John Wunder, MITRE Corporation
-
-John-Mark Gurney, New Context Services, Inc.
-
-Christian Hunt, New Context Services, Inc.
-
-Drew Varner, NineFX, Inc.
-
-Aharon Chernin, Perch
-
-Dave Cridland, Surevine
-
-Jeffrey Mates, US Department of Defense (DoD)
-
 **Participants**:
-
-
 
 The following individuals were members of the OASIS CTI Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:
 
-Kai Li, 360 Enterprise Security Group
-
-shu li, 360 Enterprise Security Group
-
-qian yin, 360 Enterprise Security Group
-
-Xinhua Zheng, 360 Enterprise Security Group
-
-Robert Coderre, Accenture
-
-Kyle Maxwell, Accenture
-
-David Crawford, Aetna
-
-Marcos Orallo, Airbus Group SAS
-
-Roman Fiedler, AIT Austrian Institute of Technology
+Bret Jordan, Afero
 
 Florian Skopik, AIT Austrian Institute of Technology
 
-Ryan Clough, Anomali
+Qin Long, Alibaba Cloud Computing Ltd.
 
-Nicholas Hayden, Anomali
+Scott Dowsett, Anomali
 
 Wei Huang, Anomali
 
-Russell Matbouli, Anomali
-
-Angela Nichols, Anomali
-
-Hugh Njemanze, Anomali
+Patrick Holt, Anomali
 
 Katie Pelusi, Anomali
 
-Patrick Maroney, AT&T
+Patrick Maroney, AT&T Services Inc.
 
 Dean Thompson, Australia and New Zealand Banking Group (ANZ Bank)
 
-Radu Marian, Bank of America
+Drew Armstrong, Australian Signals Directorate
 
-Sounil Yu, Bank of America
+Jeremy Berthelet, Capgemini
 
-Vicky Laurens, Bank of Montreal
-
-Bret Jordan, Broadcom
-
-Trey Darley, CCB/CERT.be
+Charles Yarbrough, Carnegie Mellon University
 
 Alexandre Dulaunoy, CIRCL
 
@@ -15340,193 +15246,103 @@ Syam Appala, Cisco Systems
 
 Ted Bedwell, Cisco Systems
 
+Andrew Benhase, Cisco Systems
+
+Craig Brozefsky, Cisco Systems
+
+Caitlin Huey, Cisco Systems
+
+Henry Peltokangas, Cisco Systems
+
 Pavan Reddy, Cisco Systems
 
 Omar Santos, Cisco Systems
+
+Thomas Schaffer, Cisco Systems
+
+Michael Simonson, Cisco Systems
 
 Sam Taghavi Zargar, Cisco Systems
 
 Jyoti Verma, Cisco Systems
 
-Jart Armin, Cyber Threat Intelligence Network, Inc. (CTIN)
+Andrew Windsor, Cisco Systems
 
-Doug DePeppe, Cyber Threat Intelligence Network, Inc. (CTIN)
+Tim Hudson, Cryptsoft Pty Ltd.
 
-Jane Ginn, Cyber Threat Intelligence Network, Inc. (CTIN)
+Nick Ascoli, Cyware Labs
 
-Ben Ottoman, Cyber Threat Intelligence Network, Inc. (CTIN)
-
-David Powell, Cyber Threat Intelligence Network, Inc. (CTIN)
-
-Andreas Sfakianakis, Cyber Threat Intelligence Network, Inc. (CTIN)
+Utkarsh Garg, Cyware Labs
 
 Anuj Goel, Cyware Labs
 
 Avkash Kathiriya, Cyware Labs
 
-Jaeden Hampton, DarkLight, Inc.
+Joe Laugle, Dell Technologies
 
-Ryan Hohimer, DarkLight, Inc.
-
-Ryan Joyce, DarkLight, Inc.
-
-Shawn Riley, DarkLight, Inc.
-
-Ian Roberts, DarkLight, Inc.
-
-Andrew Byrne, Dell
-
-Jeff Odom, Dell
-
-Sreejith Padmajadevi, Dell
-
-Ravi Sharda, Dell
-
-Will Urbanski, Dell
-
-David Ailshire, DHS Office of Cybersecurity and Communications (CS&C)
-
-Steven Fox, DHS Office of Cybersecurity and Communications (CS&C)
-
-Taneika Hill, DHS Office of Cybersecurity and Communications (CS&C)
-
-Evette Maynard-Noel, DHS Office of Cybersecurity and Communications (CS&C)
-
-Jackie Eun Park, DHS Office of Cybersecurity and Communications (CS&C)
-
-Sean Sobieraj, DHS Office of Cybersecurity and Communications (CS&C)
-
-Marlon Taylor, DHS Office of Cybersecurity and Communications (CS&C)
-
-Preston Werntz, DHS Office of Cybersecurity and Communications (CS&C)
-
-Jörg Abraham, EclecticIQ
-
-wouter bolsterlee, EclecticIQ
-
-Adam Bradbury, EclecticIQ
-
-Marko Dragoljevic, EclecticIQ
-
-Oliver Gheorghe, EclecticIQ
-
-Joep Gommers, EclecticIQ
-
-Caitlin Huey, EclecticIQ
-
-Christopher O’Brien, EclecticIQ
-
-Sergey Polzunov, EclecticIQ
-
-Rutger Prins, EclecticIQ
-
-Aukjan van Belkum, EclecticIQ
-
-Raymon van der Velde, EclecticIQ
-
-Tom Vaughan, EclecticIQ
-
-Joseph Woodruff, EclecticIQ
-
-Ben Sooter, Electric Power Research Institute (EPRI)
+Carolina Canales-Valenzuela, Ericsson AB
 
 Chris Ricard, Financial Services Information Sharing and Analysis Center (FS-ISAC)
 
-Sean Barnum, FireEye, Inc.
-
-Phillip Boles, FireEye, Inc.
-
-Prasad Gaikwad, FireEye, Inc.
-
-Haripriya Gajendran, FireEye, Inc.
-
-Will Green, FireEye, Inc.
-
-Rajeev Jha, FireEye, Inc.
-
-Gary Katz, FireEye, Inc.
-
-Anuj Kumar, FireEye, Inc.
-
-James Meck, FireEye, Inc.
-
-Shyamal Pandya, FireEye, Inc.
-
-Paul Patrick, FireEye, Inc.
-
-Remko Weterings, FireEye, Inc.
-
-Tim Jones, ForeScout
-
-Ryusuke Masuoka, Fujitsu Limited
-
-Daisuke Murabayashi, Fujitsu Limited
-
-Derek Northrope, Fujitsu Limited
-
-Toshitaka Satomi, Fujitsu Limited
-
-Koji Yamada, Fujitsu Limited
-
-Kunihiko Yoshimura, Fujitsu Limited
-
-Robert van Engelen, Genivia
-
-Eric Burger, Georgetown University
-
-Allison Miller, Google Inc.
+Daniel Riedel, GL Venture Studio HoldCo LLC
 
 Mark Risher, Google Inc.
 
-Yoshihide Kawada, Hitachi, Ltd.
+Xiaoyu Ge, Huawei Technologies Co., Ltd.
 
-Jun Nakanishi, Hitachi, Ltd.
+Ho Hock William, Huawei Technologies Co., Ltd.
 
-Kazuo Noguchi, Hitachi, Ltd.
+Dong Huang, Huawei Technologies Co., Ltd.
 
-Akihito Sawada, Hitachi, Ltd.
+David Webber, Huawei Technologies Co., Ltd.
 
-Yutaka Takami, Hitachi, Ltd.
-
-Masato Terada, Hitachi, Ltd.
-
-Adrian Bishop, Huntsman Security
+Leszek Adamiak, IBM
 
 Eldan Ben-Haim, IBM
 
-Allen Hadden, IBM
+Roseann Guttierrez, IBM
 
 Sandra Hernandez, IBM
-
-Jason Keirstead, IBM
 
 Chenta Lee, IBM
 
 John Morris, IBM
 
-Devesh Parekh, IBM
-
 Emily Ratliff, IBM
+
+Aviv Ron, IBM
 
 Nick Rossmann, IBM
 
 Laura Rusu, IBM
 
+Frank Schaffa, IBM
+
+Garret Taylor, IBM
+
+Sulakshan Vajipayajula, IBM
+
 Ron Williams, IBM
 
-Paul Martini, iboss, Inc.
+Ashwini Jarral, IJIS Institute
 
-Vasileios Mavroeidis, IFI
+James Cabral, Individual
 
-Kamer Vishi, IFI
+Jane Ginn, Individual
 
-Joerg Eschweiler, Individual
+Rachel James, Individual
 
 Elysa Jones, Individual
 
 Terry MacDonald, Individual
 
-Tim Casey, Intel Corporation
+Allan Thomson, Individual
+
+Jorge Aviles, Johns Hopkins University Applied Physics Laboratory
+
+Cory Huyssoon, Johns Hopkins University Applied Physics Laboratory
+
+Karin Marr, Johns Hopkins University Applied Physics Laboratory
 
 Julie Modlin, Johns Hopkins University Applied Physics Laboratory
 
@@ -15536,53 +15352,29 @@ Mark Munoz, Johns Hopkins University Applied Physics Laboratory
 
 Nathan Reller, Johns Hopkins University Applied Physics Laboratory
 
-Pamela Smith, Johns Hopkins University Applied Physics Laboratory
+Jonathan Matkowsky, Microsoft Corporation
 
-Vivek Jain, JPMorgan Chase Bank, N.A.
-
-Subodh Kumar, JPMorgan Chase Bank, N.A.
-
-David Laurance, JPMorgan Chase Bank, N.A.
-
-Russell Culpepper, Kaiser Permanente
-
-Beth Pumo, Kaiser Permanente
-
-Michael Slavick, Kaiser Permanente
-
-Daniel Ben-Chitrit, LookingGlass
-
-Wesley Brown, LookingGlass
-
-Dennis Hostetler, LookingGlass
-
-Himanshu Kesar, LookingGlass
-
-Matt Pladna, LookingGlass
-
-Vlad Serban, LookingGlass
-
-Allan Thomson, LookingGlass
-
-Chris Wood, LookingGlass
-
-Kent Landfield, McAfee
-
-Jonathan Baker, Mitre Corporation
+Jautau White, Microsoft Corporation
 
 Desiree Beck, Mitre Corporation
 
+Jen Burns, Mitre Corporation
+
 Michael Chisholm, Mitre Corporation
+
+Mike Cokus, Mitre Corporation
 
 Sam Cornwell, Mitre Corporation
 
-Sarah Kelley, Mitre Corporation
+Kartikey Desai, Mitre Corporation
 
-Ivan Kirillov, Mitre Corporation
-
-Michael Kouremetis, Mitre Corporation
+Pavan Gudimetta, Mitre Corporation
 
 Chris Lenk, Mitre Corporation
+
+Bob Natale, Mitre Corporation
+
+Timothy O'Neill, Mitre Corporation
 
 Nicole Parrish, Mitre Corporation
 
@@ -15590,9 +15382,13 @@ Richard Piazza, Mitre Corporation
 
 Larry Rodrigues, Mitre Corporation
 
+Zach Rush, Mitre Corporation
+
 Jon Salwen, Mitre Corporation
 
 Charles Schmidt, Mitre Corporation
+
+Matt Scola, Mitre Corporation
 
 Richard Struse, Mitre Corporation
 
@@ -15600,17 +15396,17 @@ Alex Tweed, Mitre Corporation
 
 Emmanuelle Vargas-Gonzalez, Mitre Corporation
 
-John Wunder, Mitre Corporation
+Bryan Worrell, Mitre Corporation
 
-James Cabral, MTG Management Consultants, LLC.
-
-Scott Algeier, National Council of ISACs (NCI)
-
-Denise Anderson, National Council of ISACs (NCI)
+Jackson Wynn, Mitre Corporation
 
 Josh Poster, National Council of ISACs (NCI)
 
 Mike Boyle, National Security Agency
+
+Sean Carroll, National Security Agency
+
+Alicia Ellis, National Security Agency
 
 Jessica Fitzgerald-McKay, National Security Agency
 
@@ -15618,149 +15414,81 @@ David Kemp, National Security Agency
 
 Shaun McCullough, National Security Agency
 
-Jason Romano, National Security Agency
+Michael Rosa, National Security Agency
 
-John Anderson, NC4
+James Bryce Clark, OASIS
 
-Michael Butt, NC4
+Kelly Cullinane, OASIS
 
-Mark Davidson, NC4
+Jane Harnad, OASIS
 
-Daniel Dye, NC4
+Mary Beth Minto, OASIS
 
-Michael Pepin, NC4
+Holly Petersen, OASIS
 
-Natalie Suarez, NC4
+Claudia Rauch, OASIS
 
-Benjamin Yates, NC4
+Sam Czsun, Open Security Alliance
 
-Sarah Brown, NCI Agency
+Patrick Bredenberg, Oracle
 
-Oscar Serrano, NCI Agency
+Johnny Gau, Oracle
 
-Daichi Hasumi, NEC Corporation
+Shayam Jayaraman, Oracle
 
-Takahiro Kakumaru, NEC Corporation
+Sunil Ravipati, Oracle
 
-Lauri Korts-Parn, NEC Corporation
+Kirk Dunkelberger, Peraton
 
-Kelly Cullinane, New Context Services, Inc.
+Jason Liu, Peraton
 
-John-Mark Gurney, New Context Services, Inc.
-
-Christian Hunt, New Context Services, Inc.
-
-Danny Purcell, New Context Services, Inc.
-
-Daniel Riedel, New Context Services, Inc.
-
-Andrew Storms, New Context Services, Inc.
-
-Drew Varner, NineFX, Inc.
-
-Stephen Banghart, NIST
-
-David Darnell, North American Energy Standards Board
-
-James Crossland, Northrop Grumman
-
-Robert Van Dyk, Northrop Grumman
-
-Cheolho Lee, NSRI
-
-Cory Casanave, Object Management Group
-
-Joel Myhre, Pacific Disaster Center
-
-Vishaal Hariprasad, Palo Alto Networks
+Qem Lumi, Peraton
 
 Stephan Relitz, Peraton
 
-Brad Bohen, Perch
+Jason Keirstead, Pobal Cyber Ltd
 
-Aharon Chernin, Perch
+David Bizeul, SEKOIA.IO
 
-Zach Kanzler, Perch
+Georges Bossert, SEKOIA.IO
 
-Michael Lane, Perch
+Lorraine Desforges, SEKOIA.IO
 
-Michael Riggs, Perch
+Marco Caselli, Siemens AG
 
-Sean O’Brien, Purism SPC
+Jonas Plum, Siemens AG
 
-John Tolbert, Queralt Inc.
+Manos Athanatos, Technical University of Crete
 
-Forrest Hare, Science Application International
+Vasileios Mavroeidis, University of Oslo
 
-Duncan Sparrell, sFractal Consulting LLC
+Mateusz Zych, University of Oslo
 
-Thomas Schreck, Siemens AG
-
-Adam Wyner, Swansea University
-
-Bret Jordan, Symantec Corp.
-
-Robert Keith, Symantec Corp.
-
-Curtis Kostrosky, Symantec Corp.
-
-Chris Larsen, Symantec Corp.
-
-Michael Mauch, Symantec Corp.
-
-Aubrey Merchant, Symantec Corp.
-
-Efrain Ortiz, Symantec Corp.
-
-Mingliang Pei, Symantec Corp.
-
-Kenneth Schneider, Symantec Corp.
-
-Arnaud Taddei, Symantec Corp.
-
-Brian Witten, Symantec Corp.
-
-Greg Reaume, TELUS
-
-Alan Steer, TELUS
-
-Crystal Hayes, The Boeing Company
-
-Andrew Gidwani, ThreatConnect, Inc.
-
-Cole Iliff, ThreatConnect, Inc.
-
-Andrew Pendergast, ThreatConnect, Inc.
-
-Jason Spies, ThreatConnect, Inc.
-
-Ryan Trost, ThreatQuotient, Inc.
-
-David Girard, Trend Micro
-
-Brandon Niemczyk, Trend Micro
-
-Eric Shulze, Trend Micro
-
-Patrick Coughlin, TruSTAR Technology
-
-Chris Roblee, TruSTAR Technology
-
-ADHAM ALBAKRI, University of Kent
+Kaleb Hines, US Department of Defense (DoD)
 
 Jeffrey Mates, US Department of Defense (DoD)
 
-Evette Maynard-Noel, US Department of Homeland Security
+George Parson, US Department of Defense (DoD)
 
-Lee Chieffalo, Viasat
+David Ailshire, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
 
-Wilson Figueroa, Viasat
+Steven Fox, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
 
-Andrew May, Viasat
+Taneika Hill, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
 
-Ales Cernivec, XLAB
+Kevin Klein, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
 
-Anthony Rutkowski, Yanna Technologies LLC
+Evette Maynard-Noel, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
+
+Jackie Eun Park, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
+
+Sean Sobieraj, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
+
+Marlon Taylor, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
+
+Preston Werntz, US DHS Cybersecurity and Infrastructure Security Agency (CISA)
+
+Stephen Banghart, US NIST
 
 # Appendix G: Revision History <a id="revision-history"></a>
 
