@@ -669,7 +669,7 @@ STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:
     - Extension Type Enumeration in [section 10.5](#extension-type-enumeration)
     - Network Socket Address Family Enumeration in [section 10.16](#network-socket-address-family-enumeration)
     - Network Socket Type Enumeration in [section 10.17](#network-socket-type-enumeration)
-    - Opinion Enumeration [section 10.18](#opinion-enumeration)
+    - Opinion Enumeration in [section 10.18](#opinion-enumeration)
     - Windows™ Integrity Level Enumeration in [section 10.27](#windows-integrity-level-enumeration)
     - Windows™ Registry Datatype Enumeration in [section 10.29](#windows-registry-datatype-enumeration)
     - Windows™ Service Start Type Enumeration in [section 10.30](#windows-service-start-type-enumeration)
