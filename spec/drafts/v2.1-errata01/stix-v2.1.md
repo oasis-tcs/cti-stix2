@@ -6,7 +6,7 @@
 
 ## Oasis Standard incorporating Draft 01 of Errata 01
 
-### 2 April 2025
+### 02 April 2025
 
 #### This stage:
 
@@ -650,7 +650,7 @@ STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:
 - Updated Implementation Language Vocabulary in [section 10.9](#implementation-language-vocabulary).
   - <span class="stixliteral">rust</span> value was added.
 - Updated Industry Sector Vocabulary in [section 10.11](#industry-sector-vocabulary).
-  - <span class="stixliteral">egal</span> value was added.
+  - <span class="stixliteral">legal</span> value was added.
 - Fixed Infrastructure Type Vocabulary Summary in [section 10.12](#infrastructure-type-vocabulary).
   - missing <span class="stixliteral">control-system</span>, <span class="stixliteral">firewall</span>, <span class="stixliteral">routers-switches</span> and <span class="stixliteral">workstation</span> values were added to the Summary as they were already described in the Vocabulary table.
 - Enhanced Malware Result Vocabulary in [section 10.14](#malware-result-vocabulary).

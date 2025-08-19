@@ -119,7 +119,7 @@ STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:
 - Updated *section 10.9 - Implementation Language Vocabulary*.
   - <span class="stixliteral">rust</span> value was added.
 - Updated *section 10.11 - Industry Sector Vocabulary*.
-  - <span class="stixliteral">egal</span> value was added.
+  - <span class="stixliteral">legal</span> value was added.
 - Fixed summary in *section 10.12 - Infrastructure Type Vocabulary*.
   - missing <span class="stixliteral">control-system</span>, <span class="stixliteral">firewall</span>, <span class="stixliteral">routers-switches</span> and <span class="stixliteral">workstation</span> values were added to the Summary as they were already described in the Vocabulary table.
 - Enhanced descriptions in *section 10.14 - Malware Result Vocabulary*.
