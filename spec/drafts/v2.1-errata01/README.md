@@ -19,5 +19,5 @@ asciidoctor  -v --failure-level INFO -a stylesheet=stix.css stix-v2.1.1.adoc
 
 Generate HTML
 ```bash
-pandoc -f gfm+definition_lists -t html  stix-v2.1.md --columns=345 --css css/stix.css --css css/page_override.css --standalone -o stix-v2.1.html
+pandoc -f gfm+definition_lists -t html  stix-v2.1.md --columns=345 --css css/stix.css --css css/page_override.css --embed-resources --standalone -o stix-v2.1.html
 ```
