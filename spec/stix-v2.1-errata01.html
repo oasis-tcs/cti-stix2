@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>stix-v2.1-errata01</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="css/stix.css" />
+  <link rel="stylesheet" href="css/page_override.css" />
+</head>
+<body>
+<p><img src="https://docs.oasis-open.org/templates/OASISLogo-v3.0.png" alt="OASIS Logo" /></p>
+<hr />
+<h1 id="stix-version-21-errata-01">STIX Version 2.1 Errata 01</h1>
+<h2 id="committee-specification-draft-01">Committee Specification Draft 01</h2>
+<h3 id="02-april-2025">02 April 2025</h3>
+<h4 id="this-stage">This stage:</h4>
+<p><a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01.md">https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01.md</a> (Authoritative)<br />
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01.html">https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01.html</a><br />
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01.pdf">https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01.pdf</a></p>
+<h4 id="previous-stage">Previous stage:</h4>
+<p>N/A</p>
+<h4 id="latest-stage">Latest Stage:</h4>
+<p><a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.docx">https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.docx</a> (Authoritative)<br />
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.html">https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.html</a><br />
+<a href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.pdf">https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.pdf</a></p>
+<h4 id="technical-committee">Technical Committee:</h4>
+<p><a href="https://www.oasis-open.org/committees/cti/">OASIS Cyber Threat Intelligence (CTI) TC</a></p>
+<h4 id="chairs">Chairs:</h4>
+<p>Marlon Taylor (<a href="mailto:marlon.taylor@cisa.dhs.gov">marlon.taylor@cisa.dhs.gov</a>), <a href="http://www.cisa.gov/">DHS Office of Cybersecurity and Communications</a><br />
+Alexandre Dulaunoy (<a href="mailto:alexandre.dulaunoy@x.circl.lu">alexandre.dulaunoy@x.circl.lu</a>), <a href="https://www.circl.lu/">CIRCL</a></p>
+<h4 id="editors">Editors:</h4>
+<p>Rich Piazza (<a href="mailto:rpiazza@mitre.org">rpiazza@mitre.org</a>), <a href="http://www.mitre.org/">MITRE Corporation</a><br />
+Emily Ratliff (<a href="mailto:emily.ratliff@ibm.com">emily.ratliff@ibm.com</a>), <a href="http://www.ibm.com/">IBM</a><br />
+Stephan Relitz (<a href="mailto:stephan.relitz@peraton.com">stephan.relitz@peraton.com</a>), <a href="https://www.peraton.com/">Peraton</a><br />
+Christian Studer (<a href="mailto:christian.studer@circl.lu">christian.studer@circl.lu</a>), <a href="https://www.circl.lu/">CIRCL</a></p>
+<h4 id="related-work">Related work:</h4>
+<p>This document describes the changes made to:</p>
+<ul>
+<li><em>STIX Version 2.1.</em> Edited by Bret Jordan, Rich Piazza, and Trey Darley. Latest stage: <a href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html</a>.</li>
+</ul>
+<p>This specification is related to:</p>
+<ul>
+<li><em>TAXII Version 2.1.</em> Edited by Bret Jordan and Drew Varner. Latest stage: <a href="https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html">https://docs.oasis-open.org/cti/taxii/v2.1/taxii-v2.1.html</a>.</li>
+<li><em>STIX/TAXII 2.0 Interoperability Test Document: Part 1 Version 1.1.</em> Edited by Allan Thomson and Jason Keirstead. Latest stage: <a
+href="https://docs.oasis-open.org/cti/stix-taxii-2-interop-p1/v1.1/stix-taxii-2-interop-p1-v1.1.html">https://docs.oasis-open.org/cti/stix-taxii-2-interop-p1/v1.1/stix-taxii-2-interop-p1-v1.1.html</a>.</li>
+<li><em>STIX/TAXII 2.0 Interoperability Test Document: Part 2 Version 1.0.</em> Edited by Allan Thomson and Jason Keirstead. Latest stage: <a
+href="https://docs.oasis-open.org/cti/stix-taxii-2-interop-p2/v1.0/stix-taxii-2-interop-p2-v1.0.html">https://docs.oasis-open.org/cti/stix-taxii-2-interop-p2/v1.0/stix-taxii-2-interop-p2-v1.0.html</a>.</li>
+</ul>
+<h4 id="abstract">Abstract:</h4>
+<p>Structured Threat Information Expression (STIX) is a language for expressing cyber threat and observable information. This document defines concepts that apply across all of STIX and defines the overall structure of the STIX language.</p>
+<h4 id="status">Status:</h4>
+<p>This document was last revised or approved by the membership of OASIS on the above date. The level of approval is also listed above. Check the "Latest stage" location noted above for possible later revisions of this document. Any other numbered Versions and other technical work produced by the Technical Committee (TC) are listed at <a
+href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti#technical">https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=cti#technical</a>.</p>
+<p>TC members should send comments on this document to the TC's email list. Others should send comments to the TC's public comment list, after subscribing to it by following the instructions at the "<a href="https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=cti">Send A Comment</a>" button on the TC's web page at <a
+href="https://www.oasis-open.org/committees/cti/">https://www.oasis-open.org/committees/cti/</a>.</p>
+<p>This specification is provided under the <a href="https://www.oasis-open.org/policies-guidelines/ipr#Non-Assertion-Mode">Non-Assertion</a> Mode of the <a href="https://www.oasis-open.org/policies-guidelines/ipr/">OASIS IPR Policy</a>, the mode chosen when the Technical Committee was established. For information on whether any patents have
+been disclosed that may be essential to implementing this specification, and any offers of patent licensing terms, please refer to the Intellectual Property Rights section of the TC's web page (<a href="https://www.oasis-open.org/committees/cti/ipr.php">https://www.oasis-open.org/committees/cti/ipr.php</a>).</p>
+<p>Note that any machine-readable content (<a href="https://www.oasis-open.org/policies-guidelines/tc-process-2017-05-26#wpComponentsCompLang">Computer Language Definitions</a>) declared Normative for this Work Product is provided in separate plain text files. In the event of a discrepancy between any such plain text file and display content
+in the Work Product's prose narrative document(s), the content in the separate plain text file prevails.</p>
+<h4 id="citation-format">Citation format:</h4>
+<p>When referencing this specification the following citation format should be used:</p>
+<p><strong>[STI-v2.1-errata01]</strong></p>
+<p><em>STIX Version 2.1 Errata 01</em>. Edited by Rich Piazza, Emily Ratliff, Stephan Relitz and Christian Studer. 02 April 2025. OASIS Committee Specification Draft 01. <a
+href="https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01-complete.html">https://docs.oasis-open.org/cti/stix/v2.1/errata01/csd01/stix-v2.1-errata01-csd01-complete.html</a>. Latest stage: <a
+href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html</a>.</p>
+<h2 id="notices">Notices</h2>
+<p>Copyright © OASIS Open 2025. All Rights Reserved.</p>
+<p>Distributed under the terms of the OASIS IPR Policy, [<a href="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</a>]. For complete copyright information please see the full Notices section in an Appendix below.</p>
+<hr />
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+<li><ol type="1">
+<li><a href="#introduction">Introduction</a></li>
+</ol>
+<ul>
+<li>1.1 <a href="#scope-of-changes">Scope of changes</a></li>
+<li>1.2 <a href="#description-of-changes">Description of changes</a></li>
+</ul></li>
+<li><ol start="2" type="1">
+<li><a href="#conformance">Conformance</a></li>
+</ol></li>
+<li>Appendix A: <a href="#normative-references">Normative References</a></li>
+<li>Appendix B: <a href="#acknowledgments">Acknowledgments</a></li>
+<li>Appendix C: <a href="#notices">Notices</a></li>
+</ul>
+<hr />
+<h1 id="1-introduction-">1. Introduction <a id="introduction"></a></h1>
+<p>This document lists all the corrections made to STIX Version 2.1.</p>
+<h2 id="11-scope-of-changes-">1.1 Scope of changes <a id="scope-of-changes"></a></h2>
+<p>Non-material corrections have been made to the STIX 2.1 specification to address issues identified or reported by participants to the TC, listed in the Github issues system, and discussed during CTI TC working call sessions. Changes provide additional or missing vocabulary values, fix typos, improve descriptions, correct examples or provide
+links between related sections to enhance navigation through the document.</p>
+<h2 id="12-description-of-changes-">1.2 Description of changes <a id="description-of-changes"></a></h2>
+<p>STIX 2.1 Errata 01 differs from STIX 2.1 in the following ways:</p>
+<ul>
+<li>Updated Malware Embedded Relationships table with missing property in <em>section 4.11.2 - Malware Relationships</em>.
+<ul>
+<li><strong>operating_system_refs</strong> is no longer missing in the table.</li>
+</ul></li>
+<li>Malware Analysis Relationships table fixed with the right relationship type between Malware Analysis and Malware in <em>section 4.12.2 - Malware Analysis Relationships</em>.
+<ul>
+<li>wrong <span class="stixliteral">analysis-of</span> is replaced with the right <span class="stixliteral">av-analysis-of</span> relationship type.</li>
+</ul></li>
+<li>Property descriptions fixed in <em>section 6.6.1 - Email Message Object Properties</em>.
+<ul>
+<li><strong>from_ref</strong>, <strong>sender_ref</strong>, <strong>to_refs</strong>, <strong>cc_refs</strong> and <strong>bcc_refs</strong> properties descriptions now mention the right <span class="stixtype">email-addr</span> type they are referencing.</li>
+</ul></li>
+<li>Examples fixed in <em>section 6.12.2.1 - HTTP Request Extension Properties</em>.
+<ul>
+<li>the <strong>request_header</strong> property is now a <span class="stixtype">list</span> of type <span class="stixtype">string</span> in the examples, as expected from the description.</li>
+</ul></li>
+<li>Example fixed in <em>section 9.5.1 - Observation Expression Qualifiers</em>.
+<ul>
+<li>the example used to illustrate the use of <em>Observation Expression</em> <span class="stixliteral">WITHIN</span> <em>x</em> <span class="stixliteral">SECONDS</span> now has the right <span class="stixtype">windows-registry-key</span> Observable type.</li>
+</ul></li>
+<li>Updated <em>section 10.9 - Implementation Language Vocabulary</em>.
+<ul>
+<li><span class="stixliteral">rust</span> value was added.</li>
+</ul></li>
+<li>Updated <em>section 10.11 - Industry Sector Vocabulary</em>.
+<ul>
+<li><span class="stixliteral">legal</span> value was added.</li>
+</ul></li>
+<li>Fixed summary in <em>section 10.12 - Infrastructure Type Vocabulary</em>.
+<ul>
+<li>missing <span class="stixliteral">control-system</span>, <span class="stixliteral">firewall</span>, <span class="stixliteral">routers-switches</span> and <span class="stixliteral">workstation</span> values were added to the Summary as they were already described in the Vocabulary table.</li>
+</ul></li>
+<li>Enhanced descriptions in <em>section 10.14 - Malware Result Vocabulary</em>.
+<ul>
+<li>descriptions for every vocabulary values were improved with more descriptive definitions.</li>
+</ul></li>
+<li>Fixed missing value in <em>section 10.22 - Report Type Vocabulary</em>.
+<ul>
+<li><span class="stixliteral">incident</span> value was added.</li>
+</ul></li>
+<li>Updated <em>section 10.23 - Threat Actor Type Vocabulary</em>.
+<ul>
+<li><span class="stixliteral">private-sector</span> value was added.</li>
+</ul></li>
+<li>Fixed multiple Enumeration headers
+<ul>
+<li>Enumerations now have the right headers, to differenciate enumerations from vocabularies, including:
+<ul>
+<li><strong>Enumeration Name</strong> is now used instead of <strong>Vocabulary Name</strong></li>
+<li><strong>Enumeration Summary</strong> is now used instead of <strong>Vocabulary Summary</strong></li>
+<li><strong>Enumeration Value</strong> is now used instead of <strong>Vocabulary Value</strong></li>
+</ul></li>
+<li>These changes apply on:
+<ul>
+<li><em>section 10.4 - Encryption Algorithm Enumeration</em></li>
+<li><em>section 10.5 - Extension Type Enumeration</em></li>
+<li><em>section 10.16 - Network Socket Address Family Enumeration</em></li>
+<li><em>section 10.17 - Network Socket Type Enumeration</em></li>
+<li><em>section 10.18 - Opinion Enumeration</em></li>
+<li><em>section 10.27 - Windows™ Integrity Level Enumeration</em></li>
+<li><em>section 10.29 - Windows™ Registry Datatype Enumeration</em></li>
+<li><em>section 10.30 - Windows™ Service Start Type Enumeration</em></li>
+<li><em>section 10.31 - Windows™ Service Type Enumeration</em></li>
+<li><em>section 10.32 - Windows™ Service Status Enumeration</em></li>
+</ul></li>
+</ul></li>
+<li>Updated <em>Appendix B: Relationship Summary Table</em>.
+<ul>
+<li>Duplicated relationship <span class="stixliteral">located-at</span> between <span class="stixtype">threat-actor</span> and <span class="stixtype">location</span> has been removed.</li>
+<li>Misspelled relationship <span class="stixliteral">exfiltrates-to</span> between <span class="stixtype">malware</span> and <span class="stixtype">infrastructure</span> has been fixed.</li>
+<li>Missing relationships have been added, including:
+<ul>
+<li><span class="stixliteral">remediates</span> between <span class="stixtype">course-of-action</span> and <span class="stixtype">malware</span></li>
+<li><span class="stixliteral">remediates</span> between <span class="stixtype">course-of-action</span> and <span class="stixtype">vulnerability</span></li>
+<li><span class="stixliteral">uses</span> between <span class="stixtype">tool</span> and <span class="stixtype">infrastructure</span></li>
+<li><span class="stixliteral">resolves-to</span> between <span class="stixtype">domain-name</span> and <span class="stixtype">domain-name</span></li>
+<li><span class="stixliteral">resolves-to</span> between <span class="stixtype">domain-name</span> and <span class="stixtype">ipv4-addr</span></li>
+<li><span class="stixliteral">resolves-to</span> between <span class="stixtype">domain-name</span> and <span class="stixtype">ipv6-addr</span></li>
+<li><span class="stixliteral">resolves-to</span> between <span class="stixtype">ipv4-addr</span> and <span class="stixtype">mac-addr</span></li>
+<li><span class="stixliteral">belongs-to</span> between <span class="stixtype">ipv6-addr</span> and <span class="stixtype">autonomous-system</span></li>
+<li><span class="stixliteral">resolves-to</span> between <span class="stixtype">ipv4-addr</span> and <span class="stixtype">mac-addr</span></li>
+<li><span class="stixliteral">belongs-to</span> between <span class="stixtype">ipv6-addr</span> and <span class="stixtype">autonomous-system</span></li>
+</ul></li>
+</ul></li>
+<li>Fixed typos in Extension Definition Additional Examples
+<ul>
+<li>typos were fixed in titles for <em>section C.2.2 - Adding properties to an existing STIX object instance</em> and <em>section C.2.3 - Adding properties to an existing STIX relationship object instance</em>.</li>
+</ul></li>
+<li>Special characters were fixed in some participants names in <em>Appendix F: Acknowledgments</em>.</li>
+<li>All SCO ids were updated in examples to agree with the <code>generate_id</code> method in <em>python-stix2</em> library.</li>
+<li>Included all changes based on ITU recommandations.</li>
+<li>Improved references through the document.
+<ul>
+<li>missing references to sections were added at different places.</li>
+<li>some references were fixed to point to the right section.</li>
+<li>in the description of STIX object properties whose value is either a vocabulary or an enumeration, a reference poiting to the given vocabulary or enumeration was added.</li>
+</ul></li>
+</ul>
+<h1 id="2-conformance-">2. Conformance <a id="conformance"></a></h1>
+<p>The conformance requirements stated in the OASIS Standard STIX Version 2.1 [STIX-v2.1] are not changed in any way by the publication of this Errata document.</p>
+<h1 id="appendix-a-normative-references-">Appendix A: Normative References <a id="normative-references"></a></h1>
+<p>The following documents are referenced in such a way that some or all of their content constitutes requirements of this document.</p>
+<p><em>[STIX-v2.1]</em></p>
+<p>STIX Version 2.1. Edited by Bret Jordan, Rich Piazza, and Trey Darley. 10 June 2021. OASIS Standard. <a href="https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html">https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html</a>. Latest stage: <a
+href="https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html">https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html</a>.</p>
+<h1 id="appendix-b-acknowledgments-">Appendix B: Acknowledgments <a id="acknowledgments"></a></h1>
+<p><strong>STIX Subcommitee Chairs</strong>:</p>
+<p>Christian Studer, CIRCL</p>
+<p>Stephan Relitz, Peraton</p>
+<p><strong>Participants</strong>:</p>
+<p>The following individuals were members of the OASIS CTI Technical Committee during the creation of this specification and their contributions are gratefully acknowledged:</p>
+<p>Bret Jordan, Afero</p>
+<p>Florian Skopik, AIT Austrian Institute of Technology</p>
+<p>Qin Long, Alibaba Cloud Computing Ltd.</p>
+<p>Scott Dowsett, Anomali</p>
+<p>Wei Huang, Anomali</p>
+<p>Patrick Holt, Anomali</p>
+<p>Katie Pelusi, Anomali</p>
+<p>Patrick Maroney, AT&amp;T Services Inc.</p>
+<p>Dean Thompson, Australia and New Zealand Banking Group (ANZ Bank)</p>
+<p>Drew Armstrong, Australian Signals Directorate</p>
+<p>Jeremy Berthelet, Capgemini</p>
+<p>Charles Yarbrough, Carnegie Mellon University</p>
+<p>Alexandre Dulaunoy, CIRCL</p>
+<p>Andras Iklody, CIRCL</p>
+<p>Christian Studer, CIRCL</p>
+<p>Raphaël Vinot, CIRCL</p>
+<p>Syam Appala, Cisco Systems</p>
+<p>Ted Bedwell, Cisco Systems</p>
+<p>Andrew Benhase, Cisco Systems</p>
+<p>Craig Brozefsky, Cisco Systems</p>
+<p>Caitlin Huey, Cisco Systems</p>
+<p>Henry Peltokangas, Cisco Systems</p>
+<p>Pavan Reddy, Cisco Systems</p>
+<p>Omar Santos, Cisco Systems</p>
+<p>Thomas Schaffer, Cisco Systems</p>
+<p>Michael Simonson, Cisco Systems</p>
+<p>Sam Taghavi Zargar, Cisco Systems</p>
+<p>Jyoti Verma, Cisco Systems</p>
+<p>Andrew Windsor, Cisco Systems</p>
+<p>Tim Hudson, Cryptsoft Pty Ltd.</p>
+<p>Nick Ascoli, Cyware Labs</p>
+<p>Utkarsh Garg, Cyware Labs</p>
+<p>Anuj Goel, Cyware Labs</p>
+<p>Avkash Kathiriya, Cyware Labs</p>
+<p>Joe Laugle, Dell Technologies</p>
+<p>Carolina Canales-Valenzuela, Ericsson AB</p>
+<p>Chris Ricard, Financial Services Information Sharing and Analysis Center (FS-ISAC)</p>
+<p>Daniel Riedel, GL Venture Studio HoldCo LLC</p>
+<p>Mark Risher, Google Inc.</p>
+<p>Xiaoyu Ge, Huawei Technologies Co., Ltd.</p>
+<p>Ho Hock William, Huawei Technologies Co., Ltd.</p>
+<p>Dong Huang, Huawei Technologies Co., Ltd.</p>
+<p>David Webber, Huawei Technologies Co., Ltd.</p>
+<p>Leszek Adamiak, IBM</p>
+<p>Eldan Ben-Haim, IBM</p>
+<p>Roseann Guttierrez, IBM</p>
+<p>Sandra Hernandez, IBM</p>
+<p>Chenta Lee, IBM</p>
+<p>John Morris, IBM</p>
+<p>Emily Ratliff, IBM</p>
+<p>Aviv Ron, IBM</p>
+<p>Nick Rossmann, IBM</p>
+<p>Laura Rusu, IBM</p>
+<p>Frank Schaffa, IBM</p>
+<p>Garret Taylor, IBM</p>
+<p>Sulakshan Vajipayajula, IBM</p>
+<p>Ron Williams, IBM</p>
+<p>Ashwini Jarral, IJIS Institute</p>
+<p>James Cabral, Individual</p>
+<p>Jane Ginn, Individual</p>
+<p>Rachel James, Individual</p>
+<p>Elysa Jones, Individual</p>
+<p>Terry MacDonald, Individual</p>
+<p>Allan Thomson, Individual</p>
+<p>Jorge Aviles, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Cory Huyssoon, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Karin Marr, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Julie Modlin, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Mark Moss, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Mark Munoz, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Nathan Reller, Johns Hopkins University Applied Physics Laboratory</p>
+<p>Jonathan Matkowsky, Microsoft Corporation</p>
+<p>Jautau White, Microsoft Corporation</p>
+<p>Desiree Beck, Mitre Corporation</p>
+<p>Jen Burns, Mitre Corporation</p>
+<p>Michael Chisholm, Mitre Corporation</p>
+<p>Mike Cokus, Mitre Corporation</p>
+<p>Sam Cornwell, Mitre Corporation</p>
+<p>Kartikey Desai, Mitre Corporation</p>
+<p>Pavan Gudimetta, Mitre Corporation</p>
+<p>Chris Lenk, Mitre Corporation</p>
+<p>Bob Natale, Mitre Corporation</p>
+<p>Timothy O'Neill, Mitre Corporation</p>
+<p>Nicole Parrish, Mitre Corporation</p>
+<p>Richard Piazza, Mitre Corporation</p>
+<p>Larry Rodrigues, Mitre Corporation</p>
+<p>Zach Rush, Mitre Corporation</p>
+<p>Jon Salwen, Mitre Corporation</p>
+<p>Charles Schmidt, Mitre Corporation</p>
+<p>Matt Scola, Mitre Corporation</p>
+<p>Richard Struse, Mitre Corporation</p>
+<p>Alex Tweed, Mitre Corporation</p>
+<p>Emmanuelle Vargas-Gonzalez, Mitre Corporation</p>
+<p>Bryan Worrell, Mitre Corporation</p>
+<p>Jackson Wynn, Mitre Corporation</p>
+<p>Josh Poster, National Council of ISACs (NCI)</p>
+<p>Mike Boyle, National Security Agency</p>
+<p>Sean Carroll, National Security Agency</p>
+<p>Alicia Ellis, National Security Agency</p>
+<p>Jessica Fitzgerald-McKay, National Security Agency</p>
+<p>David Kemp, National Security Agency</p>
+<p>Shaun McCullough, National Security Agency</p>
+<p>Michael Rosa, National Security Agency</p>
+<p>James Bryce Clark, OASIS</p>
+<p>Kelly Cullinane, OASIS</p>
+<p>Jane Harnad, OASIS</p>
+<p>Mary Beth Minto, OASIS</p>
+<p>Holly Petersen, OASIS</p>
+<p>Claudia Rauch, OASIS</p>
+<p>Sam Czsun, Open Security Alliance</p>
+<p>Patrick Bredenberg, Oracle</p>
+<p>Johnny Gau, Oracle</p>
+<p>Shayam Jayaraman, Oracle</p>
+<p>Sunil Ravipati, Oracle</p>
+<p>Kirk Dunkelberger, Peraton</p>
+<p>Jason Liu, Peraton</p>
+<p>Qem Lumi, Peraton</p>
+<p>Stephan Relitz, Peraton</p>
+<p>Jason Keirstead, Pobal Cyber Ltd</p>
+<p>David Bizeul, SEKOIA.IO</p>
+<p>Georges Bossert, SEKOIA.IO</p>
+<p>Lorraine Desforges, SEKOIA.IO</p>
+<p>Marco Caselli, Siemens AG</p>
+<p>Jonas Plum, Siemens AG</p>
+<p>Manos Athanatos, Technical University of Crete</p>
+<p>Vasileios Mavroeidis, University of Oslo</p>
+<p>Mateusz Zych, University of Oslo</p>
+<p>Kaleb Hines, US Department of Defense (DoD)</p>
+<p>Jeffrey Mates, US Department of Defense (DoD)</p>
+<p>George Parson, US Department of Defense (DoD)</p>
+<p>David Ailshire, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Steven Fox, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Taneika Hill, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Kevin Klein, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Evette Maynard-Noel, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Jackie Eun Park, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Sean Sobieraj, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Marlon Taylor, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Preston Werntz, US DHS Cybersecurity and Infrastructure Security Agency (CISA)</p>
+<p>Stephen Banghart, US NIST</p>
+<h1 id="appendix-c-notices-">Appendix C: Notices <a id="notices"></a></h1>
+<p>Copyright © OASIS Open 2025. All Rights Reserved.</p>
+<p>All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy may be found at the OASIS website: [<a href="https://www.oasis-open.org/policies-guidelines/ipr/">https://www.oasis-open.org/policies-guidelines/ipr/</a>].</p>
+<p>This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are
+included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights,
+as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.</p>
+<p>The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.</p>
+<p>This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+OASIS AND ITS MEMBERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THIS DOCUMENT OR ANY PART THEREOF.</p>
+<p>As stated in the OASIS IPR Policy, the following three paragraphs in brackets apply to OASIS Standards Final Deliverable documents (Committee Specifications, OASIS Standards, or Approved Errata).</p>
+<p>[OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable, to notify OASIS TC Administrator and provide an indication of its willingness to grant patent licenses to such patent claims in a manner consistent with
+the IPR Mode of the OASIS Technical Committee that produced this deliverable.]</p>
+<p>[OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this OASIS Standards Final Deliverable by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode
+of the OASIS Technical Committee that produced this OASIS Standards Final Deliverable. OASIS may include such claims on its website, but disclaims any obligation to do so.]</p>
+<p>[OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this OASIS Standards Final Deliverable or the extent to which any license under such rights might or might not be available; neither does it
+represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or
+the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Standards Final Deliverable, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be
+complete, or that any claims in such list are, in fact, Essential Claims.]</p>
+<p>The name "OASIS" is a trademark of OASIS, the owner and developer of this document, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, documents, while reserving the right to enforce its marks against misleading uses. Please see <a
+href="https://www.oasis-open.org/policies-guidelines/trademark/">https://www.oasis-open.org/policies-guidelines/trademark/</a> for above guidance.</p>
+</body>
+</html>
