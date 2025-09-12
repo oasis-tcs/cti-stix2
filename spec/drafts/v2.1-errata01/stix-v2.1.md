@@ -3126,7 +3126,7 @@ While elements of an attack can be represented by other SDOs or SCOs, the Infras
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -3238,7 +3238,7 @@ Relationships are not restricted to those listed below. Relationships can be cre
   <tr>
     <td><span class="stixtype">infrastructure</span></td>
     <td><span class="stixliteral">consists-of</span></td>
-    <td><span class="stixtype">infrastructure</span>, <span class="stixtype">observed-data</span>, <span class="stixtype">&ltAll <em>STIX Cyber-observable Objects</em>&gt</span></td>
+    <td><span class="stixtype">infrastructure</span>, <span class="stixtype">observed-data</span>, <span class="stixtype">&lt;All <em>STIX Cyber-observable Objects</em>&gt</span></td>
     <td>This Relationship documents the objects that are used to make up an infrastructure instance, such as <span class="stixtype">ipv4-addr</span>, <span class="stixtype">ipv6-addr</span>, <span class="stixtype">domain-name</span>, <span class="stixtype">url</span>. An infrastructure instance consists of zero or more objects.<br><br>While not all SCO types will make sense as infrastructure, allowing any type of SCO prevents artificially restricting what could be used.</td>
   </tr>
   <tr>
@@ -3421,7 +3421,7 @@ While sometimes an Intrusion Set is not active, or changes focus, it is usually 
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -3643,7 +3643,7 @@ If precision is specified, then the datum for **latitude** and **longitude** **M
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -3858,7 +3858,7 @@ To minimize the risk of a consumer compromising their system in parsing malware 
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -4141,7 +4141,7 @@ One of **result** or **analysis_sco_refs** properties **MUST** be provided.
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -4430,7 +4430,7 @@ Because Notes are typically (though not always) created by human analysts and ar
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -4553,7 +4553,7 @@ To support backwards compatibility, related SCOs can still be specified using th
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -4733,7 +4733,7 @@ Because Opinions are typically (though not always) created by human analysts and
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -4869,7 +4869,7 @@ For example, a threat report produced by ACME Defense Corp. discussing the Glass
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -5086,7 +5086,7 @@ Threat Actors can be characterized by their motives, capabilities, goals, sophis
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -5329,7 +5329,7 @@ This SDO **MUST NOT** be used to characterize malware. Further, Tool **MUST NOT*
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -5530,7 +5530,7 @@ The Vulnerability SDO is primarily used to link to external definitions of vulne
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -5703,7 +5703,7 @@ A relationship summary table for all specification-defined relationships can be 
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -5815,7 +5815,7 @@ Sighting is distinct from Observed Data in that Sighting is an intelligence asse
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
@@ -9789,7 +9789,7 @@ Language Content contains two important sets of properties:
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_marking_refs</strong>, <strong>extensions</strong></td>
@@ -9960,7 +9960,7 @@ The JSON MTI serialization uses the JSON Object type \[[RFC8259](#rfc8259)\] whe
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>created_by_ref</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_marking_refs</strong>, <strong>extensions</strong></td>
@@ -10342,7 +10342,7 @@ Producers **SHOULD NOT** use the hybrid extension mechanism if the extensions ar
     <td><strong>type</strong>, <strong>spec_version</strong>, <strong>id</strong>, <strong>created</strong>, <strong>modified</strong>, <strong>created_by_ref</strong></td>
   </tr>
   <tr>
-    <th><span class="stixtr">Optional Common Properties></span></th>
+    <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
     <td><strong>revoked</strong>, <strong>labels</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_marking_refs</strong></td>
