@@ -90,7 +90,7 @@ h4{font-size:1.4375em}}
 table{background:#fff;margin-bottom:1.25em;border:1px solid #000000;word-wrap:normal}
 table thead,table tfoot{background:#004A7F}
 table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,00,.8);text-align:left}
-table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8);vertical-align:top;text-align:left}
+table tr th{padding:.5625em .625em;font-size:inherit;color:rgba(255,255,255,.8);vertical-align:top;text-align:left;background:#004A7F}
 table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8);vertical-align:top;}
 table tr.even,table tr.alt{background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
