@@ -22,9 +22,9 @@ https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.pdf
 
 #### Latest stage:
 
-https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-complete.md (Authoritative) \
-https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-complete.html \
-https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01-complete.pdf
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.md (Authoritative) \
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html \
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf
 
 #### Technical Committee:
 

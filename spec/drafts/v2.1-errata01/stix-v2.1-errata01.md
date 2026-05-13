@@ -20,9 +20,9 @@ N/A
 
 #### Latest Stage:
 
-https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.docx (Authoritative) \
-https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.html \
-https://docs.oasis-open.org/cti/stix/v2.1/errata01/stix-v2.1-errata01.pdf
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx (Authoritative) \
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html \
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf
 
 #### Technical Committee:
 
