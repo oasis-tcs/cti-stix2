@@ -15054,7 +15054,7 @@ IANA, "IP Flow Information Export (IPFIX) Entities", December 2016, [Online]. Av
 "ISO 3166-2:2020 Codes for the representation of names of countries and their subdivisions — Part 2: Country subdivision code", 2020. [Online]. Available: https://www.iso.org/standard/72483.html.
 
 **[ISO10646]** <a id="iso10646"></a>  
-"ISO/IEC 10646:2014 Information technology — Universal Coded Character Set (UCS)", 2014. [Online]. Available: http://unicode.org/L2/L2010/10038-fcd10646-main.pdf.
+"ISO/IEC 10646:2014 Information technology — Universal Coded Character Set (UCS)", 2014. [Online]. Available: http://unicode.org/L2/L2010/10038-fcd10646-main.pdf.
 
 **[Media Types]** <a id="media-types"></a>  
 N. Freed, M. Kucherawy, M. Baker and B. Hoehrmann, "Media Types", IANA, December 2016. [Online]. Available: http://www.iana.org/assignments/media-types/media-types.xhtml.
@@ -15126,7 +15126,7 @@ Rundgren, A., Jordan, B., and S. Erdtman, "JSON Canonicalization Scheme (JCS)", 
 J. Kornblum, "Identifying Almost Identical Files Using Context Triggered Piecewise Hashing", Proceedings of The Digital Forensic Research Conference (DFRWS) 2006. [Online]. Available: https://dfrws.org/presentation/identifying-almost-identical-files-using-context-triggered-piecewise-hashing/#.
 
 **[SWID]** <a id="swid"></a>  
-ISO/IEC 19770-2:2015 Information technology — IT asset management — Part 2: Software identification tag, 2015. [Online]. Available: https://www.iso.org/standard/65666.html.
+ISO/IEC 19770-2:2015 Information technology — IT asset management — Part 2: Software identification tag, 2015. [Online]. Available: https://www.iso.org/standard/65666.html.
 
 **[TLP]** <a id="tlp"></a>  
 Traffic Light Protocol, Version 1.0 (TLP). (2016, Aug. 25). FIRST. [Online]. Available: https://first.org/tlp.
