@@ -20,7 +20,7 @@ N/A
 
 #### Latest Stage:
 
-https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.docx (Authoritative) \
+https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.md (Authoritative) \
 https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html \
 https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.pdf
 
