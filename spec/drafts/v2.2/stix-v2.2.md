@@ -1107,9 +1107,9 @@ All <span class="stixtype">identifiers</span>, excluding those used in the depre
 
 The *<span class="stixalt">UUID</span>* part of the <span class="stixtype">identifier</span> **MUST** be unique across all objects produced by a given producer regardless of the type identified by the *<span class="stixalt">object-type</span>* prefix. Meaning, a producer **MUST NOT** reuse the *<span class="stixalt">UUID</span>* portion of the <span class="stixtype">identifier</span> for objects of different types.
 
-STIX Domain Objects, STIX Relationship Objects, STIX Meta Objects, and STIX Bundle Object **SHOULD** use UUIDv4 for the *<span class="stixalt">UUID</span>* portion of the <span class="stixtype">identifier</span>. Producers using something other than UUIDv4 need to be mindful of potential collisions and should use a namespace that guarantees uniqueness, however, they **MUST NOT** use a namespace of <span class="stixliteral">00abedb4-aa42-466c-9c01-fed23315a9b7</span> if generating a UUIDv5.
+STIX Bundle Object **SHOULD** use UUIDv4 for the *<span class="stixalt">UUID</span>* portion of the <span class="stixtype">identifier</span>. Producers using something other than UUIDv4 need to be mindful of potential collisions and should use a namespace that guarantees uniqueness, however, they **MUST NOT** use a namespace of <span class="stixliteral">00abedb4-aa42-466c-9c01-fed23315a9b7</span> if generating a UUIDv5.
 
-STIX Cyber-observable Objects **SHOULD** use UUIDv5 for the *<span class="stixalt">UUID</span>* portion of the <span class="stixtype">identifier</span> and the *<span class="stixalt">UUID</span>* portion of the UUIDv5-based <span class="stixtype">identifier</span> **SHOULD** be generated according to the following rules:
+STIX Domain Objects, STIX Relationship Objects, STIX Meta Objects, and STIX Cyber-observable Objects **SHOULD** use UUIDv5 for the *<span class="stixalt">UUID</span>* portion of the <span class="stixtype">identifier</span> and the *<span class="stixalt">UUID</span>* portion of the UUIDv5-based <span class="stixtype">identifier</span> **SHOULD** be generated according to the following rules:
 - The namespace **SHOULD** be <span class="stixliteral">00abedb4-aa42-466c-9c01-fed23315a9b7</span>. This defined namespace is necessary to support the goal of deduplication and semantic equivalence of some STIX objects in the community of producers.
 - The value of the name portion **SHOULD** be the list of "ID Contributing Properties" (property-name and property value pairs) as defined on each SCO object and **SHOULD** be represented as a JSON object that is then serialized / stringified according to \[[RFC8785](#rfc8785)\] to ensure a canonical representation of the JSON data.
 - If the contributing properties are all optional, and none are present on the SCO, then a UUIDv4 **MUST** be used.
@@ -1465,6 +1465,7 @@ This section defines the common properties that **MAY** exist on a STIX Object. 
 | **type** | <span class="stixtype">string</span> | The **type** property identifies the type of STIX Object. The value of the **type** property **MUST** be the name of one of the types of STIX Objects defined in [section 4](#stix-domain-objects), [section 5](#stix-relationship-objects), [section 6](#stix-cyber-observable-objects), and [section 7](#stix-meta-objects) (e.g., <span class="stixliteral">indicator</span>) or the name of a Custom Object as defined by section [section 11.2](#custom-objects). |
 | **spec_version** | <span class="stixtype">string</span> | The version of the STIX specification used to represent this object. The value of this property **MUST** be <span class="stixliteral">2.1</span> for STIX Objects defined according to this specification. Since SCOs are now top-level objects in STIX 2.1, the default value for SCOs is <span class="stixliteral">2.1</span>. |
 | **id** | <span class="stixtype">identifier</span> | The **id** property uniquely identifies this object. For objects that support versioning, all objects with the same **id** are considered different versions of the same object and the version of the object is identified by its **modified** property. |
+| **did** | <span class="stixtype">identifier</span> | The Duplication ID, referred to as the **did** property, identifies the underlying logical object independent of properties that may only apply to specific instances of it. This allows for multiple creators with separate markings to maintain referential integrity across their environments. The **did** **SHOULD** be generated using a UUIDv5. If the **did** is calculated in a deterministic manner it **MUST NOT** incorporate **object_marking_refs**, **granular_markings**, **created_by_ref**, **description**, or **labels** into its generation. Any reference that resolves to a **did** **MUST** be considered valid for every object with that **did** value. An object that includes a **did** MUST NOT change its **did**. If an object does not include a **did**, a new version MAY be created that adds one. Instead of modifying an existing **did**, the object **MUST** be revoked and a new object created with a new **id** and **did**. |
 | **created_by_ref** | <span class="stixtype">identifier</span> | The **created_by_ref** property specifies the **id** property of the <span class="stixtype">identity</span> object that describes the entity that created this object. If this attribute is omitted, the source of this information is undefined. This may be used by object creators who wish to remain anonymous. |
 | **created** | <span class="stixtype">timestamp</span> | The **created** property represents the time at which the object was originally created. The object creator can use the time it deems most appropriate as the time the object was created. The minimum precision **MUST** be milliseconds (three digits after the decimal place in seconds), but **MAY** be more precise. The **created** property **MUST NOT** be changed when creating a new version of the object. See [section 3.6](#versioning) for further definition of versioning. |
 | **modified** | <span class="stixtype">timestamp</span> | The **modified** property is only used by STIX Objects that support versioning and represents the time that this particular version of the object was last modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The minimum precision **MUST** be milliseconds (three digits after the decimal place in seconds), but **MAY** be more precise. If the **created** property is defined, then the value of the **modified** property for a given object version **MUST** be later than or equal to the value of the **created** property. Object creators **MUST** set the **modified** property when creating a new version of an object if the **created** property was set. See [section 3.6](#versioning) for further definition of versioning. |
@@ -1528,10 +1529,20 @@ This table lists all common properties and how they are used for each type of ST
     <td><span class="stixreq">Required</span></td>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong></td>
+    <td><strong>did</strong></td>
+    <td><span class="stixopt">Optional</span></td>
     <td><span class="stixopt">Optional</span></td>
     <td><span class="stixopt">Optional</span></td>
     <td><span class="stixna">N/A</span></td>
+    <td><span class="stixna">N/A</span></td>
+    <td><span class="stixna">N/A</span></td>
+    <td><span class="stixna">N/A</span></td>
+  </tr>
+  <tr>
+    <td><strong>created_by_ref</strong></td>
+    <td><span class="stixopt">Optional</span></td>
+    <td><span class="stixopt">Optional</span></td>
+    <td><span class="stixopt">Optional</span></td>
     <td><span class="stixreq">Required</span></td>
     <td><span class="stixopt">Optional</span></td>
     <td><span class="stixopt">Optional</span></td>
@@ -1571,7 +1582,7 @@ This table lists all common properties and how they are used for each type of ST
     <td><strong>labels</strong></td>
     <td><span class="stixopt">Optional</span></td>
     <td><span class="stixopt">Optional</span></td>
-    <td><span class="stixna">N/A</span></td>
+    <td><span class="stixopt">Optional</span></td>
     <td><span class="stixopt">Optional</span></td>
     <td><span class="stixopt">Optional</span></td>
     <td><span class="stixna">N/A</span></td>
@@ -2044,7 +2055,7 @@ The Attack Pattern SDO contains textual descriptions of the pattern along with r
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -2265,7 +2276,7 @@ For example, a Campaign could be used to describe a crime syndicate’s attack u
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -2442,7 +2453,7 @@ The Course of Action SDO contains a textual description of the action; a reserve
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -2870,7 +2881,7 @@ A STIX Grouping object might represent a set of data that, in time, given suffic
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -3012,7 +3023,7 @@ The Identity SDO can capture basic identifying information, contact information,
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -3615,7 +3626,7 @@ The Incident object should have sufficient properties to represent the current s
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -3846,7 +3857,7 @@ Relationships from the Indicator can describe the malicious or suspicious behavi
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
@@ -4047,7 +4058,7 @@ While elements of an attack can be represented by other SDOs or SCOs, the Infras
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -4342,7 +4353,7 @@ While sometimes an Intrusion Set is not active, or changes focus, it is usually 
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -4564,7 +4575,7 @@ If precision is specified, then the datum for **latitude** and **longitude** **M
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -4779,7 +4790,7 @@ To minimize the risk of a consumer compromising their system in parsing malware 
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -5062,7 +5073,7 @@ One of **result** or **analysis_sco_refs** properties **MUST** be provided.
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -5351,7 +5362,7 @@ Because Notes are typically (though not always) created by human analysts and ar
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -5474,7 +5485,7 @@ To support backwards compatibility, related SCOs can still be specified using th
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -5654,7 +5665,7 @@ Because Opinions are typically (though not always) created by human analysts and
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -5790,7 +5801,7 @@ For example, a threat report produced by ACME Defense Corp. discussing the Glass
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -6305,7 +6316,7 @@ Threat Actors can be characterized by their motives, capabilities, goals, sophis
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -6548,7 +6559,7 @@ This SDO **MUST NOT** be used to characterize malware. Further, Tool **MUST NOT*
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -6749,7 +6760,7 @@ The Vulnerability SDO is primarily used to link to external definitions of vulne
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -6922,7 +6933,7 @@ A relationship summary table for all specification-defined relationships can be 
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -7034,7 +7045,7 @@ Sighting is distinct from Observed Data in that Sighting is an intelligence asse
     <th><span class="stixtr">Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>did</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>extensions</strong></td>
   </tr>
   <tr>
     <th><span class="stixtr">Not Applicable Common Properties</span></th>
@@ -7209,13 +7220,13 @@ One of **payload_bin** or **url** **MUST** be provided. It is incumbent on shari
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Artifact Object Specific Properties</span></th>
@@ -7321,13 +7332,13 @@ This object represents the properties of an Autonomous System (AS).
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>AS Object Specific Properties</span></th>
@@ -7405,13 +7416,13 @@ The Directory object represents the properties common to a file system directory
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Directory Object Specific Properties</span></th>
@@ -7502,13 +7513,13 @@ The Domain Name object represents the properties of a network domain name.
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Domain Name Object Specific Properties</span></th>
@@ -7607,13 +7618,13 @@ The Email Address object represents a single email address.
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Email Address Object Specific Properties</span></th>
@@ -7692,13 +7703,13 @@ Header field values that have been encoded as described in section 2 of \[[RFC20
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Email Message Object Specific Properties</span></th>
@@ -8016,13 +8027,13 @@ The File object represents the properties of a file. A File object **MUST** cont
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>File Object Specific Properties</span></th>
@@ -8846,13 +8857,13 @@ The IPv4 Address object represents one or more IPv4 addresses expressed using CI
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>IPv4 Address Object Specific Properties</span></th>
@@ -8964,13 +8975,13 @@ The IPv6 Address object represents one or more IPv6 addresses expressed using CI
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>IPv6 Address Object Specific Properties</span></th>
@@ -9082,13 +9093,13 @@ The MAC Address object represents a single Media Access Control (MAC) address.
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>MAC Address Object Specific Properties</span></th>
@@ -9154,13 +9165,13 @@ The Mutex object represents the properties of a mutual exclusion (mutex) object.
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Mutex Object Specific Properties</span></th>
@@ -9228,13 +9239,13 @@ To allow for use cases where a source or destination address may be sensitive an
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Network Traffic Specific Properties</span></th>
@@ -9882,13 +9893,13 @@ The Process object represents common properties of an instance of a computer pro
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Process Object Specific Properties</span></th>
@@ -10190,13 +10201,13 @@ The Software object represents high-level properties associated with software, i
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Software Object Specific Properties</span></th>
@@ -10290,13 +10301,13 @@ The URL object represents the properties of a uniform resource locator (URL).
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>URL Object Specific Properties</span></th>
@@ -10363,13 +10374,13 @@ As all properties of this object are optional, at least one of the properties de
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>User Account Object Specific Properties</span></th>
@@ -10594,13 +10605,13 @@ The Registry Key object represents the properties of a Windows registry key. As 
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Windows^TM^ Registry Key Object Specific Properties</span></th>
@@ -10740,13 +10751,13 @@ The X.509 Certificate object represents the properties of an X.509 certificate, 
     <th><span class='stixtr'>Optional Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>spec_version</strong>, <strong>object_marking_refs</strong>, <strong>granular_markings</strong>, <strong>defanged</strong>, <strong>extensions</strong></td>
+    <td><strong>created_by_ref</strong>, <strong>defanged</strong>, <strong>did</strong>, <strong>extensions</strong>, <strong>granular_markings</strong>, <strong>labels</strong>, <strong>object_marking_refs</strong>, <strong>spec_version</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>Not Applicable Common Properties</span></th>
   </tr>
   <tr>
-    <td><strong>created_by_ref</strong>, <strong>revoked</strong>, <strong>labels</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
+    <td><strong>revoked</strong>, <strong>confidence</strong>, <strong>lang</strong>, <strong>external_references</strong></td>
   </tr>
   <tr>
     <th><span class='stixtr'>X.509 Certificate Object Specific Properties</span></th>
