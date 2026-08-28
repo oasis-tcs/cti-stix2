@@ -7304,6 +7304,176 @@ One of **payload_bin** or **url** **MUST** be provided. It is incumbent on shari
 }
 ```
 
+## 6.x Asset Object <a id="asset-object"></a>
+
+The `asset` object is a component of telemtry that describes an asset and its properties.
+It can be referenced to give context on events that took place on this asset.
+It describes the hostname, the associated IP addresses and physical addresses of the asset.
+In SIEM terminology which collects events from many systems - it is used to describe where the events took place.
+
+### 6.x.1 Properties <a id="asset-object-properties"></a>
+
+| property name | type | description |
+|--|--|--|
+| **type** (required) | `string` | asset |
+| **id** (required) | `identifier` | A valid [stix-id](#identifier) |
+| **spec_version** (optional) | `string` | The value of this property MUST be 2.2 for STIX Objects defined according to this specification. |
+| **extensions** | `dictionary` | Specifies any extensions of the object, as a dictionary. |
+| **device_id** | `string` | The ID of the device. |
+| **hostname** (required)|`string`|The name of this host|
+| **ip_refs**|`list` of type `identifier`| references the ip addresses related to this host. must be `ipv4-addr` or `ipv6-addr`|
+| **mac_refs**|`list` of type `identifier`| references the mac addresses related to this host. must be of type `mac-addr`|
+| **os_ref**| `identifier` | Specifies the operating system of the asset, as a reference to the Cyber-observable Object. The object referenced must be of type `software`. |
+| **architecture** | `string` | Architecture of the asset. |
+| **uptime** | `string` | Specifies the seconds the asset has been up.|
+| **host_type** | `string` | Specifies the type of asset. Example, firewall, t2.micro etc.|
+| **ingress** | `x-oca-traffic-type` | Specifies information like interface number and name, vlan, and zone information to classify ingress traffic using the Traff9c-type sub-object.|
+| **egress** | `x-oca-traffic-type` | Specifies information like interface number and name, vlan, and zone information to classify egress traffic using the Traffic-type sub object.|
+| **geo_ref**|`identifier`| references the geolocation of this host. must be of type `x-oca-geo`|
+
+### 6.x.2 Asset Object Container Extenstion <a id="asset-object-container"></a>
+
+Extension Name `container-ext`
+
+The container asset extension represents a container.
+
+#### 6.x.2.1 Properties <a id="asset-object-container-properties"></a>
+
+| property name | type | description |
+|--|--|--|
+| **type** | `string` | x-oca-container-ext |
+| **name** | `string` | container name |
+| **container_id** | `string` | container id |
+| **image_name** | `string` | container image name |
+| **image_id** | `string` | container image id |
+| **container_type** | `string` | container type |
+| **privileged** | `boolean` | indicates a priviliged container |
+
+### 6.x.3 Asset Object Pod Extenstion <a id="asset-object-pod"></a>
+
+Extension Name `pod-ext`
+
+The pod asset extension represents an oc/k8s pod.
+
+#### 6.x.3.1 Properties <a id="asset-object-pod-properties"></a>
+
+| property name | type | description |
+|--|--|--|
+| **type** | `string` | x-oca-pod-ext |
+| **name** | `string` | pod name |
+| **ip_refs** | `list` of type `identifier` | references the ip addresses allocated to this pod. must be `ipv4-addr` or `ipv6-addr` |
+
+**Examples**
+
+
+The Observed Data SDO can only gather any SCO's (Observables), while the Sighting SRO is used to combine these observations with appropriate SDOs like `location`.
+
+```json
+[
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--38609426-bc06-5cbc-9763-e77e99c9d9e4",
+    "value": "9.9.9.9"
+  },
+  {
+    "type": "asset",
+    "spec_version": "2.1",
+    "id": "asset--fec3de6d-bfc4-4ef3-9f4b-c21aa2d57e7a",
+    "created": "2024-09-01T06:55:35.241Z",
+    "modified": "2024-09-01T06:55:35.241Z",
+    "ip_refs": [
+      "ipv4-addr--38609426-bc06-5cbc-9763-e77e99c9d9e4",
+      "ipv6-addr--dc0ef52f-b6cf-52a0-a6a1-977b32a57063"
+    ],
+    "hostname": "example host",
+    "host_id": "123A",
+    "geo_ref": "location--419f0ac4-2836-46f0-9985-820f7a4b7abc",
+    "mac_refs": [
+      "mac-addr--b5dbdbbb-5470-58c8-9b86-81b7d83a770b"
+    ],
+    "host_type": "APM Server",
+    "egress": {
+      "zone": "internal",
+      "interfaces": [
+        {
+          "alias": "inside",
+          "interface_id": "10",
+          "name": "eth0"
+        }
+      ]
+    },
+    "extensions": {
+      "container-ext": {
+        "name": "example container",
+        "container_id": "bf032feb4117",
+        "image_id": "92b1b5d66457...",
+        "image_name": "us.icr.io/...",
+        "container_type": "crio"
+      },
+      "pod-ext": {
+        "name": "example pod",
+        "ip_refs": [
+          "ipv4-addr--f1958dd5-5175-5702-beef-742d2cf3c0ec"
+        ]
+      }
+    }
+  },
+  {
+    "type": "ipv6-addr",
+    "spec_version": "2.1",
+    "id": "ipv6-addr--dc0ef52f-b6cf-52a0-a6a1-977b32a57063",
+    "value": "ffff:1111:ffff:1111:ffff:1111:ffff:1111",
+    "resolves_to_refs": [
+      "mac-addr--b5dbdbbb-5470-58c8-9b86-81b7d83a770b"
+    ]
+  },
+  {
+    "type": "mac-addr",
+    "spec_version": "2.1",
+    "id": "mac-addr--b5dbdbbb-5470-58c8-9b86-81b7d83a770b",
+    "value": "00-00-11-00-22-00"
+  },
+  {
+    "type": "ipv4-addr",
+    "spec_version": "2.1",
+    "id": "ipv4-addr--f1958dd5-5175-5702-beef-742d2cf3c0ec",
+    "value": "192.168.xxx.yyy"
+  },
+  {
+    "type": "observed-data",
+    "spec_version": "2.1",
+    "id": "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf",
+    "created_by_ref": "identity--e5f1b90a-d9b6-40ab-81a9-8a29df4b6b65",
+    "created": "2016-04-06T19:58:16.000Z",
+    "modified": "2016-04-06T19:58:16.000Z",
+    "first_observed": "2015-12-21T19:00:00Z",
+    "last_observed": "2015-12-21T19:00:00Z",
+    "number_observed": 50,
+    "object_refs": [
+      "ipv4-addr--38609426-bc06-5cbc-9763-e77e99c9d9e4",
+      "ipv6-addr--dc0ef52f-b6cf-52a0-a6a1-977b32a57063",
+      "mac-addr--b5dbdbbb-5470-58c8-9b86-81b7d83a770b",
+      "ipv4-addr--f1958dd5-5175-5702-beef-742d2cf3c0ec"
+    ]
+  },
+  {
+    "type": "sighting",
+    "spec_version": "2.1",
+    "id": "sighting--49cc5c32-98b8-4d15-94bf-2f867d71a2fa",
+    "created": "2023-11-18T05:26:43.45768Z",
+    "modified": "2023-11-18T05:26:43.45768Z",
+    "sighting_of_ref": "x-oca-asset--fec3de6d-bfc4-4ef3-9f4b-c21aa2d57e7a",
+    "where_sighted_refs": [
+          "x-oca-geo--419f0ac4-2836-46f0-9985-820f7a4b7abc"
+    ],
+    "observed_data_refs": [
+      "observed-data--b67d30ff-02ac-498a-92f9-32f845f448cf"
+    ]
+  }
+]
+```
+
 ## 6.2 Autonomous System (AS) Object <a id="autonomous-system-as-object"></a>
 
 **Type Name:** <span class="stixtype">autonomous-system</span>
@@ -9105,6 +9275,59 @@ These are the relationships explicitly defined between the IPv6 Address object a
   "value": "2001:0db8::/96"
 }
 ```
+
+
+## 6.10 Log Event Object <a id="log-event-object"></a>
+
+Adds a new object for describing log events.
+
+Take an endpoint file create event as an example if you just record an observed data including the process and file details then the context is lost.
+To understand what happened between these two a log-event can be used.
+
+Another example is a cross process event. Using a `log-event` you can record how the processes interacted. The `log-event` object adds this context. What action was performed, where was it performed, what was the outcome and what are the references to other SCO's that these are related.
+
+This is not designed to replace comprehensive logging standards. It simply provides a means to share key information that can provide context for cyber events in STIX.
+
+### 6.10.1 Log Event Properties <a id="log-event-properties"></a>
+
+| **property name**            | **type**                       | **description**                                                                                                                                                                                                                          |
+|--------------------------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **type** (required)          | `string`                   | log-event                                                                                                                                                                                                                          |
+| **id** (required) | `string` | A valid [stix-id](#identifier) |
+| **spec_version** (required) | `string` | The value of this property MUST be 2.1 for STIX Objects defined according to this specification. |
+| **created** (required) | `timestamp` | The date and time the object was created |
+| **modified** (required) | `timestamp` | The date and time the object was modified |
+| **action** (required)        | `string`                   | describes the event action. for example process create                                                                                                                                                                               |
+| **category**                 | `list` of type `string`    | categories describing the event. for example "process" or "system"                                                                                                                                                                   |
+| **code**                     | `string`                   | event code or event id from the original log source                                                                                                                                                                                  |
+| **description**              | `string`                   | additional data on the event beyond the action field                                                                                                                                                                                 |
+| **created**                  | `timestamp`                | when this event was created                                                                                                                                                                                                          |
+| **start**                    | `timestamp`                | when this event started                                                                                                                                                                                                              |
+| **end**                      | `timestamp`                | when this event ended                                                                                                                                                                                                                |
+| **duration**                 | `integer`                  | the duration of this event from start to end in nanoseconds                                                                                                                                                                          |
+| **module**                   | `string`                   | Name of the module this data is coming from. for example "sysmon"                                                                                                                                                                    |
+| **original_ref**             | `identifier`               | references the original raw event data. must be of type `artifact`                                                                                                                                                                   |
+| **outcome**                  | `string`                   | the outcome of this event. for example "process create success"                                                                                                                                                                      |
+| **provider**                 | `string`                   | the provider of this log. for example "Microsoft Windows Security Event Log"                                                                                                                                                         |
+| **agent**                    | `string`                   | describes the name of the agent that collected this event log                                                                                                                                                                        |
+| **host_ref**                 | `identifier`               | references the host related to this event. must be of type `x-oca-asset`                                                                                                                                                             |
+| **url_ref**                  | `identifier`               | references a url related to this event. must be of type `url`                                                                                                                                                                        |
+| **file_ref**                 | `identifier`               | references a file related to this event. must be of type `file`                                                                                                                                                                      |
+| **process_ref**              | `identifier`               | references a process related to this event. must be of type `process`                                                                                                                                                                |
+| **parent_process_ref**       | `identifier`               | references a parent process related to this event. must be of type `process`                                                                                                                                                         |
+| **cross_process_target_ref** | `identifier`               | references the target process in case of a cross process event. must be of type `process`                                                                                                                                            |
+| **domain_ref**               | `identifier`               | references a domain related to this event. must be of type `domain-name`                                                                                                                                                             |
+| **registry_ref**             | `identifier`               | references windows registry data related to this event. must be of type `windows-registry-key`                                                                                                                                       |
+| **network_ref**              | `identifier`               | references network traffic related to this event. must be of type `network-traffic`                                                                                                                                                  |
+| **ip_refs**                  | `list` of type `identifier` | references any ip addresses related to this event. must be of type `ipv4-address` or `ipv6-address`                                                                                                                                  |
+| **user_ref**                 | `identifier`               | references the user related to this event. must be of type `user-account`                                                                                                                                                            |
+| **severity**                 | `number`                   | Severity of the event on a scale of 1-100.                                                                                                                                                                                           |
+| **start**                    | `timestamp`                | The start time in UTC of the event.                                                                                                                                                                                                  |
+| **end**                      | `timestamp`                | The end time in UTC of the event.                                                                                                                                                                                                    |
+| **timezone**                 | `string`                   | The timezone where the event was discovered.                                                                                                                                                                                         |
+| **duration**                 | `string`                   | The duration of the event.                                                                                                                                                                                                           |
+| **dataset**                  | `string`                   | The dataset of the event.                                                                                                                                                                                                            |
+| **pipe_name**                | `string`                   | In windows, there are many security rules that look for the pipe name property in a named pipe event. the value of this property should include the full pipe name in case of a named pipe event. see [example](#a-named-pipe-event). | 
 
 ## 6.10 MAC Address Object <a id="mac-address-object"></a>
 
