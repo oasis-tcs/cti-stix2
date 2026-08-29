@@ -281,8 +281,9 @@ The name "OASIS" is a trademark of [OASIS](https://www.oasis-open.org/), the own
       - 6.7.5.1 [Properties](#raster-image-file-extension-properties)
     - 6.7.6 [Windows™ PE Binary File Extension](#windows-pe-binary-file-extension)
       - 6.7.6.1 [Properties](#windows-pe-binary-file-extension-properties)
-      - 6.7.6.2 [Windows™ PE Optional Header Type](#windows-pe-optional-header-type)
-      - 6.7.6.3 [Windows™ PE Section Type](#windows-pe-section-type)
+      - 6.7.6.2 [Windows™ PE Import Type](#windows-pe-import-type)
+      - 6.7.6.3 [Windows™ PE Optional Header Type](#windows-pe-optional-header-type)
+      - 6.7.6.4 [Windows™ PE Section Type](#windows-pe-section-type)
   - 6.8 [IPv4 Address Object](#ipv4-address-object)
     - 6.8.1 [Properties](#ipv4-address-object-properties)
     - 6.8.2 [Relationships](#ipv4-address-object-relationships)
@@ -8586,9 +8587,40 @@ An object using the Windows™ PE Binary File Extension **MUST** contain at leas
     <td><span class="stixtype">list</span> of type <span style="white-space: nowrap;"><span class="stixtype">windows-pe-section-type</span></span></td>
     <td>Specifies metadata about the sections in the PE file.</td>
   </tr>
+  <tr>
+    <td><strong>imports</strong> (optional)</td>
+    <td><span class="stixtype">list</span> of type <span style="white-space: nowrap;"><span class="stixtype">windows-pe-import-type</span></span></td>
+    <td>Specifies metadata about the libraries and functions imported by the PE binary.</td>
+  </tr>
 </table>
 
-#### 6.7.6.2 Windows™ PE Optional Header Type <a id="windows-pe-optional-header-type"></a>
+#### 6.7.6.2 Windows™ PE Import Type <a id="windows-pe-import-type"></a>
+
+**Type Name:** <span class="stixtype">windows-pe-import-type</span>
+
+The Windows PE Import type specifies metadata about a library imported by a PE file.
+
+##### Properties <a id="windows-pe-import-properties"></a>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th><span class="stixtr">Property Name</span></th>
+    <th><span class="stixtr">Type</span></th>
+    <th><span class="stixtr">Description</span></th>
+  </tr>
+  <tr>
+    <td><strong>dll_name</strong> (required)</td>
+    <td><a class="stixtype" href="#string">string</a></td>
+    <td>Specifies the name of the library (DLL) imported by the PE binary.</td>
+  </tr>
+  <tr>
+    <td><strong>function_names</strong> (optional)</td>
+    <td><span style="white-space: nowrap"><span class="stixtype">list</span> of type <span class="stixtype">string</span></span></td>
+    <td>Specifies the names of the functions imported from the library.</td>
+  </tr>
+</table>
+
+#### 6.7.6.3 Windows™ PE Optional Header Type <a id="windows-pe-optional-header-type"></a>
 
 **Type Name:** <span class="stixtype">windows-pe-optional-header-type</span>
 
@@ -8759,7 +8791,7 @@ The Windows PE Optional Header type represents the properties of the PE optional
   </tr>
 </table>
 
-#### 6.7.6.3 Windows™ PE Section Type <a id="windows-pe-section-type"></a>
+#### 6.7.6.4 Windows™ PE Section Type <a id="windows-pe-section-type"></a>
 
 **Type Name:** <span class="stixtype">windows-pe-section-type</span>
 
@@ -8795,7 +8827,7 @@ The Windows PE Section type specifies metadata about a PE file section.
   </tr>
 </table>
 
-**Example**
+**Examples**
 
 *Typical EXE File*
 
@@ -8863,6 +8895,40 @@ The Windows PE Section type specifies metadata about a PE file section.
         {
           "name": ".idata",
           "entropy": 0.607433
+        }
+      ]
+    }
+  }
+}
+```
+
+*EXE File with Imports*
+
+```JSON
+{
+  "type": "file",
+  "spec_version": "2.2",
+  "id": "file--701857a3-f54b-55e9-b51c-5809c92b8061",
+  "name": "example.exe",
+  "extensions": {
+    "windows-pebinary-ext": {
+      "pe_type": "exe",
+      "imports": [
+        {
+          "dll_name": "KERNEL32.dll",
+          "function_names": [
+            "OpenProcess",
+            "VirtualAllocEx",
+            "WriteProcessMemory",
+            "CreateRemoteThread"
+          ]
+        },
+        {
+          "dll_name": "ADVAPI32.dll",
+          "function_names": [
+            "RegCreateKeyExA",
+            "RegSetValueExA"
+          ]
         }
       ]
     }
