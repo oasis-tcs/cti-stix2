@@ -175,9 +175,9 @@ This allows existing implementations to continue treating an open-vocabulary pro
 
 ## Vocabulary identity
 
-Every registered vocabulary SHOULD have a stable UUID.
+Every registered vocabulary MUST have a stable UUID.
 
-Every registered vocabulary value SHOULD also have a stable UUID.
+Every registered vocabulary value MUST also have a stable UUID.
 
 For example, conceptually:
 
@@ -205,9 +205,17 @@ The UUID provides semantic identity independently from:
 * aliases;
 * display names.
 
-UUID version 4 or UUID version 5 SHOULD be used for newly created vocabulary identifiers.
+Newly allocated vocabulary and entry identifiers MUST use UUID version 5.
 
-Existing UUIDs from compatible vocabulary repositories MUST be preserved.
+Existing UUIDs from compatible vocabulary repositories MUST be preserved, including UUIDs of other versions. Importing an existing MISP taxonomy or Galaxy entry MUST NOT cause its UUID to be regenerated.
+
+### Deterministic initial allocation
+
+A registry authority MUST publish a stable allocation namespace UUID. At initial allocation, a vocabulary UUID is UUIDv5 of that allocation namespace and the UTF-8 string `namespace:vocabulary-name`; neither component may contain a colon. An entry UUID is UUIDv5 of its vocabulary UUID and the UTF-8 string containing its initial canonical `value`. These strings MUST be used exactly as registered, without case folding, trimming, or other normalization.
+
+For the initial STIX Core Vocabulary Registry, the TC MUST publish the allocation namespace and use the existing vocabulary names and canonical values unchanged. Independent implementations using those inputs will then derive identical initial identifiers.
+
+UUIDv5 is an allocation rule, not a rule for recalculating identifiers on every update. Once allocated, the identifier MUST be retained when a vocabulary or entry is renamed without changing its meaning. A distinct concept MUST receive a distinct initial value within its vocabulary, or a distinct vocabulary identity, so that a previously allocated UUID is never reused for a different concept.
 
 ## UUID stability
 
@@ -215,15 +223,18 @@ A vocabulary UUID MUST remain unchanged across updates to the same vocabulary.
 
 A vocabulary entry UUID MUST remain unchanged when:
 
+* its canonical value is renamed without changing its meaning;
 * its description is improved;
 * references are added;
 * aliases are added;
 * translations are added;
 * non-semantic metadata is modified.
 
-A new UUID SHOULD be assigned when the semantic meaning of a vocabulary entry changes substantially.
+A new UUID MUST be assigned when the semantic meaning of a vocabulary entry changes substantially.
 
 A UUID MUST NOT be reused for a different concept.
+
+When an entry is renamed, its previous canonical value SHOULD be retained as an alias. Consumers MUST continue to accept previously exchanged open-vocabulary strings and MUST NOT silently rewrite them to the new value.
 
 ## Core STIX vocabulary registry
 
@@ -308,52 +319,54 @@ values =
 
 This means that a machine-readable representation of the current STIX vocabulary can closely follow the MISP taxonomy format.
 
-For example, the following is illustrative; the UUIDs are placeholders and would need to be allocated by the TC:
+### One vocabulary per document
+
+A native `stix-open-vocab` document MUST define exactly one vocabulary. Its `namespace`, `name`, `uuid`, and `version` identify that vocabulary. Every entry in the document belongs only to that vocabulary; an entry MUST NOT feed multiple vocabularies through a list of predicates or bindings. Relationships and explicit mappings can associate concepts across vocabularies without combining their membership.
+
+A registry manifest MAY list multiple vocabulary documents. Existing MISP taxonomy files containing several predicates can remain unchanged as source files; an adapter MUST expose each predicate as a separate logical vocabulary and preserve existing vocabulary and entry UUIDs. A manifest source MAY therefore supply multiple logical vocabularies, but each logical vocabulary has its own identity and entries.
+
+### UUID-keyed entries
+
+The native document's `entries` property MUST be a dictionary keyed by entry UUID in canonical lowercase, hyphenated form. The dictionary key is the entry identifier, so an entry MUST NOT repeat a `uuid` property. Producers and consumers MUST reject duplicate JSON member names before constructing the dictionary, rather than silently discarding an entry. Distinct entries MUST NOT have the same canonical `value` within a vocabulary, and a value or alias MUST NOT ambiguously identify different entries in that vocabulary.
+
+Each entry MUST contain a machine-readable `value` and a nonempty human-readable `description` defining its meaning. An `expanded` label MAY additionally provide display text; a label does not replace the description. Relationships use the dictionary key when referring to an entry by UUID.
+
+For example, the following is illustrative, not a TC allocation. The example allocation namespace is UUIDv5 of the standard URL namespace and `https://docs.oasis-open.org/cti/stix/vocabularies/`, yielding `ec9c0370-639f-5029-b7e1-1e0b931c0345`. The vocabulary UUID is derived from that namespace and `stix:threat-actor-role-ov`; each entry UUID is derived from the vocabulary UUID and its initial value:
 
 ```json
 {
   "namespace": "stix",
-  "description": "STIX open vocabularies",
+  "name": "threat-actor-role-ov",
+  "expanded": "Threat Actor Role Vocabulary",
+  "description": "Roles performed by a threat actor.",
   "version": 1,
-  "uuid": "11111111-1111-4111-8111-111111111111",
-  "predicates": [
-    {
-      "value": "threat-actor-role-ov",
-      "expanded": "Threat Actor Role Vocabulary",
-      "uuid": "22222222-2222-4222-8222-222222222222"
+  "uuid": "0bd60ffa-849e-54c0-963d-ea09bf98bd66",
+  "entries": {
+    "7eda839f-4b60-57c3-81a3-ed436682536f": {
+      "value": "agent",
+      "expanded": "Agent",
+      "description": "An entity that carries out attacks on behalf of a threat actor."
+    },
+    "57ada799-4c87-5bd8-bff9-cd04a58d6558": {
+      "value": "director",
+      "expanded": "Director",
+      "description": "An entity that directs and coordinates a threat actor's activities."
+    },
+    "b48c5d16-f836-5c76-91a4-838bdb5f6155": {
+      "value": "infrastructure-operator",
+      "expanded": "Infrastructure Operator",
+      "description": "An entity that operates infrastructure used to conduct attacks."
+    },
+    "9981edcd-fa59-5c91-8101-2f2c08ee1aef": {
+      "value": "malware-author",
+      "expanded": "Malware Author",
+      "description": "An entity that develops malware used in attacks."
     }
-  ],
-  "values": [
-    {
-      "predicate": "threat-actor-role-ov",
-      "entry": [
-        {
-          "value": "agent",
-          "expanded": "Agent",
-          "uuid": "33333333-3333-4333-8333-333333333331"
-        },
-        {
-          "value": "director",
-          "expanded": "Director",
-          "uuid": "33333333-3333-4333-8333-333333333332"
-        },
-        {
-          "value": "infrastructure-operator",
-          "expanded": "Infrastructure Operator",
-          "uuid": "33333333-3333-4333-8333-333333333333"
-        },
-        {
-          "value": "malware-author",
-          "expanded": "Malware Author",
-          "uuid": "33333333-3333-4333-8333-333333333334"
-        }
-      ]
-    }
-  ]
+  }
 }
 ```
 
-The exact schema does not need to be identical to the MISP taxonomy schema, but SHOULD preserve its important design characteristics:
+The native schema differs from the MISP taxonomy array representation. Adapters SHOULD support lossless conversion, retaining descriptions, identifiers, metadata, and membership for each logical vocabulary. The model SHOULD preserve the following important design characteristics:
 
 * namespace;
 * vocabulary/predicate;
@@ -374,7 +387,7 @@ For example:
 ```json
 {
   "vocabulary": "threat-actor-role-ov",
-  "vocabulary_uuid": "22222222-2222-4222-8222-222222222222",
+  "vocabulary_uuid": "0bd60ffa-849e-54c0-963d-ea09bf98bd66",
   "bindings": [
     {
       "object_type": "threat-actor",
@@ -640,14 +653,22 @@ For example:
 
 ```json
 {
-  "value": "old-term",
-  "uuid": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-  "deprecated": true,
-  "replaced_by_uuid": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"
+  "entries": {
+    "745772a3-5700-5252-9374-7592620c7126": {
+      "value": "old-term",
+      "description": "A deprecated classification superseded by a distinct replacement concept.",
+      "deprecated": true,
+      "replaced_by_uuid": "b64be300-1209-5530-bc5c-1f8a7139cc74"
+    }
+  }
 }
 ```
 
+These snippets illustrate selected entries or metadata, rather than complete vocabulary documents. Their UUIDs use the illustrative allocation namespace above and do not represent TC assignments.
+
 The old entry remains resolvable.
+
+A non-semantic rename instead retains the entry UUID and records the previous value as an alias; it does not allocate a replacement UUID.
 
 Consumers can recommend the newer value without making previously exchanged STIX objects invalid.
 
@@ -659,12 +680,16 @@ For example:
 
 ```json
 {
-  "value": "initial-access-broker",
-  "uuid": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-  "aliases": [
-    "access-broker",
-    "iab"
-  ]
+  "entries": {
+    "18a30266-cfea-536e-9929-d5df2f95bc92": {
+      "value": "initial-access-broker",
+      "description": "An entity that sells initial access to compromised networks.",
+      "aliases": [
+        "access-broker",
+        "iab"
+      ]
+    }
+  }
 }
 ```
 
@@ -696,14 +721,16 @@ Conceptually:
 {
   "version": 1,
   "description": "STIX Open Vocabulary Registry",
-  "uuid": "aaaaaaaa-1111-4111-8111-aaaaaaaaaaaa",
+  "uuid": "ec9c0370-639f-5029-b7e1-1e0b931c0345",
   "vocabularies": [
     {
-      "name": "STIX Core Open Vocabularies",
+      "name": "threat-actor-role-ov",
+      "expanded": "Threat Actor Role Vocabulary",
       "namespace": "stix",
+      "vocabulary_uuid": "0bd60ffa-849e-54c0-963d-ea09bf98bd66",
       "version": 1,
       "format": "stix-open-vocab",
-      "path": "stix-vocabularies.json"
+      "path": "stix/threat-actor-role-ov.json"
     },
     {
       "name": "Example Organization Vocabulary",
@@ -715,6 +742,8 @@ Conceptually:
   ]
 }
 ```
+
+A native manifest entry points to a single vocabulary document. A MISP source file may expose several logical vocabularies through its adapter, as described above.
 
 A registry MAY reference another registry.
 
@@ -802,6 +831,54 @@ Registries SHOULD support integrity mechanisms such as:
 A remote vocabulary update MUST NOT retrospectively alter the interpretation of an existing UUID.
 
 The UUID identifies the semantic concept, while a URL merely identifies one possible location from which metadata can be retrieved.
+
+## Source ordering and conflict handling
+
+Implementations that combine vocabulary sources MUST use an explicit, ordered list of trusted sources. The default resolution rule MUST be **first source wins**: for a given vocabulary and entry UUID, the first configured source supplying that entry is authoritative. A later source MAY add previously unseen entries, but MUST NOT silently overwrite an entry already selected from an earlier source. Registry discovery order or network response timing MUST NOT determine precedence.
+
+Within the selected source, a newer version MAY update metadata or rename a value while retaining its UUID under the UUID stability rules. Version counters from independently maintained sources MUST NOT be compared to select a winner. A local operator MAY explicitly reorder trusted sources, but doing so MUST NOT permit an existing UUID to acquire a different semantic meaning.
+
+Consumers MUST detect and report conflicting definitions for the same UUID, canonical values assigned to different UUIDs within one vocabulary, and ambiguous aliases. Conflicting lower-priority entries MUST NOT be merged or silently substituted. Identical cached copies of an entry do not create a new identity. Values in different namespaces remain distinct and MAY be connected through explicit equivalence mappings.
+
+Trust policy MUST identify which sources are authorized to define each namespace, including the `stix` namespace. Merely appearing earlier in a list MUST NOT allow an unauthorized source to redefine core STIX vocabulary entries.
+
+An unavailable source MUST NOT automatically promote a lower-priority source to authoritative status. Implementations MAY use a trusted cached snapshot or an explicitly configured fallback policy, and otherwise leave the value unresolved. This affects optional vocabulary resolution only; the original STIX object and unknown open-vocabulary string remain valid.
+
+## Proposed TAXII vocabulary discovery
+
+TAXII servers SHOULD be able to advertise which vocabulary sources they use and the order in which they read them. This proposal recommends an optional `vocab_sources` endpoint relative to a TAXII API Root, for example `/taxii2/vocab_sources`. It is a proposed TAXII extension for TC discussion, not an endpoint defined by TAXII 2.1 or a change to the STIX wire datatype.
+
+The endpoint SHOULD return an ordered list of source descriptors with:
+
+* `vocabulary`: the qualified vocabulary name (`namespace:name`);
+* `vocabulary_uuid`: its stable identity;
+* `type`: `url` for a directly retrievable vocabulary document, or `taxii` for a TAXII Collection endpoint;
+* `link`: the absolute HTTPS URL of that document or Collection.
+
+For example:
+
+```json
+[
+  {
+    "vocabulary": "stix:threat-actor-role-ov",
+    "vocabulary_uuid": "0bd60ffa-849e-54c0-963d-ea09bf98bd66",
+    "type": "url",
+    "link": "https://registry.example.org/stix/threat-actor-role-ov.json"
+  },
+  {
+    "vocabulary": "stix:threat-actor-role-ov",
+    "vocabulary_uuid": "0bd60ffa-849e-54c0-963d-ea09bf98bd66",
+    "type": "taxii",
+    "link": "https://taxii.example.org/taxii2/collections/role-vocabulary/"
+  }
+]
+```
+
+The array order MUST describe the server's configured precedence using the first-source-wins rule. In this example, the direct document is read first; the TAXII source may supplement it but cannot overwrite its selected entries. Multiple descriptors for the same vocabulary identify sources, not multiple vocabulary memberships for an entry.
+
+For `url`, the consumer retrieves a vocabulary document and verifies its identity and format. For `taxii`, the consumer uses the advertised Collection's object retrieval mechanism. A TAXII extension MUST define the media type and representation used to transport vocabulary documents; this proposal does not treat a vocabulary document as an existing STIX SDO or imply that an unmodified TAXII 2.1 server can serve it.
+
+An advertised source is discovery metadata, not automatic authorization to trust or contact it. Consumers MAY adopt the advertised order only after applying local trust policy, and MUST NOT be required to retrieve any source in order to process STIX objects. Cached and offline vocabulary use remains supported. Endpoint response format, pagination, authentication, and vocabulary transport media types remain TAXII TC design work.
 
 ## MISP taxonomy compatibility
 
@@ -999,14 +1076,15 @@ For example:
 ```json
 {
   "namespace": "example-org",
-  "name": "Example Extended Malware Types",
-  "uuid": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+  "name": "extended-malware-types",
+  "expanded": "Example Extended Malware Types",
+  "uuid": "c572a64b-f1ef-50ff-886b-7033c49225ec",
   "version": 3,
   "extends": [
     {
       "vocabulary": "malware-type-ov",
       "namespace": "stix",
-      "uuid": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"
+      "uuid": "57112fbe-9939-555e-847f-47a418119ff1"
     }
   ]
 }
@@ -1050,14 +1128,18 @@ For example:
 
 ```json
 {
-  "value": "initial-access-broker",
-  "uuid": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-  "related": [
-    {
-      "type": "broader-than",
-      "dest_uuid": "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"
+  "entries": {
+    "18a30266-cfea-536e-9929-d5df2f95bc92": {
+      "value": "initial-access-broker",
+      "description": "An entity that sells initial access to compromised networks.",
+      "related": [
+        {
+          "type": "narrower-than",
+          "dest_uuid": "8baf1b75-4ea2-53f7-8c89-b01b48f8fe1e"
+        }
+      ]
     }
-  ]
+  }
 }
 ```
 
@@ -1103,9 +1185,13 @@ For example:
 
 ```json
 {
-  "value": "very-high",
-  "uuid": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
-  "numerical_value": 90
+  "entries": {
+    "74bd5a67-0d28-577f-9ff8-d5faf52d928c": {
+      "value": "very-high",
+      "description": "The highest confidence category in the example organization scale.",
+      "numerical_value": 90
+    }
+  }
 }
 ```
 
@@ -1121,9 +1207,13 @@ For example:
 
 ```json
 {
-  "value": "infrastructure-operator",
-  "expanded": "Infrastructure Operator",
-  "uuid": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"
+  "entries": {
+    "b48c5d16-f836-5c76-91a4-838bdb5f6155": {
+      "value": "infrastructure-operator",
+      "expanded": "Infrastructure Operator",
+      "description": "An entity that operates infrastructure used to conduct attacks."
+    }
+  }
 }
 ```
 
@@ -1491,8 +1581,8 @@ UUID-based equivalence relationships make mappings between MISP, STIX, sector vo
 1. Should STIX 2.2 formally separate **open vocabulary definitions** from the STIX specification lifecycle?
 2. Should every existing STIX open vocabulary receive a stable UUID?
 3. Should every existing STIX open-vocabulary value receive a stable UUID?
-4. Should UUIDv5 be used to deterministically assign UUIDs to the existing STIX core vocabulary entries?
-5. Should the STIX Core Vocabulary Registry use a format directly compatible with the MISP taxonomy format?
+4. Which allocation namespace UUID should the TC publish for the proposed deterministic UUIDv5 allocation rules, while preserving imported UUIDs?
+5. Should the STIX Core Vocabulary Registry use the proposed single-vocabulary documents with UUID-keyed entries and mandatory descriptions?
 6. Should STIX define its own vocabulary format while requiring lossless conversion to and from the MISP taxonomy format?
 7. Should MISP machine-tag syntax be RECOMMENDED for qualified external vocabulary values?
 8. Should qualified external values use:
@@ -1523,22 +1613,23 @@ misp-galaxy
 15. Should vocabulary entries support UUID-based relationships such as `equivalent-to`, `broader-than`, and `replaced-by`?
 16. Should deprecated vocabulary entries remain permanently resolvable?
 17. Should the STIX TC maintain an official vocabulary registry repository independently from the STIX specification repository?
-18. Should third-party registry discovery be explicitly outside STIX validation?
+18. Should third-party registry discovery remain outside STIX validation, with ordered source lists and the proposed first-source-wins conflict handling?
 19. Should vocabulary registry integrity or signing mechanisms be standardized or left to repository implementations?
 20. Should a common crosswalk format be defined for mappings between STIX vocabularies, MISP taxonomies, MISP galaxies, and other CTI vocabularies?
+21. Should TAXII define the proposed optional `vocab_sources` endpoint supporting both direct vocabulary URLs and TAXII Collections, and which media types should carry vocabulary documents?
 
 ## Proposed next steps
 
 1. Confirm that the `open-vocab` wire datatype remains a string.
 2. Identify all existing STIX open vocabularies and distinguish them from Enumerations.
-3. Allocate a persistent UUID to each existing STIX open vocabulary.
-4. Allocate persistent UUIDs to all existing vocabulary entries.
+3. Publish the TC allocation namespace and deterministically allocate UUIDv5 identifiers to each existing STIX open vocabulary.
+4. Deterministically allocate UUIDv5 identifiers to all initial core vocabulary entries; preserve existing imported UUIDs and retain allocated UUIDs across non-semantic renames.
 5. Define the STIX Core Vocabulary Registry.
-6. Create a machine-readable representation of all existing Section 10 open vocabularies.
+6. Create one native document per Section 10 open vocabulary, with UUID-keyed entries and a description for each entry.
 7. Define registry versioning and UUID stability rules.
 8. Define namespace rules for third-party vocabulary extensions.
 9. Define the behavior of qualified and unqualified values.
-10. Define a vocabulary registry manifest.
+10. Define a vocabulary registry manifest and ordered, trusted source resolution using first-source-wins conflict handling.
 11. Define compatibility rules for MISP taxonomy repositories.
 12. Define compatibility and mapping rules for MISP galaxy repositories.
 13. Define extension, deprecation, alias, and equivalence mechanisms.
@@ -1551,7 +1642,11 @@ misp-galaxy
     * new core registry values are accepted;
     * qualified external values are accepted;
     * registry resolution is optional;
+    * UUIDv5 allocation is reproducible and non-semantic renames preserve identifiers;
+    * duplicate entry keys and ambiguous values or aliases are detected;
+    * later sources cannot silently overwrite earlier authoritative entries;
     * enumerations cannot be extended through the registry.
 17. Publish a reference STIX vocabulary repository.
 18. Demonstrate interoperability by consuming existing `misp-taxonomies` and `misp-galaxy` repositories without changing their UUID identities.
+19. Coordinate the optional TAXII `vocab_sources` discovery endpoint and the media types needed for direct URL and TAXII Collection vocabulary distribution.
 
