@@ -3922,6 +3922,16 @@ Relationships from the Indicator can describe the malicious or suspicious behavi
   </tr>
 </table>
 
+#### Indicator Validity and Revocation
+
+Indicator validity and object revocation are distinct mechanisms serving different purposes. The **valid_from** and **valid_until** properties define the period during which an Indicator is considered valid for representing the associated behavior. The **revoked** property indicates the permanent withdrawal of the STIX object by its creator, independently of its validity period.
+
+When determining whether an Indicator is currently valid, consumers **MUST** consider the **revoked** property of the most recent known version of the Indicator, in addition to **valid_from** and **valid_until**. If that version has **revoked** set to **true**, the Indicator **MUST NOT** be considered currently valid, regardless of its validity period. As defined in [section 3.6](#versioning), revocation applies to all versions of the object.
+
+Revocation does not require producers to modify **valid_from** or **valid_until**. These properties retain their historical meaning but **MUST NOT** override the revoked status when determining current Indicator validity. This requirement does not prescribe whether consumers retain, archive, or delete revoked objects.
+
+Expiration of an Indicator's validity period **MUST NOT** be interpreted as revocation of the STIX object. An expired Indicator that has not been revoked **MAY** be updated through normal STIX object versioning, whereas a revoked Indicator cannot be reactivated under the same STIX ID.
+
 ### 4.9.2 Relationships <a id="indicator-relationships"></a>
 
 These are the relationships explicitly defined between the Indicator object and other STIX Objects. The first section lists the embedded relationships by property name along with their corresponding target. The rest of the table identifies the relationships that can be made from this object type to another object type by way of the Relationship object. The reverse relationships section illustrates the relationships targeting this object type from another object type. They are included here for convenience. For their definitions, please see the "Source" object.
